@@ -23,12 +23,15 @@
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
 
-    <!-- controllers -->
-    <script src="app/controllers/userCtrl.js"></script>
-    <script src="app/controllers/mainCtrl.js"></script>
     <!-- services -->
     <script src="app/services/userServices.js"></script>
     <script src="app/services/authServices.js"></script>
+
+
+    <!-- controllers -->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+
 
     <title>LSV Kreis Pinneberg</title>
 
@@ -48,7 +51,7 @@
                 <a class="{{menu_class[0]}}" ng-click="item_click(0)" href="verein">Lust zum fliegen?</a>
             </li>
             <li class="nav-item">
-                <a class="{{menu_class[1]}}" ng-click="item_click(1)" href="signin">LSV-Intern</a>
+                <a class="{{menu_class[1]}}" ng-click="item_click(1)" href="intern">LSV-Intern</a>
             </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
@@ -56,7 +59,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Suchen</button>
         </form>
     </div>
+
 </nav>
+<div class="container-fluid">
+   <a style="margin:auto; text-align:right; display:block;" href="profile" ng-click="intern_item_click(0)">{{ welcomeMessage }}</a>
+</div>
 <div ng-view></div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
