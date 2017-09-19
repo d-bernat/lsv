@@ -45,7 +45,7 @@ angular.module('userControllers', ['userServices'])
     .controller('updateCtrl', function ($rootScope) {
         let app = this;
         app.userData = $rootScope.userData;
-
+        console.log(app.userData);
 
         app.updateUser = function () {
             console.log(app.userData);

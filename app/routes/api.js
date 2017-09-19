@@ -16,6 +16,8 @@ module.exports = function (router) {
         user.username = req.body.username;
         user.password = req.body.password;
         user.email = req.body.email;
+        user.phone = req.body.phone;
+        user.mobile = req.body.mobile;
 
         user.save((err) => {
             if (err) {
@@ -28,7 +30,7 @@ module.exports = function (router) {
     });
 
     router.post('/authenticate', function (req, res) {
-        User.findOne({username: req.body.username}).select('name lastname email username password').exec(function (err, user) {
+        User.findOne({username: req.body.username}).select('name lastname email username password phone mobile').exec(function (err, user) {
 
             if (err) throw err;
             if (!user) {
@@ -38,7 +40,7 @@ module.exports = function (router) {
                     if (!isMatch) {
                         res.json({success: false, message: 'Spitzname und/oder Kennwort unbekannt'});
                     } else {
-                        let token = jwt.sign({name: user.name, lastname: user.lastname, username: user.username, email: user.email},
+                        let token = jwt.sign({name: user.name, lastname: user.lastname, username: user.username, email: user.email, phone:  user.phone, mobile: user.mobile},
                             secret,
                             {expiresIn: '1h'});
                         res.json({success: true, message: 'Du bist angemeldet...', token: token});
