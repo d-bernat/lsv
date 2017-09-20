@@ -63,9 +63,13 @@
                 </li>
             </ul>
             <form class="navbar-form navbar-right">
+                <a href="profile" ng-click="intern_item_click(0)"><span
+                        class="glyphicon glyphicon-hand-right" ng-show="welcomeMessage"></span> {{
+                    welcomeMessage }}&nbsp;&nbsp;</a>
                 <input class="form-control mr-sm-2" type="text" placeholder="Suchen" aria-label="Search">
-                <button class="btn btn-success btn-outline my-2 my-sm-0" type="submit"><span class="glyphicon glyphicon-search"
-                                                                                 aria-hidden="true"></span> Suchen
+                <button class="btn btn-success btn-outline my-2 my-sm-0" type="submit"><span
+                        class="glyphicon glyphicon-search"
+                        aria-hidden="true"></span> Suchen
                 </button>
             </form>
         </div>
@@ -73,11 +77,8 @@
 </nav>
 
 <div class="container-fluid">
-    <br>
-    <a style="margin:auto; text-align:right; display:block;" href="profile" ng-click="intern_item_click(0)">{{
-        welcomeMessage }}</a>
     <div class="row">
-        <div ng-view></div>
+        <div ng-view autoscroll="true"></div>
     </div>
 </div>
 

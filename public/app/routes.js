@@ -13,6 +13,10 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/fliegmituns.html'
             })
 
+            .when('/segelflug', {
+                templateUrl: 'app/views/pages/segelflug.html'
+            })
+
             .when('/verein', {
                 templateUrl: 'app/views/pages/verein.html'
             })
@@ -79,7 +83,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
             });
     });
 
-app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location){
+app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location, $window){
     $rootScope.$on('$routeChangeStart', function(event, next, current){
         if(next.$$route  != undefined && next.$$route.authenticated == true){
             if(!Auth.isSignedIn()){

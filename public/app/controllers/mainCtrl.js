@@ -24,11 +24,11 @@ angular.module('mainController', ['authServices'])
 
 
         $scope.date = new Date();
-        $scope.menu_class = ['nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav_item'];
+        $scope.menu_class = ['nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item'];
         $scope.item_click = function (item) {
 
             if (item < $scope.menu_class.length) {
-                $scope.menu_class = ['nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav_item'];
+                $scope.menu_class = ['nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item'];
 
                 if (item => 0) {
                     $scope.menu_class[item] = 'nav-item active';
@@ -45,6 +45,9 @@ angular.module('mainController', ['authServices'])
                         case 5:
                         case 6:
                         case 7:
+                        case 8:
+                        case 9:
+                        case 10:
                             $scope.menu_class[0] = 'nav-item active';
                             break;
                     }
@@ -68,7 +71,7 @@ angular.module('mainController', ['authServices'])
                             break;
                     }
                 }
-                $scope.menu_class = ['nav-item', 'nav-item active', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item'];
+                $scope.menu_class = ['nav-item', 'nav-item active', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item', 'nav-item'];
             }
         };
 
