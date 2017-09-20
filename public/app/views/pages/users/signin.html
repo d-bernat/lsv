@@ -1,48 +1,32 @@
-<div class="container-fluid">
-    <div class="row">
-        <main class="col-sm-8 ml-sm-auto col-md-8 py-sm-3" role="main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 col-md-5 col-md-offset-4">
-                        <h3 class="text-center login-title">Authentifizierung erforderlich</h3>
-                        <div class="account-wall center">
-                            <img class="profile-img h-25 w-25" src="app/views/images/no_image_user.png"
-                                 alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="row py-sm-3">
-                    <div class="col-sm-5 col-md-5 col-md-offset-4">
-                        <div class="account-wall center">
-                            <form class="form-signin" ng-submit="signIn.signInUser();">
-                                <input type="text" class="form-control" placeholder="Spitzname" required autofocus ng-model="signIn.signInData.username">
-                                <input type="password" class="form-control" placeholder="Kennwort" required ng-model="signIn.signInData.password">
-                                <br>
-                                <button class="btn btn-outline-primary btn-block" type="submit">
-                                    Anmelden
-                                </button>
-                                <label class="checkbox center-block">
-                                    <input type="checkbox" value="remember-me">
-                                    Remember me
-                                </label>
-                                <div class="cssload-container py-sm-4" ng-show="signIn.loading">
-                                    <div class="cssload-whirlpool"></div>
-                                </div>
-                                <div class="account-wall center">
-                                    <div class="show-hide-message" ng-show="signIn.successMsg">
-                                        <div class="alert alert-success">{{ signIn.successMsg }}</div>
-                                    </div>
-                                    <div class="show-hide-message" ng-show="signIn.errorMsg">
-                                        <div class="alert alert-danger">{{ signIn.errorMsg }}</div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <a href="register" class="text-center new-account">Konto erstellen </a>
-                    </div>
-                </div>
-
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <h3 class="text-center login-title">Authentifizierung erforderlich</h3>
+        <img class="img-responsive center-block" src="app/views/images/no_image_user.png">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <form class="form-signin" ng-submit="signIn.signInUser();">
+            <input type="text" class="form-control" placeholder="Spitzname" required autofocus
+                   ng-model="signIn.signInData.username">
+            <input type="password" class="form-control" placeholder="Kennwort" required
+                   ng-model="signIn.signInData.password"><br>
+            <button class="btn btn-info btn-block" type="submit"><span
+                    class="glyphicon glyphicon-log-in"></span> Anmelden
+            </button><br>
+            <a href="register" class="text-center new-account">Konto erstellen </a><br><br><br>
+            <div class="cssload-container" ng-show="signIn.loading">
+                <div class="cssload-whirlpool"></div>
             </div>
-        </main>
+            <div class="row">
+                <div class="show-hide-message"  ng-show="signIn.successMsg">
+                    <div class="alert alert-success">{{ signIn.successMsg }}</div>
+                </div>
+                <div class="show-hide-message" ng-show="signIn.errorMsg">
+                    <div class="alert alert-danger">{{ signIn.errorMsg }}</div>
+                </div>
+            </div>
+        </form>
+
     </div>
 </div>

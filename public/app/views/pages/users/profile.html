@@ -1,63 +1,52 @@
-<div class="container-fluid">
-    <div class="row">
-        <div ng-include src="'app/views/pages/intern_menu.html'"></div>
-        <main class="col-sm-7 ml-sm-auto col-md-7 py-sm-3" role="main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 col-md-5 col-md-offset-4">
-                        <h3 class="text-center login-title">Profil aktualisieren</h3>
-                        <div class="account-wall center">
-                            <img class="profile-img h-25 w-25" src="app/views/images/no_image_user.png"
-                                 alt="">
-                        </div>
-                    </div>
+<div ng-include src="'app/views/pages/intern_menu.html'"></div>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <h3 class="text-center login-title">Profile aktualisieren</h3>
+        <img class="img-responsive center-block" src="app/views/images/no_image_user.png">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <form class="form-signin" ng-submit="update.updateUser();">
+            <input type="text" class="form-control" placeholder="Name" required
+                   autofocus
+                   ng-model="update.userData.name">
+            <input type="text" class="form-control" placeholder="Nachname" required
+                   ng-model="update.userData.lastname">
+            <input type="text" class="form-control" placeholder="Spitzname" required
+                   ng-model="update.userData.username">
+            <input type="text" class="form-control" placeholder="Email" required
+                   ng-model="update.userData.email">
+            <br>
+            <input type="mobile" class="form-control" placeholder="Handy" required
+                   ng-model="update.userData.mobile">
+            <input type="phone" class="form-control" placeholder="Telefon"
+                   ng-model="update.userData.phone">
+            <br>
+            <input type="password" class="form-control" placeholder="Altes Kennwort" required
+                   ng-model="update.userData.oldPassword">
+            <input type="password" class="form-control" placeholder="Neues Kennwort" required
+                   ng-model="update.userData.newPassword">
+            <input type="password" class="form-control" placeholder="Neues Kennwort bestätigen" required
+                   ng-model="update.userData.newPasswordConfirmed">
+            <br>
+            <button class="btn btn-info btn-block" type="submit">
+                <span
+                        class="glyphicon glyphicon-user"></span> Profil aktualisieren
+            </button><br>
+            <a href="signin" class="text-center new-account">Anmelden </a><br><br><br>
+            <div class="cssload-container" ng-show="update.loading">
+                <div class="cssload-whirlpool"></div>
+            </div>
+            <div class="row">
+                <div class="show-hide-message"  ng-show="update.successMsg">
+                    <div class="alert alert-success">{{ update.successMsg }}</div>
                 </div>
-                <div class="row py-sm-3">
-                    <div class="col-sm-5 col-md-5 col-md-offset-4">
-                        <div class="account-wall center">
-                            <form class="form-signin" ng-submit="update.updateUser();">
-                                <input type="text" class="form-control" placeholder="Name" required
-                                       autofocus
-                                       ng-model="update.userData.name">
-                                <input type="text" class="form-control" placeholder="Nachname" required
-                                       ng-model="update.userData.lastname">
-                                <input type="text" class="form-control" placeholder="Spitzname" required
-                                       ng-model="update.userData.username">
-                                <input type="text" class="form-control" placeholder="Email" required
-                                       ng-model="update.userData.email">
-                                <br>
-                                <input type="mobile" class="form-control" placeholder="Handy" required
-                                       ng-model="update.userData.mobile">
-                                <input type="phone" class="form-control" placeholder="Telefon"
-                                       ng-model="update.userData.phone">
-                                <br>
-                                <input type="password" class="form-control" placeholder="Altes Kennwort" required
-                                       ng-model="update.userData.oldPassword">
-                                <input type="password" class="form-control" placeholder="Neues Kennwort" required
-                                       ng-model="update.userData.newPassword">
-                                <input type="password" class="form-control" placeholder="Neues Kennwort bestätigen" required
-                                       ng-model="update.userData.newPasswordConfirmed">
-                                <br>
-                                <button class="btn btn-outline-primary btn-block" type="submit">
-                                    Profil aktualisieren
-                                </button>
-                                <div class="cssload-container py-sm-4" ng-show="update.loading">
-                                    <div class="cssload-whirlpool"></div>
-                                </div>
-                                <div class="account-wall center">
-                                    <div class="show-hide-message" ng-show="update.successMsg">
-                                        <div class="alert alert-success">{{ update.successMsg }}</div>
-                                    </div>
-                                    <div class="show-hide-message" ng-show="update.errorMsg">
-                                        <div class="alert alert-danger">{{ update.errorMsg }}</div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div class="show-hide-message" ng-show="update.errorMsg">
+                    <div class="alert alert-danger">{{ update.errorMsg }}</div>
                 </div>
-
-        </main>
+            </div>
+        </form>
     </div>
 </div>
 

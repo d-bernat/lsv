@@ -1,67 +1,43 @@
-<div class="container-fluid">
-    <div class="row">
-        <main class="col-sm-8 ml-sm-auto col-md-8 py-sm-3" role="main">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5 col-md-5 col-md-offset-4">
-                        <h3 class="text-center login-title">Neues Konto erstellen</h3>
-                        <div class="account-wall center">
-                            <img class="profile-img h-25 w-25" src="app/views/images/no_image_user.png"
-                                 alt="">
-                        </div>
-                    </div>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <h3 class="text-center login-title">Neues Konto erstellen</h3>
+        <img class="img-responsive center-block" src="app/views/images/no_image_user.png">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <form class="form-signin" ng-submit="register.registerUser();">
+            <input type="text" class="form-control" placeholder="Name" required autofocus
+                   ng-model="register.registerData.name">
+            <input type="text" class="form-control" placeholder="Nachname" required
+                   ng-model="register.registerData.lastname">
+            <input type="text" class="form-control" placeholder="Spitzname" required
+                   ng-model="register.registerData.username">
+            <input type="text" class="form-control" placeholder="Email" required
+                   ng-model="register.registerData.email">
+            <input type="mobile" class="form-control" placeholder="Handy" required
+                   ng-model="register.registerData.mobile">
+            <input type="phone" class="form-control" placeholder="Telefon"
+                   ng-model="register.registerData.phone">
+            <input type="password" class="form-control" placeholder="Kennwort" required
+                   ng-model="register.registerData.password">
+            <br>
+            <button class="btn btn-info btn-block" type="submit">
+                <span
+                        class="glyphicon glyphicon-user"></span> Konto erstellen
+            </button><br>
+            <a href="signin" class="text-center new-account">Anmelden </a><br><br><br>
+            <div class="cssload-container" ng-show="register.loading">
+                <div class="cssload-whirlpool"></div>
+            </div>
+            <div class="row">
+                <div class="show-hide-message"  ng-show="register.successMsg">
+                    <div class="alert alert-success">{{ register.successMsg }}</div>
                 </div>
-                <div class="row py-sm-3">
-                    <div class="col-sm-5 col-md-5 col-md-offset-4">
-                        <div class="account-wall center">
-                            <form class="form-signin" ng-submit="register.registerUser();">
-                                <input type="text" class="form-control" placeholder="Name" required autofocus
-                                       ng-model="register.registerData.name">
-                                <input type="text" class="form-control" placeholder="Nachname" required
-                                       ng-model="register.registerData.lastname">
-                                <input type="text" class="form-control" placeholder="Spitzname" required
-                                       ng-model="register.registerData.username">
-                                <input type="text" class="form-control" placeholder="Email" required
-                                       ng-model="register.registerData.email">
-                                <input type="mobile" class="form-control" placeholder="Handy" required
-                                       ng-model="register.registerData.mobile">
-                                <input type="phone" class="form-control" placeholder="Telefon"
-                                       ng-model="register.registerData.phone">
-                                <input type="password" class="form-control" placeholder="Kennwort" required
-                                       ng-model="register.registerData.password">
-                                <br>
-                                <button class="btn btn-outline-primary btn-block" type="submit">
-                                    Konto erstellen
-                                </button>
-                                <label class="checkbox center-block">
-                                    <input type="checkbox" value="remember-me">
-                                    Remember me
-                                </label>
-                                <div class="row">
-                                    <div class="col-sm-1 col-md-1 col-md-offset-2">
-                                        <div class="account-wall">
-                                            <a href="signin" class="text-center new-account">Anmelden </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cssload-container py-sm-4" ng-show="register.loading">
-                                    <div class="cssload-whirlpool"></div>
-                                </div>
-                                <div class="account-wall center">
-                                    <div class="show-hide-message" ng-show="register.successMsg">
-                                        <div class="alert alert-success">{{ register.successMsg }}</div>
-                                    </div>
-                                    <div class="show-hide-message" ng-show="register.errorMsg">
-                                        <div class="alert alert-danger">{{ register.errorMsg }}</div>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
+                <div class="show-hide-message" ng-show="register.errorMsg">
+                    <div class="alert alert-danger">{{ register.errorMsg }}</div>
                 </div>
-
-        </main>
+            </div>
+        </form>
     </div>
 </div>
-

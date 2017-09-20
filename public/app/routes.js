@@ -9,6 +9,10 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/home.html',
             })
 
+            .when('/fliegmituns', {
+                templateUrl: 'app/views/pages/fliegmituns.html'
+            })
+
             .when('/verein', {
                 templateUrl: 'app/views/pages/verein.html'
             })
@@ -77,13 +81,12 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
 app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location){
     $rootScope.$on('$routeChangeStart', function(event, next, current){
-
-        if(next.$$route.authenticated == true){
+        if(next.$$route  != undefined && next.$$route.authenticated == true){
             if(!Auth.isSignedIn()){
                 event.preventDefault();
                 $location.path('signin');
             }
-        }else if(next.$$route.authenticated == false){
+        }else if(next.$$route  != undefined && next.$$route.authenticated == false){
             if(Auth.isSignedIn()){
                 event.preventDefault();
                 $location.path('intern');

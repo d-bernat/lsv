@@ -37,34 +37,49 @@
 
 </head>
 
-<body ng-app="lsvApp" ng-controller="mainCtrl" ng-style="{'background-image': 'url(app/views/images/clouds.jpg)', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" ng-click="item_click(-1)" href="home">LSV Kreis Pinneberg</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-            <!--li class="nav-item active"-->
-            <li class="nav-item">
-                <a class="{{menu_class[0]}}" ng-click="item_click(0)" href="verein">Lust zum fliegen?</a>
-            </li>
-            <li class="nav-item">
-                <a class="{{menu_class[1]}}" ng-click="item_click(1)" href="intern">LSV-Intern</a>
-            </li>
-        </ul>
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Suchen" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Suchen</button>
-        </form>
+<body ng-app="lsvApp" ng-controller="mainCtrl"
+      ng-style="{'background-image': 'url(app/views/images/clouds.jpg)', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="item_click(-1)" href="home"><span
+                    class="glyphicon glyphicon-home"></span> LSV Kreis Pinneberg</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="{{menu_class[0]}}">
+                    <a ng-click="item_click(0)" href="fliegmituns">Lust zum fliegen?</a>
+                </li>
+                <li class="{{menu_class[1]}}">
+                    <a ng-click="item_click(1)" href="intern">LSV-Intern</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input class="form-control mr-sm-2" type="text" placeholder="Suchen" aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit"><span class="glyphicon glyphicon-search"
+                                                                                 aria-hidden="true"></span> Suchen
+                </button>
+            </form>
+        </div>
     </div>
-
 </nav>
+
 <div class="container-fluid">
-   <a style="margin:auto; text-align:right; display:block;" href="profile" ng-click="intern_item_click(0)">{{ welcomeMessage }}</a>
+    <br>
+    <a style="margin:auto; text-align:right; display:block;" href="profile" ng-click="intern_item_click(0)">{{
+        welcomeMessage }}</a>
+    <div class="row">
+        <div ng-view></div>
+    </div>
 </div>
-<div ng-view></div>
+
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

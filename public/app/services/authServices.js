@@ -1,7 +1,9 @@
 'use strict';
+
 angular.module('authServices', [])
 
     .factory('Auth', function ($http, $q, AuthToken) {
+
         let authFactory = {};
         authFactory.signin = function (authData) {
             return $http.post('/api/authenticate', authData).then(function (data) {
@@ -21,14 +23,13 @@ angular.module('authServices', [])
             AuthToken.setToken();
         };
 
-        authFactory.getUser = function(){
-            if(AuthToken.getToken()){
+        authFactory.getUser = function () {
+            if (AuthToken.getToken()) {
                 return $http.post('/api/me');
-            }else{
+            } else {
                 $q.reject({message: 'User has no token'});
             }
         }
-
 
         return authFactory;
     })
@@ -50,16 +51,16 @@ angular.module('authServices', [])
         return authTokenFactory;
     })
 
-.factory('AuthInterceptors', function(AuthToken){
-    let authInterceptorsFactory = {};
-    authInterceptorsFactory.request = function(config){
-        let token = AuthToken.getToken();
-        if(token){
-            config.headers['x-access-token'] = token;
+    .factory('AuthInterceptors', function (AuthToken) {
+        let authInterceptorsFactory = {};
+        authInterceptorsFactory.request = function (config) {
+            let token = AuthToken.getToken();
+            if (token) {
+                config.headers['x-access-token'] = token;
+            }
+
+            return config;
         }
 
-        return config;
-    }
-
-    return authInterceptorsFactory;
-})
+        return authInterceptorsFactory;
+    })

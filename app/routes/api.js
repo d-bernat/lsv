@@ -42,7 +42,7 @@ module.exports = function (router) {
                     } else {
                         let token = jwt.sign({name: user.name, lastname: user.lastname, username: user.username, email: user.email, phone:  user.phone, mobile: user.mobile},
                             secret,
-                            {expiresIn: '1h'});
+                            {expiresIn: '24h'});
                         res.json({success: true, message: 'Du bist angemeldet...', token: token});
                     }
                 });
