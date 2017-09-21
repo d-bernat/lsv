@@ -1,0 +1,17 @@
+<div ng-include src="'app/views/pages/intern_menu.html'"></div>
+<br>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <h3 class="text-center login-title">Möchtest du dich wirklich abmelden?</h3>
+        <img class="img-responsive center-block" src="app/views/images/no_image_user.png">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <form class="form-signin" ng-submit="signOut.signOutUser();">
+            <button class="btn btn-danger btn-outline btn-block" type="submit"><span
+                    class="glyphicon glyphicon-log-out"></span> Abmelden
+            </button><br>
+        </form>
+    </div>
+</div>

@@ -21,7 +21,7 @@ module.exports = function (router) {
 
         user.save((err) => {
             if (err) {
-                res.json({success: false, message: 'Spitzname ' + user.username + ' existiert schon.'});
+                res.json({success: false, message: err});
             }
             else {
                 res.json({success: true, message: user.username + ' ist gespeichert worden.'});

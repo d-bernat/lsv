@@ -3,7 +3,6 @@
 angular.module('userControllers', ['userServices'])
     .controller('signInCtrl', function ($location, $timeout, Auth) {
         let app = this;
-
         this.signInUser = function () {
             app.errorMsg = false;
             app.successMsg = false;
@@ -63,6 +62,12 @@ angular.module('userControllers', ['userServices'])
                 }
                 app.loading = false;
             });*/
+        }
+    })
+    .controller('signOutCtrl', function ($location, $timeout, Auth) {
+        this.signOutUser = function () {
+            Auth.logout();
+            $location.path('/home');
         }
     });
 

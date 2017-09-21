@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Home site of glider club LSV Kreis Pinneberg">
+    <meta name="author" content="Dusan Bernat">
+
+
+    <!-- Bootstrap core CSS -->
+    <link type="text/css" href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link type="text/css" href="assets/css/dashboard.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/loader.css" rel="stylesheet">
+    <link type="text/css" href="assets/css/btn_outline.css" rel="stylesheet">
+
+    <!-- angular -->
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+
+    <!-- config/rooting -->
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+    <!-- services -->
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+
+    <!-- controllers -->
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/scrollCtrl.js"></script>
+
+
+    <title>LSV Kreis Pinneberg</title>
+
+</head>
+
+<body ng-app="lsvApp" ng-controller="mainCtrl"
+      ng-style="{'background-image': 'url(app/views/images/clouds.jpg)', 'background-repeat': 'no-repeat', 'background-size': 'cover'}">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="item_click(-1)" href="home"><span
+                    class="glyphicon glyphicon-home"></span> LSV Kreis Pinneberg</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="{{menu_class[0]}}">
+                    <a ng-click="item_click(0)" href="fliegmituns">Lust zum fliegen?</a>
+                </li>
+                <li class="{{menu_class[1]}}">
+                    <a ng-click="item_click(1)" href="intern">LSV-Intern</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <a href="profile" ng-click="intern_item_click(0)"><span
+                        class="glyphicon glyphicon-hand-right" ng-show="welcomeMessage"></span> {{
+                    welcomeMessage }}&nbsp;&nbsp;</a>
+                <input class="form-control mr-sm-2" type="text" placeholder="Suchen" aria-label="Search">
+                <button class="btn btn-success btn-outline my-2 my-sm-0" type="submit"><span
+                        class="glyphicon glyphicon-search"
+                        aria-hidden="true"></span> Suchen
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div ng-view autoscroll="true"></div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--script src="assets/js/ie10-viewport-bug-workaround.js"></script-->
+</body>
+</html>

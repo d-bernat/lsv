@@ -1,4 +1,4 @@
-<div class="row">
+<br><div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
         <h3 class="text-center login-title">Neues Konto erstellen</h3>
         <img class="img-responsive center-block" src="app/views/images/no_image_user.png">
@@ -30,14 +30,14 @@
             <div class="cssload-container" ng-show="register.loading">
                 <div class="cssload-whirlpool"></div>
             </div>
-            <div class="row">
-                <div class="show-hide-message"  ng-show="register.successMsg">
-                    <div class="alert alert-success">{{ register.successMsg }}</div>
-                </div>
-                <div class="show-hide-message" ng-show="register.errorMsg">
-                    <div class="alert alert-danger">{{ register.errorMsg }}</div>
-                </div>
-            </div>
         </form>
+    </div>
+</div>
+<div class="row">
+    <div class="show-hide-message"  ng-show="register.successMsg">
+        <div class="alert alert-success">{{ register.successMsg }}</div>
+    </div>
+    <div class="show-hide-message" ng-show="register.errorMsg">
+        <div class="alert alert-danger">{{ register.errorMsg }}</div>
     </div>
 </div>

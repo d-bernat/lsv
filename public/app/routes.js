@@ -6,15 +6,25 @@ let app = angular.module('appRoutes', ['ngRoute'])
         $routeProvider
 
             .when('/home', {
-                templateUrl: 'app/views/pages/home.html',
+                templateUrl: 'app/views/pages/home.html'
             })
 
             .when('/fliegmituns', {
                 templateUrl: 'app/views/pages/fliegmituns.html'
             })
 
+            .when('/ausbildung', {
+                templateUrl: 'app/views/pages/ausbildung.html'
+            })
+
             .when('/segelflug', {
                 templateUrl: 'app/views/pages/segelflug.html'
+            })
+
+            .when('/terminologie', {
+                templateUrl: 'app/views/pages/terminologie.html',
+                controller: 'terminologieScrollOffsetCtrl',
+                controllerAs: 'scrollOffset'
             })
 
             .when('/verein', {
@@ -29,9 +39,14 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/jugendgruppe.html'
             })
 
-            .when('/ausbildung', {
-                templateUrl: 'app/views/pages/ausbildung.html'
+            .when('/termine', {
+                templateUrl: 'app/views/pages/termine.html'
             })
+
+            .when('/pressespiegel', {
+                templateUrl: 'app/views/pages/pressespiegel.html'
+            })
+
 
             .when('/segelflugzeuge', {
                 templateUrl: 'app/views/pages/segelflugzeuge.html'
@@ -45,9 +60,18 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/winde.html'
             })
 
+            .when('/streckenflug', {
+                templateUrl: 'app/views/pages/streckenflug.html'
+            })
+
+            .when('/ueberlandflug', {
+                templateUrl: 'app/views/pages/ueberlandflug.html'
+            })
+
             .when('/intern', {
                 templateUrl: 'app/views/pages/lsv_intern.html',
                 authenticated: true
+
 
             })
 
@@ -73,6 +97,12 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 authenticated: false
             })
 
+            .when('/signout', {
+                templateUrl: 'app/views/pages/users/signout.html',
+                controller: 'signOutCtrl',
+                controllerAs: 'signOut',
+                authenticated: true
+            })
             .otherwise({
                redirectTo: '/home'
             });
@@ -83,7 +113,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
             });
     });
 
-app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location, $window){
+app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location, mainCtrl){
     $rootScope.$on('$routeChangeStart', function(event, next, current){
         if(next.$$route  != undefined && next.$$route.authenticated == true){
             if(!Auth.isSignedIn()){
