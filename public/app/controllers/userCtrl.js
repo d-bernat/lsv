@@ -28,6 +28,7 @@ angular.module('userControllers', ['userServices'])
             app.errorMsg = false;
             app.successMsg = false;
             app.loading = true;
+            this.registerData.permission = 'user';
             User.create(this.registerData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;

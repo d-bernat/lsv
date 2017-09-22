@@ -26,4 +26,13 @@ angular.module('mainController', ['authServices'])
             }
         });
         $scope.date = new Date();
+
+        $scope.hasPermission = function(requiredPermission){
+                if(Auth.isSignedIn() && $rootScope.userData.permission !== undefined){
+                    return $rootScope.userData.permission.split(',').indexOf(requiredPermission) >= 0;
+                }else
+                    return false;
+
+        }
+
     });

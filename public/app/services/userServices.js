@@ -13,5 +13,10 @@ angular.module('userServices', [])
             return $http.put('/api/users', regData);
         }
 
+        userFactory.getPermission = function (){
+            return $http.get('/api/permission');
+        }
+
+
         return userFactory;
     })

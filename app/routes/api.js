@@ -42,7 +42,8 @@ module.exports = function (router) {
                                                 username: req.body.username,
                                                 email: user.email,
                                                 phone: user.phone,
-                                                mobile: user.mobile
+                                                mobile: user.mobile,
+                                                permission: user.permission
                                             },
                                             secret,
                                             {expiresIn: '24h'});
@@ -73,6 +74,7 @@ module.exports = function (router) {
             user.email = req.body.email;
             user.phone = req.body.phone;
             user.mobile = req.body.mobile;
+            user.permission = req.body.permission;
             user.save((err) => {
                 if (err) {
                     res.json({success: false, message: err.message});
@@ -88,7 +90,7 @@ module.exports = function (router) {
     });
 
     router.post('/authenticate', function (req, res) {
-        User.findOne({username: req.body.username}).select('name lastname email username password phone mobile').exec(function (err, user) {
+        User.findOne({username: req.body.username}).select('name lastname email username password phone mobile permission').exec(function (err, user) {
 
             if (err) throw err;
             if (!user) {
@@ -104,7 +106,8 @@ module.exports = function (router) {
                                 username: user.username,
                                 email: user.email,
                                 phone: user.phone,
-                                mobile: user.mobile
+                                mobile: user.mobile,
+                                permission: user.permission
                             },
                             secret,
                             {expiresIn: '24h'});
@@ -138,6 +141,20 @@ module.exports = function (router) {
         res.send(req.decoded);
     })
 
+
+    router.get('/permission', function(req, res){
+        User.findOne({username: req.decoded.username}, function(err, user){
+            if(err) throw err;
+
+            if(!user){
+                res.json({success: false, message:'No user was found'});
+            }else{
+                res.json({success: true, permission: user.permission});
+            }
+        });
+    });
+
+
     router.get('/test', (req, res) => {
         res.send('works');
     });
@@ -162,6 +179,8 @@ module.exports = function (router) {
         });
 
     });
+
+
 
 
     return router;

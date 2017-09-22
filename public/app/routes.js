@@ -115,6 +115,15 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 controllerAs: 'signOut',
                 authenticated: true
             })
+
+            .when('/management', {
+                templateUrl: 'app/views/pages/management/management.html',
+                controller: 'managementCtrl',
+                controllerAs: 'management',
+                authenticated: true,
+                permission: ['admin','manager']
+            })
+
             .otherwise({
                redirectTo: '/home'
             });
@@ -125,14 +134,30 @@ let app = angular.module('appRoutes', ['ngRoute'])
             });
     });
 
-app.run(['$rootScope', 'Auth', '$location', function($rootScope, Auth, $location, mainCtrl){
+app.run(['$rootScope', 'Auth', '$location', 'User', function($rootScope, Auth, $location, User ){
     $rootScope.$on('$routeChangeStart', function(event, next, current){
-        if(next.$$route  != undefined && next.$$route.authenticated == true){
+
+        if(next.$$route  !== undefined && next.$$route.authenticated === true){
             if(!Auth.isSignedIn()){
                 event.preventDefault();
                 $location.path('signin');
+            } else if(next.$$route.permission){
+                  User.getPermission().then(function(data){
+                      if (next.$$route.permission === undefined) {
+                      } else {
+                          let skip = true;
+                          next.$$route.permission.forEach(function (entry) {
+                              if(data.data.permission.split(',').indexOf(entry) >= 0)
+                                  skip = false;
+                          });
+                          if(skip){
+                              event.preventDefault();
+                              $location.path('intern');
+                          }
+                      }
+                  })
             }
-        }else if(next.$$route  != undefined && next.$$route.authenticated == false){
+        }else if(next.$$route  !== undefined && next.$$route.authenticated === false){
             if(Auth.isSignedIn()){
                 event.preventDefault();
                 $location.path('intern');
