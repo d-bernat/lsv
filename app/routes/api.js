@@ -5,28 +5,86 @@ let MemberOfBoard = require('../models/memberofboard');
 
 let jwt = require('jsonwebtoken');
 let secret = 'simplesecret';
+let bcrypt = require('bcrypt-nodejs');
 
 module.exports = function (router) {
 
-    router.post('/users', (req, res) => {
-        let user = new User();
+    router.put('/users', function (req, res) {
+        if ((req.body.newPassword || req.body.oldPassword) && req.body.newPassword !== req.body.newPasswordConfirmed) {
+            res.json({success: false, message: 'New password and confirmed password are not the same'});
+        } else {
 
-        user.name = req.body.name;
-        user.lastname = req.body.lastname;
-        user.username = req.body.username;
-        user.password = req.body.password;
-        user.email = req.body.email;
-        user.phone = req.body.phone;
-        user.mobile = req.body.mobile;
+            User.findOne({username: req.body.username}).select('password').exec(function (err, user) {
+                if (err) throw err;
+                if (!user) {
+                    res.json({success: false, message: 'Username not vaild'});
+                } else if (user) {
+                    user.comparePassword(req.body.oldPassword, function (isMatch) {
+                            if (!isMatch) {
+                                res.json({success: false, message: 'Password not valid'});
+                            } else {
 
-        user.save((err) => {
-            if (err) {
-                res.json({success: false, message: err});
-            }
-            else {
-                res.json({success: true, message: user.username + ' ist gespeichert worden.'});
-            }
-        });
+                                user.name = req.body.name;
+                                user.lastname = req.body.lastname;
+                                if (req.body.newPassword) user.password = req.body.newPassword;
+                                else user.password = req.body.oldPassword;
+                                user.email = req.body.email;
+                                user.phone = req.body.phone;
+                                if (req.body.mobile) user.mobile = req.body.mobile;
+                                user.save((err) => {
+                                    if (err) {
+                                        res.json({success: false, message: err.message});
+                                    }
+                                    else {
+                                        let token = jwt.sign({
+                                                name: user.name,
+                                                lastname: user.lastname,
+                                                username: req.body.username,
+                                                email: user.email,
+                                                phone: user.phone,
+                                                mobile: user.mobile
+                                            },
+                                            secret,
+                                            {expiresIn: '24h'});
+                                        res.json({
+                                            success: true,
+                                            message: req.body.username + ' ist gespeichert worden.',
+                                            token: token
+                                        });
+                                    }
+                                });
+                            }
+                        }
+                    )
+                    ;
+                }
+            });
+        }
+    });
+
+
+    router.post('/users', function (req, res) {
+        if(req.body.password === req.body.passwordConfirmed) {
+            let user = new User();
+            user.name = req.body.name;
+            user.lastname = req.body.lastname;
+            user.username = req.body.username;
+            user.password = req.body.password;
+            user.email = req.body.email;
+            user.phone = req.body.phone;
+            user.mobile = req.body.mobile;
+            user.save((err) => {
+                if (err) {
+                    res.json({success: false, message: err.message});
+                }
+                else {
+                    res.json({success: true, message: user.username + ' ist gespeichert worden.'});
+                }
+            });
+        }
+        else{
+            res.json({success: false, message: 'Password and confirmed password are not the same'});
+        }
     });
 
     router.post('/authenticate', function (req, res) {
@@ -40,7 +98,14 @@ module.exports = function (router) {
                     if (!isMatch) {
                         res.json({success: false, message: 'Spitzname und/oder Kennwort unbekannt'});
                     } else {
-                        let token = jwt.sign({name: user.name, lastname: user.lastname, username: user.username, email: user.email, phone:  user.phone, mobile: user.mobile},
+                        let token = jwt.sign({
+                                name: user.name,
+                                lastname: user.lastname,
+                                username: user.username,
+                                email: user.email,
+                                phone: user.phone,
+                                mobile: user.mobile
+                            },
                             secret,
                             {expiresIn: '24h'});
                         res.json({success: true, message: 'Du bist angemeldet...', token: token});
@@ -50,25 +115,26 @@ module.exports = function (router) {
         });
     });
 
-    router.use(function(req, res, next){
-       let token = req.body.token || req.body.query || req.headers['x-access-token'];
-       if(token){
-           jwt.verify(token, secret, function(err, decoded){
-               if(err){
-                   res.json({success: false, message: 'Token invalid'});
-               }else{
-                   req.decoded = decoded;
-                   next();
-               }
 
-           })
-       }else{
-           res.json({success: false, message: 'No token provided'});
-       }
+    router.use(function (req, res, next) {
+        let token = req.body.token || req.body.query || req.headers['x-access-token'];
+        if (token) {
+            jwt.verify(token, secret, function (err, decoded) {
+                if (err) {
+                    res.json({success: false, message: 'Token invalid'});
+                } else {
+                    req.decoded = decoded;
+                    next();
+                }
+
+            })
+        } else {
+            res.json({success: false, message: 'No token provided'});
+        }
 
     });
 
-    router.post('/me', function(req, res){
+    router.post('/me', function (req, res) {
         res.send(req.decoded);
     })
 
@@ -96,8 +162,6 @@ module.exports = function (router) {
         });
 
     });
-
-
 
 
     return router;

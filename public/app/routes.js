@@ -68,6 +68,18 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/ueberlandflug.html'
             })
 
+            .when('/flugplatz', {
+                templateUrl: 'app/views/pages/flugplatz.html'
+            })
+
+            .when('/wegweiser', {
+                templateUrl: 'app/views/pages/wegweiser.html'
+            })
+
+            .when('/kontakt', {
+                templateUrl: 'app/views/pages/kontakt.html'
+            })
+
             .when('/intern', {
                 templateUrl: 'app/views/pages/lsv_intern.html',
                 authenticated: true

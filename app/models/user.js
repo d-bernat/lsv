@@ -11,7 +11,7 @@ let nameValidator = [
     validate({
         validator: 'matches',
         arguments: /^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/,
-        message: 'Name is probably not valid'
+        message: 'Name format is not valid'
     }),
     validate({
         validator: 'isLength',
@@ -20,17 +20,32 @@ let nameValidator = [
     })
 ];
 
+let usernameValidator = [
+    validate({
+        validator: 'matches',
+        arguments: /^[a-zA-Z0-9]+$/,
+        message: 'Username format is not valid'
+    }),
+    validate({
+        validator: 'isLength',
+        arguments: [3,35],
+        message: 'Username should be between {ARGS[0]} nad {ARGS[1]} characters'
+    })
+];
+
 let emailValidator = [
     validate({
         validator: 'matches',
-        arguments: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        arguments: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        message: 'Email not valid'
     })
 ];
 
 let phoneValidator = [
     validate({
         validator: 'matches',
-        arguments: /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/i
+        arguments: /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/,
+        message: 'Phone number not valid'
     })
 ];
 
@@ -38,7 +53,7 @@ let phoneValidator = [
 let UserSchema = new Schema({
     name: {type: String, required: true, validate: nameValidator},
     lastname: {type: String, required: true, validate: nameValidator},
-    username: {type: String, required: true, unique: true},
+    username: {type: String, required: true, unique: true, validate: usernameValidator},
     password: {type: String, required: true},
     email: {type: String, required: true, unique: true, validate: emailValidator},
     phone: {type: String, lowercase: true, validate: phoneValidator},
@@ -46,6 +61,7 @@ let UserSchema = new Schema({
 });
 
 UserSchema.pre('save', function (next) {
+    console.log('upafate as well');
     let user = this;
     bcrypt.hash(user.password, null, null, function (err, hash) {
         if (err) {
@@ -55,6 +71,19 @@ UserSchema.pre('save', function (next) {
         next();
     });
 });
+
+UserSchema.pre('update', function (next) {
+    console.log('upafate as well');
+    let user = this;
+    bcrypt.hash(user.password, null, null, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.password = hash;
+        next();
+    });
+});
+
 
 UserSchema.plugin(titlize,{ paths: ['name', 'lastname']});
 

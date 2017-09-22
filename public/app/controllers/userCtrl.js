@@ -41,27 +41,23 @@ angular.module('userControllers', ['userServices'])
             });
         }
     })
-    .controller('updateCtrl', function ($rootScope) {
+    .controller('updateCtrl', function ($rootScope, $location, User, AuthToken) {
         let app = this;
         app.userData = $rootScope.userData;
-        console.log(app.userData);
-
         app.updateUser = function () {
-            console.log(app.userData);
             app.errorMsg = false;
             app.successMsg = false;
-            app.loading = false;
-            /*User.get(this.updateData).then(function (data) {
+            app.loading = true;
+            User.update(app.userData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;
-                    $timeout(function () {
-                        $location.path('/signin');
-                    }, 2000);
+                    //$rootScope.userData = app.userData;
+                    AuthToken.setToken(data.data.token);
                 } else {
                     app.errorMsg = data.data.message;
                 }
                 app.loading = false;
-            });*/
+            });
         }
     })
     .controller('signOutCtrl', function ($location, $timeout, Auth) {

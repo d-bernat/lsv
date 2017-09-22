@@ -7,8 +7,10 @@
 <div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
         <form class="form-signin" ng-submit="signIn.signInUser();">
+            <span class="label label-primary">Spitzname</span>
             <input type="text" class="form-control" placeholder="Spitzname" required autofocus
                    ng-model="signIn.signInData.username">
+            <span class="label label-warning">Kennwort</span>
             <input type="password" class="form-control" placeholder="Kennwort" required
                    ng-model="signIn.signInData.password"><br>
             <button class="btn btn-success btn-outline btn-block" type="submit"><span
