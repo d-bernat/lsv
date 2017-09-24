@@ -1,9 +1,9 @@
 <br>
-<div class="row"><br>
-    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
-        <h4 class="text-center login-title"><span class="glyphicon glyphicon-user"></span> Neues Konto erstellen</h4>
+<div ng-include src="'app/views/pages/intern_menu.html'"></div>
+<div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+    <h4 class="text-center login-title"><span class="glyphicon glyphicon-user"></span> Neues Mitglied hinzufügen</h4>
     </div>
-</div><br>
+</div><br><br><br>
 <div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
         <form name="registrationForm" class="form-signin" ng-submit="register.registerUser();">
@@ -106,6 +106,60 @@
                     <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
                 </ul>
             </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Administrator
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Vorstand
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Fluglehrer
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Scheininhaber
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Mosebucher
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Schüler
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Werkstattleiter
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Segelflugzeugwart
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input">
+                    Motorseglerwart
+                </label>
+            </div>
             <div>
                 <p>
                     <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
@@ -113,10 +167,9 @@
                 <br>
                 <button class="btn btn-info btn-outline btn-block" type="submit">
                 <span
-                        class="glyphicon glyphicon-user"></span> Konto erstellen
+                        class="glyphicon glyphicon-user"></span> Hinzufügen
                 </button>
                 <br>
-                <a href="signin" class="text-center new-account">Anmelden </a><br><br><br>
             </div>
             <div class="cssload-container" ng-show="register.loading">
                 <div class="cssload-whirlpool"></div>

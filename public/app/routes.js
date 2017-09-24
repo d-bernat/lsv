@@ -81,7 +81,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
             })
 
             .when('/intern', {
-                templateUrl: 'app/views/pages/lsv_intern.html',
+                templateUrl: 'app/views/pages/intern/info.html',
                 authenticated: true
 
 
@@ -116,12 +116,47 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 authenticated: true
             })
 
-            .when('/management', {
-                templateUrl: 'app/views/pages/management/management.html',
-                controller: 'managementCtrl',
-                controllerAs: 'management',
+            .when('/intern/info', {
+                templateUrl: 'app/views/pages/intern/info.html',
+                authenticated: true
+            })
+
+            .when('/intern/register', {
+                templateUrl: 'app/views/pages/users/register.html',
+                controller: 'registerCtrl',
+                controllerAs: 'register',
                 authenticated: true,
-                permission: ['admin','manager']
+                permission: ['manager']
+            })
+
+            .when('/intern/editmember', {
+                templateUrl: 'app/views/pages/intern/editmember.html',
+                authenticated: true,
+                permission: ['manager']
+            })
+
+            .when('/intern/segelflugzeugbuchen', {
+                templateUrl: 'app/views/pages/intern/segelflugzeugbuchen.html',
+                authenticated: true,
+                permission: ['manager', 'spl']
+            })
+
+            .when('/intern/tmgbuchen', {
+                templateUrl: 'app/views/pages/intern/tmgbuchen.html',
+                authenticated: true,
+                permission: ['manager', 'tmg']
+            })
+
+            .when('/intern/anmeldungschuler', {
+                templateUrl: 'app/views/pages/intern/anmeldungschuler.html',
+                authenticated: true,
+                permission: ['manager', 'student']
+            })
+
+            .when('/intern/meldunglehrer', {
+                templateUrl: 'app/views/pages/intern/meldunglehrer.html',
+                authenticated: true,
+                permission: ['manager', 'fi']
             })
 
             .otherwise({

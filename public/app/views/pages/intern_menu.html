@@ -1,10 +1,39 @@
 <nav class="col-sm-3 col-md-2 d-none d-sm-block sidebar">
     <ul class="nav nav-pills nav-stacked small" auto-active>
+        <h5><span class="glyphicon glyphicon-info-sign"></span>
+            LSV-Intern</h5>
+        <li class="nav-item">
+            <a href="intern/info">Info</a>
+        </li>
+
+        <h5 ng-show="hasPermission('manager')"><span class="glyphicon glyphicon-wrench"></span>
+            Verwaltung</h5>
+        <li class="nav-item" ng-show="hasPermission('manager')">
+            <a href="intern/register">Neues Mitglied</a>
+        </li>
+        <li class="nav-item" ng-show="hasPermission('manager')">
+            <a href="intern/editmember">Mitglied-Einstellungen</a>
+        </li>
+        <h5 ng-show="hasPermission('spl') || hasPermission('tmg') || hasPermission('manager')"><span
+                class="glyphicon glyphicon-calendar"></span> Buchen</h5>
+        <li class="nav-item" ng-show="hasPermission('spl') || hasPermission('manager')">
+            <a href="intern/segelflugzeugbuchen">Segelflugzeug</a>
+        </li>
+        <li class="nav-item" ng-show="hasPermission('tmg') || hasPermission('manager')">
+            <a href="intern/tmgbuchen">Reisemotorsegler</a>
+        </li>
+        <h5 ng-show="hasPermission('fi') || hasPermission('manager')"><span class="glyphicon glyphicon-education"></span>
+            Ausbildung</h5>
+        <li class="nav-item" ng-show="hasPermission('manager') || hasPermission('student')">
+            <a href="intern/anmeldungschuler"><span>Anmeldung zur Schulung</span></a>
+        </li>
+        <li class="nav-item" ng-show="hasPermission('fi') || hasPermission('manager')">
+            <a href="intern/meldunglehrer"><span>Schulung und Meldungen</span></a>
+        </li>
+
+        <h5><span class="glyphicon glyphicon-user"></span> {{ userData.username }}</h5>
         <li class="nav-item">
             <a href="profile">Profil</a>
-        </li>
-        <li class="nav-item" ng-show="hasPermission('admin') || hasPermission('manager')">
-            <a href="management">Management</a>
         </li>
         <li class="nav-item">
             <a href="signout">Abmelden</a>
