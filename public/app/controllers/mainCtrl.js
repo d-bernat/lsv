@@ -35,4 +35,8 @@ angular.module('mainController', ['authServices'])
 
         }
 
+        $scope.isSignedIn = function(){
+            return Auth.isSignedIn();
+        }
+
     });
