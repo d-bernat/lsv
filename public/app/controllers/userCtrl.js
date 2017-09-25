@@ -22,25 +22,63 @@ angular.module('userControllers', ['userServices'])
             });
         }
     })
-    .controller('registerCtrl', function ($location, $timeout, User) {
+    .controller('registerCtrl', function ($scope, $location, $timeout, User) {
+        $scope.initChecked = true;
         let app = this;
+
         this.registerUser = function () {
             app.errorMsg = false;
             app.successMsg = false;
             app.loading = true;
-            this.registerData.permission = 'user';
+            app.registerData.permission = 'user';
+            if(app.registerData.rd_admin) app.registerData.permission += ',admin';
+            if(app.registerData.rd_manager) app.registerData.permission += ',manager';
+            if(app.registerData.rd_fi) app.registerData.permission += ',fi';
+            if(app.registerData.rd_spl) app.registerData.permission += ',spl';
+            if(app.registerData.rd_student) app.registerData.permission += ',student';
+            if(app.registerData.rd_mose) app.registerData.permission += ',mose';
+            if(app.registerData.rd_wl) app.registerData.permission += ',wl';
+            if(app.registerData.rd_sw) app.registerData.permission += ',sw';
+            if(app.registerData.rd_msw) app.registerData.permission += ',msw';
             User.create(this.registerData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;
                     $timeout(function () {
-                        $location.path('/signin');
-                    }, 2000);
+                        $location.path('/intern/register');
+                    }, 1000);
                 } else {
                     app.errorMsg = data.data.message;
                 }
                 app.loading = false;
             });
         }
+
+        $scope.clickRole = function(role){
+            switch(role) {
+                case 'fi':
+                    if (app.registerData.rd_fi) {
+                        $scope.initChecked = false;
+                        app.registerData.rd_spl = true;
+                        app.registerData.rd_student = false;
+                    }
+                    break;
+                case 'spl':
+                    if (app.registerData.rd_spl) {
+                        $scope.initChecked = false;
+                        app.registerData.rd_student = false;
+                    }else{
+                        app.registerData.rd_fi = false;
+                    }
+                    break;
+                case 'student':
+                    if (app.registerData.rd_student) {
+                        app.registerData.rd_spl = false;
+                        app.registerData.rd_fi = false;
+                    }
+                    break;
+            }
+
+        };
     })
     .controller('updateCtrl', function ($rootScope, $location, User, AuthToken) {
         let app = this;

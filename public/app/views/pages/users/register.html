@@ -2,7 +2,7 @@
 <div ng-include src="'app/views/pages/intern_menu.html'"></div>
 <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
     <h4 class="text-center login-title"><span class="glyphicon glyphicon-user"></span> Neues Mitglied hinzufügen</h4>
-    </div>
+</div>
 </div><br><br><br>
 <div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
@@ -51,7 +51,8 @@
             <div ng-class="{ 'has-success':(registrationForm.email.$valid && !registrationForm.email.$pristine), 'has-error':(!registrationForm.email.$valid && !registrationForm.email.$pristine)}">
                 <span class="label label-success">Email *</span>
                 <input name="email" type="text" class="form-control" placeholder="Email" required
-                       ng-model="register.registerData.email" ng-pattern="/^(([^&lt;&gt;()\[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/">
+                       ng-model="register.registerData.email"
+                       ng-pattern="/^(([^&lt;&gt;()\[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/">
                 <ul ng-show="(!registrationForm.email.$pristine && registrationForm.email.$error.pattern)"
                     class="help-block">
                     <li>Beispiel: hans.josef@example.com oder smith@agent.de</li>
@@ -60,7 +61,8 @@
             <div ng-class="{ 'has-success':(registrationForm.mobile.$valid && !registrationForm.mobile.$pristine), 'has-error':(!registrationForm.mobile.$valid && !registrationForm.mobile.$pristine)}">
                 <span class="label label-success">Handy *</span>
                 <input name="mobile" type="text" class="form-control" placeholder="Handy" required
-                       ng-model="register.registerData.mobile" ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                       ng-model="register.registerData.mobile"
+                       ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
                 <ul ng-show="(!registrationForm.mobile.$pristine && registrationForm.mobile.$error.pattern)"
                     class="help-block">
                     <li>+49 172 159 86 59</li>
@@ -72,7 +74,8 @@
             <div>
                 <span class="label label-success">Telefon</span>
                 <input name="phone" type="phone" class="form-control" placeholder="Telefon"
-                       ng-model="register.registerData.phone" ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                       ng-model="register.registerData.phone"
+                       ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
                 <ul ng-show="(!registrationForm.phone.$pristine && registrationForm.phone.$error.pattern)"
                     class="help-block">
                     <li>+49 172 159 86 59</li>
@@ -97,7 +100,8 @@
                 <span class="label label-warning">Kennwort wiederholen *</span>
                 <input name="passwordConfirmed" type="password" class="form-control" placeholder="Kennwort wiederholen"
                        required
-                       ng-model="register.registerData.passwordConfirmed" ng-pattern="/^\S/" ng-minlength="6" ng-maxlength="35">
+                       ng-model="register.registerData.passwordConfirmed" ng-pattern="/^\S/" ng-minlength="6"
+                       ng-maxlength="35">
                 <ul ng-show="(!registrationForm.passwordConfirmed.$pristine && registrationForm.passwordConfirmed.$error.pattern) ||
                              (!registrationForm.passwordConfirmed.$pristine && registrationForm.passwordConfirmed.$error.minlength) ||
                              (!registrationForm.passwordConfirmed.$pristine && registrationForm.passwordConfirmed.$error.maxlength)"
@@ -106,74 +110,60 @@
                     <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
                 </ul>
             </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Administrator
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Vorstand
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Fluglehrer
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Scheininhaber
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Mosebucher
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Schüler
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Werkstattleiter
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Segelflugzeugwart
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                    Motorseglerwart
-                </label>
-            </div>
-            <div>
-                <p>
-                    <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
-                </p>
-                <br>
-                <button class="btn btn-info btn-outline btn-block" type="submit">
+            <br>
+            <div class="funkyradio">
+                <div class="funkyradio-info">
+                    <input type="checkbox" id="rd_admin"  name="rd_admin" ng-model="register.registerData.rd_admin" ng-click="clickRole('admin')">
+                    <label for="rd_admin"> Administrator</label>
+                </div>
+                <div class="funkyradio-info">
+                    <input type="checkbox" id="rd_manager" name="rd_manager" ng-model="register.registerData.rd_manager" ng-click="clickRole('manager')">
+                    <label for="rd_manager"> Vorstand </label>
+                </div>
+                <div class="funkyradio">
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_fi" name="rd_fi" ng-model="register.registerData.rd_fi"  ng-click="clickRole('fi')">
+                        <label for="rd_fi"> Fluglehrer</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_spl" name="rd_spl" ng-model="register.registerData.rd_spl"  ng-click="clickRole('spl')">
+                        <label for="rd_spl"> Scheininhaber</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_student" name="rd_student" ng-model="register.registerData.rd_student"  ng-click="clickRole('student')" ng-checked="initChecked">
+                        <label for="rd_student"> Flugschüler</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_mose" name="rd_mose" ng-model="register.registerData.rd_mose"  ng-click="clickRole('mose')">
+                        <label for="rd_mose"> Mosebucher</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_wl" name="rd_wl" ng-model="register.registerData.rd_wl"  ng-click="clickRole('wl')">
+                        <label for="rd_wl"> Werkstattleiter</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_sw" name="rd_sw" ng-model="register.registerData.rd_sw"  ng-click="clickRole('sw')">
+                        <label for="rd_sw"> Segelflugzeugwart</label>
+                    </div>
+                    <div class="funkyradio-info">
+                        <input type="checkbox" id="rd_rsw" name="rd_rsw" ng-model="register.registerData.rd_rsw"  ng-click="clickRole('rsw')">
+                        <label for="rd_rsw"> Motorseglerwart</label>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                        <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
+                    </p>
+                    <br>
+                    <button class="btn btn-info btn-outline btn-block" type="submit">
                 <span
                         class="glyphicon glyphicon-user"></span> Hinzufügen
-                </button>
-                <br>
-            </div>
-            <div class="cssload-container" ng-show="register.loading">
-                <div class="cssload-whirlpool"></div>
-            </div>
+                    </button>
+                    <br>
+                </div>
+                <div class="cssload-container" ng-show="register.loading">
+                    <div class="cssload-whirlpool"></div>
+                </div>
         </form>
     </div>
 </div>
