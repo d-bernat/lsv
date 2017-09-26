@@ -2,7 +2,7 @@
 
 
 angular.module('lsvApp', ['appRoutes', 'userControllers', 'mainController', 'anchorScrollOffsetControllers',
-                          'userServices', 'authServices', 'autoActive'])
+                          'userServices', 'authServices', 'autoActive', 'activateController','cp.ngConfirm'])
     .config(function($httpProvider){
         $httpProvider.interceptors.push('AuthInterceptors');
     });

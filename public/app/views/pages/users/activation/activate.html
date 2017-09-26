@@ -1,0 +1,139 @@
+<div class="row"><br>
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <h3 class="text-center login-title">Konto aktivieren</h3>
+        <img class="img-responsive center-block" src="app/views/images/no_image_user.png">
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <form name="activateForm" class="form-signin" ng-submit="activate.activateUser();">
+            <div ng-class="{ 'has-success':(activateForm.name.$valid && !activateForm.name.$pristine), 'has-error':(!activateForm.name.$valid && !activateForm.name.$pristine)}">
+                <span class="label label-primary">Name *</span>
+                <input name="name" type="text" class="form-control" placeholder="Name" required autofocus
+                       ng-model="activate.activateData.name" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
+                       ng-minlength="3" ng-maxlength="35">
+                <ul ng-show="(!activateForm.name.$pristine && activateForm.name.$error.pattern) ||
+                                 (!activateForm.name.$pristine && activateForm.name.$error.minlength) ||
+                                 (!activateForm.name.$pristine && activateForm.name.$error.maxlength)"
+                    class="help-block">
+                    <li>Keine leere Zeichen, wenn zwei Namen, dann mit Bindestrich(Hans-Josef)</li>
+                    <li>Keine Nummer</li>
+                    <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
+                </ul>
+            </div>
+            <div ng-class="{ 'has-success':(activateForm.nachname.$valid && !activateForm.nachname.$pristine), 'has-error':(!activateForm.nachname.$valid && !activateForm.nachname.$pristine)}">
+                <span class="label label-primary">Nachname *</span>
+                <input name="nachname" type="text" class="form-control" placeholder="Nachname" required
+                       ng-model="activate.activateData.lastname" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
+                       ng-minlength="3" ng-maxlength="35">
+                <ul ng-show="(!activateForm.nachname.$pristine && activateForm.nachname.$error.pattern) ||
+                                 (!activateForm.nachname.$pristine && activateForm.nachname.$error.minlength) ||
+                                 (!activateForm.nachname.$pristine && activateForm.nachname.$error.maxlength)"
+                    class="help-block">
+                    <li>Keine leere Zeichen, wenn zwei Namen, dann mit Bindestrich(Hans-Josef)</li>
+                    <li>Keine Nummer</li>
+                    <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
+                </ul>
+            </div>
+            <div ng-class="{ 'has-success':(activateForm.spitzname.$valid && !activateForm.spitzname.$pristine), 'has-error':(!activateForm.spitzname.$valid && !activateForm.spitzname.$pristine)}">
+                <span class="label label-primary">Spitzname *</span>
+                <input name="spitzname" type="text" class="form-control" placeholder="Spitzname" required
+                       ng-model="activate.activateData.username" ng-pattern="/^[a-zA-Z0-9]+$/"
+                       ng-minlength="3" ng-maxlength="35">
+                <ul ng-show="(!activateForm.spitzname.$pristine && activateForm.spitzname.$error.pattern) ||
+                                 (!activateForm.spitzname.$pristine && activateForm.spitzname.$error.minlength) ||
+                                 (!activateForm.spitzname.$pristine && activateForm.spitzname.$error.maxlength)"
+                    class="help-block">
+                    <li>Nur Buchstaben oder Nummer</li>
+                    <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
+                </ul>
+            </div>
+            <div ng-class="{ 'has-success':(activateForm.email.$valid && !activateForm.email.$pristine), 'has-error':(!activateForm.email.$valid && !activateForm.email.$pristine)}">
+                <span class="label label-success">Email *</span>
+                <input name="email" type="text" class="form-control" ng_init="activate.activateData.email = false" placeholder="Email" required
+                       ng-model="activate.activateData.email"
+                       ng-pattern="/^(([^&lt;&gt;()\[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/">
+                <ul ng-show="(!activateForm.email.$pristine && activateForm.email.$error.pattern)"
+                    class="help-block">
+                    <li>Beispiel: hans.josef@example.com oder smith@agent.de</li>
+                </ul>
+            </div>
+            <div ng-class="{ 'has-success':(activateForm.mobile.$valid && !activateForm.mobile.$pristine), 'has-error':(!activateForm.mobile.$valid && !activateForm.mobile.$pristine)}">
+                <span class="label label-success">Handy *</span>
+                <input name="mobile" type="text" class="form-control" placeholder="Handy" required
+                       ng-model="activate.activateData.mobile"
+                       ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                <ul ng-show="(!activateForm.mobile.$pristine && activateForm.mobile.$error.pattern)"
+                    class="help-block">
+                    <li>+49 172 159 86 59</li>
+                    <li>0049 172 159 86 59</li>
+                    <li>01721598659</li>
+                    <li>21598659</li>
+                </ul>
+            </div>
+            <div>
+                <span class="label label-success">Telefon</span>
+                <input name="phone" type="phone" class="form-control" placeholder="Telefon"
+                       ng-model="activate.activateData.phone"
+                       ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                <ul ng-show="(!activateForm.phone.$pristine && activateForm.phone.$error.pattern)"
+                    class="help-block">
+                    <li>+49 172 159 86 59</li>
+                    <li>0049 172 159 86 59</li>
+                    <li>01721598659</li>
+                    <li>21598659</li>
+                </ul>
+            </div>
+            <div ng-class="{ 'has-success':(activateForm.password.$valid && !activateForm.password.$pristine), 'has-error':(!activateForm.password.$valid && !activateForm.password.$pristine)}">
+                <span class="label label-warning">Kennwort *</span>
+                <input name="password" type="password" class="form-control" placeholder="Kennwort" required
+                       ng-model="activate.activateData.password" ng-pattern="/^\S/" ng-minlength="6" ng-maxlength="35">
+                <ul ng-show="(!activateForm.password.$pristine && activateForm.password.$error.pattern) ||
+                                 (!activateForm.password.$pristine && activateForm.password.$error.minlength) ||
+                                 (!activateForm.password.$pristine && activateForm.password.$error.maxlength)"
+                    class="help-block">
+                    <li>Keine leer Zeichen vorne</li>
+                    <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
+                </ul>
+            </div>
+            <div ng-class="{ 'has-success':(activateForm.passwordConfirmed.$valid && !activateForm.passwordConfirmed.$pristine), 'has-error':(!activateForm.passwordConfirmed.$valid && !activateForm.passwordConfirmed.$pristine)}">
+                <span class="label label-warning">Kennwort wiederholen *</span>
+                <input name="passwordConfirmed" type="password" class="form-control" placeholder="Kennwort wiederholen"
+                       required
+                       ng-model="activate.activateData.passwordConfirmed" ng-pattern="/^\S/" ng-minlength="6"
+                       ng-maxlength="35">
+                <ul ng-show="(!activateForm.passwordConfirmed.$pristine && activateForm.passwordConfirmed.$error.pattern) ||
+                                 (!activateForm.passwordConfirmed.$pristine && activateForm.passwordConfirmed.$error.minlength) ||
+                                 (!activateForm.passwordConfirmed.$pristine && activateForm.passwordConfirmed.$error.maxlength)"
+                    class="help-block">
+                    <li>Keine leer Zeichen vorne</li>
+                    <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
+                </ul>
+            </div>
+            <div>
+                <p>
+                    <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
+                </p>
+                <br>
+                <button class="btn btn-info btn-outline btn-block" type="submit">
+                <span
+                        class="glyphicon glyphicon-user"></span> Hinzufügen
+                </button>
+                <br><br><br>
+            </div>
+            <div class="cssload-container" ng-show="activate.loading">
+                <div class="cssload-whirlpool"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+        <div class="show-hide-message" ng-show="activate.successMsg">
+            <div class="alert alert-success">{{ activate.successMsg }}</div>
+        </div>
+        <div class="show-hide-message" ng-show="activate.errorMsg">
+            <div class="alert alert-danger">{{ activate.errorMsg }}</div>
+        </div>
+    </div>
+</div>

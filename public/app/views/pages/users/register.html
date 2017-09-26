@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
         <form name="registrationForm" class="form-signin" ng-submit="register.registerUser();">
-            <div ng-class="{ 'has-success':(registrationForm.name.$valid && !registrationForm.name.$pristine), 'has-error':(!registrationForm.name.$valid && !registrationForm.name.$pristine)}">
+            <!--div ng-class="{ 'has-success':(registrationForm.name.$valid && !registrationForm.name.$pristine), 'has-error':(!registrationForm.name.$valid && !registrationForm.name.$pristine)}">
                 <span class="label label-primary">Name *</span>
                 <input name="name" type="text" class="form-control" placeholder="Name" required autofocus
                        ng-model="register.registerData.name" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
@@ -34,8 +34,8 @@
                     <li>Keine Nummer</li>
                     <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
                 </ul>
-            </div>
-            <div ng-class="{ 'has-success':(registrationForm.spitzname.$valid && !registrationForm.spitzname.$pristine), 'has-error':(!registrationForm.spitzname.$valid && !registrationForm.spitzname.$pristine)}">
+            </div-->
+            <!--div ng-class="{ 'has-success':(registrationForm.spitzname.$valid && !registrationForm.spitzname.$pristine), 'has-error':(!registrationForm.spitzname.$valid && !registrationForm.spitzname.$pristine)}">
                 <span class="label label-primary">Spitzname *</span>
                 <input name="spitzname" type="text" class="form-control" placeholder="Spitzname" required
                        ng-model="register.registerData.username" ng-pattern="/^[a-zA-Z0-9]+$/"
@@ -47,9 +47,9 @@
                     <li>Nur Buchstaben oder Nummer</li>
                     <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
                 </ul>
-            </div>
+            </div-->
             <div ng-class="{ 'has-success':(registrationForm.email.$valid && !registrationForm.email.$pristine), 'has-error':(!registrationForm.email.$valid && !registrationForm.email.$pristine)}">
-                <span class="label label-success">Email *</span>
+                <span class="label label-info">Email *</span>
                 <input name="email" type="text" class="form-control" placeholder="Email" required
                        ng-model="register.registerData.email"
                        ng-pattern="/^(([^&lt;&gt;()\[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/">
@@ -58,7 +58,7 @@
                     <li>Beispiel: hans.josef@example.com oder smith@agent.de</li>
                 </ul>
             </div>
-            <div ng-class="{ 'has-success':(registrationForm.mobile.$valid && !registrationForm.mobile.$pristine), 'has-error':(!registrationForm.mobile.$valid && !registrationForm.mobile.$pristine)}">
+            <!--div ng-class="{ 'has-success':(registrationForm.mobile.$valid && !registrationForm.mobile.$pristine), 'has-error':(!registrationForm.mobile.$valid && !registrationForm.mobile.$pristine)}">
                 <span class="label label-success">Handy *</span>
                 <input name="mobile" type="text" class="form-control" placeholder="Handy" required
                        ng-model="register.registerData.mobile"
@@ -109,61 +109,72 @@
                     <li>Keine leer Zeichen vorne</li>
                     <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
                 </ul>
-            </div>
+            </div-->
             <br>
             <div class="funkyradio">
                 <div class="funkyradio-info">
-                    <input type="checkbox" id="rd_admin"  name="rd_admin" ng-model="register.registerData.rd_admin" ng-click="clickRole('admin')">
+                    <input type="checkbox" id="rd_admin" name="rd_admin" ng-model="register.registerData.rd_admin"
+                           ng-click="clickRole('admin')">
                     <label for="rd_admin"> Administrator</label>
                 </div>
                 <div class="funkyradio-info">
-                    <input type="checkbox" id="rd_manager" name="rd_manager" ng-model="register.registerData.rd_manager" ng-click="clickRole('manager')">
+                    <input type="checkbox" id="rd_manager" name="rd_manager" ng-model="register.registerData.rd_manager"
+                           ng-click="clickRole('manager')">
                     <label for="rd_manager"> Vorstand </label>
                 </div>
                 <div class="funkyradio">
                     <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_fi" name="rd_fi" ng-model="register.registerData.rd_fi"  ng-click="clickRole('fi')">
+                        <input type="checkbox" id="rd_fi" name="rd_fi" ng-model="register.registerData.rd_fi"
+                               ng-click="clickRole('fi')">
                         <label for="rd_fi"> Fluglehrer</label>
                     </div>
                     <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_spl" name="rd_spl" ng-model="register.registerData.rd_spl"  ng-click="clickRole('spl')">
+                        <input type="checkbox" id="rd_spl" name="rd_spl" ng-model="register.registerData.rd_spl"
+                               ng-click="clickRole('spl')">
                         <label for="rd_spl"> Scheininhaber</label>
                     </div>
                     <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_student" name="rd_student" ng-model="register.registerData.rd_student"  ng-click="clickRole('student')" ng-checked="initChecked">
+                        <input type="checkbox" id="rd_student" name="rd_student"
+                               ng-model="register.registerData.rd_student" ng-init="register.registerData.rd_student = true" ng-click="clickRole('student')"
+                               value="true" ng-checked="initChecked" >
                         <label for="rd_student"> Flugschüler</label>
                     </div>
-                    <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_mose" name="rd_mose" ng-model="register.registerData.rd_mose"  ng-click="clickRole('mose')">
-                        <label for="rd_mose"> Mosebucher</label>
-                    </div>
-                    <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_wl" name="rd_wl" ng-model="register.registerData.rd_wl"  ng-click="clickRole('wl')">
-                        <label for="rd_wl"> Werkstattleiter</label>
-                    </div>
-                    <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_sw" name="rd_sw" ng-model="register.registerData.rd_sw"  ng-click="clickRole('sw')">
-                        <label for="rd_sw"> Segelflugzeugwart</label>
-                    </div>
-                    <div class="funkyradio-info">
-                        <input type="checkbox" id="rd_rsw" name="rd_rsw" ng-model="register.registerData.rd_rsw"  ng-click="clickRole('rsw')">
-                        <label for="rd_rsw"> Motorseglerwart</label>
-                    </div>
                 </div>
-                <div>
-                    <p>
-                        <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
-                    </p>
-                    <br>
-                    <button class="btn btn-info btn-outline btn-block" type="submit">
+                <div class="funkyradio-info">
+                    <input type="checkbox" id="rd_mose" name="rd_mose" ng-model="register.registerData.rd_mose"
+                           ng-click="clickRole('mose')">
+                    <label for="rd_mose"> Mosebucher</label>
+                </div>
+                <div class="funkyradio-info">
+                    <input type="checkbox" id="rd_wl" name="rd_wl" ng-model="register.registerData.rd_wl"
+                           ng-click="clickRole('wl')">
+                    <label for="rd_wl"> Werkstattleiter</label>
+                </div>
+                <div class="funkyradio-info">
+                    <input type="checkbox" id="rd_sw" name="rd_sw" ng-model="register.registerData.rd_sw"
+                           ng-click="clickRole('sw')">
+                    <label for="rd_sw"> Segelflugzeugwart</label>
+                </div>
+                <div class="funkyradio-info">
+                    <input type="checkbox" id="rd_rsw" name="rd_msw" ng-model="register.registerData.rd_rsw"
+                           ng-click="clickRole('msw')">
+                    <label for="rd_rsw"> Motorseglerwart</label>
+                </div>
+            </div>
+            <div>
+                <p>
+                    <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
+                </p>
+                <br>
+                <button class="btn btn-info btn-outline btn-block" type="submit">
                 <span
                         class="glyphicon glyphicon-user"></span> Hinzufügen
-                    </button>
-                    <br>
-                </div>
-                <div class="cssload-container" ng-show="register.loading">
-                    <div class="cssload-whirlpool"></div>
-                </div>
+                </button>
+                <br>
+            </div>
+            <div class="cssload-container" ng-show="register.loading">
+                <div class="cssload-whirlpool"></div>
+            </div>
         </form>
     </div>
 </div>
