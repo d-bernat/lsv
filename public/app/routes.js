@@ -109,6 +109,13 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 authenticated: false
             })
 
+            .when('/activate/:token', {
+                templateUrl: 'app/views/pages/users/activation/activate.html',
+                controller: 'activateCtrl',
+                controllerAs: 'activate',
+                authenticated: false
+            })
+
             .when('/signout', {
                 templateUrl: 'app/views/pages/users/signout.html',
                 controller: 'signOutCtrl',
@@ -131,6 +138,8 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
             .when('/intern/editmember', {
                 templateUrl: 'app/views/pages/intern/editmember.html',
+                controller: 'getAllUsersCtrl',
+                controllerAs: 'users',
                 authenticated: true,
                 permission: ['manager']
             })

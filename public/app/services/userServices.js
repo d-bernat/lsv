@@ -17,6 +17,13 @@ angular.module('userServices', [])
             return $http.get('/api/permission');
         }
 
+        userFactory.activateAccount = function(regData) {
+            return $http.put('/api/users/activate/', regData);
+        }
+
+        userFactory.getAllUsers = function(){
+            return $http.get('/api/users');
+        }
 
         return userFactory;
     })

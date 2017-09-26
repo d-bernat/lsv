@@ -58,7 +58,9 @@ let UserSchema = new Schema({
     email: {type: String, required: true, unique: true, validate: emailValidator},
     phone: {type: String, lowercase: true, validate: phoneValidator},
     mobile: {type: String, lowercase: true, validate: phoneValidator},
-    permission: {type: String, lowercase: true, required: true, default: 'user'}
+    permission: {type: String, lowercase: true, required: true, default: 'user'},
+    active:{type: Boolean, required: true, default: false},
+    temporaryToken:{type: String, required: true}
 });
 
 UserSchema.pre('save', function (next) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('userControllers', ['userServices'])
+angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
     .controller('signInCtrl', function ($location, $timeout, Auth) {
         let app = this;
         this.signInUser = function () {
@@ -31,21 +31,27 @@ angular.module('userControllers', ['userServices'])
             app.successMsg = false;
             app.loading = true;
             app.registerData.permission = 'user';
-            if(app.registerData.rd_admin) app.registerData.permission += ',admin';
-            if(app.registerData.rd_manager) app.registerData.permission += ',manager';
-            if(app.registerData.rd_fi) app.registerData.permission += ',fi';
-            if(app.registerData.rd_spl) app.registerData.permission += ',spl';
-            if(app.registerData.rd_student) app.registerData.permission += ',student';
-            if(app.registerData.rd_mose) app.registerData.permission += ',mose';
-            if(app.registerData.rd_wl) app.registerData.permission += ',wl';
-            if(app.registerData.rd_sw) app.registerData.permission += ',sw';
-            if(app.registerData.rd_msw) app.registerData.permission += ',msw';
+            app.registerData.name = 'placeholder';
+            app.registerData.lastname = 'placeholder';
+            app.registerData.mobile = '+4940123456789';
+            app.registerData.username = 'placeholder';
+            app.registerData.password = app.registerData.email;
+            app.registerData.passwordConfirmed = app.registerData.email;
+            if (app.registerData.rd_admin) app.registerData.permission += ',admin';
+            if (app.registerData.rd_manager) app.registerData.permission += ',manager';
+            if (app.registerData.rd_fi) app.registerData.permission += ',fi';
+            if (app.registerData.rd_spl) app.registerData.permission += ',spl';
+            if (app.registerData.rd_student) app.registerData.permission += ',student';
+            if (app.registerData.rd_mose) app.registerData.permission += ',mose';
+            if (app.registerData.rd_wl) app.registerData.permission += ',wl';
+            if (app.registerData.rd_sw) app.registerData.permission += ',sw';
+            if (app.registerData.rd_msw) app.registerData.permission += ',msw';
             User.create(this.registerData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;
                     $timeout(function () {
                         $location.path('/intern/register');
-                    }, 1000);
+                    }, 500);
                 } else {
                     app.errorMsg = data.data.message;
                 }
@@ -53,8 +59,8 @@ angular.module('userControllers', ['userServices'])
             });
         }
 
-        $scope.clickRole = function(role){
-            switch(role) {
+        $scope.clickRole = function (role) {
+            switch (role) {
                 case 'fi':
                     if (app.registerData.rd_fi) {
                         $scope.initChecked = false;
@@ -66,7 +72,7 @@ angular.module('userControllers', ['userServices'])
                     if (app.registerData.rd_spl) {
                         $scope.initChecked = false;
                         app.registerData.rd_student = false;
-                    }else{
+                    } else {
                         app.registerData.rd_fi = false;
                     }
                     break;
@@ -103,6 +109,59 @@ angular.module('userControllers', ['userServices'])
         this.signOutUser = function () {
             Auth.logout();
             $location.path('/home');
+        }
+    })
+    .controller('getAllUsersCtrl', function ($scope, User, $ngConfirm) {
+
+        $scope.updateIndex = -1;
+        User.getAllUsers().then(function (res) {
+            if (res.data.success) {
+                console.log(res.data.message);
+                $scope.users = res.data.message;
+            }
+            else {
+                console.log(res.data.message);
+                $scope.users = false;
+            }
+        });
+
+        $scope.hasPermision = function (index, permission) {
+            return $scope.users[index].permission.indexOf(permission) >= 0;
+        }
+
+        $scope.setUpdateIndex = function (index) {
+            $scope.updateIndex = index;
+        }
+
+        $scope.save = function (index) {
+            $ngConfirm({
+                title: 'Berechtigungen: ' + $scope.users[index].lastname + ' ' + $scope.users[index].name,
+                content: 'Möchtest du wirklich die Datenänderungen speichern?',
+                type: 'orange',
+                typeAnimated: true,
+                animation: 'zoom',
+                closeAnimation: 'scale',
+                buttons: {
+                    save: {
+                        text: 'Speichern',
+                        btnClass: 'btn-orange',
+                        action: function () {
+                            $scope.updateIndex = -1;
+                            $ngConfirm('Daten sind gespeichert worden!');
+                        }
+                    },
+                    cancel:{
+                        text: 'Stornieren',
+                        btnClass: 'btn-blue',
+                        action: function () {
+                            $scope.updateIndex = -1;
+                            $ngConfirm('Die Änderungen sind zurückgenommen worden!');
+                            $scope.updateIndex = -1;
+                        }
+                    }
+                }
+            });
+
         }
     });
 

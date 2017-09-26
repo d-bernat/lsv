@@ -14,7 +14,6 @@ angular.module('mainController', ['authServices'])
                         $scope.loadme = true;
                     } else {
                         $scope.welcomeMessage = 'Willkommen ' + data.data.username;
-                        console.log()
                         $rootScope.userData = data.data;
                         $scope.loadme = true;
                     }
