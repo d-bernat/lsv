@@ -128,7 +128,16 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
     .controller('getAllUsersCtrl', function ($scope, User, $ngConfirm) {
 
         $scope.updateIndex = -1;
-        $scope.permissionNames = ['admin', 'manager', 'fi', 'spl', 'student', 'mose', 'wl', 'sw', 'msw'];
+        //$scope.permissionNames = ['admin', 'manager', 'fi', 'spl', 'student', 'mose', 'wl', 'sw', 'msw'];
+        $scope.permissionLabels = [['admin','Administrator'],
+                                   ['manager', 'Manager'],
+                                   ['fi','Fluglehrer'],
+                                   ['spl','Scheininhaber'],
+                                   ['student','Flugschüler'],
+                                   ['mose','Mosebucher'],
+                                   ['wl', 'Werkstattleiter'],
+                                   ['sw', 'Segelflugzeugwart'],
+                                   ['msw', 'Motorseglerwart']];
 
         User.getAllUsers().then(function (res) {
             if (res.data.success) {
@@ -166,16 +175,14 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                             let oldPermission =  $scope.users[index].permission;
                             let oldActive = $scope.users[index].active;
                             $scope.users[index].permission = 'user';
-                            for(let i = 0; i < $scope.permissionNames.length; ++i){
-                                if(angular.element('#' + $scope.permissionNames[i] + index)[0].checked) $scope.users[index].permission += ',' + $scope.permissionNames[i];
+                            for(let i = 0; i < $scope.permissionLabels.length; ++i){
+                                if(angular.element('#' + $scope.permissionLabels[i][0] + index)[0].checked) $scope.users[index].permission += ',' + $scope.permissionLabels[i][0];
                             }
                             $scope.users[index].active = angular.element('#active' + index)[0].checked;
                             User.updatePermissions($scope.users[index]).then(function (data) {
                                 if (data.data.success) {
-                                    console.log(data.data.message);
                                     $ngConfirm(data.data.message);
                                 } else {
-                                    console.log($scope.users[index]);
                                     $scope.users[index].permission = oldPermission;
                                     $scope.users[index].active = oldActive;
                                     $scope.resetSettings(index);
@@ -201,8 +208,8 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
         };
 
         $scope.resetSettings = function(index){
-            for(let i = 0; i < $scope.permissionNames.length; ++i){
-                angular.element('#' + $scope.permissionNames[i] + index)[0].checked = $scope.hasPermission(index, $scope.permissionNames[i]);
+            for(let i = 0; i < $scope.permissionLabels.length; ++i){
+                angular.element('#' + $scope.permissionLabels[i][0] + index)[0].checked = $scope.hasPermission(index, $scope.permissionLabels[i][0]);
             }
             angular.element('#active' + index)[0].checked = $scope.users[index].active
             $scope.updateIndex = -1;
