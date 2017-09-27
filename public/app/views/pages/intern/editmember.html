@@ -10,8 +10,7 @@
             <th>Email</th>
             <th>Handy</th>
             <th>Telefon</th>
-            <th ng-show="updateIndex !== -1">Berechtigung&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th style="width: 23%" ng-show="updateIndex !== -1">Berechtigung</th>
             <th ng-show="updateIndex === -1">Berechtigung *</th>
             <th>Freigegeben</th>
             <th></th>
@@ -71,7 +70,7 @@
                     <input  id="{{'msw' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
                            ng-checked="hasPermission($index, 'msw')">
                     <span class="custom-control-indicator"></span>
-                    <small>Motoresegelerwart</small></label>
+                    <small>Motorseglerwart</small></label>
             </td>
             <td>
                 <label class="custom-control custom-checkbox">
