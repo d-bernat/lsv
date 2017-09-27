@@ -2,8 +2,8 @@
 <br><br>
 <div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
-        <h4 class="text-center login-title"><span class="glyphicon glyphicon-user"></span> Profil
-            ({{update.userData.username +' - ' + update.userData.permission}}) aktualisieren</h4>
+        <h4 class="text-center login-title" style="color: #337ab7"><span class="glyphicon glyphicon-user"></span>  {{update.userData.name +' ' + update.userData.lastname}}</h4>
+        <h6 class="text-center login-title">{{update.mapToPermission(update.userData.permission)}}</h6>
     </div>
 </div><br>
 <div class="row">

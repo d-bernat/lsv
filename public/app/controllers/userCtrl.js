@@ -104,6 +104,20 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                 app.loading = false;
             });
         }
+
+        app.mapToPermission = function(rights){
+            return rights
+                .replace('admin', ' Administrator')
+                .replace('manager', ' Vorstand')
+                .replace('fi', ' Fluglehrer')
+                .replace('spl', ' Scheininhaber')
+                .replace('student', ' Flugschüler')
+                .replace('mose', ' Mosebucher')
+                .replace('wl', ' Werkstattleiter')
+                .replace('sw', ' Segelflugzeugwart')
+                .replace('msw', ' Motorseglerwart')
+                .replace('user,','');
+        }
     })
     .controller('signOutCtrl', function ($location, $timeout, Auth) {
         this.signOutUser = function () {
@@ -114,9 +128,10 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
     .controller('getAllUsersCtrl', function ($scope, User, $ngConfirm) {
 
         $scope.updateIndex = -1;
+        $scope.permissionNames = ['admin', 'manager', 'fi', 'spl', 'student', 'mose', 'wl', 'sw', 'msw'];
+
         User.getAllUsers().then(function (res) {
             if (res.data.success) {
-                console.log(res.data.message);
                 $scope.users = res.data.message;
             }
             else {
@@ -125,7 +140,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             }
         });
 
-        $scope.hasPermision = function (index, permission) {
+        $scope.hasPermission = function (index, permission) {
             return $scope.users[index].permission.indexOf(permission) >= 0;
         }
 
@@ -133,35 +148,89 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             $scope.updateIndex = index;
         }
 
+
         $scope.save = function (index) {
             $ngConfirm({
                 title: 'Berechtigungen: ' + $scope.users[index].lastname + ' ' + $scope.users[index].name,
                 content: 'Möchtest du wirklich die Datenänderungen speichern?',
-                type: 'orange',
+                type: 'green',
                 typeAnimated: true,
                 animation: 'zoom',
                 closeAnimation: 'scale',
                 buttons: {
                     save: {
                         text: 'Speichern',
-                        btnClass: 'btn-orange',
+                        btnClass: 'btn-green',
                         action: function () {
                             $scope.updateIndex = -1;
-                            $ngConfirm('Daten sind gespeichert worden!');
+                            let oldPermission =  $scope.users[index].permission;
+                            let oldActive = $scope.users[index].active;
+                            $scope.users[index].permission = 'user';
+                            for(let i = 0; i < $scope.permissionNames.length; ++i){
+                                if(angular.element('#' + $scope.permissionNames[i] + index)[0].checked) $scope.users[index].permission += ',' + $scope.permissionNames[i];
+                            }
+                            $scope.users[index].active = angular.element('#active' + index)[0].checked;
+                            User.updatePermissions($scope.users[index]).then(function (data) {
+                                if (data.data.success) {
+                                    console.log(data.data.message);
+                                    $ngConfirm(data.data.message);
+                                } else {
+                                    console.log($scope.users[index]);
+                                    $scope.users[index].permission = oldPermission;
+                                    $scope.users[index].active = oldActive;
+                                    $scope.resetSettings(index);
+                                    $ngConfirm('Fehler!\n' + data.data.message);
+                                }
+                                app.loading = false;
+                            });
+
                         }
                     },
                     cancel:{
-                        text: 'Stornieren',
-                        btnClass: 'btn-blue',
+                        text: 'Zurück',
+                        btnClass: 'btn-orange',
                         action: function () {
                             $scope.updateIndex = -1;
+                            $scope.resetSettings(index);
                             $ngConfirm('Die Änderungen sind zurückgenommen worden!');
-                            $scope.updateIndex = -1;
+
                         }
                     }
                 }
             });
+        };
 
+        $scope.resetSettings = function(index){
+            for(let i = 0; i < $scope.permissionNames.length; ++i){
+                angular.element('#' + $scope.permissionNames[i] + index)[0].checked = $scope.hasPermission(index, $scope.permissionNames[i]);
+            }
+            angular.element('#active' + index)[0].checked = $scope.users[index].active
+            $scope.updateIndex = -1;
         }
+
+        $scope.clickPermission = function (index, permission) {
+            switch (permission) {
+                case 'fi':
+                    if(angular.element('#fi' + index)[0].checked){
+                        angular.element('#spl' + index)[0].checked = true;
+                        angular.element('#student' + index)[0].checked = false;
+                    }
+                    break;
+                case 'spl':
+                    if(angular.element('#spl' + index)[0].checked){
+                        angular.element('#student' + index)[0].checked = false;
+                    }else{
+                        angular.element('#fi' + index)[0].checked = false;
+                    }
+                    break;
+                case 'student':
+                    if(angular.element('#student' + index)[0].checked){
+                        angular.element('#spl' + index)[0].checked = false;
+                        angular.element('#fi' + index)[0].checked = false;
+                    }
+                    break;
+            }
+        };
+
     });
 

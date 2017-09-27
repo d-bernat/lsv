@@ -1,4 +1,4 @@
-<div ng-include src="'app/views/pages/intern_menu.html'"></div>
+<div ng-controller="mainCtrl" ng-include src="'app/views/pages/intern_menu.html'"></div>
 <br><br><br>
 <div class="col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 main">
     <table class="table table-bordered table-striped table-hover table-responsive table-condensed">
@@ -10,7 +10,9 @@
             <th>Email</th>
             <th>Handy</th>
             <th>Telefon</th>
-            <th>Rechte</th>
+            <th ng-show="updateIndex !== -1">Berechtigung&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th ng-show="updateIndex === -1">Berechtigung *</th>
             <th>Freigegeben</th>
             <th></th>
         </tr>
@@ -23,75 +25,83 @@
             <td>{{user.email}}</td>
             <td>{{user.mobile}}</td>
             <td>{{user.phone}}</td>
-            <td ng-show="$index != updateIndex">{{user.permission}}</td>
-            <td ng-show="$index == updateIndex">
+            <td ng-show="$index !== updateIndex">{{user.permission.replace('user', '').replace(',', '')}}</td>
+            <td ng-show="$index === updateIndex">
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'admin')">
+                    <input id="{{'admin' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'admin')">
                     <span class="custom-control-indicator"></span>
-                    Administrator</label><br>
+                    <small>Administrator</small></label><br>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'manager')">
+                    <input  id="{{'manager' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'manager')">
                     <span class="custom-control-indicator"></span>
-                    Vorstand</label><br>
+                    <small>Vorstand</small></label><br>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'fi')">
+                    <input  id="{{'fi' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'fi')" ng-click="clickPermission($index, 'fi')">
                     <span class="custom-control-indicator"></span>
-                    Fluglehrer</label>
+                    <small>Fluglehrer</small></label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'spl')">
+                    <input  id="{{'spl' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'spl')" ng-click="clickPermission($index, 'spl')">
                     <span class="custom-control-indicator"></span>
-                    Scheininhaber</label>
+                    <small>Scheininhaber</small></label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'student')">
+                    <input  id="{{'student' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'student')" ng-click="clickPermission($index, 'student')">
                     <span class="custom-control-indicator"></span>
-                    Flugschuler</label>
+                    <small>Flugschuler</small></label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'mose')">
+                    <input  id="{{'mose' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'mose')">
                     <span class="custom-control-indicator"></span>
-                    Mosebucher</label>
+                    <small>Mosebucher</small></label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'wl')">
+                    <input  id="{{'wl' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'wl')">
                     <span class="custom-control-indicator"></span>
-                    Werkstattleiter</label>
+                    <small>Werkstattleiter</small></label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'sw')">
+                    <input  id="{{'sw' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'sw')">
                     <span class="custom-control-indicator"></span>
-                    Segelflugzeugwart</label>
+                    <small>Segelflugzeugwart</small></label>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="hasPermision($index, 'msw')">
+                    <input  id="{{'msw' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                           ng-checked="hasPermission($index, 'msw')">
                     <span class="custom-control-indicator"></span>
-                    Motoresegelerwart</label>
+                    <small>Motoresegelerwart</small></label>
             </td>
             <td>
                 <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" ng-show="false" ng-checked="user.active"
+                    <input id="{{'active' + $index}}" type="checkbox" class="custom-control-input" ng-show="false" ng-checked="user.active"
                            ng-disabled="$index != updateIndex">
-                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-indicator ng-disabled="$index != updateIndex"></span>
                 </label>
             <td>
                 <button class="btn btn-info btn-outline my-2 my-sm-0" type="button"
-                        ng-click="setUpdateIndex($index)" ng-show="$index !== updateIndex" ng-disabled="updateIndex !== -1">
+                        ng-click="setUpdateIndex($index)" ng-show="$index !== updateIndex"
+                        ng-disabled="updateIndex !== -1">
                         <span
-                        class="glyphicon glyphicon-edit"
-                        aria-hidden="true"></span> Ändern
+                                class="glyphicon glyphicon-edit"
+                                aria-hidden="true"></span> Ändern
                 </button>
-                <button class="btn btn-warning btn-outline my-2 my-sm-0" type="button"
+
+                <button class="btn btn-success btn-outline my-2 my-sm-0" type="button"
                         ng-click="save($index); " ng-show="$index === updateIndex"><span
                         class="glyphicon glyphicon-save"
                         aria-hidden="true"></span> Speichern
                 </button>
-
+                <button class="btn btn-warning btn-outline my-2 my-sm-0" type="button"
+                        ng-click="resetSettings($index)" ng-show="$index === updateIndex"><span
+                        class="glyphicon glyphicon-remove"
+                        aria-hidden="true"></span>  Zurück&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
             </td>
         </tr>
         </tbody>
     </table>
+    <h6><i>* admin: Administrator, manager: Vorstand, fi: Fluglehrer, spl: Scheininhaber, student: Flugschüler,
+        mose: Mosebucher, wl: Werkstattleiter, sw: Segelflugzeugwart, msw: Motorseglerwart</i></h6>
 </div>
