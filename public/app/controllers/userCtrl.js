@@ -221,6 +221,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                         angular.element('#student' + index)[0].checked = false;
                     }else{
                         angular.element('#fi' + index)[0].checked = false;
+                        angular.element('#mose' + index)[0].checked = false;
                     }
                     break;
                 case 'student':
