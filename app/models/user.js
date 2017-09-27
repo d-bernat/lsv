@@ -15,7 +15,7 @@ let nameValidator = [
     }),
     validate({
         validator: 'isLength',
-        arguments: [3,35],
+        arguments: [3, 35],
         message: 'Name should be between {ARGS[0]} nad {ARGS[1]} characters'
     })
 ];
@@ -28,7 +28,7 @@ let usernameValidator = [
     }),
     validate({
         validator: 'isLength',
-        arguments: [3,35],
+        arguments: [3, 35],
         message: 'Username should be between {ARGS[0]} nad {ARGS[1]} characters'
     })
 ];
@@ -59,36 +59,42 @@ let UserSchema = new Schema({
     phone: {type: String, lowercase: true, validate: phoneValidator},
     mobile: {type: String, lowercase: true, validate: phoneValidator},
     permission: {type: String, lowercase: true, required: true, default: 'user'},
-    active:{type: Boolean, required: true, default: false},
-    temporaryToken:{type: String, required: true}
+    active: {type: Boolean, required: true, default: false},
+    temporaryToken: {type: String, required: true}
 });
 
 UserSchema.pre('save', function (next) {
-    console.log('upafate as well');
     let user = this;
-    bcrypt.hash(user.password, null, null, function (err, hash) {
-        if (err) {
-            return next(err);
-        }
-        user.password = hash;
+    if (user.password) {
+        bcrypt.hash(user.password, null, null, function (err, hash) {
+            if (err) {
+                return next(err);
+            }
+            user.password = hash;
+            next();
+        });
+    }else{
         next();
-    });
+    }
 });
 
 UserSchema.pre('update', function (next) {
-    console.log('upafate as well');
     let user = this;
-    bcrypt.hash(user.password, null, null, function (err, hash) {
-        if (err) {
-            return next(err);
-        }
-        user.password = hash;
+    if(user.password) {
+        bcrypt.hash(user.password, null, null, function (err, hash) {
+            if (err) {
+                return next(err);
+            }
+            user.password = hash;
+            next();
+        });
+    }else{
         next();
-    });
+    }
 });
 
 
-UserSchema.plugin(titlize,{ paths: ['name', 'lastname']});
+UserSchema.plugin(titlize, {paths: ['name', 'lastname']});
 
 UserSchema.methods.comparePassword = function (password, callback) {
     return bcrypt.compare(password, this.password, function (err, isMatch) {

@@ -10,15 +10,40 @@ module.exports = function (router) {
     dotenv.load();
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-    router.get('/users', function(req, res){
-        User.find({}).select('name lastname email mobile phone permission active').sort({ lastname : 'asc'}).exec(function(err, users){
-            if(err){
+    router.get('/users', function (req, res) {
+        User.find({}).select('name lastname username email mobile phone permission active').sort({lastname: 'asc'}).exec(function (err, users) {
+            if (err) {
                 res.json({success: false, message: err});
-            }else{
+            } else {
                 res.json({success: true, message: users});
             }
         })
     });
+
+    //update permission and active flag only
+    router.put('/users/permissions', function (req, res) {
+        User.findOne({email: req.body.email}).select('permission active').exec(function (err, user) {
+            if (err) throw err;
+            if (!user) {
+                res.json({success: false, message: 'EMail not valid'});
+            } else if (user) {
+                user.permission = req.body.permission;
+                user.active = req.body.active;
+                user.save((err) => {
+                    if (err) {
+                        res.json({success: false, message: err.message});
+                    }
+                    else {
+                        res.json({
+                            success: true,
+                            message: 'Berechtigungen für ' + req.body.lastname + ' ' + req.body.name +  ' sind gespeichert worden.'
+                        });
+                    }
+                });
+            }
+        });
+    });
+
 
     //update
     router.put('/users', function (req, res) {
@@ -43,6 +68,7 @@ module.exports = function (router) {
                                 user.email = req.body.email;
                                 user.phone = req.body.phone;
                                 if (req.body.mobile) user.mobile = req.body.mobile;
+
                                 user.save((err) => {
                                     if (err) {
                                         res.json({success: false, message: err.message});
@@ -82,11 +108,10 @@ module.exports = function (router) {
         if (req.body.password !== req.body.passwordConfirmed) {
             res.json({success: false, message: 'New password and confirmed password are not the same'});
         } else {
-            if(req.body.temporaryToken) {
+            if (req.body.temporaryToken) {
                 User.findOne({temporaryToken: req.body.temporaryToken}, function (err, user) {
                     if (err) throw err;
                     if (!user) {
-                        console.log('********************');
                         console.log(req.body.temporaryToken);
                         res.json({success: false, message: 'temporary token not valid'});
                     } else if (user) {
@@ -129,7 +154,7 @@ module.exports = function (router) {
                         }
                     }
                 });
-            }else{
+            } else {
                 res.json({success: false, message: 'Temporary token is invalid'});
             }
         }
@@ -197,7 +222,7 @@ module.exports = function (router) {
                 user.comparePassword(req.body.password, function (isMatch) {
                     if (!isMatch) {
                         res.json({success: false, message: 'Spitzname und/oder Kennwort unbekannt'});
-                    }else if(!user.active){
+                    } else if (!user.active) {
                         res.json({success: false, message: 'User not activated'});
                     }
                     else {
