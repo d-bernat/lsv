@@ -1,18 +1,22 @@
 <div class="row">
     <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4">
-        <br>
-        <a href="fliegmituns">
-            <h6 class="center"> Willkommen in der Homepage des</h6>
-            <img src="app/views/images/lsvmlogo.gif" width="400" height="400"
-                 class="img-circle img-responsive center-block"
-                 alt="Generic placeholder thumbnail">
-        </a>
-        <h3 class="center">Luftsportverein Kreis Pinneberg e.V.</h3>
-        <div class="text-muted center">
-            <p>Segelfliegen: Lautlos, traumhaft, erlebnisreich.....</p>
-            <a href="fliegmituns" class="btn btn-info btn-outline btn-block">
-                <span class="glyphicon glyphicon-send"></span> Weiter
+        <route-loading-indicator></route-loading-indicator>
+        <div ng-if="!isRouteLoading">
+
+            <br>
+            <a href="fliegmituns">
+                <h6 class="center"> Willkommen in der Homepage des</h6>
+                <img src="app/views/images/lsvmlogo.gif" width="400" height="400"
+                     class="img-circle img-responsive center-block"
+                     alt="Generic placeholder thumbnail">
             </a>
+            <h3 class="center">Luftsportverein Kreis Pinneberg e.V.</h3>
+            <div class="text-muted center">
+                <p>Segelfliegen: Lautlos, traumhaft, erlebnisreich.....</p>
+                <a href="fliegmituns" class="btn btn-info btn-outline btn-block">
+                    <span class="glyphicon glyphicon-send"></span> Weiter
+                </a>
+            </div>
         </div>
     </div>
 </div>

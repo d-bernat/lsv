@@ -1,74 +1,79 @@
 <div ng-controller="mainCtrl" ng-include src="'app/views/pages/intern_menu.html'"></div>
 <br><br><br>
 <div class="col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 main">
-    <table class="table-bordered table-striped table-responsive table-condensed">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Nachname</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Handy</th>
-            <th>Telefon</th>
-            <th ng-show="updateIndex !== -1">Berechtigung</th>
-            <th ng-show="updateIndex === -1">Berechtigung *</th>
-            <th>Freigegeben</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="user in users">
-            <td>{{$index + 1}}</td>
-            <td>{{user.lastname}}</td>
-            <td>{{user.name}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.mobile}}</td>
-            <td>{{user.phone}}</td>
-            <td ng-show="$index !== updateIndex">{{user.permission.replace('user', '').replace(',', '')}}</td>
-            <td ng-show="$index === updateIndex">
-                <table>
-                    <tr ng-repeat="pl in permissionLabels">
-                        <td>
-                            <label class="custom-control custom-checkbox">
-                                <input id="{{pl[0] + $parent.$index}}" type="checkbox" class="custom-control-input"
-                                       ng-show="false"
-                                       ng-checked="hasPermission($parent.$index, pl[0])"  ng-click="clickPermission($parent.$index, pl[0])">
-                                <span class="custom-control-indicator"></span></label>
-                        </td>
-                        <td>{{pl[1]}}</td>
-                    </tr>
-                </table>
-            </td>
-            <td>
-                <label class="custom-control custom-checkbox">
-                    <input id="{{'active' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
-                           ng-checked="user.active"
-                           ng-disabled="$index != updateIndex">
-                    <span class="custom-control-indicator ng-disabled=" $index !=updateIndex"></span>
-                </label>
-            <td>
-                <button class="btn btn-info btn-outline my-2 my-sm-0" type="button"
-                        ng-click="setUpdateIndex($index)" ng-show="$index !== updateIndex"
-                        ng-disabled="updateIndex !== -1">
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
+
+        <table class="table-bordered table-striped table-responsive table-condensed" ng-show="loaded">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Nachname</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Handy</th>
+                <th>Telefon</th>
+                <th ng-show="updateIndex !== -1">Berechtigung</th>
+                <th ng-show="updateIndex === -1">Berechtigung *</th>
+                <th>Freigegeben</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{$index + 1}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.phone}}</td>
+                <td ng-show="$index !== updateIndex">{{user.permission.replace('user', '').replace(',', '')}}</td>
+                <td ng-show="$index === updateIndex">
+                    <table>
+                        <tr ng-repeat="pl in permissionLabels">
+                            <td>
+                                <label class="custom-control custom-checkbox">
+                                    <input id="{{pl[0] + $parent.$index}}" type="checkbox" class="custom-control-input"
+                                           ng-show="false"
+                                           ng-checked="hasPermission($parent.$index, pl[0])"
+                                           ng-click="clickPermission($parent.$index, pl[0])">
+                                    <span class="custom-control-indicator"></span></label>
+                            </td>
+                            <td>{{pl[1]}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <label class="custom-control custom-checkbox">
+                        <input id="{{'active' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
+                               ng-checked="user.active"
+                               ng-disabled="$index != updateIndex">
+                        <span class="custom-control-indicator ng-disabled=" $index !=updateIndex"></span>
+                    </label>
+                <td>
+                    <button class="btn btn-info btn-outline my-2 my-sm-0" type="button"
+                            ng-click="setUpdateIndex($index)" ng-show="$index !== updateIndex"
+                            ng-disabled="updateIndex !== -1">
                         <span
                                 class="glyphicon glyphicon-edit"
                                 aria-hidden="true"></span> Ändern
-                </button>
+                    </button>
 
-                <button class="btn btn-success btn-outline my-2 my-sm-0" type="button"
-                        ng-click="save($index); " ng-show="$index === updateIndex"><span
-                        class="glyphicon glyphicon-save"
-                        aria-hidden="true"></span> Speichern
-                </button>
-                <button class="btn btn-warning btn-outline my-2 my-sm-0" type="button"
-                        ng-click="resetSettings($index)" ng-show="$index === updateIndex"><span
-                        class="glyphicon glyphicon-remove"
-                        aria-hidden="true"></span> Zurück&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <h6><i>* admin: Administrator, manager: Vorstand, fi: Fluglehrer, spl: Scheininhaber, student: Flugschüler,
-        mose: Mosebucher, wl: Werkstattleiter, sw: Segelflugzeugwart, msw: Motorseglerwart</i></h6>
+                    <button class="btn btn-success btn-outline my-2 my-sm-0" type="button"
+                            ng-click="save($index); " ng-show="$index === updateIndex"><span
+                            class="glyphicon glyphicon-save"
+                            aria-hidden="true"></span> Speichern
+                    </button>
+                    <button class="btn btn-warning btn-outline my-2 my-sm-0" type="button"
+                            ng-click="resetSettings($index)" ng-show="$index === updateIndex"><span
+                            class="glyphicon glyphicon-remove"
+                            aria-hidden="true"></span> Zurück&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <h6 ng-show="loaded"><i>* admin: Administrator, manager: Vorstand, fi: Fluglehrer, spl: Scheininhaber, student: Flugschüler,
+            mose: Mosebucher, wl: Werkstattleiter, sw: Segelflugzeugwart, msw: Motorseglerwart</i></h6>
+    </div>
 </div>

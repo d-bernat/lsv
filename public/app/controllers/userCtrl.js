@@ -127,6 +127,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
     })
     .controller('getAllUsersCtrl', function ($scope, User, $ngConfirm) {
 
+        $scope.loaded = false;
         $scope.updateIndex = -1;
         //$scope.permissionNames = ['admin', 'manager', 'fi', 'spl', 'student', 'mose', 'wl', 'sw', 'msw'];
         $scope.permissionLabels = [['admin','Administrator'],
@@ -142,11 +143,12 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
         User.getAllUsers().then(function (res) {
             if (res.data.success) {
                 $scope.users = res.data.message;
+
             }
             else {
-                console.log(res.data.message);
                 $scope.users = false;
             }
+            $scope.loaded = true;
         });
 
         $scope.hasPermission = function (index, permission) {
@@ -239,6 +241,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                     break;
             }
         };
+
 
     });
 

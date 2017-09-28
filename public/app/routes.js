@@ -180,7 +180,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
 app.run(['$rootScope', 'Auth', '$location', 'User', function($rootScope, Auth, $location, User ){
     $rootScope.$on('$routeChangeStart', function(event, next, current){
-
+        //$rootScope.loadingInProgress = true;
         if(next.$$route  !== undefined && next.$$route.authenticated === true){
             if(!Auth.isSignedIn()){
                 event.preventDefault();
@@ -208,5 +208,8 @@ app.run(['$rootScope', 'Auth', '$location', 'User', function($rootScope, Auth, $
                 alert('Du bist schon angemeldet');
             }
         }
+    });
+    $rootScope.$on('$routeChangeSuccess', function(){
+       // $rootScope.loadingInProgress = false;
     });
 }]);

@@ -1,205 +1,221 @@
 ﻿<div ng-include src="'app/views/pages/menu.html'"></div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h3>Ausbildung</h3>
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
+        <h3>Ausbildung</h3>
 
 
-    <p>Schon mit 14 Jahren kann man mit der Segelflugschulung beginnen, aber nicht alle unsere
-        Flugschüler sind Jugendliche!&nbsp; Auch Erwachsene kommen plötzlich auf die
-        Idee, sich ihren alten Traum vom Fliegen zu erfüllen.&nbsp; Segelfliegen ist nicht besonders schwierig
-        zu erlernen, sowohl für Männer als auch für Frauen.&nbsp; Segelfliegen ist kein
-        Kraftsport, einigermaßen fit sollte man allerdings sein.&nbsp; Neben dem
-        Fliegen lernt man auch Autofahren (um die Windenseile auszuziehen, eine Aufgabe,
-        die besonders bei jüngeren Mitgliedern beliebt ist) und die Bedienung der Seilwinde.</p>
+        <p>Schon mit 14 Jahren kann man mit der Segelflugschulung beginnen, aber nicht alle unsere
+            Flugschüler sind Jugendliche!&nbsp; Auch Erwachsene kommen plötzlich auf die
+            Idee, sich ihren alten Traum vom Fliegen zu erfüllen.&nbsp; Segelfliegen ist nicht besonders schwierig
+            zu erlernen, sowohl für Männer als auch für Frauen.&nbsp; Segelfliegen ist kein
+            Kraftsport, einigermaßen fit sollte man allerdings sein.&nbsp; Neben dem
+            Fliegen lernt man auch Autofahren (um die Windenseile auszuziehen, eine Aufgabe,
+            die besonders bei jüngeren Mitgliedern beliebt ist) und die Bedienung der Seilwinde.</p>
 
 
-    <p> Als Anfänger fliegt man im doppelsitzigen
-        Segelflugzeug mit einem unserer Fluglehrer.&nbsp; Wir starten überwiegend mit
-        Hilfe eine Seilwinde.</p>
+        <p> Als Anfänger fliegt man im doppelsitzigen
+            Segelflugzeug mit einem unserer Fluglehrer.&nbsp; Wir starten überwiegend mit
+            Hilfe eine Seilwinde.</p>
 
 
-    <p align="center"><img class="img-rounded img-responsive" src="app/views/images/ask21.jpg" border="0" height="353" width="648"><br>
-        <b>Mit diesem doppelsitzigen Segelflugzeug (Typ: ASK-21) fängt die Ausbildung
-            an</b></p>
+        <p align="center"><img class="img-rounded img-responsive" src="app/views/images/ask21.jpg" border="0"
+                               height="353" width="648"><br>
+            <b>Mit diesem doppelsitzigen Segelflugzeug (Typ: ASK-21) fängt die Ausbildung
+                an</b></p>
 
 
-    <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
 
-    <table border="0" width="85%">
-        <tbody>
-        <tr>
-            <td width="37%">
-                <p align="center"><img class="img-rounded img-responsive" src="app/views/images/ask21-instr.jpg" border="0" height="243" width="324"><br>
-                    <b>Ein Blick ins Cockpit der ASK-21</b></p>
-            </td>
-            <td width="63%">Die Instrumente:
-                <ul>
-                    <li>Oben von links: Variometer (zeigt Steigen/Sinken an), Fahrtmesser
-                        und Höhenmesser.
-                    </li>
-                    <li>Darunter: elektrisches Variometer</li>
-                    <li>Darunter: Funkgerät.</li>
-                </ul>
-                <p>Zur Bedienung:</p>
-                <ul>
-                    <li>Links die Bremklappen (blau),</li>
-                    <li>Mitte der Steuerknüppel,</li>
-                    <li>Unter dem Instrumentenbrett: die Seitenruderpedalen.</li>
-                </ul>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-
-    <p>Der LSV Pinneberg ist eine Schulungsgruppe der Luftfahrerschule Segelflug im Luftsportverband
-        Schleswig-Holstein e.V.&nbsp;<br>
-        Die Fluglehrer stehen unseren&nbsp;Flugschülern ehrenamtlich mit praktischer
-        und
-        theoretischer Ausbildung zur Verfügung.&nbsp; Ausgebildet wird während der
-        normalen Flugbetriebszeiten, also an Wochenenden, Feiertagen und bei
-        besonderen Veranstaltungen.&nbsp; Pro Flugtag sind zwei oder drei Fluglehrer
-        anwesend.&nbsp; Der Hauptteil der Theorie wird im Winter vermittelt.&nbsp;</p><br>
-
-
-    <h3>Unsere Fluglehrer</h3>
-    <div style="text-align: center;">
-        <table border="0" width="72%">
+        <table border="0" width="85%">
             <tbody>
-            <td align="center" width="25%">&nbsp;</td>
-            <td align="center" valign="top" width="25%"><img class="img-rounded img-responsive" src="app/views/images/wolfgangsu.jpg" border="0"
-                                                             height="125" width="125"><br>
-                <b>Ausbildungsleiter Wolfgang Sutter</b>
-            </td>
-            <td align="center" width="25%">&nbsp;</td>
-            <td align="center" width="25%">&nbsp;</td>
-
             <tr>
-                <td align="center" width="25%">
-                    <img class="img-rounded img-responsive" style="width: 126px; height: 126px;" alt="" src="app/views/images/Dusan.jpg"><br>Dusan
-                    Bernat<br>
+                <td width="37%">
+                    <p align="center"><img class="img-rounded img-responsive" src="app/views/images/ask21-instr.jpg"
+                                           border="0" height="243" width="324"><br>
+                        <b>Ein Blick ins Cockpit der ASK-21</b></p>
                 </td>
-                <td align="center" width="25%"></td>
-                <td align="center" width="25%"><img class="img-rounded img-responsive" src="app/views/images/paulf.jpg" border="0" height="125"
-                                                    width="125"><br>
-                    Paul Foelkel
+                <td width="63%">Die Instrumente:
+                    <ul>
+                        <li>Oben von links: Variometer (zeigt Steigen/Sinken an), Fahrtmesser
+                            und Höhenmesser.
+                        </li>
+                        <li>Darunter: elektrisches Variometer</li>
+                        <li>Darunter: Funkgerät.</li>
+                    </ul>
+                    <p>Zur Bedienung:</p>
+                    <ul>
+                        <li>Links die Bremklappen (blau),</li>
+                        <li>Mitte der Steuerknüppel,</li>
+                        <li>Unter dem Instrumentenbrett: die Seitenruderpedalen.</li>
+                    </ul>
                 </td>
-
-                <!--td align="center" width="25%"><img class="img-rounded img-responsive" src="app/views/images/norbertj.jpg" border="0" height="125" width="125"><br>
-                    Norbert Jaschke</td-->
-                <td align="center" width="25%"></td>
-            </tr>
-            <tr>
-                <td align="center" width="25%">&nbsp;</td>
-                <td align="center" width="25%">&nbsp;</td>
-                <td align="center" width="25%">&nbsp;</td>
-                <td align="center" width="25%">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="center" width="25%"><img class="img-rounded img-responsive" src="app/views/images/kaiuwe.jpg" border="0" height="125"
-                                                    width="125"><br>
-                    Kai-Uwe Koch
-                </td>
-                <td align="center" width="25%"><img class="img-rounded img-responsive" src="app/views/images/hansj.jpg" border="0" height="125"
-                                                    width="125"><br>
-                    Hans-Jürgen Sählandt<br><br></td>
-                <td align="center" width="25%"><img class="img-rounded img-responsive" src="app/views/images/uwe.jpg" border="0" height="125"
-                                                    width="125"><br>
-                    Uwe Stahlberg
-                </td>
-                <td align="center" width="25%"></td>
-            </tr>
-            <tr>
-                <td align="center" width="25%"></td>
-                <td align="center" width="25%"></td>
-                <td align="center" width="25%"></td>
-                <td align="center" width="25%"></td>
-            </tr>
-            <tr>
-                <td align="center" width="25%"><img class="img-rounded img-responsive" style="width: 125px; height: 125px;" alt=""
-                                                    src="app/views/images/joergt.jpg"><br>Jörg Tiggemann
-                </td>
-                <td align="center" width="25%"></td>
-                <td align="center" width="25%"><img class="img-rounded img-responsive" style="width: 125px; height: 125px;" alt=""
-                                                    src="app/views/images/andreasw.jpg"><br>Andreas Wendland<br>
-                </td>
-                <td align="center" width="25%"></td>
             </tr>
             </tbody>
         </table>
-    </div><br>
 
 
-    <h3 align="left">
-        Der Ausbildungsnachweis</h3><br>
+        <p>Der LSV Pinneberg ist eine Schulungsgruppe der Luftfahrerschule Segelflug im Luftsportverband
+            Schleswig-Holstein e.V.&nbsp;<br>
+            Die Fluglehrer stehen unseren&nbsp;Flugschülern ehrenamtlich mit praktischer
+            und
+            theoretischer Ausbildung zur Verfügung.&nbsp; Ausgebildet wird während der
+            normalen Flugbetriebszeiten, also an Wochenenden, Feiertagen und bei
+            besonderen Veranstaltungen.&nbsp; Pro Flugtag sind zwei oder drei Fluglehrer
+            anwesend.&nbsp; Der Hauptteil der Theorie wird im Winter vermittelt.&nbsp;</p><br>
 
 
-    <p align="left">
-        <img class="img-rounded img-responsive" src="app/views/images/abnw1.jpg" border="0">&nbsp;&nbsp;<img class="img-rounded img-responsive" src="app/views/images/abnw23.jpg"
-                                                                          border="0" height="213" width="302"></p>
-    <p align="left">Jeder
-        Flugschüler bekommt einen Ausbildungsnachweis (Beispiel oben, die Seiten 1 bis
-        3).&nbsp; Dieser enthält die verschiedenen Übungen die während der Ausbildung
-        gemeistert werden müssen.&nbsp; Der diensthabende Fluglehrer kann sich mittels dieses
-        Ausbildungnachweises einen schnellen Überblick über den Ausbildungsstand eines
-        Flugschülers verschaffen.</p>
-    <p align="left">Das obige Beispiel zeigt, dass der
-        Flugschüler bereits die A-Prüfung hat, d.h. allein geflogen ist (da die Seite 2
-        "voll" ist) und auf Seite 3 einige Bedingungen für die B- und C-Prüfung
-        erfüllt hat.<br>
-        <table border="0" width="80%">
-            <tbody>
-            <tr>
-                <td width="28%"><img class="img-rounded img-responsive" src="app/views/images/am-kt.jpg" border="0" height="198" width="175"></td>
-                <td width="72%">Hier kontrolliert der diensthabende Fluglehrer den
-                    Ausbildungsnachweis eines Flugschülers.
-    <p>Zusätzlich hat jeder Pilot ein Flugbuch, in dem
-        alle Starts
-        und Landungen notiert werden.</p></td>
-    </tr>
-    </tbody></table>
+        <h3>Unsere Fluglehrer</h3>
+        <div style="text-align: center;">
+            <table border="0" width="72%">
+                <tbody>
+                <td align="center" width="25%">&nbsp;</td>
+                <td align="center" valign="top" width="25%"><img class="img-rounded img-responsive"
+                                                                 src="app/views/images/wolfgangsu.jpg" border="0"
+                                                                 height="125" width="125"><br>
+                    <b>Ausbildungsleiter Wolfgang Sutter</b>
+                </td>
+                <td align="center" width="25%">&nbsp;</td>
+                <td align="center" width="25%">&nbsp;</td>
 
-    </p><h3 align="left">Fragen und Antworten</h3>
-    <h4 align="left">Was kostet der Luftfahrerschein für Segelflugzeuge?</h4>
-    <p align="left">Viel Zeit, die finanziellen Kosten sind erschwinglich.&nbsp;
-        Da die Ausbildung durch unsere Fluglehrer ehrenamtlich ist, zahlt man nur die&nbsp;
-        <a href="d_lsv.html#GEBUEHREN">Aufnahme- und Vereinsbeiträge</a> und dazu die
-        <a href="d_lsv.html#GEBUEHREN">normalen Fluggebühren</a>.&nbsp; Um die Kosten
-        niedrig zu halten wird von den Mitgliedern erwartet, dass sie sich an der
-        anfallenden Arbeit beteiligen. Damit ist nicht nur die aktive Beteiligung am
-        Flugbetrieb gemeint, sondern auch die Wartung der Flugzeuge, des Fuhrparks
-        (Autos, Winde), der Gebäude usw.</p>
-    <h4 align="left">Wie lang dauert die Ausbildung?</h4>
-    <p align="left">In der Regel hält man nach 1,5 bis 3 Jahren seinen
-        Luftfahrerschein in der Hand.</p>
-    <h4 align="left">Wie lang dauert es bis ich allein
-        fliege?</h4>
-    <p align="left">In der Regel zwischen 40 und 80 Starts.&nbsp; Dies ist von vielen Dingen abhängig:
-        dem Wetter, wie oft man zum Flugplatz kommt usw..&nbsp; Die jungsten Mitglieder lernen
-        erfahrungsgemäß am schnellsten.&nbsp;&nbsp;<br>
-        Unsere Fluglehrer sind sehr gewissenhaft und schicken einen Flugschüler nur zum
-        Alleinflug, wenn sie wirklich sicher sind, dass der Flugschüler ihn gut meistern kann.&nbsp;
-        Werden 100+ Starts benötigt für diese Sicherheit dann werden halt 100+ Starts
-        gemacht!</p>
-    <h4 align="left">Darf man allein fliegen ohne Luftfahrerschein?</h4>
-    <p align="left">Ja! Man muss sogar - eine gewisse Anzahl von Alleinflugstunden
-        sind nachzuweisen be<i>vor</i> man zur Prüfung zugelassen wird.<br>
-        Man fliegt unter Aufsicht eines Fluglehrers, der am Boden bleibt und muss sich vor und nach
-        jedem
-        Alleinflug bei ihm melden.</p>
-    <h4 align="left">Gibt es kommerzielle Flugschulen?</h4>
-    <p align="left">Ja - es gibt einige Flugschulen in Deutschland, bei denen man Kurse absolvieren kann.&nbsp;
-        Diese kosten eine Menge Geld!<br>
-        Hier ist <a href="http://www.segelflug.de/schulen.html" target="NewWin">eine Liste von
-            Segelflugschulen</a> (kein Anspruch auf Vollständigkeit).</p>
-    <h4 align="left">Weitere
-        Fragen?</h4>
-    <p align="left">Der LSV Pinneberg ist über E-Mail <img src="bild/email-info.gif" border="0">
-        zu erreichen - oder <a href="verein">ruf uns an</a>!
-    </p>
-    <p>
-    </p>
-    <p>
-        <em><span style="color: red; font-size: smaller; ">last update 18.3.2017</span></em>
-    </p></body>
+                <tr>
+                    <td align="center" width="25%">
+                        <img class="img-rounded img-responsive" style="width: 126px; height: 126px;" alt=""
+                             src="app/views/images/Dusan.jpg"><br>Dusan
+                        Bernat<br>
+                    </td>
+                    <td align="center" width="25%"></td>
+                    <td align="center" width="25%"><img class="img-rounded img-responsive"
+                                                        src="app/views/images/paulf.jpg" border="0" height="125"
+                                                        width="125"><br>
+                        Paul Foelkel
+                    </td>
+
+                    <!--td align="center" width="25%"><img class="img-rounded img-responsive" src="app/views/images/norbertj.jpg" border="0" height="125" width="125"><br>
+                        Norbert Jaschke</td-->
+                    <td align="center" width="25%"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="25%">&nbsp;</td>
+                    <td align="center" width="25%">&nbsp;</td>
+                    <td align="center" width="25%">&nbsp;</td>
+                    <td align="center" width="25%">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center" width="25%"><img class="img-rounded img-responsive"
+                                                        src="app/views/images/kaiuwe.jpg" border="0" height="125"
+                                                        width="125"><br>
+                        Kai-Uwe Koch
+                    </td>
+                    <td align="center" width="25%"><img class="img-rounded img-responsive"
+                                                        src="app/views/images/hansj.jpg" border="0" height="125"
+                                                        width="125"><br>
+                        Hans-Jürgen Sählandt<br><br></td>
+                    <td align="center" width="25%"><img class="img-rounded img-responsive"
+                                                        src="app/views/images/uwe.jpg" border="0" height="125"
+                                                        width="125"><br>
+                        Uwe Stahlberg
+                    </td>
+                    <td align="center" width="25%"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="25%"></td>
+                    <td align="center" width="25%"></td>
+                    <td align="center" width="25%"></td>
+                    <td align="center" width="25%"></td>
+                </tr>
+                <tr>
+                    <td align="center" width="25%"><img class="img-rounded img-responsive"
+                                                        style="width: 125px; height: 125px;" alt=""
+                                                        src="app/views/images/joergt.jpg"><br>Jörg Tiggemann
+                    </td>
+                    <td align="center" width="25%"></td>
+                    <td align="center" width="25%"><img class="img-rounded img-responsive"
+                                                        style="width: 125px; height: 125px;" alt=""
+                                                        src="app/views/images/andreasw.jpg"><br>Andreas Wendland<br>
+                    </td>
+                    <td align="center" width="25%"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+
+
+        <h3 align="left">
+            Der Ausbildungsnachweis</h3><br>
+
+
+        <p align="left">
+            <img class="img-rounded img-responsive" src="app/views/images/abnw1.jpg" border="0">&nbsp;&nbsp;<img
+                class="img-rounded img-responsive" src="app/views/images/abnw23.jpg"
+                border="0" height="213" width="302"></p>
+        <p align="left">Jeder
+            Flugschüler bekommt einen Ausbildungsnachweis (Beispiel oben, die Seiten 1 bis
+            3).&nbsp; Dieser enthält die verschiedenen Übungen die während der Ausbildung
+            gemeistert werden müssen.&nbsp; Der diensthabende Fluglehrer kann sich mittels dieses
+            Ausbildungnachweises einen schnellen Überblick über den Ausbildungsstand eines
+            Flugschülers verschaffen.</p>
+        <p align="left">Das obige Beispiel zeigt, dass der
+            Flugschüler bereits die A-Prüfung hat, d.h. allein geflogen ist (da die Seite 2
+            "voll" ist) und auf Seite 3 einige Bedingungen für die B- und C-Prüfung
+            erfüllt hat.<br>
+            <table border="0" width="80%">
+                <tbody>
+                <tr>
+                    <td width="28%"><img class="img-rounded img-responsive" src="app/views/images/am-kt.jpg" border="0"
+                                         height="198" width="175"></td>
+                    <td width="72%">Hier kontrolliert der diensthabende Fluglehrer den
+                        Ausbildungsnachweis eines Flugschülers.
+        <p>Zusätzlich hat jeder Pilot ein Flugbuch, in dem
+            alle Starts
+            und Landungen notiert werden.</p></td>
+        </tr>
+        </tbody></table>
+
+        </p><h3 align="left">Fragen und Antworten</h3>
+        <h4 align="left">Was kostet der Luftfahrerschein für Segelflugzeuge?</h4>
+        <p align="left">Viel Zeit, die finanziellen Kosten sind erschwinglich.&nbsp;
+            Da die Ausbildung durch unsere Fluglehrer ehrenamtlich ist, zahlt man nur die&nbsp;
+            <a href="d_lsv.html#GEBUEHREN">Aufnahme- und Vereinsbeiträge</a> und dazu die
+            <a href="d_lsv.html#GEBUEHREN">normalen Fluggebühren</a>.&nbsp; Um die Kosten
+            niedrig zu halten wird von den Mitgliedern erwartet, dass sie sich an der
+            anfallenden Arbeit beteiligen. Damit ist nicht nur die aktive Beteiligung am
+            Flugbetrieb gemeint, sondern auch die Wartung der Flugzeuge, des Fuhrparks
+            (Autos, Winde), der Gebäude usw.</p>
+        <h4 align="left">Wie lang dauert die Ausbildung?</h4>
+        <p align="left">In der Regel hält man nach 1,5 bis 3 Jahren seinen
+            Luftfahrerschein in der Hand.</p>
+        <h4 align="left">Wie lang dauert es bis ich allein
+            fliege?</h4>
+        <p align="left">In der Regel zwischen 40 und 80 Starts.&nbsp; Dies ist von vielen Dingen abhängig:
+            dem Wetter, wie oft man zum Flugplatz kommt usw..&nbsp; Die jungsten Mitglieder lernen
+            erfahrungsgemäß am schnellsten.&nbsp;&nbsp;<br>
+            Unsere Fluglehrer sind sehr gewissenhaft und schicken einen Flugschüler nur zum
+            Alleinflug, wenn sie wirklich sicher sind, dass der Flugschüler ihn gut meistern kann.&nbsp;
+            Werden 100+ Starts benötigt für diese Sicherheit dann werden halt 100+ Starts
+            gemacht!</p>
+        <h4 align="left">Darf man allein fliegen ohne Luftfahrerschein?</h4>
+        <p align="left">Ja! Man muss sogar - eine gewisse Anzahl von Alleinflugstunden
+            sind nachzuweisen be<i>vor</i> man zur Prüfung zugelassen wird.<br>
+            Man fliegt unter Aufsicht eines Fluglehrers, der am Boden bleibt und muss sich vor und nach
+            jedem
+            Alleinflug bei ihm melden.</p>
+        <h4 align="left">Gibt es kommerzielle Flugschulen?</h4>
+        <p align="left">Ja - es gibt einige Flugschulen in Deutschland, bei denen man Kurse absolvieren kann.&nbsp;
+            Diese kosten eine Menge Geld!<br>
+            Hier ist <a href="http://www.segelflug.de/schulen.html" target="NewWin">eine Liste von
+                Segelflugschulen</a> (kein Anspruch auf Vollständigkeit).</p>
+        <h4 align="left">Weitere
+            Fragen?</h4>
+        <p align="left">Der LSV Pinneberg ist über E-Mail <img src="bild/email-info.gif" border="0">
+            zu erreichen - oder <a href="verein">ruf uns an</a>!
+        </p>
+        <p>
+        </p>
+        <p>
+            <em><span style="color: red; font-size: smaller; ">last update 18.3.2017</span></em>
+        </p></body>
+    </div>
 </div>
