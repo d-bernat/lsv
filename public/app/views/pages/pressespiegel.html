@@ -1,5 +1,8 @@
 <div ng-include src="'app/views/pages/menu.html'"></div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
+
     <h3>Pressespiegel</h3>
     <table class="table-bordered table-condensed">
         <tbody>
@@ -170,4 +173,6 @@
     <p>
         <em>
             <span style="color: red; font-size: smaller; ">last update 26.6.2017</span></em>
-    </p></div>
+    </p>
+    </div>
+</div>

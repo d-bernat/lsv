@@ -1,1146 +1,1159 @@
 <div ng-include src="'app/views/pages/intern_menu.html'"></div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
 
-    <h3>Interne Webseiten</h3>
-    <p>
-        Diese Seiten sind Passwort-geschützt.
+        <h3>Interne Webseiten</h3>
+        <p>
+            Diese Seiten sind Passwort-geschützt.
 
-    </p>
-    <h3>Wichtige Telefonnummern</h3>
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <td valign="top"> LSV-Tower (Büro)</td>
-            <td align="center" valign="top"> 04122 / 81357</td>
-        </tr>
-        <tr>
-            <td valign="top"> LSV-Startwagen (Mobile)</td>
-            <td align="center" valign="top"> 0173 / 3644598</td>
-        </tr>
-        <tr>
-            <td valign="top"> Uetersen-Info (Flugleitung)</td>
-            <td align="center" valign="top"> 04122 / 81444</td>
-        </tr>
-        </tbody>
-    </table>
-
-
-    <h3>LSV Vorstand</h3>
-    Die Mailliste <a href="mailto:Vorstand@LSV-Pinneberg.de">Vorstand@LSV-Pinneberg.de</a> umfasst alle E-Mail-Adressen
-    der nachfolgenden Tabelle.
-    <p>
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <th width="133"> Aufgabe</th>
-            <th width="131"> Name</th>
-            <th width="156"> Telefon</th>
-            <th width="119"> Mobile</th>
-        </tr>
-        <tr>
-            <td valign="top" width="133"> 1. Vorsitzender</td>
-            <td style="text-align: center;" valign="top" width="131"> Sönke Puschmann</td>
-            <td align="center" valign="top" width="156"> 040 - 81991993</td>
-            <td align="center" valign="top" width="119"> 0163 - 6321479</td>
-        </tr>
-        <tr>
-            <td valign="top" width="133"> 2. Vorsitzender</td>
-            <td style="text-align: center;" valign="top" width="131"> Frank Weingärtner</td>
-            <td align="center" valign="top" width="156"> 04126 - 9669020</td>
-            <td align="center" valign="top" width="119"> 0163 - 2302926</td>
-        </tr>
-        <tr>
-            <td valign="top" width="133"> Schatzmeister</td>
-            <td style="text-align: center;" valign="top" width="131"> Sylvia Riedel</td>
-            <td align="center" valign="top" width="156"> 040 - 85500752</td>
-            <td align="center" valign="top" width="119"> 0176 - 57416491</td>
-        </tr>
-        <tr>
-            <td valign="top" width="133"> Geschäftsführer</td>
-            <td style="text-align: center;" valign="top" width="131"> Bernward Krause</td>
-            <td align="center" valign="top" width="156"> 04103 - 808573</td>
-            <td align="center" valign="top" width="119"> 0170 - 9136988&nbsp;</td>
-        </tr>
-        </tbody>
-    </table>
+        </p>
+        <h3>Wichtige Telefonnummern</h3>
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <td valign="top"> LSV-Tower (Büro)</td>
+                <td align="center" valign="top"> 04122 / 81357</td>
+            </tr>
+            <tr>
+                <td valign="top"> LSV-Startwagen (Mobile)</td>
+                <td align="center" valign="top"> 0173 / 3644598</td>
+            </tr>
+            <tr>
+                <td valign="top"> Uetersen-Info (Flugleitung)</td>
+                <td align="center" valign="top"> 04122 / 81444</td>
+            </tr>
+            </tbody>
+        </table>
 
 
-    </p><h3>LSV Referenten</h3>
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <td height="19" valign="top" width="132">
-                <p align="center"><b> Aufgabe</b></p>
-            </td>
-            <th height="19" width="132"> Name</th>
-            <th height="19" width="156"> Telefon</th>
-            <th height="19" width="120"> Mobile</th>
-        </tr>
-        <tr>
-            <td height="16" valign="top" width="132"> Schulungsleiter</td>
-            <td align="center" height="16" width="132"> Henryk Thier</td>
-            <td align="center" height="16" width="156"> 040 - 868175</td>
-            <td align="center" height="16" width="120"> <span class="cmp_parsed_phone" cmp_parsed_phone="+491719534368">0151
+        <h3>LSV Vorstand</h3>
+        Die Mailliste <a href="mailto:Vorstand@LSV-Pinneberg.de">Vorstand@LSV-Pinneberg.de</a> umfasst alle
+        E-Mail-Adressen
+        der nachfolgenden Tabelle.
+        <p>
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <th width="133"> Aufgabe</th>
+                <th width="131"> Name</th>
+                <th width="156"> Telefon</th>
+                <th width="119"> Mobile</th>
+            </tr>
+            <tr>
+                <td valign="top" width="133"> 1. Vorsitzender</td>
+                <td style="text-align: center;" valign="top" width="131"> Sönke Puschmann</td>
+                <td align="center" valign="top" width="156"> 040 - 81991993</td>
+                <td align="center" valign="top" width="119"> 0163 - 6321479</td>
+            </tr>
+            <tr>
+                <td valign="top" width="133"> 2. Vorsitzender</td>
+                <td style="text-align: center;" valign="top" width="131"> Frank Weingärtner</td>
+                <td align="center" valign="top" width="156"> 04126 - 9669020</td>
+                <td align="center" valign="top" width="119"> 0163 - 2302926</td>
+            </tr>
+            <tr>
+                <td valign="top" width="133"> Schatzmeister</td>
+                <td style="text-align: center;" valign="top" width="131"> Sylvia Riedel</td>
+                <td align="center" valign="top" width="156"> 040 - 85500752</td>
+                <td align="center" valign="top" width="119"> 0176 - 57416491</td>
+            </tr>
+            <tr>
+                <td valign="top" width="133"> Geschäftsführer</td>
+                <td style="text-align: center;" valign="top" width="131"> Bernward Krause</td>
+                <td align="center" valign="top" width="156"> 04103 - 808573</td>
+                <td align="center" valign="top" width="119"> 0170 - 9136988&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        </p><h3>LSV Referenten</h3>
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <td height="19" valign="top" width="132">
+                    <p align="center"><b> Aufgabe</b></p>
+                </td>
+                <th height="19" width="132"> Name</th>
+                <th height="19" width="156"> Telefon</th>
+                <th height="19" width="120"> Mobile</th>
+            </tr>
+            <tr>
+                <td height="16" valign="top" width="132"> Schulungsleiter</td>
+                <td align="center" height="16" width="132"> Henryk Thier</td>
+                <td align="center" height="16" width="156"> 040 - 868175</td>
+                <td align="center" height="16" width="120"> <span class="cmp_parsed_phone"
+                                                                  cmp_parsed_phone="+491719534368">0151
       - 7050 5515</span></td>
-        </tr>
-        <tr>
-            <td height="38" valign="top" width="132"> Segelflugreferent &amp; <br> Öffentlichkeitsreferent</td>
-            <td align="center" height="38" width="132"> Howard E. Mills</td>
-            <td align="center" height="38" width="156"> 04101 - 76422</td>
-            <td align="center" height="38" width="120"> 0157 - 3537 1318</td>
-        </tr>
-        <tr>
-            <td height="19" valign="top" width="132"> Jugendwart</td>
-            <td align="center" height="19" width="132"> Philipp Siepmann</td>
-            <td align="center" height="19" width="156">.</td>
-            <td align="center" height="19" width="120">0176 - 43543950</td>
-        </tr>
-        <tr>
-            <td height="19" valign="top" width="132"> Technikreferent</td>
-            <td align="center" height="19" width="132">Andreas Wendland</td>
-            <td align="center" height="19" width="156">.</td>
-            <td align="center" height="19" width="120">0177 - 7716744</td>
-        </tr>
-        <tr>
-            <td height="19" valign="top" width="132"> <span style="font-size: 11pt;" calibri="" ,="" sans-serif=""
-                                                            ;color:#1f497d="" lang="EN-US">Technischer
+            </tr>
+            <tr>
+                <td height="38" valign="top" width="132"> Segelflugreferent &amp; <br> Öffentlichkeitsreferent</td>
+                <td align="center" height="38" width="132"> Howard E. Mills</td>
+                <td align="center" height="38" width="156"> 04101 - 76422</td>
+                <td align="center" height="38" width="120"> 0157 - 3537 1318</td>
+            </tr>
+            <tr>
+                <td height="19" valign="top" width="132"> Jugendwart</td>
+                <td align="center" height="19" width="132"> Philipp Siepmann</td>
+                <td align="center" height="19" width="156">.</td>
+                <td align="center" height="19" width="120">0176 - 43543950</td>
+            </tr>
+            <tr>
+                <td height="19" valign="top" width="132"> Technikreferent</td>
+                <td align="center" height="19" width="132">Andreas Wendland</td>
+                <td align="center" height="19" width="156">.</td>
+                <td align="center" height="19" width="120">0177 - 7716744</td>
+            </tr>
+            <tr>
+                <td height="19" valign="top" width="132"> <span style="font-size: 11pt;" calibri="" ,="" sans-serif=""
+                                                                ;color:#1f497d="" lang="EN-US">Technischer
       Leiter</span></td>
-            <td align="center" height="19" width="132">
-                Olaf Stark
-            </td>
-            <td align="center" height="19" width="156"> 04103 - 129848</td>
-            <td align="center" height="19" width="120"> .</td>
-        </tr>
-        <tr>
-            <td height="19" valign="top" width="132"> Betrieb</td>
-            <td align="center" height="19" width="132">Paul Foelkel</td>
-            <td align="center" height="19" width="156">.</td>
-            <td align="center" height="19" width="120">0178 - 2875391</td>
-        </tr>
-        </tbody>
-    </table>
+                <td align="center" height="19" width="132">
+                    Olaf Stark
+                </td>
+                <td align="center" height="19" width="156"> 04103 - 129848</td>
+                <td align="center" height="19" width="120"> .</td>
+            </tr>
+            <tr>
+                <td height="19" valign="top" width="132"> Betrieb</td>
+                <td align="center" height="19" width="132">Paul Foelkel</td>
+                <td align="center" height="19" width="156">.</td>
+                <td align="center" height="19" width="120">0178 - 2875391</td>
+            </tr>
+            </tbody>
+        </table>
 
 
-    <h3>LSV Werkstatt</h3>
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <td width="132">&nbsp;</td>
-            <th height="19" width="169"> Name</th>
-            <th height="19" width="218"> Telefon</th>
-        </tr>
-        <tr>
-            <td align="center" width="132">Prüfer</td>
-            <td align="center" width="169">
-                Karl-Heinz Strünke
-            </td>
-            <td align="center" width="218">0170 - 81 75 224</td>
-        </tr>
-        <tr>
-            <td rowspan="3" align="center" width="132">Werkstattleiter</td>
-            <td align="center" width="169">
-                Olaf Stark
-            </td>
-            <td align="center" width="218"> 04103 - 129848</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Karl-Heinz Strünke
-            </td>
-            <td align="center" width="218">0170 - 8175224</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Wolfgang Sutter
-            </td>
-            <td align="center" width="218">04101 - 5881800</td>
-        </tr>
-        <tr>
-            <td rowspan="7" align="center" width="132"> Segelflugzeugwart / Zellenwart</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Dusan Bernat</td>
-            <td style="text-align: center;">04103 - 8031001</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Jürgen Haller
-            </td>
-            <td align="center" width="218">0172 - 4121205</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Jens Hebold
-            </td>
-            <td align="center" width="218"> 0174 - 2472069</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">Silvan Meckelnburg<br></td>
-            <td align="center" width="218">0162 - 6640024<br></td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Bernd Prahl
-            </td>
-            <td align="center" width="218">04121 - 437498<br>0176 - 30765059</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Ralf Westphal-Köhnke
-            </td>
-            <td align="center" width="218"> 04101 - 3979153</td>
-        </tr>
-        <tr>
-            <td rowspan="2" align="center" width="132"> MoSeWart</td>
-            <td align="center" width="169"> Jens Meyer</td>
-            <td align="center" width="218">040 - 8904101</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Karl-Heinz Strünke
-            </td>
-            <td align="center" width="218">0170 - 8175224</td>
-        </tr>
-        <tr>
-            <td rowspan="2" align="center" width="132"> Motorwart</td>
-            <td align="center" width="169"> Jens Gralfs</td>
-            <td align="center" width="218">040 - 7427319</td>
-        </tr>
-        <tr>
-            <td align="center" width="169">
-                Karl-Heinz Strünke
-            </td>
-            <td align="center" width="218">0170 - 8175224</td>
-        </tr>
-        </tbody>
-    </table>
+        <h3>LSV Werkstatt</h3>
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <td width="132">&nbsp;</td>
+                <th height="19" width="169"> Name</th>
+                <th height="19" width="218"> Telefon</th>
+            </tr>
+            <tr>
+                <td align="center" width="132">Prüfer</td>
+                <td align="center" width="169">
+                    Karl-Heinz Strünke
+                </td>
+                <td align="center" width="218">0170 - 81 75 224</td>
+            </tr>
+            <tr>
+                <td rowspan="3" align="center" width="132">Werkstattleiter</td>
+                <td align="center" width="169">
+                    Olaf Stark
+                </td>
+                <td align="center" width="218"> 04103 - 129848</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Karl-Heinz Strünke
+                </td>
+                <td align="center" width="218">0170 - 8175224</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Wolfgang Sutter
+                </td>
+                <td align="center" width="218">04101 - 5881800</td>
+            </tr>
+            <tr>
+                <td rowspan="7" align="center" width="132"> Segelflugzeugwart / Zellenwart</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Dusan Bernat</td>
+                <td style="text-align: center;">04103 - 8031001</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Jürgen Haller
+                </td>
+                <td align="center" width="218">0172 - 4121205</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Jens Hebold
+                </td>
+                <td align="center" width="218"> 0174 - 2472069</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">Silvan Meckelnburg<br></td>
+                <td align="center" width="218">0162 - 6640024<br></td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Bernd Prahl
+                </td>
+                <td align="center" width="218">04121 - 437498<br>0176 - 30765059</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Ralf Westphal-Köhnke
+                </td>
+                <td align="center" width="218"> 04101 - 3979153</td>
+            </tr>
+            <tr>
+                <td rowspan="2" align="center" width="132"> MoSeWart</td>
+                <td align="center" width="169"> Jens Meyer</td>
+                <td align="center" width="218">040 - 8904101</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Karl-Heinz Strünke
+                </td>
+                <td align="center" width="218">0170 - 8175224</td>
+            </tr>
+            <tr>
+                <td rowspan="2" align="center" width="132"> Motorwart</td>
+                <td align="center" width="169"> Jens Gralfs</td>
+                <td align="center" width="218">040 - 7427319</td>
+            </tr>
+            <tr>
+                <td align="center" width="169">
+                    Karl-Heinz Strünke
+                </td>
+                <td align="center" width="218">0170 - 8175224</td>
+            </tr>
+            </tbody>
+        </table>
 
 
-    <h3>Aufgabenverteilung</h3>
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <td valign="top" width="237"> Windenbetreuung</td>
-            <td align="center" valign="top" width="141">Frank Weingärtner<br>Andreas Wöckner<br>
-                Norbert Wülfken
-            </td>
-            <td align="center" valign="top" width="141">
-                <span class="cmp_parsed_phone cmp_parsed_style" cmp_parsed_phone="+491714920498"></span>0163 -
-                2302926<br>0151 - 65100815<br>
-                0170 - 2255646<br></td>
-        </tr>
-        <tr>
-            <td valign="top" width="237"> Windenvorseile</td>
-            <td align="center" valign="top" width="141"> Howard Mills</td>
-            <td align="center" valign="top" width="141"> 04101 - 76422</td>
-        </tr>
-        <tr>
-            <td valign="top" width="237"> Lepos</td>
-            <td align="center" valign="top" width="141">Frank Weingärtner<br>Norbert Wülfken</td>
-            <td align="center" valign="top" width="141"> 0163 - 2302926<br> 0170 - 2255646</td>
-        </tr>
-        <tr>
-            <td valign="top" width="237"> LX7000-Loggerbetreuung<br> (DG-1000)</td>
-            <td align="center" valign="top" width="141"> Jens Hebold</td>
-            <td align="center" valign="top" width="141"> 0174 - 2472069</td>
-        </tr>
-        <tr>
-            <td valign="top" width="237"> LX7007-Loggerbetreuung<br>(Discus cs)</td>
-            <td align="center" valign="top" width="141"> Jens Hebold</td>
-            <td align="center" valign="top" width="141"> 0174 - 2472069</td>
-        </tr>
-        <tr>
-            <td valign="top" width="237"> Loggerkabel / Auslesen</td>
-            <td align="center" valign="top" width="141"> Jens Hebold</td>
-            <td align="center" valign="top" width="141"> 0174 - 2472069</td>
-        </tr>
-        <tr>
-            <td>LX8080-Loggerbetreuung<br>(Discus 2)</td>
-            <td style="text-align: center;">Bernd Prahl</td>
-            <td style="text-align: center;">0176 - 30765059</td>
-        </tr>
-        <tr>
-            <td>IT Kümmerer</td>
-            <td style="text-align: center;">Thomas Näfken</td>
-            <td style="text-align: center;"> 04127 - 929622</td>
-        </tr>
-        <tr>
-            <td style="width: 237px; vertical-align: top;"> Fallschirmpacken</td>
-            <td style="width: 141px; vertical-align: top; text-align: center;">Nina Merz<br>Sönke Puschmann<br>Olaf
-                Stark <br>
-                Cornelia Stark-Hartz
-            </td>
-            <td style="width: 141px; vertical-align: top; text-align: center;"> .</td>
-        </tr>
-        </tbody>
-    </table>
+        <h3>Aufgabenverteilung</h3>
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <td valign="top" width="237"> Windenbetreuung</td>
+                <td align="center" valign="top" width="141">Frank Weingärtner<br>Andreas Wöckner<br>
+                    Norbert Wülfken
+                </td>
+                <td align="center" valign="top" width="141">
+                    <span class="cmp_parsed_phone cmp_parsed_style" cmp_parsed_phone="+491714920498"></span>0163 -
+                    2302926<br>0151 - 65100815<br>
+                    0170 - 2255646<br></td>
+            </tr>
+            <tr>
+                <td valign="top" width="237"> Windenvorseile</td>
+                <td align="center" valign="top" width="141"> Howard Mills</td>
+                <td align="center" valign="top" width="141"> 04101 - 76422</td>
+            </tr>
+            <tr>
+                <td valign="top" width="237"> Lepos</td>
+                <td align="center" valign="top" width="141">Frank Weingärtner<br>Norbert Wülfken</td>
+                <td align="center" valign="top" width="141"> 0163 - 2302926<br> 0170 - 2255646</td>
+            </tr>
+            <tr>
+                <td valign="top" width="237"> LX7000-Loggerbetreuung<br> (DG-1000)</td>
+                <td align="center" valign="top" width="141"> Jens Hebold</td>
+                <td align="center" valign="top" width="141"> 0174 - 2472069</td>
+            </tr>
+            <tr>
+                <td valign="top" width="237"> LX7007-Loggerbetreuung<br>(Discus cs)</td>
+                <td align="center" valign="top" width="141"> Jens Hebold</td>
+                <td align="center" valign="top" width="141"> 0174 - 2472069</td>
+            </tr>
+            <tr>
+                <td valign="top" width="237"> Loggerkabel / Auslesen</td>
+                <td align="center" valign="top" width="141"> Jens Hebold</td>
+                <td align="center" valign="top" width="141"> 0174 - 2472069</td>
+            </tr>
+            <tr>
+                <td>LX8080-Loggerbetreuung<br>(Discus 2)</td>
+                <td style="text-align: center;">Bernd Prahl</td>
+                <td style="text-align: center;">0176 - 30765059</td>
+            </tr>
+            <tr>
+                <td>IT Kümmerer</td>
+                <td style="text-align: center;">Thomas Näfken</td>
+                <td style="text-align: center;"> 04127 - 929622</td>
+            </tr>
+            <tr>
+                <td style="width: 237px; vertical-align: top;"> Fallschirmpacken</td>
+                <td style="width: 141px; vertical-align: top; text-align: center;">Nina Merz<br>Sönke Puschmann<br>Olaf
+                    Stark <br>
+                    Cornelia Stark-Hartz
+                </td>
+                <td style="width: 141px; vertical-align: top; text-align: center;"> .</td>
+            </tr>
+            </tbody>
+        </table>
 
 
-    <h3>LSV E-Mail Adressen / Maillisten</h3>Kurzbeschreibung unsere Maillisten: <a target="_blank"
-                                                                                    href="LSV-Maillisten.pdf">hier</a>.
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <td align="center" width="62%"><b>Zweck</b></td>
-            <td align="center" width="38%"><b>Name der Mailliste</b></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle aktiven Mitglieder (1. E-Mail unten)</td>
-            <td align="center" width="38%"><a href="mailto:all@LSV-Pinneberg.de">all@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Der Vorstand</td>
-            <td align="center" width="38%"><a href="mailto:Vorstand@LSV-Pinneberg.de">Vorstand@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle Fluglehrer</td>
-            <td align="center" width="38%"><a href="mailto:Fluglehrer@LSV-Pinneberg.de">Fluglehrer@LSV-Pinneberg.de</a>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle Flugschüler</td>
-            <td align="center" width="38%"><a
-                    href="mailto:Flugschueler@LSV-Pinneberg.de">Flugschueler@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle Windenfahrer</td>
-            <td align="center" width="38%"><a href="mailto:winde@LSV-Pinneberg.de">winde@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle MoSe-Piloten</td>
-            <td align="center" width="38%"><a href="mailto:mose@LSV-Pinneberg.de">mose@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Alle LSV-Eigentümer (Segelflugzeuge)</td>
-            <td style="text-align: center;"><a href="mailto:owner@LSV-Pinneberg.de">owner@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle Werkstattleiter und Warte</td>
-            <td align="center" width="38%"><a href="mailto:werkstatt@LSV-Pinneberg.de">werkstatt@LSV-Pinneberg.de</a>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle jugendlichen Mitglieder (bis zum
-                vollendete 25. Lebensjahr)
-            </td>
-            <td align="center" width="38%"><a href="mailto:jugend@LSV-Pinneberg.de">jugend@LSV-Pinneberg.de</a></td>
-        </tr>
-        <tr>
-            <td align="center" width="62%">Alle Mitglieder (aktive und fördende)</td>
-            <td align="center" width="38%"><a href="mailto:TFuchs@LSV-Pinneberg.de">TFuchs@LSV-Pinneberg.de</a></td>
-        </tr>
-        </tbody>
-    </table>
-    <p>
-        Bitte diese Maillisten verantwortungsvoll benutzen (kein "Spam" usw.)
-        und bitte nicht an Nicht-Mitglieder weitergeben!<br>
-        Änderungen bzgl. E-Mail Adressen bitte an <span style="font-weight: bold;">sylvia.riedel74@freenet.de</span> und
-        <span style="font-weight: bold;">hmills@t-online.de</span></p>
+        <h3>LSV E-Mail Adressen / Maillisten</h3>Kurzbeschreibung unsere Maillisten: <a target="_blank"
+                                                                                        href="LSV-Maillisten.pdf">hier</a>.
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <td align="center" width="62%"><b>Zweck</b></td>
+                <td align="center" width="38%"><b>Name der Mailliste</b></td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle aktiven Mitglieder (1. E-Mail unten)</td>
+                <td align="center" width="38%"><a href="mailto:all@LSV-Pinneberg.de">all@LSV-Pinneberg.de</a></td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Der Vorstand</td>
+                <td align="center" width="38%"><a href="mailto:Vorstand@LSV-Pinneberg.de">Vorstand@LSV-Pinneberg.de</a>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle Fluglehrer</td>
+                <td align="center" width="38%"><a
+                        href="mailto:Fluglehrer@LSV-Pinneberg.de">Fluglehrer@LSV-Pinneberg.de</a>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle Flugschüler</td>
+                <td align="center" width="38%"><a
+                        href="mailto:Flugschueler@LSV-Pinneberg.de">Flugschueler@LSV-Pinneberg.de</a></td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle Windenfahrer</td>
+                <td align="center" width="38%"><a href="mailto:winde@LSV-Pinneberg.de">winde@LSV-Pinneberg.de</a></td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle MoSe-Piloten</td>
+                <td align="center" width="38%"><a href="mailto:mose@LSV-Pinneberg.de">mose@LSV-Pinneberg.de</a></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Alle LSV-Eigentümer (Segelflugzeuge)</td>
+                <td style="text-align: center;"><a href="mailto:owner@LSV-Pinneberg.de">owner@LSV-Pinneberg.de</a></td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle Werkstattleiter und Warte</td>
+                <td align="center" width="38%"><a
+                        href="mailto:werkstatt@LSV-Pinneberg.de">werkstatt@LSV-Pinneberg.de</a>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle jugendlichen Mitglieder (bis zum
+                    vollendete 25. Lebensjahr)
+                </td>
+                <td align="center" width="38%"><a href="mailto:jugend@LSV-Pinneberg.de">jugend@LSV-Pinneberg.de</a></td>
+            </tr>
+            <tr>
+                <td align="center" width="62%">Alle Mitglieder (aktive und fördende)</td>
+                <td align="center" width="38%"><a href="mailto:TFuchs@LSV-Pinneberg.de">TFuchs@LSV-Pinneberg.de</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p>
+            Bitte diese Maillisten verantwortungsvoll benutzen (kein "Spam" usw.)
+            und bitte nicht an Nicht-Mitglieder weitergeben!<br>
+            Änderungen bzgl. E-Mail Adressen bitte an <span style="font-weight: bold;">sylvia.riedel74@freenet.de</span>
+            und
+            <span style="font-weight: bold;">hmills@t-online.de</span></p>
 
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <th height="19"> Name</th>
-            <th height="19"> Info</th>
-            <th height="19"> 1. E-Mail</th>
-            <th height="19"> 2. E-Mail</th>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jan Ahlers</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> Jan.Ahlers@web.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Niclas Bader</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">niclasbader@web.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Andreas von Bargen</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> avbargen@koehlervonbargen.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="14"> Mathias Behnke</td>
-            <td align="center" height="14"> .</td>
-            <td align="center" height="14"> mathias.behnke@gmx.net</td>
-            <td align="center" height="14"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="14"> Dusan Bernat</td>
-            <td align="center" height="14">Fluglehrer<br> Segelflugzeugwart</td>
-            <td align="center" height="14">dusan.bernat@traveltainment.de</td>
-            <td align="center" height="14"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Fabio Bertuzzi</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">fabio@bertuzzi.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Bert Beyersdorf</td>
-            <td style="text-align: center;">.<br></td>
-            <td style="text-align: center;">fliegen@beyersdorf.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Marcus Böge</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">mb@mb.yourweb.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Klaus Boltze</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;"><span class="cmp_parsed_email" data-cmp_parsed_email="kboltze@icloud.com"
-                                                  data-ce-class="Emails">kboltze@icloud.com</span></td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> David Bouchain</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> david@bouchain.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Jasper Boultwood</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">kgboultwood@gmx.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Sven&nbsp; Breckwoldt</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">svenbreckwoldt@yahoo.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jörg Büsing</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">joebues@gmail.com</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Caner Celebi</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">celebi.caner77@gmail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Falk Centner</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> falk.centner@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Erwin Deffur</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> erwin.deffur@t-online.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Erik Deierling</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">erik.deierling@gmx.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Mina Eilers</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">eilersannette@aol.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Fiona Ennulat</td>
-            <td style="text-align: center;">Stellv. Jugendwart</td>
-            <td style="text-align: center;">fionaennulat@gmail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Paul Foelkel</td>
-            <td align="center" height="19"> Fluglehrer</td>
-            <td align="center" height="19"> paul.foelkel@web.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Vijay Grabowski</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">vj.westmoreland@gmail.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jens Gralfs</td>
-            <td align="center" height="19"> Motorwart</td>
-            <td align="center" height="19"> jj.gralfs@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <th height="19"> Name</th>
+                <th height="19"> Info</th>
+                <th height="19"> 1. E-Mail</th>
+                <th height="19"> 2. E-Mail</th>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jan Ahlers</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> Jan.Ahlers@web.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Niclas Bader</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">niclasbader@web.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Andreas von Bargen</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> avbargen@koehlervonbargen.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="14"> Mathias Behnke</td>
+                <td align="center" height="14"> .</td>
+                <td align="center" height="14"> mathias.behnke@gmx.net</td>
+                <td align="center" height="14"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="14"> Dusan Bernat</td>
+                <td align="center" height="14">Fluglehrer<br> Segelflugzeugwart</td>
+                <td align="center" height="14">dusan.bernat@traveltainment.de</td>
+                <td align="center" height="14"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Fabio Bertuzzi</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">fabio@bertuzzi.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Bert Beyersdorf</td>
+                <td style="text-align: center;">.<br></td>
+                <td style="text-align: center;">fliegen@beyersdorf.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Marcus Böge</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">mb@mb.yourweb.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Klaus Boltze</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;"><span class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="kboltze@icloud.com"
+                                                      data-ce-class="Emails">kboltze@icloud.com</span></td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> David Bouchain</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> david@bouchain.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Jasper Boultwood</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">kgboultwood@gmx.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Sven&nbsp; Breckwoldt</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">svenbreckwoldt@yahoo.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jörg Büsing</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">joebues@gmail.com</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Caner Celebi</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">celebi.caner77@gmail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Falk Centner</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> falk.centner@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Erwin Deffur</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> erwin.deffur@t-online.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Erik Deierling</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">erik.deierling@gmx.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Mina Eilers</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">eilersannette@aol.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Fiona Ennulat</td>
+                <td style="text-align: center;">Stellv. Jugendwart</td>
+                <td style="text-align: center;">fionaennulat@gmail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Paul Foelkel</td>
+                <td align="center" height="19"> Fluglehrer</td>
+                <td align="center" height="19"> paul.foelkel@web.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Vijay Grabowski</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">vj.westmoreland@gmail.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jens Gralfs</td>
+                <td align="center" height="19"> Motorwart</td>
+                <td align="center" height="19"> jj.gralfs@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
 
-        <tr>
-            <td style="text-align: center;">Finn-Ole Groth</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;"><span class="cmp_parsed_email" data-cmp_parsed_email="fogermate@gmail.com"
-                                                  data-ce-class="Emails">fogermate@gmail.com</span></td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Edda Gutzlaff</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> edda.gutzlaff@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Sönke Gutzlaff</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> SGutzlaff@t-online.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Maurice Häger</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
-                                                  data-cmp_parsed_email="maurice.Haeger@gmx.de">Maurice.Haeger@gmx.de</span>
-            </td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jürgen Haller</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> J.Haller@data-audit.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Tim Haß</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> tim@posttaube.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Hans-Erik Hauschildt</td>
-            <td align="center" height="19">Ehrenmitglied</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> HauschHE@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jens Hebold</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> JensHebold@aol.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Michail Hengstenberg</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">michail.hengstenberg@spiegel.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Marina Henschen</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> info@t-henschen.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Felix Herminghausen</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">f.herminghausen@outlook.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Alexander Hillmann</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">alexh4@hotmail.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Alexander Hoffmann</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">alexander.hoffmann@mail.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Norman Hübner</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">Norman2222@web.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Norbert Jaschke</td>
-            <td align="center" height="19"> Fluglehrer</td>
-            <td align="center" height="19"> norbert.jaschke@gmail.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Kai Jensen</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">mail@kai-jensen.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Kai-Uwe Koch</td>
-            <td align="center" height="19"> Fluglehrer</td>
-            <td align="center" height="19"> Kai-Uwe@2Koch.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="38"> Bernward Krause</td>
-            <td align="center" height="38"> Geschäftsführer</td>
-            <td align="center" height="38"> Bernward.Krause@desy.de</td>
-            <td align="center" height="38"> b.krause@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Ralph Krethe</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> r.kre@web.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Tim Kröger</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> TimKroeger@Dr-Byte.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Uwe Krome</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">airblues@mail.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Zoltan Kullai</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">kullai.zoltan@yahoo.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Martin Kuntz</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> m.kuntz@freenet.de</td>
-            <td align="center" height="19"> Martin.Kuntz@airbus.com</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Raoul Lehmann</td>
-            <td align="center" height="19">
-                .
-            </td>
-            <td align="center" height="19"> raoul.lehmann@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Tim Lewerenz</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> timlewerenz@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"><a href="http://www.flugschule-hamburg.de" target="_blank">Alex Lipsky</a>
-            </td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">alexlipsky@web.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jürgen Lüer</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> jlueer@gmx.net</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Karl-Heinz Maass</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> khmaass@web.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jan Marquardt</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> jmarquardt@pottersgroup.com</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Silvan Meckelnburg</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> Silvan.Meckelnburg@googlemail.com</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Bernd Meier</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
-                                                  data-cmp_parsed_email="bwmeier@web.de">bwmeier@web.de</span></td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Marcel Merz</td>
-            <td style="text-align: center;">Motorfluglehrer</td>
-            <td style="text-align: center;">marcel-merz@web.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Nina Merz</td>
-            <td align="center" height="19">Fallschirmpackerin</td>
-            <td align="center" height="19">nina.merz@mail.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jens Meyer</td>
-            <td align="center" height="19"> Motorseglerwart</td>
-            <td align="center" height="19"> jens.meyer@seeg.sharp-eu.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Ludger Meyer</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> ludger.b.meyer@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Alexander Mills</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> alex.mills@web.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="57"> Howard Mills</td>
-            <td align="center" height="57"> Segelflug- &amp;<br>Öffentlichkeitsreferent <br> Landessegelflugreferent
-            </td>
-            <td align="center" height="57"> hmills@t-online.de</td>
-            <td align="center" height="57">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Felix Mischker</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">felix.mischker@googlemail.com</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Sebastian Mischker</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> Mischker81@aol.com</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Thomas Mischker</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> thmischker@aol.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"><a href="http://www.hanseair.com/" target="_blank">Philipp
-                Müller</a></td>
-            <td align="center" height="19"> Motorfluglehrer</td>
-            <td align="center" height="19"> p.mueller@hanseair.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Lukas Näfken</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">lukas.naefken@web.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Thomas Näfken</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">tnaefken@tnedv.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Denis Nietz</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
-                                                  data-cmp_parsed_email="denis@nox.com">denis.nietz@web.de</span></td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Werner Noack</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> Werner.Noack@t-online.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Salih Ȏcal</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">salih.oecal@gmail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Marsel Oryl</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">Marsel.Oryl@t-online.de</td>
-            <td style="text-align: center;">.<br></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Adam Peters</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">adam2404.pet@gmail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Eckart Pfau</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> eckart.pfau@t-online.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jürgen Pfeifer</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> nostalgic.flight@yahoo.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Klaus Pfeiffer</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">kp.pfeiffer@outlook.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Bernd Prahl</td>
-            <td align="center" height="19"> Segelflugzeugwart</td>
-            <td align="center" height="19"> b.prahl@freenet.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Walter Pruns</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">w.pruns@yahoo.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Sönke Puschmann</td>
-            <td align="center" height="19"> 1. Vorsitzender</td>
-            <td align="center" height="19"> puschmann@gmx.net</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Thomas Räppel</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">.<br></td>
-            <td style="text-align: center;">thomas.raeppel@yahoo.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Florian Ranke</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">florian.ranke@gmx.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Lennart Reh</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">lennartreh271@gmail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Albert Reik</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> albertreik1@mac.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Hannah Reiss</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">hannah.reiss@ymail.com</td>
-            <td style="text-align: center;">.<br></td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Marco Renk</td>
-            <td align="center" height="19">
-                .
-            </td>
-            <td align="center" height="19"> Marco.Renk@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Sylvia Riedel</td>
-            <td align="center" height="19"> Schatzmeisterin</td>
-            <td align="center" height="19"> sylvia.riedel74@freenet.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Ariane Rockel</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">ariane@rockels.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Lennart Rubart</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> Lennart.Rubart@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Gerd Rühl</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">gerd-ruehl@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Merrit Rump</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">merrit@familierump.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Oliver Rumpf</td>
-            <td align="center" height="19">.</td>
-            <td align="center" height="19"> hallooli@yahoo.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Hans-Jürgen Sählandt</td>
-            <td align="center" height="19"> Fluglehrer</td>
-            <td align="center" height="19"> saehlandt@online.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Rainer Schäfer</td>
-            <td align="center" height="19">.</td>
-            <td align="center" height="19"> rainer.schaefer@wtnet.de</td>
-            <td align="center" height="19"> schaefer_r@uni-hamburg.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Wolfgang Schulz</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> Wolfgang-P.Schulz@t-online.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Tim Seher</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">tim-julianseher@hotmail.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Daniel Sickert</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> d.sickert@web.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Philipp Siepmann</td>
-            <td align="center" height="19"> Jugendwart</td>
-            <td align="center" height="19"> phil.siepmann@hotmail.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Jean-Philipp Sievers</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> jpsievers@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Dirk Sondermann</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> sonman@t-online.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Uwe Stahlberg</td>
-            <td align="center" height="19"> Fluglehrer</td>
-            <td align="center" height="19"> u.stahlberg@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Olaf Stark</td>
-            <td align="center" height="19"> Technischer Leiter</td>
-            <td align="center" height="19"> olaf@fly-ki.de</td>
-            <td align="center" height="19"> o.stark@ost-informatik.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Cornelia Stark-Hartz</td>
-            <td align="center" height="19"> Fallschirmprüferin</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> c.stark-hartz@ost-informatik.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Sven Steman</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">.</td>
-            <td align="center" height="19"> steman@alice-dsl.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Karl-Heinz Strünke</td>
-            <td align="center" height="19"> Prüfer, Werkstattleiter &amp;<br>
-                Motorseglerwart
-            </td>
-            <td align="center" height="19"> K.Struenke@t-online.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="38"> Wolfgang Sutter</td>
-            <td align="center" height="38"> Werkstattleiter, <br>Fluglehrer &amp; Trainer-SH</td>
-            <td align="center" height="38"> sutter_w@web.de</td>
-            <td align="center" height="38"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Theo Teichmann</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> theo.teichmann@gmx.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"><a href="http://www.h-thier.de" target="_blank">Henryk Thier</a></td>
-            <td align="center" height="19"> Schulungsleiter</td>
-            <td align="center" height="19"> hk.thier@t-online.de</td>
-            <td align="center" height="19"> info@h-thier.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Jörg Tiggemann</td>
-            <td style="text-align: center;"> Fluglehrer</td>
-            <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
-                                                  data-cmp_parsed_email="joerg.tiggemann@gmx.de">joerg.tiggemann@gmx.de</span>
-            </td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Mario Trusch</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">mario.trusch@gmail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Arthur Wageula</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">waguelajenny@yahoo.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Dennis Weingärtner</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> weingaertner.dennis@freenet.de</td>
-            <td align="center" height="19">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Frank Weingärtner</td>
-            <td align="center" height="19"> 2. Vorsitzender</td>
-            <td align="center" height="19"><span lang="DE">F.weingaertner@gmx.net</span></td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Andreas Wendland</td>
-            <td style="text-align: center;"> Fluglehrer &amp; Trainer-SH<br>
-                Technikreferent
-            </td>
-            <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
-                                                  data-cmp_parsed_email="andreasg.64@freenet.de">andreasg.64@freenet.de</span>
-            </td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Marvin Westphal</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">marvin-westphal@gmx.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Ralf Westphal-Köhnke</td>
-            <td align="center" height="19"> Segelflugzeugwart</td>
-            <td align="center" height="19"> r.westphal-k@t-online.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Nadia Wojcik-Johlitz</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">nadia.wojcik-johlitz@gmx.de</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Patrick Weltzsch</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19">paddypilot@outlook.de</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Christopher Werthmann</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">ChristopherWerthmann@web.de</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Andreas Wöckner</td>
-            <td style="text-align: center;">.</td>
-            <td style="text-align: center;">ehrbus@googlemail.com</td>
-            <td style="text-align: center;">.</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Norbert Wülfken</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> astir01@aol.com</td>
-            <td align="center" height="19"> .</td>
-        </tr>
-        <tr>
-            <td align="center" height="19"> Hans-Christian Wulf</td>
-            <td align="center" height="19"> .</td>
-            <td align="center" height="19"> hcwulf@gmx.de</td>
-            <td align="center" height="19"> Hans-Christian.Wulf@dermalog.com</td>
-        </tr>
-        <tr>
-            <td align="center" height="21"> Timo Zaremba</td>
-            <td align="center" height="21"> .</td>
-            <td align="center" height="21"> .</td>
-            <td align="center" height="21"> timo.zaremba@airbus.com</td>
-        </tr>
+            <tr>
+                <td style="text-align: center;">Finn-Ole Groth</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;"><span class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="fogermate@gmail.com"
+                                                      data-ce-class="Emails">fogermate@gmail.com</span></td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Edda Gutzlaff</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> edda.gutzlaff@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Sönke Gutzlaff</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> SGutzlaff@t-online.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Maurice Häger</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="maurice.Haeger@gmx.de">Maurice.Haeger@gmx.de</span>
+                </td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jürgen Haller</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> J.Haller@data-audit.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Tim Haß</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> tim@posttaube.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Hans-Erik Hauschildt</td>
+                <td align="center" height="19">Ehrenmitglied</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> HauschHE@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jens Hebold</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> JensHebold@aol.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Michail Hengstenberg</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">michail.hengstenberg@spiegel.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Marina Henschen</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> info@t-henschen.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Felix Herminghausen</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">f.herminghausen@outlook.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Alexander Hillmann</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">alexh4@hotmail.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Alexander Hoffmann</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">alexander.hoffmann@mail.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Norman Hübner</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">Norman2222@web.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Norbert Jaschke</td>
+                <td align="center" height="19"> Fluglehrer</td>
+                <td align="center" height="19"> norbert.jaschke@gmail.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Kai Jensen</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">mail@kai-jensen.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Kai-Uwe Koch</td>
+                <td align="center" height="19"> Fluglehrer</td>
+                <td align="center" height="19"> Kai-Uwe@2Koch.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="38"> Bernward Krause</td>
+                <td align="center" height="38"> Geschäftsführer</td>
+                <td align="center" height="38"> Bernward.Krause@desy.de</td>
+                <td align="center" height="38"> b.krause@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Ralph Krethe</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> r.kre@web.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Tim Kröger</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> TimKroeger@Dr-Byte.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Uwe Krome</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">airblues@mail.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Zoltan Kullai</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">kullai.zoltan@yahoo.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Martin Kuntz</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> m.kuntz@freenet.de</td>
+                <td align="center" height="19"> Martin.Kuntz@airbus.com</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Raoul Lehmann</td>
+                <td align="center" height="19">
+                    .
+                </td>
+                <td align="center" height="19"> raoul.lehmann@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Tim Lewerenz</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> timlewerenz@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"><a href="http://www.flugschule-hamburg.de" target="_blank">Alex
+                    Lipsky</a>
+                </td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">alexlipsky@web.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jürgen Lüer</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> jlueer@gmx.net</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Karl-Heinz Maass</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> khmaass@web.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jan Marquardt</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> jmarquardt@pottersgroup.com</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Silvan Meckelnburg</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> Silvan.Meckelnburg@googlemail.com</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Bernd Meier</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="bwmeier@web.de">bwmeier@web.de</span></td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Marcel Merz</td>
+                <td style="text-align: center;">Motorfluglehrer</td>
+                <td style="text-align: center;">marcel-merz@web.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Nina Merz</td>
+                <td align="center" height="19">Fallschirmpackerin</td>
+                <td align="center" height="19">nina.merz@mail.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jens Meyer</td>
+                <td align="center" height="19"> Motorseglerwart</td>
+                <td align="center" height="19"> jens.meyer@seeg.sharp-eu.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Ludger Meyer</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> ludger.b.meyer@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Alexander Mills</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> alex.mills@web.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="57"> Howard Mills</td>
+                <td align="center" height="57"> Segelflug- &amp;<br>Öffentlichkeitsreferent <br> Landessegelflugreferent
+                </td>
+                <td align="center" height="57"> hmills@t-online.de</td>
+                <td align="center" height="57">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Felix Mischker</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">felix.mischker@googlemail.com</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Sebastian Mischker</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> Mischker81@aol.com</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Thomas Mischker</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> thmischker@aol.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"><a href="http://www.hanseair.com/" target="_blank">Philipp
+                    Müller</a></td>
+                <td align="center" height="19"> Motorfluglehrer</td>
+                <td align="center" height="19"> p.mueller@hanseair.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Lukas Näfken</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">lukas.naefken@web.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Thomas Näfken</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">tnaefken@tnedv.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Denis Nietz</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="denis@nox.com">denis.nietz@web.de</span>
+                </td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Werner Noack</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> Werner.Noack@t-online.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Salih Ȏcal</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">salih.oecal@gmail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Marsel Oryl</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">Marsel.Oryl@t-online.de</td>
+                <td style="text-align: center;">.<br></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Adam Peters</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">adam2404.pet@gmail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Eckart Pfau</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> eckart.pfau@t-online.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jürgen Pfeifer</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> nostalgic.flight@yahoo.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Klaus Pfeiffer</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">kp.pfeiffer@outlook.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Bernd Prahl</td>
+                <td align="center" height="19"> Segelflugzeugwart</td>
+                <td align="center" height="19"> b.prahl@freenet.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Walter Pruns</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">w.pruns@yahoo.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Sönke Puschmann</td>
+                <td align="center" height="19"> 1. Vorsitzender</td>
+                <td align="center" height="19"> puschmann@gmx.net</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Thomas Räppel</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">.<br></td>
+                <td style="text-align: center;">thomas.raeppel@yahoo.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Florian Ranke</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">florian.ranke@gmx.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Lennart Reh</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">lennartreh271@gmail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Albert Reik</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> albertreik1@mac.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Hannah Reiss</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">hannah.reiss@ymail.com</td>
+                <td style="text-align: center;">.<br></td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Marco Renk</td>
+                <td align="center" height="19">
+                    .
+                </td>
+                <td align="center" height="19"> Marco.Renk@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Sylvia Riedel</td>
+                <td align="center" height="19"> Schatzmeisterin</td>
+                <td align="center" height="19"> sylvia.riedel74@freenet.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Ariane Rockel</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">ariane@rockels.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Lennart Rubart</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> Lennart.Rubart@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Gerd Rühl</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">gerd-ruehl@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Merrit Rump</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">merrit@familierump.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Oliver Rumpf</td>
+                <td align="center" height="19">.</td>
+                <td align="center" height="19"> hallooli@yahoo.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Hans-Jürgen Sählandt</td>
+                <td align="center" height="19"> Fluglehrer</td>
+                <td align="center" height="19"> saehlandt@online.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Rainer Schäfer</td>
+                <td align="center" height="19">.</td>
+                <td align="center" height="19"> rainer.schaefer@wtnet.de</td>
+                <td align="center" height="19"> schaefer_r@uni-hamburg.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Wolfgang Schulz</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> Wolfgang-P.Schulz@t-online.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Tim Seher</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">tim-julianseher@hotmail.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Daniel Sickert</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> d.sickert@web.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Philipp Siepmann</td>
+                <td align="center" height="19"> Jugendwart</td>
+                <td align="center" height="19"> phil.siepmann@hotmail.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Jean-Philipp Sievers</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> jpsievers@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Dirk Sondermann</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> sonman@t-online.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Uwe Stahlberg</td>
+                <td align="center" height="19"> Fluglehrer</td>
+                <td align="center" height="19"> u.stahlberg@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Olaf Stark</td>
+                <td align="center" height="19"> Technischer Leiter</td>
+                <td align="center" height="19"> olaf@fly-ki.de</td>
+                <td align="center" height="19"> o.stark@ost-informatik.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Cornelia Stark-Hartz</td>
+                <td align="center" height="19"> Fallschirmprüferin</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> c.stark-hartz@ost-informatik.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Sven Steman</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">.</td>
+                <td align="center" height="19"> steman@alice-dsl.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Karl-Heinz Strünke</td>
+                <td align="center" height="19"> Prüfer, Werkstattleiter &amp;<br>
+                    Motorseglerwart
+                </td>
+                <td align="center" height="19"> K.Struenke@t-online.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="38"> Wolfgang Sutter</td>
+                <td align="center" height="38"> Werkstattleiter, <br>Fluglehrer &amp; Trainer-SH</td>
+                <td align="center" height="38"> sutter_w@web.de</td>
+                <td align="center" height="38"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Theo Teichmann</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> theo.teichmann@gmx.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"><a href="http://www.h-thier.de" target="_blank">Henryk Thier</a></td>
+                <td align="center" height="19"> Schulungsleiter</td>
+                <td align="center" height="19"> hk.thier@t-online.de</td>
+                <td align="center" height="19"> info@h-thier.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Jörg Tiggemann</td>
+                <td style="text-align: center;"> Fluglehrer</td>
+                <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="joerg.tiggemann@gmx.de">joerg.tiggemann@gmx.de</span>
+                </td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Mario Trusch</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">mario.trusch@gmail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Arthur Wageula</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">waguelajenny@yahoo.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Dennis Weingärtner</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> weingaertner.dennis@freenet.de</td>
+                <td align="center" height="19">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Frank Weingärtner</td>
+                <td align="center" height="19"> 2. Vorsitzender</td>
+                <td align="center" height="19"><span lang="DE">F.weingaertner@gmx.net</span></td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Andreas Wendland</td>
+                <td style="text-align: center;"> Fluglehrer &amp; Trainer-SH<br>
+                    Technikreferent
+                </td>
+                <td style="text-align: center;"><span data-ce-class="Emails" class="cmp_parsed_email"
+                                                      data-cmp_parsed_email="andreasg.64@freenet.de">andreasg.64@freenet.de</span>
+                </td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Marvin Westphal</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">marvin-westphal@gmx.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Ralf Westphal-Köhnke</td>
+                <td align="center" height="19"> Segelflugzeugwart</td>
+                <td align="center" height="19"> r.westphal-k@t-online.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Nadia Wojcik-Johlitz</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">nadia.wojcik-johlitz@gmx.de</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Patrick Weltzsch</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19">paddypilot@outlook.de</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Christopher Werthmann</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">ChristopherWerthmann@web.de</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Andreas Wöckner</td>
+                <td style="text-align: center;">.</td>
+                <td style="text-align: center;">ehrbus@googlemail.com</td>
+                <td style="text-align: center;">.</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Norbert Wülfken</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> astir01@aol.com</td>
+                <td align="center" height="19"> .</td>
+            </tr>
+            <tr>
+                <td align="center" height="19"> Hans-Christian Wulf</td>
+                <td align="center" height="19"> .</td>
+                <td align="center" height="19"> hcwulf@gmx.de</td>
+                <td align="center" height="19"> Hans-Christian.Wulf@dermalog.com</td>
+            </tr>
+            <tr>
+                <td align="center" height="21"> Timo Zaremba</td>
+                <td align="center" height="21"> .</td>
+                <td align="center" height="21"> .</td>
+                <td align="center" height="21"> timo.zaremba@airbus.com</td>
+            </tr>
 
-        </tbody>
-    </table>
-
-
-    <p>
-    </p>
-    <h3>Folgende Ex-LSVer halten noch Kontakt zu Uns:</h3>
-
-    <table class="table-striped table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <th> Name</th>
-            <th> Info</th>
-            <th> E-Mail</th>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Michael Ankelin</td>
-            <td style="text-align: center;"><a href="http://www.lsc-dillingen.de/" target="_blank"><span
-                    style="font-family: arial,helvetica,sans-serif; font-size: 10pt; color: rgb(0, 0, 0); text-decoration: none;"
-                    data-mce-style="font-family:arial,helvetica,sans-serif;font-size:10pt;color:#000000;text-decoration:none">LSC Dillingen</span></a>
-            </td>
-            <td style="text-align: center;"><span
-                    style="font-family: arial,helvetica,sans-serif; font-size: 10pt; color: rgb(0, 0, 0); text-decoration: none;"
-                    data-mce-style="font-family:arial,helvetica,sans-serif;font-size:10pt;color:#000000;text-decoration:none">michael@ankelin.de</span>
-            </td>
-        </tr>
-        <tr>
-            <td align="center"> Gerhard Deffner</td>
-            <td align="center"> (in USA)</td>
-            <td align="center"> GDeffner@aol.com</td>
-        </tr>
-        <tr>
-            <td align="center"> Thomas Kostrzewa</td>
-            <td align="center"> BFU</td>
-            <td align="center"> thomas.kostrzewa@freenet.de<br>thomas.kostrzewa@bfu-web.de</td>
-        </tr>
-        <tr>
-            <td align="center"> Gerhard Städler</td>
-            <td align="center"><a href="http://www.fg-mosbach.de" target="NewWin">Fliegergruppe Mosbach</a></td>
-            <td align="center"> gerhard.staedtler@t-online.de</td>
-        </tr>
-        <tr>
-            <td align="center">Oliver Thomsen</td>
-            <td align="center">LSV Kreis Segeberg</td>
-            <td align="center"> othomsen@freenet.de</td>
-        </tr>
-        <tr>
-            <td style="text-align: center;">Andreas Wieberneit</td>
-            <td style="text-align: center;"> (Bellvue, WA, USA)</td>
-            <td style="text-align: center;"><span
-                    style="font-family: arial,helvetica,sans-serif; font-size: 10pt; color: rgb(0, 0, 0);">awieberneit@yahoo.ca</span>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
 
-    <p>
-        <em>
-            <span style="color: red; font-size: smaller; ">last update&nbsp;3.9.2017</span></em>
-    </p>
+        <p>
+        </p>
+        <h3>Folgende Ex-LSVer halten noch Kontakt zu Uns:</h3>
+
+        <table class="table-striped table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <th> Name</th>
+                <th> Info</th>
+                <th> E-Mail</th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Michael Ankelin</td>
+                <td style="text-align: center;"><a href="http://www.lsc-dillingen.de/" target="_blank"><span
+                        style="font-family: arial,helvetica,sans-serif; font-size: 10pt; color: rgb(0, 0, 0); text-decoration: none;"
+                        data-mce-style="font-family:arial,helvetica,sans-serif;font-size:10pt;color:#000000;text-decoration:none">LSC Dillingen</span></a>
+                </td>
+                <td style="text-align: center;"><span
+                        style="font-family: arial,helvetica,sans-serif; font-size: 10pt; color: rgb(0, 0, 0); text-decoration: none;"
+                        data-mce-style="font-family:arial,helvetica,sans-serif;font-size:10pt;color:#000000;text-decoration:none">michael@ankelin.de</span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center"> Gerhard Deffner</td>
+                <td align="center"> (in USA)</td>
+                <td align="center"> GDeffner@aol.com</td>
+            </tr>
+            <tr>
+                <td align="center"> Thomas Kostrzewa</td>
+                <td align="center"> BFU</td>
+                <td align="center"> thomas.kostrzewa@freenet.de<br>thomas.kostrzewa@bfu-web.de</td>
+            </tr>
+            <tr>
+                <td align="center"> Gerhard Städler</td>
+                <td align="center"><a href="http://www.fg-mosbach.de" target="NewWin">Fliegergruppe Mosbach</a></td>
+                <td align="center"> gerhard.staedtler@t-online.de</td>
+            </tr>
+            <tr>
+                <td align="center">Oliver Thomsen</td>
+                <td align="center">LSV Kreis Segeberg</td>
+                <td align="center"> othomsen@freenet.de</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">Andreas Wieberneit</td>
+                <td style="text-align: center;"> (Bellvue, WA, USA)</td>
+                <td style="text-align: center;"><span
+                        style="font-family: arial,helvetica,sans-serif; font-size: 10pt; color: rgb(0, 0, 0);">awieberneit@yahoo.ca</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+        <p>
+            <em>
+                <span style="color: red; font-size: smaller; ">last update&nbsp;3.9.2017</span></em>
+        </p>
+    </div>
 </div>

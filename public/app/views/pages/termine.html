@@ -1,56 +1,60 @@
 <div ng-include src="'app/views/pages/menu.html'"></div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h3>Terminkalender, Aktuelles</h3>
-    <p>
-    <table class="table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <td></td>
-            <td style="text-align: center;"><span style="font-weight: bold;">2017</span></td>
-        </tr>
-        <tr>
-            <td style="text-align: center;"><span style="font-weight: bold;">29.10.</span></td>
-            <td>LTK-Prüfung.</td>
-        </tr>
-        </tbody>
-    </table>
-    </p>
-    <p><span style="color: green; font-size: smaller; ">
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
+
+        <h3>Terminkalender, Aktuelles</h3>
+        <p>
+        <table class="table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <td></td>
+                <td style="text-align: center;"><span style="font-weight: bold;">2017</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><span style="font-weight: bold;">29.10.</span></td>
+                <td>LTK-Prüfung.</td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
+        <p><span style="color: green; font-size: smaller; ">
         ** bedeutet: keine LSV-organisierte Veranstaltung
     </span></p>
-    <h3><a name="NEWS"></a>LSV Kreis Pinneberg:
-        Nachrichten 2017</h3>
-    <ul>
-        <li>Als neue Mitglieder 2017 begrüßen wir:
-            <ul>
-                <li>Tim Seher, Schenefeld, ab Mai,</li>
-                <li>Norman Hübner, Hamburg, ab Juli,</li>
-                <li>Klaus Boltze, Hamburg, ab Juli,</li>
-                <li>Arthur Waguela, Hamburg, ab September.</li>
-            </ul>
-        </li>
-        <li>03.2.: Heute haben ca. 47 LSVer mit Famlienenmitgliedern an
-            unserem Grünkohlessen teilgenommen.
-        </li>
-        <li>18.3.: Dusan Bernat ist neue Fluglehrer "RP".</li>
-        <li>25.3.: Die Flugsaison hat angefangen!</li>
-        <li>14.5.: Heute hat Alexander Hoffmann seinen 50 km Überlandflug absolviert (mit DG-300).</li>
-        <li>20.5.: Heute hat Jasper Boultwood seine ersten 3 Alleinflüge absolviert.</li>
-        <li>21.5.: Heute hat Florian Ranke seinen 50 km Überlandflug absolviert (mit DG-300).</li>
-        <li>11.6.: Heute hat Lukas Näfken die Windenfahrerprüfung bestanden.</li>
-        <li>02.7.: Heute hat Alexander Hoffman die praktische Prüfung bestanden.</li>
-        <li>15.7.:&nbsp;Heute hat Mario Trusch die Windenfahrerprüfung bestanden.</li>
-        <li>04.8.: Das LSV-Sommerlager in <a href="http://www.ftv-metzingen.de/index.php/de/" target="_blank">Metzingen
-            /&nbsp;Flugplatz Berliner Heide</a> fand vom 23.7. bis 4.8. statt.
-        </li>
-        <li>16.8.: Heute hat Adam Peters seinen 50 km Überlandflug absolviert (mit DG-300).</li>
-        <li>27.8.: Heute hat Maurice Häger seine ersten 3 Alleinflüge absolviert.</li>
-        <li>03.9.: Heute hat Erik Deierling seinen 50 km Überlandflug absolviert (mit Discus b).</li>
-        <li>03.9.: Heute hat Jan Ahlers die Windenfahrerprüfung bestanden.</li>
-    </ul>
-    <p>
-        <em>
-            <span style="color: red; font-size: smaller; ">last update 22.5.2012</span>
-        </em>
-    </p>
+        <h3><a name="NEWS"></a>LSV Kreis Pinneberg:
+            Nachrichten 2017</h3>
+        <ul>
+            <li>Als neue Mitglieder 2017 begrüßen wir:
+                <ul>
+                    <li>Tim Seher, Schenefeld, ab Mai,</li>
+                    <li>Norman Hübner, Hamburg, ab Juli,</li>
+                    <li>Klaus Boltze, Hamburg, ab Juli,</li>
+                    <li>Arthur Waguela, Hamburg, ab September.</li>
+                </ul>
+            </li>
+            <li>03.2.: Heute haben ca. 47 LSVer mit Famlienenmitgliedern an
+                unserem Grünkohlessen teilgenommen.
+            </li>
+            <li>18.3.: Dusan Bernat ist neue Fluglehrer "RP".</li>
+            <li>25.3.: Die Flugsaison hat angefangen!</li>
+            <li>14.5.: Heute hat Alexander Hoffmann seinen 50 km Überlandflug absolviert (mit DG-300).</li>
+            <li>20.5.: Heute hat Jasper Boultwood seine ersten 3 Alleinflüge absolviert.</li>
+            <li>21.5.: Heute hat Florian Ranke seinen 50 km Überlandflug absolviert (mit DG-300).</li>
+            <li>11.6.: Heute hat Lukas Näfken die Windenfahrerprüfung bestanden.</li>
+            <li>02.7.: Heute hat Alexander Hoffman die praktische Prüfung bestanden.</li>
+            <li>15.7.:&nbsp;Heute hat Mario Trusch die Windenfahrerprüfung bestanden.</li>
+            <li>04.8.: Das LSV-Sommerlager in <a href="http://www.ftv-metzingen.de/index.php/de/" target="_blank">Metzingen
+                /&nbsp;Flugplatz Berliner Heide</a> fand vom 23.7. bis 4.8. statt.
+            </li>
+            <li>16.8.: Heute hat Adam Peters seinen 50 km Überlandflug absolviert (mit DG-300).</li>
+            <li>27.8.: Heute hat Maurice Häger seine ersten 3 Alleinflüge absolviert.</li>
+            <li>03.9.: Heute hat Erik Deierling seinen 50 km Überlandflug absolviert (mit Discus b).</li>
+            <li>03.9.: Heute hat Jan Ahlers die Windenfahrerprüfung bestanden.</li>
+        </ul>
+        <p>
+            <em>
+                <span style="color: red; font-size: smaller; ">last update 22.5.2012</span>
+            </em>
+        </p>
+    </div>
 </div>

@@ -1,633 +1,642 @@
 <div ng-include src="'app/views/pages/menu.html'"></div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h3>Terminologie des Segelfliegens</h3>
-    <p>
-        Die folgende Tabelle dient dazu, einige Fachbegriffe locker zu erklären.
-    </p>
-    <p>
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
 
-    <table class="table-bordered table-condensed">
-        <tbody>
-        <tr>
-            <th valign="top" id="ALLEINFLUG">1. Alleinflug</th>
-            <td> Großer Tag in jedem Fliegerleben.
-                Acht Minuten, in denen der Fluglehrer sich vielleicht mehr Sorgen macht
-                als der Flugschüler.
-                Nach dreimaligem Alleinflug gibt es ein traditionelles Hinternversohlen
-                (um die <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
-                besser zu merken). In Süddeutschland gehört
-                auch ein Dornenstrauß und ein Eimer kaltes Wasser dazu.<br>
-                Wird gefeiert - siehe <a href="" ng-click="gotoAnchor('FREIBIER')">Freibier</a>.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="ACKER">Acker</th>
-            <td> Wenn ein Segelflieger <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">außenlanden</a> muss,
-                sucht er ein geeignetes Landefeld aus, am besten einen Acker.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="ALKOHOL">Alkohol</th>
-            <td> Für Piloten gilt beim Fliegen selbstverständlich die 0,0 Promillegrenze.
-                Im Flugzeug darf Alkohol nur im Kompass vorhanden sein.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="AUSSENLANDUNG">Außenlandung</th>
-            <td> Besonders bei <a href="" ng-click="gotoAnchor('UEBERLANDFLUG')">Überlandflügen</a>
-                kann es passieren, dass man
-                keine <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
-                mehr findet und landen muß.
-                Der Pilot sucht dafür einen geeigneten Acker, landet, und meldet beim Heimatflugplatz seinen Landeort.
-                Eine <a href="" ng-click="gotoAnchor('RUECKHOLER')">Rückholmannschaft</a>
-                kommt dann mit Auto und Anhänger,
-                um Flugzeug und Pilot einzusammeln und nach Hause zu bringen.<br>
-                Die schönsten Fliegergeschichten handeln von Außenlandungen.
-                Oft wird man mit Kaffee und Kuchen begrüßt und gelegentlich für die
-                Lokalseite interviewt.<br>
-                <b>Eine Außenlandung ist keine Schande, sondern gehört dazu!</b></td>
-        </tr>
-        <tr>
-            <th valign="top" id="BART">Bart</th>
-            <td> Nicht der unrasierte Bewuchs
-                eines Piloten nach 2-Wochen Fliegerlager sondern
-                Fliegerausdruck für <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>.<br>
-                "Sechs-Meter-Bart" gehört zum Fliegerlatein....
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Blei</th>
-            <td> Untergewichtige Piloten müssen fehlendes Gewicht durch Bleikissen
-                (unter dem Sitz) aufstocken, da für alle Flugzeuge auf dem
-                Vordersitz ein
-                Mindestgewicht von ca. 65 kg vorgeschrieben ist. Ist besonders bei
-                weiblichen Jugendlichen notwendig. Dafür bekommen sie "Muckis"
-                durch das Tragen der Bleikissen.<br>
-                Die meiste LSVer fliegen "bleifrei".
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="BREMSKLAPPEN">Bremsklappen</th>
-            <td> Die Bremsklappen erhöhen die Sinkrate eines Segelflugzeuges.
-                Dies ist notwendig, um Höhe im Landeanflug
-                abzubauen oder zu verhindern, daß man vielleicht
-                in eine Wolke hineingezogen wird.
-                Moderne Segelflugzeuge haben sehr wirksame
-                Bremsklappen, die die
-                <a href="" ng-click="gotoAnchor('GLEITZAHL')">Gleitzahl</a> von ca. 1:40
-                auf 1:4 reduzieren.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Cumulus (Cu)</th>
-            <td> Die Wolke der Segelflieger. Wird durch
-                <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a> gezeugt
-                und zeigt daher dem Segelflieger, wo Thermik zu finden ist.
-                Man fliegt "von Wolke zur Wolke".
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Cumulonimbus (Cb)</th>
-            <td valign="top"> Gewitterwolke - bloß weg!</td>
-        </tr>
-        <tr>
-            <th valign="top" id="DMST">DMSt.</th>
-            <td> Deutsche Meisterschaft im Streckensegelflug.
-                Ein dezentraler Wettbewerb, der von 1. März bis 30. September läuft. Die DMSt. ist eine gute
-                Möglichkeit,
-                sich gegen sich selbst (und andere) zu messen.
-                Alle LSVer werden dazu aufgerufen, an der DMSt. teilzunehmen.<br>
-                Im Internet findet man die aktuelle <a
-                        href="http://www.onlinecontest.org/olc-2.0/gliding/getScoring.html?scoringId=120&amp;country=DE&amp;subcountry=sh"
-                        target="_blank"> DMSt.-Auswertung für
-                    Alle Vereine</a> in Schleswig-Holstein.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="DIAMANTEN">Diamanten</th>
-            <td> Die internationalen Sportabzeichen
-                <a href="" ng-click="gotoAnchor('DIAMANTEN')">Diamanten</a>
-                werden zusätzlich zum Leistungsabzeichen in <a href="" ng-click="gotoAnchor('GOLD')">Gold</a>
-                oder <a href="" ng-click="gotoAnchor('SILBER')">Silber</a> erworben.
-                Es gibt insgesamt 3 Diamanten:
-                <ul>
-                    <li>5000m Höhengewinn
-                    </li>
-                    <li>300km Zielstreckenflug
-                    </li>
-                    <li>500km Streckenflug
-                    </li>
-                </ul>
-                Einige LSVer haben das Leistungsabzeichen in Gold mit 3 Diamanten.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="DU">Du</th>
-            <td><b>Alle</b> Segelflieger duzen sich untereinander. Immer.</td>
-        </tr>
-        <tr>
-            <th valign="top"><b>Ehefrau</b></th>
-            <td>
-                <div style="text-align: center;"><img class="img-rounded img-responsive center-block" src="app/views/images/wife.jpg" border="0" height="218" width="421"></div>
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> F-Schlepp</th>
-            <td> Flugzeugschlepp.
-                Als Alternative zum <a href="" ng-click="gotoAnchor('WINDE')">Windenstart</a>
-                kann ein Segelflugzeug
-                hinter einem Motorflugzeug in die Luft gezogen werden.
-                Teuerer als ein <a href="" ng-click="gotoAnchor('WINDE')">Windenstart</a>,
-                aber flexibler.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Fallschirm</th>
-            <td> Man muss entweder einen Fallschirm oder ein Sitzkissen im Segelflugzeug
-                mitführen (es gibt also keine gesetzliche Fallschirmpflicht!).
-                Die meisten Segelflieger tragen einen Fallschirm.
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center;"><span style="font-weight: bold;">FLARM</span></td>
-            <td><a href="http://de.wikipedia.org/wiki/FLARM" target="_blank">FLARM</a>
-                ist ein in Kleinflugzeugen eingesetztes Kollisionswarngerät, das in der
-                Schweiz ursprünglich für den Segelflug entwickelt wurde.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="FLUGLEHRER">Fluglehrer</th>
-            <td> Ein erfahrener Segelflieger, der seine Wochenenden
-                opfert, um anderen das Fliegen beizubringen.
-                Er/sie hat Zeit und Nerven investiert, um die Lehrberechtigung
-                zu bekommen.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="FLUGLEITER">Flugleiter</th>
-            <td> Sitzt im Tower am Flugplatz und bewacht die Motorflieger.</td>
-        </tr>
-        <tr>
-            <th valign="top" id="FLUGVERBOT">Flugverbot</th>
-            <td> Eine selten ausgesprochene "Strafe" für Flugschüler usw.
-                Siehe <a href="" ng-click="gotoAnchor('LEPO')">LEPO (Rallyefahrten)</a>.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="FREIBIER">Freibier</th>
-            <td> Eine Kiste Freibier ist fällig, um besondere Ereignisse
-                zu feiern (<a href="" ng-click="gotoAnchor('ALLEINFLUG')">1. Alleinflug</a>,
-                bestandene GPL-Prüfung,
-                größerer <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a> usw.).
-                Auch bei Vergehen fällig
-                - siehe <a href="" ng-click="gotoAnchor('KULLERBIER')">Kullerbier</a>.<br>
-                Da der LSV kein "Saufverein" ist, darf selbstverständlich
-                Cola usw. getrunken werden.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="GLEITZAHL">Gleitzahl</th>
-            <td> Die Gleitzahl entspricht der Strecke, die ein Segelflugzeug
-                zurücklegt, wenn es eine Einheit Höhe verliert.
-                Z.B. hat ein ASK-13 Doppelsitzer eine Gleitzahl
-                von 1:32 - d.h. pro 1000m Höhe gleitet es theoretisch
-                32km weit (stille Luft vorausgesetzt).
-                Die Gleitzahl eines Standardklasse Gfk-Segelflugzeugs liegt bei 1:40,
-                die der offenen Klasse bei 1:60.<br>
-                De Facto ist die Gleitzahl eine Funktion des Geldbeutels!
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="GOLD">Gold Leistungsabzeichen</th>
-            <td> Das internationale Leistungsabzeichnen <a href="" ng-click="gotoAnchor('GOLD')">Gold</a>
-                folgt dem <a href="" ng-click="gotoAnchor('SILBER')">Silber</a>:
-                man erhält es für einen 5-Stundenflug, 300km Streckenflug und
-                3000m Höhengewinn.
-                Das Abzeichen zeigt drei weiße
-                Möwen auf blauem Hintergrund mit einem goldenen Rand.<br>
-                Zum Leistungsabzeichen in <a href="" ng-click="gotoAnchor('GOLD')">Gold</a> können <a
-                        href="" ng-click="gotoAnchor('DIAMANTEN')">DIAMANTEN</a>
-                erworben werden.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="SPL">SPL(LAPL)</th>
-            <td> SPL(LAPL) = Soaring Pilot Licence (Luftfahrerschein für Segelflugzeugführer)
-                und ist Ziel
-                unserer Ausbildung.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="GPS">GPS/GNSS</th>
-            <td> Satellitennavigation. GPS="Global Positioning System".
-                Obwohl nicht unbedingt notwendig, benutzen
-                Piloten zunehmend das GPS zum Navigieren und sogar zum Dokumentieren
-                von <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflügen</a> (GPS-Logger).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Grosse, Hans-Werner</th>
-            <td> Hans-Werner Grosse ist ein bekannter deutscher Segelflieger.
-                Der Lübecker hat viele Rekorde sowohl in Europa als auch
-                z.B. in Australien geflogen. Einer seiner bekanntesten Flüge führte
-                von Lübeck nach Biarritz (1972). Trotz aller Berühmtheit:
-                auch Hans-Werner sollte
-                man mit <a href="terminologie.html#DU" ng-click="gotoAnchor('DU')">Du</a> anreden.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Haltergemeinschaft</th>
-            <td> Der LSV stellt genügend Segelflugzeuge für die Ausbildung,
-                Scheinerhaltung und einige
-                <a href="" ng-click="gotoAnchor('UEBERLANDFLUG')">Überlandflüge</a> zur Verfügung.
-                Wer mehr möchte (und das nötige Kleingeld hat), kann
-                sich ein Flugzeug kaufen. Meistens wird dies mit mehreren
-                LSVern geteilt, das ist dann eine Haltergemeinschaft.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="HAMMERWETTER">Hammerwetter</th>
-            <td> Wenn die <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
-                so stark ist, daß sie von unten gegen die Flügel "hammert" und
-                das Segelflugzeug nach oben katapultiert.
-                Das <a href="" ng-click="gotoAnchor('VARIO')">Vario</a>(meter) ist am Anschlag.
-                Erleben wir hier in Norddeutschland leider selten...
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="HOEHENFREIGABE">Höhenfreigabe</th>
-            <td> Der Flugplatz Uetersen liegt nicht weit vom Hamburger
-                Flughafen entfernt. Uetersen liegt zwar außerhalb der
-                Hamburger Kontrollzone, aber unterhalb des
-                Luftraums "C". Normalweise gilt eine maximale
-                Flughöhe von 2500' (750m). Durch eine Betriebsvereinbarung
-                mit der Flugsicherung bekommen wir (je nach Verkehrslage)
-                eine Höhenfreigabe bis max 4500' (1350m).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> ICAO-Karte</th>
-            <td> Die Karte, mit der wir navigieren. Zeigt Autobahnen, Flüsse,
-                Eisenbahnen, Städte und Flugplätze.
-                Zeigt auch die Lufträume, z.B. Kontrollzonen, Sperrgebiete.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" ID="KEINWIND">Kein Wind...</th>
-            <td><i>"Kein Wind mehr?"</i> Mit solchen Sprüchen werden
-                Piloten nach einer <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">Außenlandung</a>
-                vom Fußgängervolk begrüßt.
-                Hilft nur eines: tief durchatmen und mit Geduld erklären,
-                daß nicht fehlender Wind sondern fehlende
-                <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
-                den Piloten zur Landung gezwungen hat.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="KULLER">Kuller</th>
-            <td> Moderne Segelflugzeuge haben einen Transportkuller (Rad),
-                der nach der Landung unter dem Schwanz montiert wird, um das Schieben
-                am Boden zu erleichtern.
-                Muß vor dem Start abmontiert werden - siehe
-                <a href="" ng-click="gotoAnchor('KULLERBIER')">Kullerbier</a>.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="KULLERBIER">Kullerbier</th>
-            <td> Vergißt ein Pilot vor dem Start
-                den <a href="" ng-click="gotoAnchor('KULLER')">Kuller</a>
-                hinten am Segelflugzeug
-                abzumontieren, und er sitzt drin und erklärt
-                sich startbereit, wird eine Kiste "KULLERBIER" verlangt,
-                um künftige Vergesslichkeit zu unterbinden.
-                Kullerbier wird mit lautem Jubel der Umstehenden begrüßt (der Pilot
-                guckt meist ziemlich unglücklich).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Kunstflug</th>
-            <td> Kunstflug mit Segelflugzeugen ist nach einer
-                entsprechenden Zusatzausbildung durchaus möglich.
-                Einige LSVer besitzen die Kunstflugberechtigung und
-                nehmen an Wettbewerben teil.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="LEPO">LEPO</th>
-            <td> "LEPO" ist "OPEL" rückwärts geschrieben.
-                Der LEPO ist der Seilrückholwagen, der die Windenseile
-                von der <a href="" ng-click="gotoAnchor('WINDE')">Winde</a> zum Start bringt.
-                Auch andere Fabrikate als Opel werden eingesetzt!
-                Wird gerne von jungen Mitgliedern gefahren, da auf
-                Privatgelände kein Führerschein notwendig ist.
-                Wird manchmal für Rallyefahrten missbraucht
-                (siehe <a href="" ng-click="gotoAnchor('FLUGVERBOT')">Flugverbot</a>).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> LEPORELLO</th>
-            <td> "LEPORELLO" ist "OLLER OPEL" rückwarts.</td>
-        </tr>
-        <tr>
-            <th valign="top"> Lötlampe</th>
-            <td> So nennen wir die schnellen Düsenjäger der Bundeswehr.
-                Hört man einen, ist er längst vorbeigeflogen.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Lufthansa-Landung</th>
-            <td> Bei einer idealen Landung wird gleichzeitig mit Sporn und Fahrwerk
-                aufgesetzt (minimale Fahrt). Eine etwas schnellere Landung,
-                bei der nur auf dem Fahrwerk aufgesetzt wird, bezeichnen wir als
-                "Lufthansa-Landung". Ist die Landung noch schneller,
-                so daß das Flugzeug mehrmals hintereinander aufsetzt, so ist das eine
-                "Montag-Dienstag-Mittwoch..."-Landung.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> MoSe</th>
-            <td> MoSe ist die Abkürzung für MOtorSEgeler.<br>
-                Wird in der Segelflugausbildung z.B. für
-                Navigationseinweisungen eingesetzt.
-                Nach Erhalt der <a href="" ng-click="gotoAnchor('SPL')">SPL(LAPL)</a>
-                ist eine Umschulung auf MoSe möglich.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="PRIVATFLIEGER">Privatflieger</th>
-            <td> Begriff für jemanden, der sein eigenes Flugzeug fliegt anstatt
-                Vereinsflugzeuge. Eigentlich gibt es keine
-                "Privatflieger ", sondern Mitglieder, die ein Privatflugzeug
-                fliegen.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="RUECKHOLER">Rückholer</th>
-            <td> Begriff für jemanden, der
-                <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">außengelandete</a> Piloten
-                vom <a href="" ng-click="gotoAnchor('ACKER')">Acker</a> (oder von wo auch immer) mittels Auto und Anhänger
-                zurückholt.
-                Obwohl von vielen als lästig empfunden, kann Rückholen Spaß machen!
-                Jeder im Verein soll bereit sein, seine Kameraden
-                vom Acker zu holen.
-                Das nächste Mal will man vielleicht selbst zurückgeholt werden.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Saufen</th>
-            <td> Hat wieder nichts mit dem <a href="" ng-click="gotoAnchor('ALKOHOL')">Alkohol</a>
-                zu tun, sondern ist das Gegenteil von
-                <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>.
-                In einer sinkenden Luftmasse verliert das Segelflugzeug
-                rasch an Höhe. Wenn der Pilot dann nicht schnell Thermik findet,
-                droht eine <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">Außenlandung</a>.<br>
-                Diese Art von Saufen mag der Segelflieger nicht!
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Schulungsleiter</th>
-            <td> Cheffluglehrer in einem Verein.
-                Bei uns heißt er Henryk Thier.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="SCU">SCU</th>
-            <td><a href="http://www.segelflug.de/vereine/uetersen" target="_top">Segelflugclub Uetersen</a>
-                - unser Nachbarverein.
-                Vor vielen Jahren vom LSV abgesplittet.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Seilriß</th>
-            <td><i>"Was passiert, wenn das Windenseil reißt?"</i> fragen
-                viele Besucher. Gar nichts - weil jeder Pilot
-                davon ausgehen <b>muß</b>, daß das Seil jederzeit reißen kann,
-                und wenn er vorbereitet ist, reagiert er richtig.
-                Richtig heißt: Flugzeugnase nach unten drücken, Geschwindigkeit
-                kontrollieren. Aus niedriger Höhe wird geradeaus
-                gelandet, sonst wird eine verkürzte Platzrunde geflogen.
-                Besonders wichtig - nicht zu steil am Anfang des Starts!<br>
-                Seilrisse passieren selten.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Seilrißübung</th>
-            <td> Um das richtige Verhalten eines Flugschülers zu prüfen,
-                wird der <a href="" ng-click="gotoAnchor('FLUGLEHRER')">Fluglehrer</a>
-                überraschend mitten im <a href="" ng-click="gotoAnchor('WINDE')">Windenstart</a>
-                ausklinken.
-                Eine Seilrißübung bedeutet, daß der Flugschüler demnächst
-                <a href="" ng-click="gotoAnchor('ALLEINFLUG')">allein</a> fliegen wird
-                (siehe <a href="" ng-click="gotoAnchor('FREIBIER')">Freibier</a>).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="SEILSALAT">Seilsalat</th>
-            <td> Gefürchtet von jedem <a href="" ng-click="gotoAnchor('WINDE')"> Windenfahrer </a>
-                und die Ursache von längeren Pausen in der Startreihe.
-                Wenn z.B. beim Seilausziehen der
-                <a href="" ng-click="gotoAnchor('LEPO')">LEPO</a> abrupt stehen bleibt,
-                drehen die Seiltrommeln auf der
-                <a href="" ng-click="gotoAnchor('WINDE')">Winde</a> weiter, Schlaufen bilden
-                sich und schon hat man den schönsten
-                <a href="" ng-click="gotoAnchor('SEILSALAT')">Seilsalat</a>.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="SILBER">Silber Leistungsabzeichen</th>
-            <td> Das internationale Leistungsabzeichen <a href="" ng-click="gotoAnchor('SILBER')">Silber</a>
-                kann erhalten, wer einen 5-Stundenflug, 50km Streckenflug und
-                1000m Höhengewinn geschafft hat. Das Abzeichen zeigt drei weiße
-                Möwen auf blauem Hintergrund mit einem silbernen Rand.<br>
-                In Ländern, in denen es keinen Luftfahrerschein
-                für Segelflieger gibt (z.B. GB),
-                ist das Leistungsabzeichen in <a href="" ng-click="gotoAnchor('SILBER')">Silber</a> quasi als
-                Schein anerkannt.<br>
-                Nachfolgend kann man das Leistungsabzeichen in <a href="" ng-click="gotoAnchor('GOLD')">Gold</a>
-                und <a href="" ng-click="gotoAnchor('DIAMANTEN')">DIAMANTEN</a> erlangen.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Sinnvolle Freizeit</th>
-            <td> Natürlich das Segelfliegen.</td>
-        </tr>
-        <tr>
-            <th valign="top"> Slip</th>
-            <td> Hat nichts mit weiblichen Dessous zu tun:
-                Der Slip ist ein Seitengleitflug, eine Methode, Höhe im Landeanflug
-                abzubauen. Besonders bei älteren Segelflugzeugen notwendig,
-                da deren <a href="" ng-click="gotoAnchor('BREMSKLAPPEN')">Bremsklappen</a>
-                entweder nicht besonders wirksam sind
-                oder gar nicht vorhanden.
-                Moderne Segelflugzeuge haben sehr wirksame
-                <a href="" ng-click="gotoAnchor('BREMSKLAPPEN')">Bremsklappen</a>, daher
-                ist der Slip nicht so angebracht.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="SPORTZEUGE">Sportzeuge</th>
-            <td> Der Sportzeuge ist eine Art Schiedsrichter beim
-                <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a>.
-                Beim Fußball o.ä. schauen viele Personen
-                zu und erkennen sofort eine Leistung. Beim
-                <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a>
-                verschwindet der Pilot für mehrere Stunden
-                und erzählt nach seiner Wiederkehr die dollsten Sachen!
-                Der Sportzeuge sorgt für eine korrekte Anmeldung
-                eines <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflugs</a>,
-                prüft und wertet die Beweise (Foto, Barogram,
-                <a href="" ng-click="gotoAnchor('GPS')">GPS</a>) aus.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="STARTLEITER">Startleiter</th>
-            <td> Ist für die Sicherheit am Segelflugstart zuständig.
-                Muß über Funk in Kontakt mit dem
-                <a href=""  ng-click="gotoAnchor('FLUGLEITER')">Flugleiter</a> stehen.
-                Diese Aufgabe wird zwischen dem LSV und
-                <a href=""  ng-click="gotoAnchor('SCU')">SCU</a> geteilt.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="STARTSCHREIBER">Startschreiber</th>
-            <td> Der Startschreiber sitzt im
-                <a href=""  ng-click="gotoAnchor('STARTWAGEN')">Startwagen</a>.
-                Er/sie (meist ein Flugschüler) führt die Startkladde
-                und gibt die Startkommandos per Feldtelefon an die
-                <a href=""  ng-click="gotoAnchor('WINDE')" >Winde</a>.<br>
-                Die Aufgabe "Startschreiber" wird gern bei kaltem Wetter
-                übernommen (geschützte Lage!).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="STARTWAGEN">Startwagen</th>
-            <td> Ein rot/weiss gestrichener Spezialanhänger.
-                Hier sitzt der
-                <a href=""  ng-click="gotoAnchor('STARTSCHREIBER')">Startschreiber</a>.
-                Hier werden auch div. Geräte gelagert (Klappstühle,
-                Fallschirme, Bleikissen, Putzlappen...).
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Steuerknüppel</th>
-            <td> Hat nichts mit dem Finanzamt zu tun,
-                sondern steuert das Segelflugzeug primär, z.B.
-                Steuerknüppel links - rollt das Flugzeug nach links;
-                Steuerknüppel vorwärts - die Nase geht nach unten und das
-                Flugzeug beschleunigt.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="STRECKENFLUG">Streckenflug</th>
-            <td> Die hohe Schule des Segelfluges ist der Streckensegelflug,
-                der auch von Uetersen aus betrieben wird.
-                Fortgeschrittene haben von hier aus bereits Strecken bis
-                zu 600km im Segelflug zurückgelegt.
-                Auch kleinere Strecken führen zu einprägsamen
-                Erfolgserlebnissen, z.B. kleinere Dreickflüge innerhalb
-                Schleswig-Holsteins.
-                Wir nehmen an der <a href="" ng-click="gotoAnchor('DMST')">DMSt.</a> teil.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Theorie</th>
-            <td> Theoretischer Unterricht wird bei uns in den Wintermonaten abgehalten.
-                Die Fächer sind u.a. Technik, Navigation, Meterologie, Luftrecht
-                und Verhalten in besonderen Fällen.<br>
-                Normalerweise fängt man mit der praktischen Ausbildung an,
-                dann wird die zum Fliegen notwendige Theorie vor dem Start vermittelt.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="THERMIK">Thermik</th>
-            <td> Thermischer Aufwind trägt ein Segelflugzeug nach oben.
-                Thermik entsteht durch Sonneneinstrahlung, die den Boden erwärmt.
-                Dadurch wird eine Luftschicht erwärmt, die dann aufsteigt.
-                Sehr starke Thermik wird als
-                <a href="" ng-click="gotoAnchor('HAMMERWETTER')">Hammerwetter</a> bezeichnet.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Thermikfuchs</th>
-            <td> Vereinsblatt des LSV Pinneberg. Erscheint - wenn möglich -
-                zum Ende jeden Quartals.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Toiletten</th>
-            <td> Leider weder am Start noch in Segelflugzeugen vorhanden.
-                Für Männer reicht der Besuch "am Zaun".
-                Weibliche Mitglieder fahren zum LSV-Gebaude wo Toiletten zu finden sind.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="UEBERLANDFLUG">Überlandflug</th>
-            <td> Siehe <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a>.</td>
-        </tr>
-        <tr>
-            <th valign="top" id="VARIO">Vario(meter)</th>
-            <td> Ein wichtiges Instrument, das zeigt, ob das Segelflugzeug
-                in der Luft steigt oder sinkt (und wie schnell).
-                Wird beim Thermikfliegen benutzt
-                (siehe <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>).
-                Es gibt rein mechanische Varios und elektrische Varios, die auch ein
-                akustisches Signal geben.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Vereinsheim</th>
-            <td> Normalerweise ist ein Vereinsheim ein zentraler Punkt im Vereinsleben.
-                Leider bei uns ein Stiefkind.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Vorstand</th>
-            <td> Vier Mitglieder, die den Verein führen.
-                Am meisten werden sie gelobt, wenn sie sich breitschlagen lassen,
-                für eine weitere Amtsperiode zur Verfügung zu stehen.
-                Die Vorstandsmitglieder werden in ihrer Arbeit von den Referenten
-                und anderen LSVern unterstützt.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Waschen (Flugzeuge)</th>
-            <td> Wird bei Vereinsmaschinen gern vermieden. Eigentlich sinnvoll, da Mücken usw., die
-                an den Tragflügeln kleben, die Leistung des
-                Flugzeuges verschlechtern.
-                Merkwürdigerweise waschen <a href="" ng-click="gotoAnchor('PRIVATFLIEGER')">Privatflieger</a>
-                ihre eigenen Segelflugzeuge regelmäßig.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="WINDE">Winde</th>
-            <td> Über 90% der Segelflugstarts in Uetersen werden mit der Winde durchgeführt.
-                Beim LSV besteht die Winde aus einem 10-Zylinder 320-PS-Dieselmotor,
-                einem Automatikgetriebe und zwei Seiltrommeln.
-                Auf jede Trommel sind 1100m Stahlseil gewickelt.
-                Die Winde ist auf einem LKW-Chassis montiert.
-            </td>
-        </tr>
-        <tr>
-            <th valign="top" id="WINDENFAHRER">Windenfahrer</th>
-            <td> Bedient die <a href="" ng-click="gotoAnchor('WINDE')">Winde.</a>
-                Der Windenfahrer ist ein
-                bedauernswertes Wesen, der 1000m vom Ort des Geschehens (dem Start)
-                entfernt seinen Dienst verrichten muß.
-                Er schleppt die Segelflugzeuge an den Windenseilen in die Höhe.
-                Er haßt <a href="" ng-click="gotoAnchor('SEILSALAT')">Seilsalat</a>.
-                Einen guten Windenfahrer soll man immer loben und NIE
-                beim Verteilen von Kuchen usw. vergessen werden!
-            </td>
-        </tr>
-        <tr>
-            <th valign="top"> Wettervorhersage</th>
-            <td> Lügen, lügen, lügen....</td>
-        </tr>
-        </tbody>
-    </table>
-    </p><p>
-</p>
-    <p>
-        <em><span style="color: red; font-size: smaller; ">last update 7.5.2014</span></em>
+        <h3>Terminologie des Segelfliegens</h3>
+        <p>
+            Die folgende Tabelle dient dazu, einige Fachbegriffe locker zu erklären.
+        </p>
+        <p>
 
+        <table class="table-bordered table-condensed">
+            <tbody>
+            <tr>
+                <th valign="top" id="ALLEINFLUG">1. Alleinflug</th>
+                <td> Großer Tag in jedem Fliegerleben.
+                    Acht Minuten, in denen der Fluglehrer sich vielleicht mehr Sorgen macht
+                    als der Flugschüler.
+                    Nach dreimaligem Alleinflug gibt es ein traditionelles Hinternversohlen
+                    (um die <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
+                    besser zu merken). In Süddeutschland gehört
+                    auch ein Dornenstrauß und ein Eimer kaltes Wasser dazu.<br>
+                    Wird gefeiert - siehe <a href="" ng-click="gotoAnchor('FREIBIER')">Freibier</a>.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="ACKER">Acker</th>
+                <td> Wenn ein Segelflieger <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">außenlanden</a> muss,
+                    sucht er ein geeignetes Landefeld aus, am besten einen Acker.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="ALKOHOL">Alkohol</th>
+                <td> Für Piloten gilt beim Fliegen selbstverständlich die 0,0 Promillegrenze.
+                    Im Flugzeug darf Alkohol nur im Kompass vorhanden sein.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="AUSSENLANDUNG">Außenlandung</th>
+                <td> Besonders bei <a href="" ng-click="gotoAnchor('UEBERLANDFLUG')">Überlandflügen</a>
+                    kann es passieren, dass man
+                    keine <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
+                    mehr findet und landen muß.
+                    Der Pilot sucht dafür einen geeigneten Acker, landet, und meldet beim Heimatflugplatz seinen
+                    Landeort.
+                    Eine <a href="" ng-click="gotoAnchor('RUECKHOLER')">Rückholmannschaft</a>
+                    kommt dann mit Auto und Anhänger,
+                    um Flugzeug und Pilot einzusammeln und nach Hause zu bringen.<br>
+                    Die schönsten Fliegergeschichten handeln von Außenlandungen.
+                    Oft wird man mit Kaffee und Kuchen begrüßt und gelegentlich für die
+                    Lokalseite interviewt.<br>
+                    <b>Eine Außenlandung ist keine Schande, sondern gehört dazu!</b></td>
+            </tr>
+            <tr>
+                <th valign="top" id="BART">Bart</th>
+                <td> Nicht der unrasierte Bewuchs
+                    eines Piloten nach 2-Wochen Fliegerlager sondern
+                    Fliegerausdruck für <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>.<br>
+                    "Sechs-Meter-Bart" gehört zum Fliegerlatein....
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Blei</th>
+                <td> Untergewichtige Piloten müssen fehlendes Gewicht durch Bleikissen
+                    (unter dem Sitz) aufstocken, da für alle Flugzeuge auf dem
+                    Vordersitz ein
+                    Mindestgewicht von ca. 65 kg vorgeschrieben ist. Ist besonders bei
+                    weiblichen Jugendlichen notwendig. Dafür bekommen sie "Muckis"
+                    durch das Tragen der Bleikissen.<br>
+                    Die meiste LSVer fliegen "bleifrei".
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="BREMSKLAPPEN">Bremsklappen</th>
+                <td> Die Bremsklappen erhöhen die Sinkrate eines Segelflugzeuges.
+                    Dies ist notwendig, um Höhe im Landeanflug
+                    abzubauen oder zu verhindern, daß man vielleicht
+                    in eine Wolke hineingezogen wird.
+                    Moderne Segelflugzeuge haben sehr wirksame
+                    Bremsklappen, die die
+                    <a href="" ng-click="gotoAnchor('GLEITZAHL')">Gleitzahl</a> von ca. 1:40
+                    auf 1:4 reduzieren.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Cumulus (Cu)</th>
+                <td> Die Wolke der Segelflieger. Wird durch
+                    <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a> gezeugt
+                    und zeigt daher dem Segelflieger, wo Thermik zu finden ist.
+                    Man fliegt "von Wolke zur Wolke".
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Cumulonimbus (Cb)</th>
+                <td valign="top"> Gewitterwolke - bloß weg!</td>
+            </tr>
+            <tr>
+                <th valign="top" id="DMST">DMSt.</th>
+                <td> Deutsche Meisterschaft im Streckensegelflug.
+                    Ein dezentraler Wettbewerb, der von 1. März bis 30. September läuft. Die DMSt. ist eine gute
+                    Möglichkeit,
+                    sich gegen sich selbst (und andere) zu messen.
+                    Alle LSVer werden dazu aufgerufen, an der DMSt. teilzunehmen.<br>
+                    Im Internet findet man die aktuelle <a
+                            href="http://www.onlinecontest.org/olc-2.0/gliding/getScoring.html?scoringId=120&amp;country=DE&amp;subcountry=sh"
+                            target="_blank"> DMSt.-Auswertung für
+                        Alle Vereine</a> in Schleswig-Holstein.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="DIAMANTEN">Diamanten</th>
+                <td> Die internationalen Sportabzeichen
+                    <a href="" ng-click="gotoAnchor('DIAMANTEN')">Diamanten</a>
+                    werden zusätzlich zum Leistungsabzeichen in <a href="" ng-click="gotoAnchor('GOLD')">Gold</a>
+                    oder <a href="" ng-click="gotoAnchor('SILBER')">Silber</a> erworben.
+                    Es gibt insgesamt 3 Diamanten:
+                    <ul>
+                        <li>5000m Höhengewinn
+                        </li>
+                        <li>300km Zielstreckenflug
+                        </li>
+                        <li>500km Streckenflug
+                        </li>
+                    </ul>
+                    Einige LSVer haben das Leistungsabzeichen in Gold mit 3 Diamanten.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="DU">Du</th>
+                <td><b>Alle</b> Segelflieger duzen sich untereinander. Immer.</td>
+            </tr>
+            <tr>
+                <th valign="top"><b>Ehefrau</b></th>
+                <td>
+                    <div style="text-align: center;"><img class="img-rounded img-responsive center-block"
+                                                          src="app/views/images/wife.jpg" border="0" height="218"
+                                                          width="421"></div>
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> F-Schlepp</th>
+                <td> Flugzeugschlepp.
+                    Als Alternative zum <a href="" ng-click="gotoAnchor('WINDE')">Windenstart</a>
+                    kann ein Segelflugzeug
+                    hinter einem Motorflugzeug in die Luft gezogen werden.
+                    Teuerer als ein <a href="" ng-click="gotoAnchor('WINDE')">Windenstart</a>,
+                    aber flexibler.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Fallschirm</th>
+                <td> Man muss entweder einen Fallschirm oder ein Sitzkissen im Segelflugzeug
+                    mitführen (es gibt also keine gesetzliche Fallschirmpflicht!).
+                    Die meisten Segelflieger tragen einen Fallschirm.
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><span style="font-weight: bold;">FLARM</span></td>
+                <td><a href="http://de.wikipedia.org/wiki/FLARM" target="_blank">FLARM</a>
+                    ist ein in Kleinflugzeugen eingesetztes Kollisionswarngerät, das in der
+                    Schweiz ursprünglich für den Segelflug entwickelt wurde.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="FLUGLEHRER">Fluglehrer</th>
+                <td> Ein erfahrener Segelflieger, der seine Wochenenden
+                    opfert, um anderen das Fliegen beizubringen.
+                    Er/sie hat Zeit und Nerven investiert, um die Lehrberechtigung
+                    zu bekommen.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="FLUGLEITER">Flugleiter</th>
+                <td> Sitzt im Tower am Flugplatz und bewacht die Motorflieger.</td>
+            </tr>
+            <tr>
+                <th valign="top" id="FLUGVERBOT">Flugverbot</th>
+                <td> Eine selten ausgesprochene "Strafe" für Flugschüler usw.
+                    Siehe <a href="" ng-click="gotoAnchor('LEPO')">LEPO (Rallyefahrten)</a>.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="FREIBIER">Freibier</th>
+                <td> Eine Kiste Freibier ist fällig, um besondere Ereignisse
+                    zu feiern (<a href="" ng-click="gotoAnchor('ALLEINFLUG')">1. Alleinflug</a>,
+                    bestandene GPL-Prüfung,
+                    größerer <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a> usw.).
+                    Auch bei Vergehen fällig
+                    - siehe <a href="" ng-click="gotoAnchor('KULLERBIER')">Kullerbier</a>.<br>
+                    Da der LSV kein "Saufverein" ist, darf selbstverständlich
+                    Cola usw. getrunken werden.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="GLEITZAHL">Gleitzahl</th>
+                <td> Die Gleitzahl entspricht der Strecke, die ein Segelflugzeug
+                    zurücklegt, wenn es eine Einheit Höhe verliert.
+                    Z.B. hat ein ASK-13 Doppelsitzer eine Gleitzahl
+                    von 1:32 - d.h. pro 1000m Höhe gleitet es theoretisch
+                    32km weit (stille Luft vorausgesetzt).
+                    Die Gleitzahl eines Standardklasse Gfk-Segelflugzeugs liegt bei 1:40,
+                    die der offenen Klasse bei 1:60.<br>
+                    De Facto ist die Gleitzahl eine Funktion des Geldbeutels!
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="GOLD">Gold Leistungsabzeichen</th>
+                <td> Das internationale Leistungsabzeichnen <a href="" ng-click="gotoAnchor('GOLD')">Gold</a>
+                    folgt dem <a href="" ng-click="gotoAnchor('SILBER')">Silber</a>:
+                    man erhält es für einen 5-Stundenflug, 300km Streckenflug und
+                    3000m Höhengewinn.
+                    Das Abzeichen zeigt drei weiße
+                    Möwen auf blauem Hintergrund mit einem goldenen Rand.<br>
+                    Zum Leistungsabzeichen in <a href="" ng-click="gotoAnchor('GOLD')">Gold</a> können <a
+                            href="" ng-click="gotoAnchor('DIAMANTEN')">DIAMANTEN</a>
+                    erworben werden.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="SPL">SPL(LAPL)</th>
+                <td> SPL(LAPL) = Soaring Pilot Licence (Luftfahrerschein für Segelflugzeugführer)
+                    und ist Ziel
+                    unserer Ausbildung.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="GPS">GPS/GNSS</th>
+                <td> Satellitennavigation. GPS="Global Positioning System".
+                    Obwohl nicht unbedingt notwendig, benutzen
+                    Piloten zunehmend das GPS zum Navigieren und sogar zum Dokumentieren
+                    von <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflügen</a> (GPS-Logger).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Grosse, Hans-Werner</th>
+                <td> Hans-Werner Grosse ist ein bekannter deutscher Segelflieger.
+                    Der Lübecker hat viele Rekorde sowohl in Europa als auch
+                    z.B. in Australien geflogen. Einer seiner bekanntesten Flüge führte
+                    von Lübeck nach Biarritz (1972). Trotz aller Berühmtheit:
+                    auch Hans-Werner sollte
+                    man mit <a href="terminologie.html#DU" ng-click="gotoAnchor('DU')">Du</a> anreden.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Haltergemeinschaft</th>
+                <td> Der LSV stellt genügend Segelflugzeuge für die Ausbildung,
+                    Scheinerhaltung und einige
+                    <a href="" ng-click="gotoAnchor('UEBERLANDFLUG')">Überlandflüge</a> zur Verfügung.
+                    Wer mehr möchte (und das nötige Kleingeld hat), kann
+                    sich ein Flugzeug kaufen. Meistens wird dies mit mehreren
+                    LSVern geteilt, das ist dann eine Haltergemeinschaft.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="HAMMERWETTER">Hammerwetter</th>
+                <td> Wenn die <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
+                    so stark ist, daß sie von unten gegen die Flügel "hammert" und
+                    das Segelflugzeug nach oben katapultiert.
+                    Das <a href="" ng-click="gotoAnchor('VARIO')">Vario</a>(meter) ist am Anschlag.
+                    Erleben wir hier in Norddeutschland leider selten...
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="HOEHENFREIGABE">Höhenfreigabe</th>
+                <td> Der Flugplatz Uetersen liegt nicht weit vom Hamburger
+                    Flughafen entfernt. Uetersen liegt zwar außerhalb der
+                    Hamburger Kontrollzone, aber unterhalb des
+                    Luftraums "C". Normalweise gilt eine maximale
+                    Flughöhe von 2500' (750m). Durch eine Betriebsvereinbarung
+                    mit der Flugsicherung bekommen wir (je nach Verkehrslage)
+                    eine Höhenfreigabe bis max 4500' (1350m).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> ICAO-Karte</th>
+                <td> Die Karte, mit der wir navigieren. Zeigt Autobahnen, Flüsse,
+                    Eisenbahnen, Städte und Flugplätze.
+                    Zeigt auch die Lufträume, z.B. Kontrollzonen, Sperrgebiete.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" ID="KEINWIND">Kein Wind...</th>
+                <td><i>"Kein Wind mehr?"</i> Mit solchen Sprüchen werden
+                    Piloten nach einer <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">Außenlandung</a>
+                    vom Fußgängervolk begrüßt.
+                    Hilft nur eines: tief durchatmen und mit Geduld erklären,
+                    daß nicht fehlender Wind sondern fehlende
+                    <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>
+                    den Piloten zur Landung gezwungen hat.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="KULLER">Kuller</th>
+                <td> Moderne Segelflugzeuge haben einen Transportkuller (Rad),
+                    der nach der Landung unter dem Schwanz montiert wird, um das Schieben
+                    am Boden zu erleichtern.
+                    Muß vor dem Start abmontiert werden - siehe
+                    <a href="" ng-click="gotoAnchor('KULLERBIER')">Kullerbier</a>.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="KULLERBIER">Kullerbier</th>
+                <td> Vergißt ein Pilot vor dem Start
+                    den <a href="" ng-click="gotoAnchor('KULLER')">Kuller</a>
+                    hinten am Segelflugzeug
+                    abzumontieren, und er sitzt drin und erklärt
+                    sich startbereit, wird eine Kiste "KULLERBIER" verlangt,
+                    um künftige Vergesslichkeit zu unterbinden.
+                    Kullerbier wird mit lautem Jubel der Umstehenden begrüßt (der Pilot
+                    guckt meist ziemlich unglücklich).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Kunstflug</th>
+                <td> Kunstflug mit Segelflugzeugen ist nach einer
+                    entsprechenden Zusatzausbildung durchaus möglich.
+                    Einige LSVer besitzen die Kunstflugberechtigung und
+                    nehmen an Wettbewerben teil.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="LEPO">LEPO</th>
+                <td> "LEPO" ist "OPEL" rückwärts geschrieben.
+                    Der LEPO ist der Seilrückholwagen, der die Windenseile
+                    von der <a href="" ng-click="gotoAnchor('WINDE')">Winde</a> zum Start bringt.
+                    Auch andere Fabrikate als Opel werden eingesetzt!
+                    Wird gerne von jungen Mitgliedern gefahren, da auf
+                    Privatgelände kein Führerschein notwendig ist.
+                    Wird manchmal für Rallyefahrten missbraucht
+                    (siehe <a href="" ng-click="gotoAnchor('FLUGVERBOT')">Flugverbot</a>).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> LEPORELLO</th>
+                <td> "LEPORELLO" ist "OLLER OPEL" rückwarts.</td>
+            </tr>
+            <tr>
+                <th valign="top"> Lötlampe</th>
+                <td> So nennen wir die schnellen Düsenjäger der Bundeswehr.
+                    Hört man einen, ist er längst vorbeigeflogen.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Lufthansa-Landung</th>
+                <td> Bei einer idealen Landung wird gleichzeitig mit Sporn und Fahrwerk
+                    aufgesetzt (minimale Fahrt). Eine etwas schnellere Landung,
+                    bei der nur auf dem Fahrwerk aufgesetzt wird, bezeichnen wir als
+                    "Lufthansa-Landung". Ist die Landung noch schneller,
+                    so daß das Flugzeug mehrmals hintereinander aufsetzt, so ist das eine
+                    "Montag-Dienstag-Mittwoch..."-Landung.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> MoSe</th>
+                <td> MoSe ist die Abkürzung für MOtorSEgeler.<br>
+                    Wird in der Segelflugausbildung z.B. für
+                    Navigationseinweisungen eingesetzt.
+                    Nach Erhalt der <a href="" ng-click="gotoAnchor('SPL')">SPL(LAPL)</a>
+                    ist eine Umschulung auf MoSe möglich.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="PRIVATFLIEGER">Privatflieger</th>
+                <td> Begriff für jemanden, der sein eigenes Flugzeug fliegt anstatt
+                    Vereinsflugzeuge. Eigentlich gibt es keine
+                    "Privatflieger ", sondern Mitglieder, die ein Privatflugzeug
+                    fliegen.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="RUECKHOLER">Rückholer</th>
+                <td> Begriff für jemanden, der
+                    <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">außengelandete</a> Piloten
+                    vom <a href="" ng-click="gotoAnchor('ACKER')">Acker</a> (oder von wo auch immer) mittels Auto und
+                    Anhänger
+                    zurückholt.
+                    Obwohl von vielen als lästig empfunden, kann Rückholen Spaß machen!
+                    Jeder im Verein soll bereit sein, seine Kameraden
+                    vom Acker zu holen.
+                    Das nächste Mal will man vielleicht selbst zurückgeholt werden.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Saufen</th>
+                <td> Hat wieder nichts mit dem <a href="" ng-click="gotoAnchor('ALKOHOL')">Alkohol</a>
+                    zu tun, sondern ist das Gegenteil von
+                    <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>.
+                    In einer sinkenden Luftmasse verliert das Segelflugzeug
+                    rasch an Höhe. Wenn der Pilot dann nicht schnell Thermik findet,
+                    droht eine <a href="" ng-click="gotoAnchor('AUSSENLANDUNG')">Außenlandung</a>.<br>
+                    Diese Art von Saufen mag der Segelflieger nicht!
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Schulungsleiter</th>
+                <td> Cheffluglehrer in einem Verein.
+                    Bei uns heißt er Henryk Thier.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="SCU">SCU</th>
+                <td><a href="http://www.segelflug.de/vereine/uetersen" target="_top">Segelflugclub Uetersen</a>
+                    - unser Nachbarverein.
+                    Vor vielen Jahren vom LSV abgesplittet.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Seilriß</th>
+                <td><i>"Was passiert, wenn das Windenseil reißt?"</i> fragen
+                    viele Besucher. Gar nichts - weil jeder Pilot
+                    davon ausgehen <b>muß</b>, daß das Seil jederzeit reißen kann,
+                    und wenn er vorbereitet ist, reagiert er richtig.
+                    Richtig heißt: Flugzeugnase nach unten drücken, Geschwindigkeit
+                    kontrollieren. Aus niedriger Höhe wird geradeaus
+                    gelandet, sonst wird eine verkürzte Platzrunde geflogen.
+                    Besonders wichtig - nicht zu steil am Anfang des Starts!<br>
+                    Seilrisse passieren selten.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Seilrißübung</th>
+                <td> Um das richtige Verhalten eines Flugschülers zu prüfen,
+                    wird der <a href="" ng-click="gotoAnchor('FLUGLEHRER')">Fluglehrer</a>
+                    überraschend mitten im <a href="" ng-click="gotoAnchor('WINDE')">Windenstart</a>
+                    ausklinken.
+                    Eine Seilrißübung bedeutet, daß der Flugschüler demnächst
+                    <a href="" ng-click="gotoAnchor('ALLEINFLUG')">allein</a> fliegen wird
+                    (siehe <a href="" ng-click="gotoAnchor('FREIBIER')">Freibier</a>).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="SEILSALAT">Seilsalat</th>
+                <td> Gefürchtet von jedem <a href="" ng-click="gotoAnchor('WINDE')"> Windenfahrer </a>
+                    und die Ursache von längeren Pausen in der Startreihe.
+                    Wenn z.B. beim Seilausziehen der
+                    <a href="" ng-click="gotoAnchor('LEPO')">LEPO</a> abrupt stehen bleibt,
+                    drehen die Seiltrommeln auf der
+                    <a href="" ng-click="gotoAnchor('WINDE')">Winde</a> weiter, Schlaufen bilden
+                    sich und schon hat man den schönsten
+                    <a href="" ng-click="gotoAnchor('SEILSALAT')">Seilsalat</a>.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="SILBER">Silber Leistungsabzeichen</th>
+                <td> Das internationale Leistungsabzeichen <a href="" ng-click="gotoAnchor('SILBER')">Silber</a>
+                    kann erhalten, wer einen 5-Stundenflug, 50km Streckenflug und
+                    1000m Höhengewinn geschafft hat. Das Abzeichen zeigt drei weiße
+                    Möwen auf blauem Hintergrund mit einem silbernen Rand.<br>
+                    In Ländern, in denen es keinen Luftfahrerschein
+                    für Segelflieger gibt (z.B. GB),
+                    ist das Leistungsabzeichen in <a href="" ng-click="gotoAnchor('SILBER')">Silber</a> quasi als
+                    Schein anerkannt.<br>
+                    Nachfolgend kann man das Leistungsabzeichen in <a href="" ng-click="gotoAnchor('GOLD')">Gold</a>
+                    und <a href="" ng-click="gotoAnchor('DIAMANTEN')">DIAMANTEN</a> erlangen.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Sinnvolle Freizeit</th>
+                <td> Natürlich das Segelfliegen.</td>
+            </tr>
+            <tr>
+                <th valign="top"> Slip</th>
+                <td> Hat nichts mit weiblichen Dessous zu tun:
+                    Der Slip ist ein Seitengleitflug, eine Methode, Höhe im Landeanflug
+                    abzubauen. Besonders bei älteren Segelflugzeugen notwendig,
+                    da deren <a href="" ng-click="gotoAnchor('BREMSKLAPPEN')">Bremsklappen</a>
+                    entweder nicht besonders wirksam sind
+                    oder gar nicht vorhanden.
+                    Moderne Segelflugzeuge haben sehr wirksame
+                    <a href="" ng-click="gotoAnchor('BREMSKLAPPEN')">Bremsklappen</a>, daher
+                    ist der Slip nicht so angebracht.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="SPORTZEUGE">Sportzeuge</th>
+                <td> Der Sportzeuge ist eine Art Schiedsrichter beim
+                    <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a>.
+                    Beim Fußball o.ä. schauen viele Personen
+                    zu und erkennen sofort eine Leistung. Beim
+                    <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a>
+                    verschwindet der Pilot für mehrere Stunden
+                    und erzählt nach seiner Wiederkehr die dollsten Sachen!
+                    Der Sportzeuge sorgt für eine korrekte Anmeldung
+                    eines <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflugs</a>,
+                    prüft und wertet die Beweise (Foto, Barogram,
+                    <a href="" ng-click="gotoAnchor('GPS')">GPS</a>) aus.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="STARTLEITER">Startleiter</th>
+                <td> Ist für die Sicherheit am Segelflugstart zuständig.
+                    Muß über Funk in Kontakt mit dem
+                    <a href="" ng-click="gotoAnchor('FLUGLEITER')">Flugleiter</a> stehen.
+                    Diese Aufgabe wird zwischen dem LSV und
+                    <a href="" ng-click="gotoAnchor('SCU')">SCU</a> geteilt.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="STARTSCHREIBER">Startschreiber</th>
+                <td> Der Startschreiber sitzt im
+                    <a href="" ng-click="gotoAnchor('STARTWAGEN')">Startwagen</a>.
+                    Er/sie (meist ein Flugschüler) führt die Startkladde
+                    und gibt die Startkommandos per Feldtelefon an die
+                    <a href="" ng-click="gotoAnchor('WINDE')">Winde</a>.<br>
+                    Die Aufgabe "Startschreiber" wird gern bei kaltem Wetter
+                    übernommen (geschützte Lage!).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="STARTWAGEN">Startwagen</th>
+                <td> Ein rot/weiss gestrichener Spezialanhänger.
+                    Hier sitzt der
+                    <a href="" ng-click="gotoAnchor('STARTSCHREIBER')">Startschreiber</a>.
+                    Hier werden auch div. Geräte gelagert (Klappstühle,
+                    Fallschirme, Bleikissen, Putzlappen...).
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Steuerknüppel</th>
+                <td> Hat nichts mit dem Finanzamt zu tun,
+                    sondern steuert das Segelflugzeug primär, z.B.
+                    Steuerknüppel links - rollt das Flugzeug nach links;
+                    Steuerknüppel vorwärts - die Nase geht nach unten und das
+                    Flugzeug beschleunigt.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="STRECKENFLUG">Streckenflug</th>
+                <td> Die hohe Schule des Segelfluges ist der Streckensegelflug,
+                    der auch von Uetersen aus betrieben wird.
+                    Fortgeschrittene haben von hier aus bereits Strecken bis
+                    zu 600km im Segelflug zurückgelegt.
+                    Auch kleinere Strecken führen zu einprägsamen
+                    Erfolgserlebnissen, z.B. kleinere Dreickflüge innerhalb
+                    Schleswig-Holsteins.
+                    Wir nehmen an der <a href="" ng-click="gotoAnchor('DMST')">DMSt.</a> teil.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Theorie</th>
+                <td> Theoretischer Unterricht wird bei uns in den Wintermonaten abgehalten.
+                    Die Fächer sind u.a. Technik, Navigation, Meterologie, Luftrecht
+                    und Verhalten in besonderen Fällen.<br>
+                    Normalerweise fängt man mit der praktischen Ausbildung an,
+                    dann wird die zum Fliegen notwendige Theorie vor dem Start vermittelt.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="THERMIK">Thermik</th>
+                <td> Thermischer Aufwind trägt ein Segelflugzeug nach oben.
+                    Thermik entsteht durch Sonneneinstrahlung, die den Boden erwärmt.
+                    Dadurch wird eine Luftschicht erwärmt, die dann aufsteigt.
+                    Sehr starke Thermik wird als
+                    <a href="" ng-click="gotoAnchor('HAMMERWETTER')">Hammerwetter</a> bezeichnet.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Thermikfuchs</th>
+                <td> Vereinsblatt des LSV Pinneberg. Erscheint - wenn möglich -
+                    zum Ende jeden Quartals.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Toiletten</th>
+                <td> Leider weder am Start noch in Segelflugzeugen vorhanden.
+                    Für Männer reicht der Besuch "am Zaun".
+                    Weibliche Mitglieder fahren zum LSV-Gebaude wo Toiletten zu finden sind.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="UEBERLANDFLUG">Überlandflug</th>
+                <td> Siehe <a href="" ng-click="gotoAnchor('STRECKENFLUG')">Streckenflug</a>.</td>
+            </tr>
+            <tr>
+                <th valign="top" id="VARIO">Vario(meter)</th>
+                <td> Ein wichtiges Instrument, das zeigt, ob das Segelflugzeug
+                    in der Luft steigt oder sinkt (und wie schnell).
+                    Wird beim Thermikfliegen benutzt
+                    (siehe <a href="" ng-click="gotoAnchor('THERMIK')">Thermik</a>).
+                    Es gibt rein mechanische Varios und elektrische Varios, die auch ein
+                    akustisches Signal geben.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Vereinsheim</th>
+                <td> Normalerweise ist ein Vereinsheim ein zentraler Punkt im Vereinsleben.
+                    Leider bei uns ein Stiefkind.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Vorstand</th>
+                <td> Vier Mitglieder, die den Verein führen.
+                    Am meisten werden sie gelobt, wenn sie sich breitschlagen lassen,
+                    für eine weitere Amtsperiode zur Verfügung zu stehen.
+                    Die Vorstandsmitglieder werden in ihrer Arbeit von den Referenten
+                    und anderen LSVern unterstützt.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Waschen (Flugzeuge)</th>
+                <td> Wird bei Vereinsmaschinen gern vermieden. Eigentlich sinnvoll, da Mücken usw., die
+                    an den Tragflügeln kleben, die Leistung des
+                    Flugzeuges verschlechtern.
+                    Merkwürdigerweise waschen <a href="" ng-click="gotoAnchor('PRIVATFLIEGER')">Privatflieger</a>
+                    ihre eigenen Segelflugzeuge regelmäßig.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="WINDE">Winde</th>
+                <td> Über 90% der Segelflugstarts in Uetersen werden mit der Winde durchgeführt.
+                    Beim LSV besteht die Winde aus einem 10-Zylinder 320-PS-Dieselmotor,
+                    einem Automatikgetriebe und zwei Seiltrommeln.
+                    Auf jede Trommel sind 1100m Stahlseil gewickelt.
+                    Die Winde ist auf einem LKW-Chassis montiert.
+                </td>
+            </tr>
+            <tr>
+                <th valign="top" id="WINDENFAHRER">Windenfahrer</th>
+                <td> Bedient die <a href="" ng-click="gotoAnchor('WINDE')">Winde.</a>
+                    Der Windenfahrer ist ein
+                    bedauernswertes Wesen, der 1000m vom Ort des Geschehens (dem Start)
+                    entfernt seinen Dienst verrichten muß.
+                    Er schleppt die Segelflugzeuge an den Windenseilen in die Höhe.
+                    Er haßt <a href="" ng-click="gotoAnchor('SEILSALAT')">Seilsalat</a>.
+                    Einen guten Windenfahrer soll man immer loben und NIE
+                    beim Verteilen von Kuchen usw. vergessen werden!
+                </td>
+            </tr>
+            <tr>
+                <th valign="top"> Wettervorhersage</th>
+                <td> Lügen, lügen, lügen....</td>
+            </tr>
+            </tbody>
+        </table>
+        </p>
+        <p>
+        </p>
+        <p>
+            <em><span style="color: red; font-size: smaller; ">last update 7.5.2014</span></em>
+        </p>
+    </div>
 </div>

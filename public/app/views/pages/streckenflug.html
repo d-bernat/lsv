@@ -1,87 +1,95 @@
 <div ng-include src="'app/views/pages/menu.html'"></div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h3>Streckenflug</h3>
-    <ul>
+    <route-loading-indicator></route-loading-indicator>
+    <div ng-if="!isRouteLoading">
+
+        <h3>Streckenflug</h3>
+        <ul>
+            <p>
+            </p>
+            <li>Die hohe Schule des Segelflugs ist der Streckensegelflug, der auch von Uetersen aus betrieben wird.
+                Fortgeschrittene haben von hier aus bereits Strecken bis zu 500km im Segelflug zurückgelegt.
+                Auch kleinere Strecken führen zu einprägsamen
+                Erfolgserlebnissen, z.B. Dreieckflüge innerhalb Schleswig-Holsteins.
+            </li>
+            <li>Alle Mitglieder des LSV Pinneberg werden ermutigt, an dem
+                dezentralen Segelflugwettbewerb "Deutsche Meisterschaft im Streckensegelflug" (DMSt) teilzunehmen.
+                Diese findet jährlich zwischen Anfang März und Ende September statt.
+                Dabei zählen pro Pilot zur Auswertung seine drei besten Streckenflüge mit
+                Abflugpunkt in Deutschland.&nbsp; Zusätzlich gibt es internationale Wertungen.&nbsp;
+            </li>
+            <li>Jedes teilnehmende Segelflugzeug trägt einen GPS-Flugrekorder (Logger), der verschlüsselt den Flugweg
+                und
+                die
+                Höhe aufzeichnet.&nbsp; Diese Daten werden zum OLC-Server hochgeladen und für die DMSt
+                ausgewertet.&nbsp; Es gibt diverse Software-Applikationen, mit denen die
+                Flugdaten aus dem Logger betrachtet und analysiert werden können.
+            </li>
+            <li>Gewertet wird in verschiedenen Klassen, z.B. Club-, Standard , 18m- oder
+                Doppelsitzerklasse.&nbsp;&nbsp; Bei der DMSt spielt die Geschwindigkeit
+                während des Flugs keine Rolle.
+            </li>
+            <li>Die DMSt wird bundesweit und landesweit (bei uns Schleswig-Holstein)
+                ausgewertet.&nbsp; Auch die LSV Pokale basieren auf den Auswertungen der DMSt.
+            </li>
+        </ul>
+
+
+        <h4>Beispiel eines Streckenflugs</h4>
+
+
+        <p>Am 1. Mai 2013 flog ein LSV-Pilot während eines Fliegerurlaubs ein 310 km Dreieck
+            mit Start auf dem Schenkel.&nbsp; Er flog mit einem der
+            LSV-Vereinssegelflugzeuge - einem Discus 2c (18m Spannweite) mit einer besten
+            Gleitzahl von ca. 48.&nbsp; D.h. aus 1000 m Höhe kann das Flugzeug theoretisch
+            48km gleiten!&nbsp; Startpunkt war das Segelfluggelände <a href="http://www.ftv-metzingen.de"
+                                                                       target="_blank">Berliner
+                Heide</a> in der Nähe von Celle.&nbsp; Der Flug dauerte 4 Stunden und 36
+            Minuten. Dieser Flug erfüllte die Bedingungen für sein Zielstrecken-Diamanten
+            FAI-Abzeichen.</p>
+
+
+        <h4>Die Flugroute</h4>
+
+
+        <p>Die folgende Darstellung zeigt die Flugroute, die vor dem Start in den Logger
+            des Flugzeugs programmiert wurde.&nbsp; Die rote Linie zeigt die optimale
+            Strecke, die blaue Linie ist die tatsächliche Flugroute (z.B. beeinflusst durch
+            die Thermik).&nbsp; Nach dem Start in Berliner Heide ging es westwärts zum
+            ersten Wendepunkt (WP), dann nordostwärts zum&nbsp;zweiten Wendepunkt (in der
+            Nähe von Lüneburg) und südostwärts zum dritten Wendepunkt in der Nähe von
+            Salzgitter.&nbsp; Dann "nur nach Hause" - dies wurde offensichtlich
+            etwas schwierig und der Pilot musste ins Dreieck hineinfliegen, um überhaupt in
+            der Luft zu bleiben, bis er genügend Höhe gewonnen hatte, um im Endanflug auf den
+            Flugplatz Berliner Heide zu fliegen.</p>
+
+
+        <p align="center"><img class="img-rounded img-responsive center-block"
+                               src="app/views/images/paul-map-01MAY13.jpg" border="0"></p>
+
+
+        <h4>Das Barogramm</h4>
+
+
+        <p>&nbsp;Die Aufzeichnung der Flughöhe ist der sportliche Beweis, dass keine Zwischenlandung
+            erfolgt ist.</p>
+
+
+        <p align="center"><img class="img-rounded img-responsive center-block"
+                               src="app/views/images/paul-baro-01MAY13.jpg" border="0"></p>
+
+
+        <p>&nbsp;</p>
+
+
+        <h4>LSV-DMSt.-Ergebnisse für 2017</h4>
+
+
+        <p>Die DMSt. Flüge für das laufende Jahr <a href="ueberlandflug">werden hier
+            dargestellt</a>.</p>
         <p>
+        <p>
+            <em><span style="color: red; font-size: smaller; ">last update 12.8.2017</span></em>
         </p>
-        <li>Die hohe Schule des Segelflugs ist der Streckensegelflug, der auch von Uetersen aus betrieben wird.
-            Fortgeschrittene haben von hier aus bereits Strecken bis zu 500km im Segelflug zurückgelegt.
-            Auch kleinere Strecken führen zu einprägsamen
-            Erfolgserlebnissen, z.B. Dreieckflüge innerhalb Schleswig-Holsteins.
-        </li>
-        <li>Alle Mitglieder des LSV Pinneberg werden ermutigt, an dem
-            dezentralen Segelflugwettbewerb "Deutsche Meisterschaft im Streckensegelflug" (DMSt) teilzunehmen.
-            Diese findet jährlich zwischen Anfang März und Ende September statt.
-            Dabei zählen pro Pilot zur Auswertung seine drei besten Streckenflüge mit
-            Abflugpunkt in Deutschland.&nbsp; Zusätzlich gibt es internationale Wertungen.&nbsp;
-        </li>
-        <li>Jedes teilnehmende Segelflugzeug trägt einen GPS-Flugrekorder (Logger), der verschlüsselt den Flugweg und
-            die
-            Höhe aufzeichnet.&nbsp; Diese Daten werden zum OLC-Server hochgeladen und für die DMSt
-            ausgewertet.&nbsp; Es gibt diverse Software-Applikationen, mit denen die
-            Flugdaten aus dem Logger betrachtet und analysiert werden können.
-        </li>
-        <li>Gewertet wird in verschiedenen Klassen, z.B. Club-, Standard , 18m- oder
-            Doppelsitzerklasse.&nbsp;&nbsp; Bei der DMSt spielt die Geschwindigkeit
-            während des Flugs keine Rolle.
-        </li>
-        <li>Die DMSt wird bundesweit und landesweit (bei uns Schleswig-Holstein)
-            ausgewertet.&nbsp; Auch die LSV Pokale basieren auf den Auswertungen der DMSt.
-        </li>
-    </ul>
-
-
-    <h4>Beispiel eines Streckenflugs</h4>
-
-
-    <p>Am 1. Mai 2013 flog ein LSV-Pilot während eines Fliegerurlaubs ein 310 km Dreieck
-        mit Start auf dem Schenkel.&nbsp; Er flog mit einem der
-        LSV-Vereinssegelflugzeuge - einem Discus 2c (18m Spannweite) mit einer besten
-        Gleitzahl von ca. 48.&nbsp; D.h. aus 1000 m Höhe kann das Flugzeug theoretisch
-        48km gleiten!&nbsp; Startpunkt war das Segelfluggelände <a href="http://www.ftv-metzingen.de" target="_blank">Berliner
-            Heide</a> in der Nähe von Celle.&nbsp; Der Flug dauerte 4 Stunden und 36
-        Minuten. Dieser Flug erfüllte die Bedingungen für sein Zielstrecken-Diamanten
-        FAI-Abzeichen.</p>
-
-
-    <h4>Die Flugroute</h4>
-
-
-    <p>Die folgende Darstellung zeigt die Flugroute, die vor dem Start in den Logger
-        des Flugzeugs programmiert wurde.&nbsp; Die rote Linie zeigt die optimale
-        Strecke, die blaue Linie ist die tatsächliche Flugroute (z.B. beeinflusst durch
-        die Thermik).&nbsp; Nach dem Start in Berliner Heide ging es westwärts zum
-        ersten Wendepunkt (WP), dann nordostwärts zum&nbsp;zweiten Wendepunkt (in der
-        Nähe von Lüneburg) und südostwärts zum dritten Wendepunkt in der Nähe von
-        Salzgitter.&nbsp; Dann "nur nach Hause" - dies wurde offensichtlich
-        etwas schwierig und der Pilot musste ins Dreieck hineinfliegen, um überhaupt in
-        der Luft zu bleiben, bis er genügend Höhe gewonnen hatte, um im Endanflug auf den
-        Flugplatz Berliner Heide zu fliegen.</p>
-
-
-    <p align="center"><img class="img-rounded img-responsive center-block"  src="app/views/images/paul-map-01MAY13.jpg" border="0"></p>
-
-
-    <h4>Das Barogramm</h4>
-
-
-    <p>&nbsp;Die Aufzeichnung der Flughöhe ist der sportliche Beweis, dass keine Zwischenlandung
-        erfolgt ist.</p>
-
-
-    <p align="center"><img class="img-rounded img-responsive center-block"  src="app/views/images/paul-baro-01MAY13.jpg" border="0"></p>
-
-
-    <p>&nbsp;</p>
-
-
-    <h4>LSV-DMSt.-Ergebnisse für 2017</h4>
-
-
-    <p>Die DMSt. Flüge für das laufende Jahr <a href="ueberlandflug">werden hier
-        dargestellt</a>.</p>
-    <p>
-    <p>
-        <em><span style="color: red; font-size: smaller; ">last update 12.8.2017</span></em>
-    </p>
+    </div>
 </div>
