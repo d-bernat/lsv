@@ -9,23 +9,25 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link type="text/css" href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link type="text/css" href="assets/css/dashboard.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/loader.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/customize.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/angular-confirm.min.css" rel="stylesheet">
+    <link type="text/css"   href="assets/css/dashboard.css" rel="stylesheet">
+    <link type="text/css"   href="assets/css/loader.css" rel="stylesheet">
+    <link type="text/css"   href="assets/css/customize.css" rel="stylesheet">
+    <link type="text/css"   href="angular-confirm/dist/angular-confirm.min.css" rel="stylesheet">
+    <link type="text/css"   href="assets/css/datepicker.css" rel="stylesheet">
+    <!--link type="text/css"   href="assets/css/angular-datepicker.css" rel="stylesheet"/-->
 
-
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-
+    <script src="jquery/dist/jquery.slim.js"></script>
     <!-- angular -->
-    <script src="assets/js/angular.js"></script>
-    <script src="assets/js/angular-route.js"></script>
-    <script src="assets/js/angular-confirm.min.js"></script>
 
-
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-confirm/dist/angular-confirm.min.js"></script>
+    <script src="moment/min/moment-with-locales.min.js"></script>
+    <script src="moment/locale/de.js"></script>
 
     <!-- config/rooting -->
     <script src="app/app.js"></script>
@@ -34,9 +36,11 @@
     <!-- services -->
     <script src="app/services/userServices.js"></script>
     <script src="app/services/authServices.js"></script>
-
+    <script src="app/services/planeService.js"></script>
 
     <!-- controllers -->
+    <script src="app/controllers/datePickerCtrl.js"></script>
+    <script src="app/controllers/bookCtrl.js"></script>
     <script src="app/controllers/userCtrl.js"></script>
     <script src="app/controllers/mainCtrl.js"></script>
     <script src="app/controllers/scrollCtrl.js"></script>
@@ -45,6 +49,7 @@
     <!-- directives -->
     <script src="app/directives/autoActive.js"></script>
     <script src="app/directives/routeLoadingIndicator.js"></script>
+    <script src="app/directives/datepicker.js"></script>
 
     <!--third party-->
     <script src="app/directives/autoActive.js"></script>
@@ -108,9 +113,11 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery-3.2.1.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<!--script src="assets/js/popper.min.js"></script-->
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <!--script src="assets/js/ie10-viewport-bug-workaround.js"></script-->
 </body>

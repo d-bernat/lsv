@@ -1,6 +1,7 @@
 'use strict';
 
 const User = require('../models/user');
+const Plane = require('../models/plane');
 const jwt = require('jsonwebtoken');
 const secret = 'simplesecret';
 const sgMail = require('@sendgrid/mail');
@@ -9,6 +10,17 @@ const dotenv = require('dotenv');
 module.exports = function (router) {
     dotenv.load();
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+
+    router.get('/planes', function(req, res){
+       Plane.find(function(err, planes){
+           if (err) {
+               res.json({success: false, message: err});
+           } else {
+               res.json({success: true, message: planes});
+           }
+       });
+    });
 
     router.get('/users', function (req, res) {
         User.find({}).select('name lastname username email mobile phone permission active').sort({lastname: 'asc'}).exec(function (err, users) {

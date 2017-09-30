@@ -83,6 +83,10 @@ div.center{
     width: 100%;
 }
 
+.sidebar.collapsed {
+    max-width: 0;
+    overflow: hidden;
+}
 
 .sidebar .nav-item + .nav-item {
     margin-left: 0;

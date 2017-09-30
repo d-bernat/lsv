@@ -147,6 +147,8 @@ let app = angular.module('appRoutes', ['ngRoute'])
             .when('/intern/segelflugzeugbuchen', {
                 templateUrl: 'app/views/pages/intern/segelflugzeugbuchen.html',
                 authenticated: true,
+                controller: 'bookCtrl',
+                controllerAs: 'book',
                 permission: ['manager', 'spl']
             })
 

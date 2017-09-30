@@ -1,141 +1,146 @@
 <div ng-include src="'app/views/pages/intern_menu.html'"></div>
 <br><br>
 <div class="row">
-    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
-        <h4 class="text-center login-title" style="color: #337ab7"><span class="glyphicon glyphicon-user"></span>  {{update.userData.name +' ' + update.userData.lastname}}</h4>
+    <div class="col-xs-4 col-xs-offset-6 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <h4 class="text-center login-title" style="color: #337ab7"><span class="glyphicon glyphicon-user"></span>
+            {{update.userData.name +' ' + update.userData.lastname}}</h4>
         <h6 class="text-center login-title">{{update.mapToPermission(update.userData.permission)}}</h6>
     </div>
-</div><br>
+</div>
+<br>
 <div class="row">
-    <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
-        <form name="updateForm" class="form-signin" ng-submit="update.updateUser();">
-            <div ng-class="{ 'has-success':(updateForm.name.$valid && !updateForm.name.$pristine), 'has-error':(!updateForm.name.$valid && !updateForm.name.$pristine)}">
-                <span class="label label-primary">Name *</span>
-                <input name="name" type="text" class="form-control" placeholder="Name" required autofocus
-                       ng-model="update.userData.name" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
-                       ng-minlength="3" ng-maxlength="35">
-                <ul ng-show="(!updateForm.name.$pristine && updateForm.name.$error.pattern) ||
+    <div class="col-xs-4 col-xs-offset-6 col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
+        <route-loading-indicator></route-loading-indicator>
+        <div ng-if="!isRouteLoading">
+            <form name="updateForm" class="form-signin" ng-submit="update.updateUser();">
+                <div ng-class="{ 'has-success':(updateForm.name.$valid && !updateForm.name.$pristine), 'has-error':(!updateForm.name.$valid && !updateForm.name.$pristine)}">
+                    <span class="label label-primary">Name *</span>
+                    <input name="name" type="text" class="form-control" placeholder="Name" required autofocus
+                           ng-model="update.userData.name" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
+                           ng-minlength="3" ng-maxlength="35">
+                    <ul ng-show="(!updateForm.name.$pristine && updateForm.name.$error.pattern) ||
                              (!updateForm.name.$pristine && updateForm.name.$error.minlength) ||
                              (!updateForm.name.$pristine && updateForm.name.$error.maxlength)"
-                    class="help-block">
-                    <li>Keine leere Zeichen, wenn zwei Namen, dann mit Bindestrich(Hans-Josef)</li>
-                    <li>Keine Nummer</li>
-                    <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
-                </ul>
-            </div>
-            <div ng-class="{ 'has-success':(updateForm.nachname.$valid && !updateForm.nachname.$pristine), 'has-error':(!updateForm.nachname.$valid && !updateForm.nachname.$pristine)}">
-                <span class="label label-primary">Nachname *</span>
-                <input name="nachname" type="text" class="form-control" placeholder="Nachname" required
-                       ng-model="update.userData.lastname" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
-                       ng-minlength="3" ng-maxlength="35">
-                <ul ng-show="(!updateForm.nachname.$pristine && updateForm.nachname.$error.pattern) ||
+                        class="help-block">
+                        <li>Keine leere Zeichen, wenn zwei Namen, dann mit Bindestrich(Hans-Josef)</li>
+                        <li>Keine Nummer</li>
+                        <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
+                    </ul>
+                </div>
+                <div ng-class="{ 'has-success':(updateForm.nachname.$valid && !updateForm.nachname.$pristine), 'has-error':(!updateForm.nachname.$valid && !updateForm.nachname.$pristine)}">
+                    <span class="label label-primary">Nachname *</span>
+                    <input name="nachname" type="text" class="form-control" placeholder="Nachname" required
+                           ng-model="update.userData.lastname" ng-pattern="/^([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/"
+                           ng-minlength="3" ng-maxlength="35">
+                    <ul ng-show="(!updateForm.nachname.$pristine && updateForm.nachname.$error.pattern) ||
                              (!updateForm.nachname.$pristine && updateForm.nachname.$error.minlength) ||
                              (!updateForm.nachname.$pristine && updateForm.nachname.$error.maxlength)"
-                    class="help-block">
-                    <li>Keine leere Zeichen, wenn zwei Namen, dann mit Bindestrich(Hans-Josef)</li>
-                    <li>Keine Nummer</li>
-                    <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
-                </ul>
-            </div>
-            <div ng-class="{ 'has-success':(updateForm.email.$valid && !updateForm.email.$pristine), 'has-error':(!updateForm.email.$valid && !updateForm.email.$pristine)}">
-                <span class="label label-success">Email *</span>
-                <input name="email" type="text" class="form-control" placeholder="Email" required
-                       ng-model="update.userData.email"
-                       ng-pattern="/^(([^&lt;&gt;()\[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/">
-                <ul ng-show="(!updateForm.email.$pristine && updateForm.email.$error.pattern)"
-                    class="help-block">
-                    <li>Beispiel: hans.josef@example.com oder smith@agent.de</li>
-                </ul>
-            </div>
-            <div ng-class="{ 'has-success':(updateForm.mobile.$valid && !updateForm.mobile.$pristine), 'has-error':(!updateForm.mobile.$valid && !updateForm.mobile.$pristine)}">
-                <span class="label label-success">Handy *</span>
-                <input name="mobile" type="text" class="form-control" placeholder="Handy" required
-                       ng-model="update.userData.mobile"
-                       ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
-                <ul ng-show="(!updateForm.mobile.$pristine && updateForm.mobile.$error.pattern)"
-                    class="help-block">
-                    <li>+49 172 159 86 59</li>
-                    <li>0049 172 159 86 59</li>
-                    <li>01721598659</li>
-                    <li>21598659</li>
-                </ul>
-            </div>
-            <div>
-                <span class="label label-success">Telefon</span>
-                <input name="phone" type="phone" class="form-control" placeholder="Telefon"
-                       ng-model="update.userData.phone"
-                       ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
-                <ul ng-show="(!updateForm.phone.$pristine && updateForm.phone.$error.pattern)"
-                    class="help-block">
-                    <li>+49 172 159 86 59</li>
-                    <li>0049 172 159 86 59</li>
-                    <li>01721598659</li>
-                    <li>21598659</li>
-                </ul>
-            </div>
-            <div ng-class="{ 'has-success':(updateForm.oldPassword.$valid && !updateForm.oldPassword.$pristine), 'has-error':(!updateForm.oldPassword.$valid && !updateForm.oldPassword.$pristine)}">
-                <span class="label label-warning">Kennwort *</span>
-                <input name="oldPassword" type="password" class="form-control" placeholder="Altes Kennwort" required
-                       ng-model="update.userData.oldPassword" ng-pattern="/^\S/" ng-minlength="6" ng-maxlength="35">
-                <ul ng-show="(!updateForm.oldPassword.$pristine && updateForm.oldPassword.$error.pattern) ||
+                        class="help-block">
+                        <li>Keine leere Zeichen, wenn zwei Namen, dann mit Bindestrich(Hans-Josef)</li>
+                        <li>Keine Nummer</li>
+                        <li>Nicht kurzer als 3 und länger als 35 Zeichen</li>
+                    </ul>
+                </div>
+                <div ng-class="{ 'has-success':(updateForm.email.$valid && !updateForm.email.$pristine), 'has-error':(!updateForm.email.$valid && !updateForm.email.$pristine)}">
+                    <span class="label label-success">Email *</span>
+                    <input name="email" type="text" class="form-control" placeholder="Email" required
+                           ng-model="update.userData.email"
+                           ng-pattern="/^(([^&lt;&gt;()\[\]\\.,;:\s@\&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/">
+                    <ul ng-show="(!updateForm.email.$pristine && updateForm.email.$error.pattern)"
+                        class="help-block">
+                        <li>Beispiel: hans.josef@example.com oder smith@agent.de</li>
+                    </ul>
+                </div>
+                <div ng-class="{ 'has-success':(updateForm.mobile.$valid && !updateForm.mobile.$pristine), 'has-error':(!updateForm.mobile.$valid && !updateForm.mobile.$pristine)}">
+                    <span class="label label-success">Handy *</span>
+                    <input name="mobile" type="text" class="form-control" placeholder="Handy" required
+                           ng-model="update.userData.mobile"
+                           ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                    <ul ng-show="(!updateForm.mobile.$pristine && updateForm.mobile.$error.pattern)"
+                        class="help-block">
+                        <li>+49 172 159 86 59</li>
+                        <li>0049 172 159 86 59</li>
+                        <li>01721598659</li>
+                        <li>21598659</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="label label-success">Telefon</span>
+                    <input name="phone" type="phone" class="form-control" placeholder="Telefon"
+                           ng-model="update.userData.phone"
+                           ng-pattern="/^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/">
+                    <ul ng-show="(!updateForm.phone.$pristine && updateForm.phone.$error.pattern)"
+                        class="help-block">
+                        <li>+49 172 159 86 59</li>
+                        <li>0049 172 159 86 59</li>
+                        <li>01721598659</li>
+                        <li>21598659</li>
+                    </ul>
+                </div>
+                <div ng-class="{ 'has-success':(updateForm.oldPassword.$valid && !updateForm.oldPassword.$pristine), 'has-error':(!updateForm.oldPassword.$valid && !updateForm.oldPassword.$pristine)}">
+                    <span class="label label-warning">Kennwort *</span>
+                    <input name="oldPassword" type="password" class="form-control" placeholder="Altes Kennwort" required
+                           ng-model="update.userData.oldPassword" ng-pattern="/^\S/" ng-minlength="6" ng-maxlength="35">
+                    <ul ng-show="(!updateForm.oldPassword.$pristine && updateForm.oldPassword.$error.pattern) ||
                              (!updateForm.oldPassword.$pristine && updateForm.oldPassword.$error.minlength) ||
                              (!updateForm.oldPassword.$pristine && updateForm.oldPassword.$error.maxlength)"
-                    class="help-block">
-                    <li>Keine leer Zeichen vorne</li>
-                    <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
-                </ul>
-            </div>
-            <div ng-class="{ 'has-success':(updateForm.newPassword.$valid && !updateForm.newPassword.$pristine), 'has-error':(!updateForm.newPassword.$valid && !updateForm.newPassword.$pristine)}">
-                <span class="label label-warning">Kennwort wiederholen</span>
-                <input name="newPassword" type="password" class="form-control" placeholder="Neues Kennwort"
-                       ng-model="update.userData.newPasswordConfirmed" ng-pattern="/^\S/" ng-minlength="6"
-                       ng-maxlength="35">
-                <ul ng-show="(!updateForm.newPassword.$pristine && updateForm.newPassword.$error.pattern) ||
+                        class="help-block">
+                        <li>Keine leer Zeichen vorne</li>
+                        <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
+                    </ul>
+                </div>
+                <div ng-class="{ 'has-success':(updateForm.newPassword.$valid && !updateForm.newPassword.$pristine), 'has-error':(!updateForm.newPassword.$valid && !updateForm.newPassword.$pristine)}">
+                    <span class="label label-warning">Kennwort wiederholen</span>
+                    <input name="newPassword" type="password" class="form-control" placeholder="Neues Kennwort"
+                           ng-model="update.userData.newPasswordConfirmed" ng-pattern="/^\S/" ng-minlength="6"
+                           ng-maxlength="35">
+                    <ul ng-show="(!updateForm.newPassword.$pristine && updateForm.newPassword.$error.pattern) ||
                              (!updateForm.newPassword.$pristine && updateForm.newPassword.$error.minlength) ||
                              (!updateForm.newPassword.$pristine && updateForm.newPassword.$error.maxlength)"
-                    class="help-block">
-                    <li>Keine leer Zeichen vorne</li>
-                    <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
-                </ul>
-            </div>
-            <div ng-class="{ 'has-success':(updateForm.newPasswordConfirmed.$valid && !updateForm.newPasswordConfirmed.$pristine), 'has-error':(!updateForm.newPasswordConfirmed.$valid && !updateForm.newPasswordConfirmed.$pristine)}">
-                <span class="label label-warning">Kennwort wiederholen</span>
-                <input name="newPasswordConfirmed" type="password" class="form-control"
-                       placeholder="Neues Kennwort wiederholen"
-                       ng-model="update.userData.newPasswordConfirmed" ng-pattern="/^\S/" ng-minlength="6"
-                       ng-maxlength="35">
-                <ul ng-show="(!updateForm.newPasswordConfirmed.$pristine && updateForm.newPasswordConfirmed.$error.pattern) ||
+                        class="help-block">
+                        <li>Keine leer Zeichen vorne</li>
+                        <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
+                    </ul>
+                </div>
+                <div ng-class="{ 'has-success':(updateForm.newPasswordConfirmed.$valid && !updateForm.newPasswordConfirmed.$pristine), 'has-error':(!updateForm.newPasswordConfirmed.$valid && !updateForm.newPasswordConfirmed.$pristine)}">
+                    <span class="label label-warning">Kennwort wiederholen</span>
+                    <input name="newPasswordConfirmed" type="password" class="form-control"
+                           placeholder="Neues Kennwort wiederholen"
+                           ng-model="update.userData.newPasswordConfirmed" ng-pattern="/^\S/" ng-minlength="6"
+                           ng-maxlength="35">
+                    <ul ng-show="(!updateForm.newPasswordConfirmed.$pristine && updateForm.newPasswordConfirmed.$error.pattern) ||
                              (!updateForm.newPasswordConfirmed.$pristine && updateForm.newPasswordConfirmed.$error.minlength) ||
                              (!updateForm.newPasswordConfirmed.$pristine && updateForm.newPasswordConfirmed.$error.maxlength)"
-                    class="help-block">
-                    <li>Keine leer Zeichen vorne</li>
-                    <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
-                </ul>
-            </div>
-            <div>
-                <p>
-                    <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
-                </p>
-                <br>
-                <button class="btn btn-info btn-outline btn-block" type="submit">
+                        class="help-block">
+                        <li>Keine leer Zeichen vorne</li>
+                        <li>Nicht kurzer als 6 und länger als 35 Zeichen</li>
+                    </ul>
+                </div>
+                <div>
+                    <p>
+                        <em><span style="color: red; font-size: smaller; ">* Pflichtfeld</span></em>
+                    </p>
+                    <br>
+                    <button class="btn btn-info btn-outline btn-block" type="submit">
                 <span
                         class="glyphicon glyphicon-user"></span> Konto atualisieren
-                </button>
-                <br>
-            </div>
-            <div class="cssload-container" ng-show="update.loading">
-                <div class="cssload-whirlpool"></div>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
-        <div class="show-hide-message" ng-show="update.successMsg">
-            <div class="alert alert-success">{{ update.successMsg }}</div>
+                    </button>
+                    <br>
+                </div>
+                <div class="cssload-container" ng-show="update.loading">
+                    <div class="cssload-whirlpool"></div>
+                </div>
+            </form>
         </div>
-        <div class="show-hide-message" ng-show="update.errorMsg">
-            <div class="alert alert-danger">{{ update.errorMsg }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
+            <div class="show-hide-message" ng-show="update.successMsg">
+                <div class="alert alert-success">{{ update.successMsg }}</div>
+            </div>
+            <div class="show-hide-message" ng-show="update.errorMsg">
+                <div class="alert alert-danger">{{ update.errorMsg }}</div>
+            </div>
         </div>
     </div>
 </div>

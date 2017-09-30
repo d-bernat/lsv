@@ -66,4 +66,4 @@ angular.module('authServices', [])
         }
 
         return authInterceptorsFactory;
-    })
+    });

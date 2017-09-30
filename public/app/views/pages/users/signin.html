@@ -6,28 +6,33 @@
 </div><br>
 <div class="row">
     <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
-        <form class="form-signin" ng-submit="signIn.signInUser();">
-            <span class="label label-primary">Spitzname</span>
-            <input type="text" class="form-control" placeholder="Spitzname" required autofocus
-                   ng-model="signIn.signInData.username">
-            <span class="label label-warning">Kennwort</span>
-            <input type="password" class="form-control" placeholder="Kennwort" required
-                   ng-model="signIn.signInData.password"><br>
-            <button class="btn btn-success btn-outline btn-block" type="submit"><span
-                    class="glyphicon glyphicon-log-in"></span> Anmelden
-            </button><br>
-            <div class="cssload-container" ng-show="signIn.loading">
-                <div class="cssload-whirlpool"></div>
-            </div>
-            <div class="row">
-                <div class="show-hide-message"  ng-show="signIn.successMsg">
-                    <div class="alert alert-success">{{ signIn.successMsg }}</div>
-                </div>
-                <div class="show-hide-message" ng-show="signIn.errorMsg">
-                    <div class="alert alert-danger">{{ signIn.errorMsg }}</div>
-                </div>
-            </div>
-        </form>
+        <route-loading-indicator></route-loading-indicator>
+        <div ng-if="!isRouteLoading">
 
+            <form class="form-signin" ng-submit="signIn.signInUser();">
+                <span class="label label-primary">Spitzname</span>
+                <input type="text" class="form-control" placeholder="Spitzname" required autofocus
+                       ng-model="signIn.signInData.username">
+                <span class="label label-warning">Kennwort</span>
+                <input type="password" class="form-control" placeholder="Kennwort" required
+                       ng-model="signIn.signInData.password"><br>
+                <button class="btn btn-success btn-outline btn-block" type="submit"><span
+                        class="glyphicon glyphicon-log-in"></span> Anmelden
+                </button>
+                <br>
+                <div class="cssload-container" ng-show="signIn.loading">
+                    <div class="cssload-whirlpool"></div>
+                </div>
+                <div class="row">
+                    <div class="show-hide-message" ng-show="signIn.successMsg">
+                        <div class="alert alert-success">{{ signIn.successMsg }}</div>
+                    </div>
+                    <div class="show-hide-message" ng-show="signIn.errorMsg">
+                        <div class="alert alert-danger">{{ signIn.errorMsg }}</div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
     </div>
 </div>

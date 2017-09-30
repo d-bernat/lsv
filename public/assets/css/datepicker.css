@@ -1,0 +1,24 @@
+datepicker{
+    display: block;
+    width: 22rem;
+}
+
+.datepicker-header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.datepicker-header > .grow{
+    flex-grow: 1;
+}
+
+.datepicker-month{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center
+}
+.datepicker-day{
+    flex:  0 0 calc(100%/7);
+}

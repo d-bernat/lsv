@@ -16,6 +16,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/bower_components'));
 app.use('/api', appRoutes);
 
 mongoose.connect('mongodb://localhost:27017/lsv', (err) => {

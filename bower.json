@@ -1,0 +1,29 @@
+{
+  "name": "lsv",
+  "description": "mean stack application",
+  "main": "server.js",
+  "authors": [
+    "Dusan Bernat"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "MEAN",
+    "stack"
+  ],
+  "homepage": "https://github.com/d-bernat/lsv",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-confirm": "angular-confirm1#^1.1.0",
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
