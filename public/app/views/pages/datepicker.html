@@ -3,7 +3,7 @@
         <div class="datepicker-header">
             <button type="button" ng-click="move(-1, 'year')" class="btn btn-default datepicker-day"><i class="fa fa-angle-double-left fa-lg"></i></button>
             <button type="button" ng-click="move(-1, 'month')" class="btn btn-default"><i class="fa fa-angle-left"></i></button>
-            <div class="grow text-center">{{viewDate.format('DD MMMM YYYY')}}</div>
+            <div class="grow text-center" ng-click="clickOnHeader()">{{viewDate.format('MMMM YYYY')}}</div>
             <button type="button" ng-click="move(1, 'month')" class="btn btn-default"><i class="fa fa-angle-right fa-lg"></i></button>
             <button type="button" ng-click="move(1, 'year')" class="btn btn-default"><i class="fa fa-angle-double-right fa-lg"></i></button>
         </div>
@@ -21,8 +21,9 @@
                     ng-class="{ 'btn-default': !day.inMonth,
                                 'btn-primary': day.selected,
                                 'btn-info' : day.inMonth && !day.selected && !day.today,
-                                'btn-success' : !day.selected && day.today}"
-                    ng-click="setSelectedDate(day.date)">{{day.label}}
+                                'btn-success' : !day.selected && day.today,
+                                'disabled': day.past}"
+                    ng-click="setSelectedDate(day)">{{day.label}}
             </button>
         </div>
     </div>

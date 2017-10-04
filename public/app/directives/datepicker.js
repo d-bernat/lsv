@@ -1,76 +1,94 @@
 'use strict';
 
 angular.module('datePickerModule', [])
-.directive('datepicker', function(){
-   return {
-       restrict: 'EA',
-       //templateUrl: 'datepicker.html',
-       controller: 'datePickerCtrl',
-       contorllerAs: 'datepicker',
-       scope: true,
-       require: 'ngModel',
-       link: function(scope, element, attributes, ngModel){
-           scope.viewDate = moment();
-           let selectedDate = null;
-           function generateDays(){
-               scope.days = [];
-               let startOfSelectedDate = moment.isMoment(selectedDate) ? selectedDate.clone().startOf('day') : null;
-               let startDate = scope.viewDate.clone().startOf('month').startOf('week');
-               let endDate = scope.viewDate.clone().endOf('month').endOf('week').endOf('day');
-               while(startDate < endDate){
-                   scope.days.push({
-                       label: startDate.date(),
-                       inMonth: startDate.month() == scope.viewDate.month() && startDate.year() === scope.viewDate.year(),
-                       date: startDate.valueOf(),
-                       selected: startDate.isSame(startOfSelectedDate),
-                       today: startDate.date() == moment().date() && startDate.month() == moment().month() && startDate.year() == moment().year()
-                   });
-                   startDate.add(moment.duration(1, 'day'));
-               }
-           }
+    .directive('datepicker', function () {
+        return {
+            restrict: 'EA',
+            //templateUrl: 'datepicker.html',
+            controller: 'datePickerCtrl',
+            contorllerAs: 'datepicker',
+            scope: false,
+            require: 'ngModel',
+            link: function (scope, element, attributes, ngModel) {
+                scope.viewDate = moment();
+                scope.countOfClick = 0;
+                scope.dateRangeAllowed = scope.dateRangeAllowed || false;
 
-           generateDays();
+                let selectedDate = null;
 
-           ngModel.$parsers.push(function(value){
-               if(value){
-                   selectedDate = moment(value);
-                   scope.viewDate = selectedDate.clone();
-               }else{
-                   selectedDate = null;
-               }
-               return value;
-           });
+                function generateDays() {
+                    scope.days = [];
+                    let startOfSelectedDate = moment.isMoment(selectedDate) ? selectedDate.clone().startOf('day') : null;
+                    let startDate = scope.viewDate.clone().startOf('month').startOf('week');
+                    let endDate = scope.viewDate.clone().endOf('month').endOf('week').endOf('day');
+                    while (startDate < endDate) {
+                        scope.days.push({
+                            label: startDate.date(),
+                            inMonth: startDate.month() == scope.viewDate.month() && startDate.year() === scope.viewDate.year(),
+                            date: startDate.valueOf(),
+                            selected: startDate.isSame(startOfSelectedDate) || startDate.isBetween(scope.getTill(), scope.getUntill())
+                                || startDate.isSame(scope.getTill()) || startDate.isSame(scope.getUntill()),
+                            today: startDate.date() == moment().date() && startDate.month() == moment().month() && startDate.year() == moment().year(),
+                            past: (startDate.date() <= moment().date() && startDate.month() <= moment().month() && startDate.year() <= moment().year()) ||
+                            (startDate.month() < moment().month() && startDate.year() <= moment().year()) ||
+                            startDate.year() < moment().year()
+                        });
+                        startDate.add(moment.duration(1, 'day'));
+                    }
+                }
 
-           ngModel.$formatters.push(function(value){
-               if(value){
-                   selectedDate = moment(value);
-                   scope.viewDate = selectedDate.clone();
-               }else{
-                   selectedDate = null;
-               }
+                generateDays();
 
-               return selectedDate;
-           });
+                ngModel.$parsers.push(function (value) {
+                    if (value) {
+                        selectedDate = moment(value);
+                        scope.viewDate = selectedDate.clone();
+                    } else {
+                        selectedDate = null;
+                    }
+                    return selectedDate;
+                });
 
-           ngModel.$render = generateDays;
+                ngModel.$formatters.push(function (value) {
+                    return value;
+                });
 
-           scope.setSelectedDate = function(date){
+                ngModel.$render = generateDays;
 
+                scope.setSelectedDate = function (day) {
+                    if (!day.past) {
+                        selectedDate = moment(day.date);
+                        ngModel.$setViewValue(selectedDate);
+                        if (scope.dateRangeAllowed) {
+                            if (++scope.countOfClick === 1) {
+                                scope.setTill(selectedDate);
+                                scope.setUntill(selectedDate);
+                            } else if (scope.countOfClick === 2) {
+                                if(selectedDate.isAfter(scope.getTill())) {
+                                    scope.$parent.showDatePicker = false;
+                                    scope.countOfClick = 0;
+                                    scope.setUntill(selectedDate);
+                                }else{
+                                    scope.countOfClick = 0;
+                                    alert('past alert');
+                                }
+                            }
+                        } else {
+                            scope.setTill(selectedDate);
+                            scope.setUntill(selectedDate);
+                            scope.$parent.showDatePicker = false;
+                            scope.countOfClick = 0;
+                        }
+                    }
+                    generateDays();
+                }
 
-               let tempDate = moment(date);
-               selectedDate = selectedDate ? moment(selectedDate) :  moment();
-               selectedDate.year(tempDate.year());
-               selectedDate.month(tempDate.month());
-               selectedDate.date(tempDate.date());
-               generateDays();
-               ngModel.$setViewValue(selectedDate);
+                scope.move = function (amount, unit) {
+                    scope.viewDate.add(amount, unit);
+                    generateDays();
+                }
 
-           }
+            }
 
-           scope.move = function(amount, unit){
-               scope.viewDate.add(amount, unit);
-               generateDays();
-           }
-       }
-   }
-});
+        }
+    });

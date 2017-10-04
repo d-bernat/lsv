@@ -1,3 +1,8 @@
+input[readonly].look-editable{
+    background-color: white;
+    cursor: pointer;
+}
+
 .funkyradio label {
     /*min-width: 400px;*/
     width: 100%;
@@ -410,4 +415,6 @@ html {
         background-color: seashell;
         transform: scale(0.5, 1);
     }
+
 }
+

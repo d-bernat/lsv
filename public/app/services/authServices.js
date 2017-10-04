@@ -42,8 +42,6 @@ angular.module('authServices', [])
                 $window.sessionStorage.setItem('token', token);
             else {
                 $window.sessionStorage.removeItem('token');
-                console.log($window.sessionStorage.getItem('token'));
-
             }
         };
 
