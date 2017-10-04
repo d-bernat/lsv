@@ -52,7 +52,7 @@ angular.module('bookControllers', ['planeService'])
 
             $scope.getRangeDateValue = function(){
                 if($scope.dateRangeAllowed)
-                    return app.bookData.range.till.format('D.MM. YYYY') + ' - ' + app.bookData.range.untill.format('D.MM. YYYY');
+                    return app.bookData.range.till.format('D.MM.YYYY') + ' - ' + app.bookData.range.untill.format('D.MM.YYYY');
                 else
                     return app.bookData.range.till.format('D.MM. YYYY');
             }

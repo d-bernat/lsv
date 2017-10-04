@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('datePickerModule', [])
-    .directive('datepicker', function () {
+    .directive('datepicker', ['$ngConfirm', function ($ngConfirm) {
         return {
             restrict: 'EA',
             //templateUrl: 'datepicker.html',
@@ -64,13 +64,31 @@ angular.module('datePickerModule', [])
                                 scope.setTill(selectedDate);
                                 scope.setUntill(selectedDate);
                             } else if (scope.countOfClick === 2) {
-                                if(selectedDate.isAfter(scope.getTill())) {
+                                if(selectedDate.isAfter(scope.getTill()) || selectedDate.isSame(scope.getTill())) {
                                     scope.$parent.showDatePicker = false;
                                     scope.countOfClick = 0;
                                     scope.setUntill(selectedDate);
                                 }else{
                                     scope.countOfClick = 0;
-                                    alert('past alert');
+                                    $ngConfirm({
+                                        type: 'red',
+                                        typeAnimated: true,
+                                        animation: 'zoom',
+                                        closeAnimation: 'scale',
+                                        title: 'Etwas stimmt nicht :-(',
+                                        content: "<strong>Das Ende der Buchung (" + selectedDate.format('D.MM.YYYY') +
+                                            ") liegt vor dem Anfang (" + scope.getTill().format('D.MM.YYYY') +")!</strong>",
+                                        buttons:{
+                                            OK: {
+                                                text: 'Noch mal',
+                                                btnClass: 'btn-red',
+                                                action: function(){
+                                                    return true;
+                                                }
+                                            }
+                                        },
+                                        closeIcon: true
+                                    });
                                 }
                             }
                         } else {
@@ -91,4 +109,4 @@ angular.module('datePickerModule', [])
             }
 
         }
-    });
+    }]);
