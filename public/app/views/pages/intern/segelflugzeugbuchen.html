@@ -76,10 +76,9 @@
                     </td>
                     <td>
                         <select class="form-control" ng-model="book.bookData.selectedPlane">
-                            <option ng-repeat="plane in planes" ng-show="plane.plane_type === 'GLIDER'"
+                            <option ng-class="{'btn-success': plane.cleared, 'btn-danger': !plane.cleared, 'btn-outline': true}" ng-repeat="plane in planes" ng-show="plane.plane_type === 'GLIDER'"
                                     label="{{plane.name + ' (' + plane.registration +')'}}" ng-value="plane"
-                                    ng-selected="$first"></option>
-
+                                    ng-selected="$first" data-toggle="tooltip" data-placement="top" title="{{ plane.cleared ? 'Klar':'Unklar' }}"></option>
                         </select>
                     </td>
                     <td>
@@ -95,7 +94,8 @@
         <div ng-include src="'app/views/pages/datepicker.html'"
              ng-show="showDatePicker"></div>
 
-        <br><table ng-controller="getAllBookingsCtrl" class="table table-responsive"
+        <br>
+        <table class="table table-responsive"
                ng-show="loaded">
             <thead>
             <tr>
@@ -105,22 +105,25 @@
                 <th>Pilot</th>
                 <th>Komentar</th>
                 <th>Löschen</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="booking in bookings" ng-class="{'btn-info': getWeekDay(booking.date) === 'Samstag', 'btn-warning': getWeekDay(booking.date) === 'Sonntag'}">
-                <td  >{{getWeekDay(booking.date)}}</td>
-                <td>{{getFormattedDate(booking.date)}}</td>
-                <td>{{booking.plane + ' ' + booking.registration}}</td>
-                <td>{{booking.name + ' ' + booking.lastname}}</td>
-                <td>Gastflüge</td>
-                <td>
+            <tr ng-repeat="booking in bookings">
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{getWeekDay(booking.date)}}</td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{getFormattedDate(booking.date)}}</td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{booking.plane + ' ' + booking.registration}}</td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{booking.name + ' ' + booking.lastname}}</td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">Gastflüge</td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
                     <label class="btn btn-danger btn-outline btn-block" type="button"
-                            ng-click="resetSettings($index)" ng-show="booking.email === $root.userData.email"><span
+                           ng-click="resetSettings($index)" ng-show="booking.email === $root.userData.email"><span
                             class="glyphicon glyphicon-remove"
                             aria-hidden="true"></span> Löschen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>
                 </td>
+                <td ng-show="!isPlaneCleared(booking.registration)" data-toggle="tooltip" title="Flugzeug ist momentan unklar"> <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></td>
+                <td ng-show="isPlaneCleared(booking.registration)" data-toggle="tooltip" title="Flugzeug ist klar"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></td>
             </tr>
             </tbody>
         </table>

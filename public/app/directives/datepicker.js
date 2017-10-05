@@ -12,7 +12,7 @@ angular.module('datePickerModule', [])
             link: function (scope, element, attributes, ngModel) {
                 scope.viewDate = moment();
                 scope.countOfClick = 0;
-                scope.dateRangeAllowed = scope.dateRangeAllowed || false;
+                scope.isManager = scope.isManager || false;
 
                 let selectedDate = null;
 
@@ -26,8 +26,8 @@ angular.module('datePickerModule', [])
                             label: startDate.date(),
                             inMonth: startDate.month() == scope.viewDate.month() && startDate.year() === scope.viewDate.year(),
                             date: startDate.valueOf(),
-                            selected: startDate.isSame(startOfSelectedDate) || startDate.isBetween(scope.getTill(), scope.getUntill())
-                                || startDate.isSame(scope.getTill()) || startDate.isSame(scope.getUntill()),
+                            selected: startDate.isSame(startOfSelectedDate) || startDate.isBetween(scope.getTill(), scope.getUntil())
+                                || startDate.isSame(scope.getTill()) || startDate.isSame(scope.getUntil()),
                             today: startDate.date() == moment().date() && startDate.month() == moment().month() && startDate.year() == moment().year(),
                             past: (startDate.date() <= moment().date() && startDate.month() <= moment().month() && startDate.year() <= moment().year()) ||
                             (startDate.month() < moment().month() && startDate.year() <= moment().year()) ||
@@ -59,15 +59,15 @@ angular.module('datePickerModule', [])
                     if (!day.past) {
                         selectedDate = moment(day.date);
                         ngModel.$setViewValue(selectedDate);
-                        if (scope.dateRangeAllowed) {
+                        if (scope.isManager) {
                             if (++scope.countOfClick === 1) {
                                 scope.setTill(selectedDate);
-                                scope.setUntill(selectedDate);
+                                scope.setUntil(selectedDate);
                             } else if (scope.countOfClick === 2) {
                                 if(selectedDate.isAfter(scope.getTill()) || selectedDate.isSame(scope.getTill())) {
                                     scope.$parent.showDatePicker = false;
                                     scope.countOfClick = 0;
-                                    scope.setUntill(selectedDate);
+                                    scope.setUntil(selectedDate);
                                 }else{
                                     scope.countOfClick = 0;
                                     $ngConfirm({
@@ -93,7 +93,7 @@ angular.module('datePickerModule', [])
                             }
                         } else {
                             scope.setTill(selectedDate);
-                            scope.setUntill(selectedDate);
+                            scope.setUntil(selectedDate);
                             scope.$parent.showDatePicker = false;
                             scope.countOfClick = 0;
                         }

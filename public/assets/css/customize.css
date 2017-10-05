@@ -1,3 +1,16 @@
+
+.saturday {
+    color: #000000;
+    background-color: #ecffc4;
+    border-color: #aead7d;
+}
+
+.sunday {
+    color: #000000;
+    background-color: #fcff7f;
+    border-color: #aeaa2a;
+}
+
 input[readonly].look-editable{
     background-color: white;
     cursor: pointer;
