@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bookControllers', ['planeService'])
+angular.module('bookControllers', ['planeService', 'bookServices'])
     .controller('bookCtrl',
         function ($rootScope, $scope, Plane) {
             let app = this;
@@ -57,4 +57,31 @@ angular.module('bookControllers', ['planeService'])
                     return app.bookData.range.till.format('D.MM. YYYY');
             }
 
+        })
+    .controller('getAllBookingsCtrl', function ($scope, Book/*, $ngConfirm*/) {
+
+        $scope.loaded = false;
+        $scope.bookings = false;
+
+        Book.getAll().then(function (res) {
+            if (res.data.success) {
+                $scope.bookings = res.data.message;
+                console.log(res.data.message);
+
+            }
+            else {
+                $scope.bookings = false;
+            }
+            $scope.loaded = true;
         });
+
+
+        $scope.getFormattedDate = function(date){
+            return moment(date).format('DD. MMMM YYYY');
+        };
+
+        $scope.getWeekDay = function(date){
+            return moment(date).format('dddd');
+        }
+
+    });

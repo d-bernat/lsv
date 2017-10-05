@@ -2,24 +2,178 @@
 
 const User = require('../models/user');
 const Plane = require('../models/plane');
+const GliderBooking = require('../models/glider_booking');
+const moment = require('moment');
 const jwt = require('jsonwebtoken');
 const secret = 'simplesecret';
 const sgMail = require('@sendgrid/mail');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+mongoose.Promise = require('q').Promise;
+
 
 module.exports = function (router) {
     dotenv.load();
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
-    router.get('/planes', function(req, res){
-       Plane.find(function(err, planes){
-           if (err) {
-               res.json({success: false, message: err});
-           } else {
-               res.json({success: true, message: planes});
-           }
-       });
+    router.post('/gliderbooking', function (req, res) {
+
+        let dates = [];
+        let startDate = moment(req.body.till_date);
+        let endDate = moment(req.body.untill_date);
+
+        if (moment.isMoment(startDate) && startDate.isAfter(moment()) && moment.isMoment(endDate) &&
+            endDate.isSameOrAfter(startDate) && endDate.diff(startDate, 'days') <= 30) {
+
+            GliderBooking.findOne({
+                date: {$gte: startDate, $lte: endDate},
+                registration: req.body.registration
+            }).exec(function (err, booking) {
+
+                if (booking === null) {
+
+                    if (startDate.isSame(endDate)) {
+
+                        let gliderBooking = new GliderBooking();
+                        gliderBooking.name = req.body.name;
+                        gliderBooking.lastname = req.body.lastname;
+                        gliderBooking.email = req.body.email;
+                        gliderBooking.date = req.body.till_date;
+                        gliderBooking.plane = req.body.plane;
+                        gliderBooking.registration = req.body.registration;
+                        gliderBooking.save((err) => {
+                            if (err) {
+                                res.json({success: false, message: err});
+                            } else {
+                                const msg = {
+                                    to: req.body.email,
+                                    from: 'mail@it-bernat.de',
+                                    subject: 'Buchung - Segelflugzeug',
+                                    text: 'Du hast ein Segelflugzeug gebucht',
+                                    html: '<strong> Du hast ein Segelflugzeug gebucht: ' + req.body.plane + ', ' + req.body.registration + ', ' + startDate.format('DD.MM.YYYY') + '</strong>'
+                                };
+                                console.log('email sent');
+                                sgMail.send(msg, function (err, info) {
+                                    if (err) {
+                                        console.log(err);
+                                    }
+                                });
+                                res.json({success: true, message: 'Buchungsbestätigung unterwegs: ' + req.body.email});
+                            }
+                        });
+                    } else {
+
+                        User.findOne({
+                            email: req.body.email,
+                            active: true
+                        }).select('permission').exec(function (err, user) {
+                            if (user !== null && user !== undefined && user.permission.split(',').indexOf('manager') >= 0) {
+                                while (startDate <= endDate) {
+                                    dates.push(startDate.clone());
+                                    startDate.add(moment.duration(1, 'day'));
+                                }
+
+                                let promises = [];
+                                for (let i = 0; i < dates.length; i++) {
+                                    let date = dates[i];
+                                    let gliderBooking = new GliderBooking();
+                                    gliderBooking.name = req.body.name;
+                                    gliderBooking.lastname = req.body.lastname;
+                                    gliderBooking.email = req.body.email;
+                                    gliderBooking.date = date;
+                                    gliderBooking.plane = req.body.plane;
+                                    gliderBooking.registration = req.body.registration;
+                                    promises.push(gliderBooking.save());
+                                }
+
+                                Promise.all(promises)
+                                    .then(function (values) {
+                                        const msg = {
+                                            to: req.body.email,
+                                            from: 'mail@it-bernat.de',
+                                            subject: 'Buchung - Segelflugzeug',
+                                            text: 'Du hast ein Segelflugzeug gebucht!',
+                                            html: '<strong> Du hast folgende Leistungen gebucht:' + req.body.plane + ', ' + req.body.registration + ', von ' +
+                                            moment(req.body.till_date).format('DD.MM.YYYY') + ' bis ' + moment(req.body.untill_date).format('DD.MM.YYYY') + '</strong>'
+                                        };
+                                        sgMail.send(msg, function (err, info) {
+                                            if (err) {
+                                                console.log(err);
+                                            }
+                                        });
+                                        res.json({
+                                            success: true,
+                                            message: 'Buchungsbestätigung unterwegs: ' + req.body.email
+                                        });
+                                    })
+                                    .catch(function (reason) {
+                                        //todo remove
+                                        res.json({success: false, message: reason});
+                                    });
+                            } else {
+                                res.json({success: false, message: 'Du kannst nicht mehr als einmal buchen!'});
+                            }
+                        });
+                    }
+
+                }
+                else {
+                    res.json({success: false, message: 'Für gewähltes Zeitraum ist den Flieger schon gebucht!'});
+                }
+
+            });
+        } else {
+            res.json({
+                success: false,
+                message: 'Zeitraum nich gültig: Start: ' + startDate.format('DD.MM.YYYY') + ' Ende: ' + endDate.format('DD.MM.YYYY')
+            });
+        }
+    });
+
+    router.delete('/gliderbooking', function (req, res) {
+
+        GliderBooking.remove({date: req.body.date, email: req.body.email, registration: req.body.registration}, function (err) {
+            if(err) {
+                res.json({success: false, message: err});
+            }else {
+                const msg = {
+                    to: req.body.email,
+                    from: 'mail@it-bernat.de',
+                    subject: 'Löschung der Buchung - Segelflugzeug',
+                    text: 'Du hast eine Buchung gelöscht!',
+                    html: '<strong> Du hast eine Buchung gelöscht: ' + req.body.plane + ', ' + req.body.registration + '</strong>'
+                };
+                sgMail.send(msg, function (err, info) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });
+                res.json({success: true, message:  'Du hast eine Buchung gelöscht: ' + req.body.plane + ', ' + req.body.registration + ', ' + moment(req.body.date).format('DD.MM.YYYY')});
+            }
+        });
+    });
+
+    router.get('/gliderbooking', function (req, res) {
+
+        GliderBooking.find({date: {$gte: moment().add(-1, 'days')}}).select('date plane registration email name lastname').sort({date: 'asc'}).exec(function (err, bookings) {
+            if(err) {
+                res.json({success: false, message: err});
+            }else {
+                res.json({success: true, message:  bookings});
+            }
+        });
+    });
+
+
+    router.get('/planes', function (req, res) {
+        Plane.find(function (err, planes) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                res.json({success: true, message: planes});
+            }
+        });
     });
 
     router.get('/users', function (req, res) {
@@ -48,7 +202,7 @@ module.exports = function (router) {
                     else {
                         res.json({
                             success: true,
-                            message: 'Berechtigungen für ' + req.body.lastname + ' ' + req.body.name +  ' sind gespeichert worden.'
+                            message: 'Berechtigungen für ' + req.body.lastname + ' ' + req.body.name + ' sind gespeichert worden.'
                         });
                     }
                 });

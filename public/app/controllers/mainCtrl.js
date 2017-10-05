@@ -13,6 +13,7 @@ angular.module('mainController', ['authServices'])
                         $location.path('signin');
                         $scope.loadme = true;
                     } else {
+                        console.log($rootScope.userData);
                         $scope.welcomeMessage = 'Willkommen ' + data.data.username;
                         $rootScope.userData = data.data;
                         $scope.loadme = true;

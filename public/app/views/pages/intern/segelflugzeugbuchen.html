@@ -32,7 +32,7 @@
     <br>
     <div class="row" ng-if="!isRouteLoading">
         <form name="bookForm" class="form-signin">
-            <table class="table-responsive" ng-show="loaded">
+            <table class="table table-responsive" ng-show="loaded">
                 <thead>
                 <tr>
                     <th style="width: 20rem" ng-show="!dateRangeAllowed">Datum</th>
@@ -51,15 +51,15 @@
                                         <table class="table-responsive">
                                             <tr>
                                                 <td style="width: 20rem"><input name="mobile" type="text"
-                                                           class="form-control center-block look-editable"
-                                                           ng-model="book.bookData.range"
-                                                           ng-value="getRangeDateValue()"
-                                                           required readonly
-                                                           ng-click="showDatePicker = !showDatePicker">
+                                                                                class="form-control center-block look-editable"
+                                                                                ng-model="book.bookData.range"
+                                                                                ng-value="getRangeDateValue()"
+                                                                                required readonly
+                                                                                ng-click="showDatePicker = !showDatePicker">
                                                 </td>
                                                 <td>
                                                     <label class="btn btn-default btn-outline btn-block" type="button"
-                                                            ng-click="showDatePicker = !showDatePicker">
+                                                           ng-click="showDatePicker = !showDatePicker">
                                                         <span class="glyphicon glyphicon-calendar"
                                                               ng-show="!showDatePicker"></span>
                                                         <span class="glyphicon glyphicon-remove"
@@ -76,12 +76,15 @@
                     </td>
                     <td>
                         <select class="form-control" ng-model="book.bookData.selectedPlane">
-                            <option ng-repeat="plane in planes" ng-show="plane.plane_type === 'GLIDER'" label="{{plane.name + ' (' + plane.registration +')'}}" ng-value="plane" ng-selected="$first"></option>
+                            <option ng-repeat="plane in planes" ng-show="plane.plane_type === 'GLIDER'"
+                                    label="{{plane.name + ' (' + plane.registration +')'}}" ng-value="plane"
+                                    ng-selected="$first"></option>
 
                         </select>
                     </td>
                     <td>
-                        <label class="btn btn-info btn-outline btn-block" ng-click="showDatePicker = false; book.bookGlider();">
+                        <label class="btn btn-info btn-outline btn-block"
+                               ng-click="showDatePicker = false; book.bookGlider();">
                             <span class="glyphicon glyphicon-ok"></span> Buchen
                         </label>
                     </td>
@@ -91,5 +94,35 @@
         </form>
         <div ng-include src="'app/views/pages/datepicker.html'"
              ng-show="showDatePicker"></div>
+
+        <br><table ng-controller="getAllBookingsCtrl" class="table table-responsive"
+               ng-show="loaded">
+            <thead>
+            <tr>
+                <th>Wochentag</th>
+                <th>Datum</th>
+                <th>Flugzeug</th>
+                <th>Pilot</th>
+                <th>Komentar</th>
+                <th>Löschen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="booking in bookings" ng-class="{'btn-info': getWeekDay(booking.date) === 'Samstag', 'btn-warning': getWeekDay(booking.date) === 'Sonntag'}">
+                <td  >{{getWeekDay(booking.date)}}</td>
+                <td>{{getFormattedDate(booking.date)}}</td>
+                <td>{{booking.plane + ' ' + booking.registration}}</td>
+                <td>{{booking.name + ' ' + booking.lastname}}</td>
+                <td>Gastflüge</td>
+                <td>
+                    <label class="btn btn-danger btn-outline btn-block" type="button"
+                            ng-click="resetSettings($index)" ng-show="booking.email === $root.userData.email"><span
+                            class="glyphicon glyphicon-remove"
+                            aria-hidden="true"></span> Löschen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>

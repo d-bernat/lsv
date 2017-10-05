@@ -6,10 +6,17 @@ angular.module('bookServices', [])
 
         let bookFactory = {};
         bookFactory.book = function (bookData) {
-            return $http.post('/api/authenticate', authData).then(function (data) {
-                return data;
-            });
-        };
+            return $http.post('/api/gliderbooking', bookData);
+        }
 
-        return authTokenFactory;
+        bookFactory.remove = function (bookData) {
+            return $http.delete('/api/gliderbooking', bookData);
+        }
+
+        bookFactory.getAll = function (bookData) {
+            return $http.get('/api/gliderbooking', bookData);
+        }
+
+
+        return bookFactory;
     })
