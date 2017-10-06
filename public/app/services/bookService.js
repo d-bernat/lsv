@@ -6,11 +6,19 @@ angular.module('bookServices', [])
 
         let bookFactory = {};
         bookFactory.book = function (bookData) {
+            console.log(bookData);
             return $http.post('/api/gliderbooking', bookData);
         }
 
         bookFactory.remove = function (bookData) {
-            return $http.delete('/api/gliderbooking', bookData);
+            return $http({
+                method: 'DELETE',
+                url: '/api/gliderbooking',
+                data: bookData,
+                headers: {
+                    'Content-type': 'application/json;charset=utf-8'
+                }
+            });
         }
 
         bookFactory.getAll = function (bookData) {

@@ -90,9 +90,30 @@
                 </tr>
                 </tbody>
             </table>
+            <div ng-include src="'app/views/pages/datepicker.html'"
+                 ng-show="showDatePicker"></div>
+
+            <table class="table table-responsive" ng-show="loaded">
+                <thead>
+                <tr>
+                    <th>Kommentar zur Buchung (optional)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <input name="comment" type="text"
+                               class="form-control center-block look-editable"
+                               ng-model="book.bookData.comment"
+                               placeholder="Kommentar"
+                               >
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
         </form>
-        <div ng-include src="'app/views/pages/datepicker.html'"
-             ng-show="showDatePicker"></div>
 
         <br>
         <table class="table table-responsive"
@@ -114,10 +135,10 @@
                 <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{getFormattedDate(booking.date)}}</td>
                 <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{booking.plane + ' ' + booking.registration}}</td>
                 <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{booking.name + ' ' + booking.lastname}}</td>
-                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">Gastflüge</td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{booking.comment}}</td>
                 <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
                     <label class="btn btn-danger btn-outline btn-block" type="button"
-                           ng-click="resetSettings($index)" ng-show="booking.email === $root.userData.email"><span
+                           ng-click="book.removeBooking($index)" ng-show="booking.email === $root.userData.email"><span
                             class="glyphicon glyphicon-remove"
                             aria-hidden="true"></span> Löschen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>

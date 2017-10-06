@@ -49,7 +49,7 @@ module.exports = function (router) {
     });
 
 
-    router.use(function (req, res, next) {
+   router.use(function (req, res, next) {
         let token = req.body.token || req.body.query || req.headers['x-access-token'];
         if (token) {
             jwt.verify(token, secret, function (err, decoded) {
@@ -107,6 +107,7 @@ module.exports = function (router) {
                                     gliderBooking.date = date;
                                     gliderBooking.plane = req.body.plane;
                                     gliderBooking.registration = req.body.registration;
+                                    gliderBooking.comment = req.body.comment;
                                     promises.push(gliderBooking.save());
                                 }
 
@@ -149,7 +150,6 @@ module.exports = function (router) {
 
                         let where = {email: req.body.email};
                         GliderBooking.find(where).exec(function (err, booking) {
-                            console.log(booking.length);
                             if (booking === null || booking.length <= 0) {
                                 let where = {
                                     date: {$gte: startDate, $lte: endDate},
@@ -173,6 +173,7 @@ module.exports = function (router) {
                                             gliderBooking.date = date;
                                             gliderBooking.plane = req.body.plane;
                                             gliderBooking.registration = req.body.registration;
+                                            gliderBooking.comment = req.body.comment;
                                             promises.push(gliderBooking.save());
                                         }
 
@@ -247,11 +248,11 @@ module.exports = function (router) {
                     text: 'Du hast eine Buchung gelöscht!',
                     html: '<strong> Du hast eine Buchung gelöscht: ' + req.body.plane + ', ' + req.body.registration + '</strong>'
                 };
-                sgMail.send(msg, function (err, info) {
+                /*sgMail.send(msg, function (err, info) {
                     if (err) {
                         console.log(err);
                     }
-                });
+                });*/
                 res.json({
                     success: true,
                     message: 'Du hast eine Buchung gelöscht: ' + req.body.plane + ', ' + req.body.registration + ', ' + moment(req.body.date).format('DD.MM.YYYY')
@@ -262,7 +263,7 @@ module.exports = function (router) {
 
     router.get('/gliderbooking', function (req, res) {
 
-        GliderBooking.find({date: {$gte: moment().add(-1, 'days')}}).select('date plane registration email name lastname').sort({date: 'asc'}).exec(function (err, bookings) {
+        GliderBooking.find({date: {$gte: moment().add(-1, 'days')}}).select('date plane registration email name lastname comment').sort({date: 'asc'}).exec(function (err, bookings) {
             if (err) {
                 res.json({success: false, message: err});
             } else {
@@ -375,8 +376,6 @@ module.exports = function (router) {
 
 //activateAccount
     router.put('/users/activate', function (req, res) {
-        console.log(req.body.password);
-        console.log(req.body.passwordConfirmed);
         if (req.body.password !== req.body.passwordConfirmed) {
             res.json({success: false, message: 'New password and confirmed password are not the same'});
         } else {

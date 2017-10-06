@@ -144,6 +144,14 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 permission: ['manager']
             })
 
+            .when('/intern/planestatus', {
+                templateUrl: 'app/views/pages/intern/planestatus.html',
+                //controller: 'getAllUsersCtrl',
+                //controllerAs: 'users',
+                authenticated: true,
+                permission: ['manager', 'fi', 'wl']
+            })
+
             .when('/intern/segelflugzeugbuchen', {
                 templateUrl: 'app/views/pages/intern/segelflugzeugbuchen.html',
                 authenticated: true,

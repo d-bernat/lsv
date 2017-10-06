@@ -58,7 +58,8 @@ let GliderBookingSchema = new Schema({
     email: {type: String, required: true, validate: emailValidator},
     date: {type: Date, required: true},
     plane: {type: String, required: true, validate: planeValidator},
-    registration: {type: String, required: true, validate: registrationValidator}
+    registration: {type: String, required: true, validate: registrationValidator},
+    comment: {type: String}
 });
 
 GliderBookingSchema.index({date: 1, registration: 1}, {unique: true});
