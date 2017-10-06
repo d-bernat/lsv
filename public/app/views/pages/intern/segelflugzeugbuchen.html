@@ -50,7 +50,7 @@
                                     <div>
                                         <table class="table-responsive">
                                             <tr>
-                                                <td style="width: 20rem"><input name="mobile" type="text"
+                                                <td style="width: 20rem"><input  type="text"
                                                                                 class="form-control center-block look-editable"
                                                                                 ng-model="book.bookData.range"
                                                                                 ng-value="getRangeDateValue()"
@@ -78,7 +78,9 @@
                         <select class="form-control" ng-model="book.bookData.selectedPlane">
                             <option ng-class="{'btn-success': plane.cleared, 'btn-danger': !plane.cleared, 'btn-outline': true}" ng-repeat="plane in planes" ng-show="plane.plane_type === 'GLIDER'"
                                     label="{{plane.name + ' (' + plane.registration +')'}}" ng-value="plane"
-                                    ng-selected="$first" data-toggle="tooltip" data-placement="top" title="{{ plane.cleared ? 'Klar':'Unklar' }}"></option>
+                                    ng-selected="$first" data-toggle="tooltip" data-placement="top" title="{{ plane.cleared ? 'Klar':'Unklar' }}">
+                                {{plane.name + ' (' + plane.registration +')'}}
+                            </option>
                         </select>
                     </td>
                     <td>
@@ -111,8 +113,6 @@
                 </tr>
                 </tbody>
             </table>
-
-
         </form>
 
         <br>
@@ -121,10 +121,10 @@
             <thead>
             <tr>
                 <th>Wochentag</th>
-                <th>Datum</th>
+                <th   style= "width: 20rem">Datum</th>
                 <th>Flugzeug</th>
-                <th>Pilot</th>
-                <th>Komentar</th>
+                <th>Antragsteller</th>
+                <th style= "width: 20rem">Kommentar</th>
                 <th>Löschen</th>
                 <th></th>
             </tr>

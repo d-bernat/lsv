@@ -16,6 +16,7 @@ module.exports = function (router) {
     dotenv.load();
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
+
     router.post('/authenticate', function (req, res) {
         User.findOne({username: req.body.username}).select('name lastname email username password phone mobile permission active').exec(function (err, user) {
 
@@ -48,8 +49,63 @@ module.exports = function (router) {
         });
     });
 
+    //activateAccount
+    router.put('/users/activate', function (req, res) {
+        if (req.body.password !== req.body.passwordConfirmed) {
+            res.json({success: false, message: 'New password and confirmed password are not the same'});
+        } else {
+            if (req.body.temporaryToken) {
+                User.findOne({temporaryToken: req.body.temporaryToken}, function (err, user) {
+                    if (err) throw err;
+                    if (!user) {
+                        res.json({success: false, message: 'temporary token not valid'});
+                    } else if (user) {
 
-   router.use(function (req, res, next) {
+                        if (req.body.password !== req.body.passwordConfirmed) {
+                            res.json({success: false, message: 'Password not valid'});
+                        } else {
+                            user.name = req.body.name;
+                            user.lastname = req.body.lastname;
+                            user.username = req.body.username;
+                            user.password = req.body.password;
+                            user.email = req.body.email;
+                            user.phone = req.body.phone;
+                            user.mobile = req.body.mobile;
+                            user.temporaryToken = false;
+                            user.active = true;
+                            user.save((err) => {
+                                if (err) {
+                                    res.json({success: false, message: err.message});
+                                }
+                                else {
+                                    let token = jwt.sign({
+                                            name: user.name,
+                                            lastname: user.lastname,
+                                            username: req.body.username,
+                                            email: user.email,
+                                            phone: user.phone,
+                                            mobile: user.mobile,
+                                            permission: user.permission
+                                        },
+                                        secret,
+                                        {expiresIn: '24h'});
+                                    res.json({
+                                        success: true,
+                                        message: req.body.username + ' ist gespeichert worden.',
+                                        token: token
+                                    });
+                                }
+                            });
+                        }
+                    }
+                });
+            } else {
+                res.json({success: false, message: 'Temporary token ist ungültig'});
+            }
+        }
+    });
+
+    router.use(function (req, res, next) {
         let token = req.body.token || req.body.query || req.headers['x-access-token'];
         if (token) {
             jwt.verify(token, secret, function (err, decoded) {
@@ -62,9 +118,36 @@ module.exports = function (router) {
 
             })
         } else {
-            res.json({success: false, message: 'No token provided'});
+            res.json({success: false, message: 'Kein Token'});
         }
 
+    });
+
+    //update
+    router.put('/planes', function (req, res) {
+        console.log(req);
+        Plane.findOne({'registration': req.body.registration}).exec(function (err, plane) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                if (plane) {
+                    plane.cleared = req.body.cleared;
+                    plane.save((err) => {
+                        if (err) {
+                            res.json({success: false, message: err.message});
+                        }
+                        else {
+                            res.json({
+                                success: true,
+                                message: 'Flugtauglichkeit für ' + req.body.name + ' ' + req.body.registration + ' ist gespeichert worden.'
+                            });
+                        }
+                    });
+                }else{
+                    res.json({success: false, message: 'Flugzeug ' + req.body.name + ' ' + req.body.registration + ' nicht gefunden.' });
+                }
+            }
+        });
     });
 
 
@@ -298,7 +381,7 @@ module.exports = function (router) {
         User.findOne({email: req.body.email}).select('permission active').exec(function (err, user) {
             if (err) throw err;
             if (!user) {
-                res.json({success: false, message: 'EMail not valid'});
+                res.json({success: false, message: 'Email nicht gültig'});
             } else if (user) {
                 user.permission = req.body.permission;
                 user.active = req.body.active;
@@ -321,17 +404,17 @@ module.exports = function (router) {
 //update
     router.put('/users', function (req, res) {
         if ((req.body.newPassword || req.body.oldPassword) && req.body.newPassword !== req.body.newPasswordConfirmed) {
-            res.json({success: false, message: 'New password and confirmed password are not the same'});
+            res.json({success: false, message: 'Neues und altes Kennwort sind nicht gleich'});
         } else {
 
             User.findOne({username: req.body.username}).select('password').exec(function (err, user) {
                 if (err) throw err;
                 if (!user) {
-                    res.json({success: false, message: 'Username not vaild'});
+                    res.json({success: false, message: 'Username nicht gültig'});
                 } else if (user) {
                     user.comparePassword(req.body.oldPassword, function (isMatch) {
                             if (!isMatch) {
-                                res.json({success: false, message: 'Password not valid'});
+                                res.json({success: false, message: 'Kennwort nicht gültig'});
                             } else {
 
                                 user.name = req.body.name;
@@ -377,7 +460,7 @@ module.exports = function (router) {
 //activateAccount
     router.put('/users/activate', function (req, res) {
         if (req.body.password !== req.body.passwordConfirmed) {
-            res.json({success: false, message: 'New password and confirmed password are not the same'});
+            res.json({success: false, message: 'Neues und altes Kennowrt sind nicht gleich!'});
         } else {
             if (req.body.temporaryToken) {
                 User.findOne({temporaryToken: req.body.temporaryToken}, function (err, user) {
@@ -425,7 +508,7 @@ module.exports = function (router) {
                     }
                 });
             } else {
-                res.json({success: false, message: 'Temporary token is invalid'});
+                res.json({success: false, message: 'Temporary token ist ungültig'});
             }
         }
     });
@@ -463,7 +546,7 @@ module.exports = function (router) {
                         to: user.email,
                         from: 'mail@it-bernat.de',
                         subject: 'Registration link',
-                        text: 'Hi, please activate your account within next 3 days',
+                        text: 'Hallo, Konnto bitte innerhal 3 Tagen aktivieren',
                         html: '<strong><a href="http://localhost:8080/activate/' + user.temporaryToken + '">http://localhost:8080/activate</a></strong>'
                     };
                     sgMail.send(msg, function (err, info) {
@@ -471,14 +554,14 @@ module.exports = function (router) {
                             console.log(err);
                         }
                     });
-                    res.json({success: true, message: 'Registration link was sent to ' + user.email});
+                    res.json({success: true, message: 'Registrationslink ist zu ' + user.email + ' gesendet worden.'});
 
 
                 }
             });
         }
         else {
-            res.json({success: false, message: 'Password and confirmed password are not the same'});
+            res.json({success: false, message: 'Neues und altes Kennowrt sind nicht gleich!'});
         }
     });
 
@@ -491,15 +574,15 @@ module.exports = function (router) {
             if (token) {
                 jwt.verify(token, secret, function (err, decoded) {
                     if (err) {
-                        res.json({success: false, message: 'Token expired'});
+                        res.json({success: false, message: 'Token abgelaufen'});
                     } else if (!user) {
-                        res.json({success: false, message: 'Token expired'});
+                        res.json({success: false, message: 'Token abgelaufen'});
                     } else {
-                        res.json({success: true, message: 'Account OK', email: user.email});
+                        res.json({success: true, message: 'Konto OK', email: user.email});
                     }
                 });
             } else {
-                res.json({success: false, message: 'No token provided'});
+                res.json({success: false, message: 'Kein token'});
             }
         });
     });
@@ -514,7 +597,7 @@ module.exports = function (router) {
             if (err) throw err;
 
             if (!user) {
-                res.json({success: false, message: 'No user was found'});
+                res.json({success: false, message: 'Username nicht bekannt'});
             } else {
                 res.json({success: true, permission: user.permission});
             }

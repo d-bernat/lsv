@@ -17,8 +17,9 @@ datepicker{
 .datepicker-month{
     display: flex;
     flex-wrap: wrap;
-    text-align: center
+    text-align: center;
 }
 .datepicker-day{
-    flex:  0 0 calc(100%/7);
+    flex:  0 0 auto;
+    width: calc(100%/7);
 }

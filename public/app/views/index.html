@@ -43,6 +43,7 @@
     <script src="app/controllers/datePickerCtrl.js"></script>
     <script src="app/controllers/bookCtrl.js"></script>
     <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/planesCtrl.js"></script>
     <script src="app/controllers/mainCtrl.js"></script>
     <script src="app/controllers/scrollCtrl.js"></script>
     <script src="app/controllers/activateCtrl.js"></script>
@@ -91,9 +92,9 @@
                         class="glyphicon glyphicon-hand-right"></span> {{
                     welcomeMessage }}&nbsp;&nbsp;</a>
 
-                <a href="signin"ng-show="!isSignedIn()"><span
+                <a href="signin" ng-show="!isSignedIn()"><span
                         class="glyphicon glyphicon-log-in" ></span> Anmelden &nbsp;</a>
-                <a href="signout"ng-show="isSignedIn()"><span
+                <a href="signout" ng-show="isSignedIn()"><span
                         class="glyphicon glyphicon-log-out" ></span> Abmelden &nbsp;</a>
                 <input class="form-control mr-sm-2" type="text" placeholder="Suchen" aria-label="Search">
                 <label class="btn btn-info btn-outline my-2 my-sm-0" ng-click=""><span

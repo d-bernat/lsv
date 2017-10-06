@@ -4,26 +4,26 @@
     <route-loading-indicator></route-loading-indicator>
     <div ng-if="!isRouteLoading">
 
-        <table class="table-bordered table-striped table-responsive table-condensed" ng-show="loaded">
+        <table class="table table-responsive" ng-show="loaded">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Nachname</th>
                 <th>Name</th>
+                <th>Nachname</th>
                 <th>Email</th>
                 <th>Handy</th>
                 <th>Telefon</th>
                 <th ng-show="updateIndex !== -1">Berechtigung</th>
                 <th ng-show="updateIndex === -1">Berechtigung *</th>
-                <th>Freigegeben</th>
+                <th>Aktiv</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="user in users">
                 <td>{{$index + 1}}</td>
-                <td>{{user.lastname}}</td>
                 <td>{{user.name}}</td>
+                <td>{{user.lastname}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.mobile}}</td>
                 <td>{{user.phone}}</td>
@@ -48,7 +48,7 @@
                         <input id="{{'active' + $index}}" type="checkbox" class="custom-control-input" ng-show="false"
                                ng-checked="user.active"
                                ng-disabled="$index != updateIndex">
-                        <span class="custom-control-indicator ng-disabled=" $index !=updateIndex"></span>
+                        <span class="custom-control-indicator" ng-disabled="$index !=updateIndex"></span>
                     </label>
                 <td>
                     <button class="btn btn-info btn-outline my-2 my-sm-0" type="button"

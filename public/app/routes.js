@@ -146,8 +146,8 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
             .when('/intern/planestatus', {
                 templateUrl: 'app/views/pages/intern/planestatus.html',
-                //controller: 'getAllUsersCtrl',
-                //controllerAs: 'users',
+                controller: 'planeCtrl',
+                controllerAs: 'planes',
                 authenticated: true,
                 permission: ['manager', 'fi', 'wl']
             })

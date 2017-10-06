@@ -38,8 +38,9 @@ angular.module('authServices', [])
         let authTokenFactory = {};
 
         authTokenFactory.setToken = function (token) {
-            if (token)
+            if (token) {
                 $window.sessionStorage.setItem('token', token);
+            }
             else {
                 $window.sessionStorage.removeItem('token');
             }

@@ -11,5 +11,11 @@ angular.module('planeService', [])
             });
         };
 
+        planeFactory.updateClearance = function(plane) {
+            return $http.put('/api/planes', plane).then(function (data) {
+                return data;
+            });
+        }
+
         return planeFactory;
     });

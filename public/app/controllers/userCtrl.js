@@ -22,7 +22,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             });
         }
     })
-    .controller('registerCtrl', function ($scope, $location, $timeout, User) {
+    .controller('registerCtrl', function ($scope, $location, $timeout, User, $ngConfirm) {
         $scope.initChecked = true;
         let app = this;
 
@@ -49,11 +49,47 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             User.create(this.registerData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;
+                    $ngConfirm({
+                        type: 'green',
+                        typeAnimated: true,
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        title: 'Geklappt :-)',
+                        content: "<strong>" + data.data.message + "</strong>",
+                        buttons: {
+                            OK: {
+                                text: 'OK',
+                                btnClass: 'btn-green',
+                                action: function () {
+                                    return true;
+                                }
+                            }
+                        },
+                        closeIcon: true
+                    });
                     $timeout(function () {
                         $location.path('/intern/register');
                     }, 500);
                 } else {
                     app.errorMsg = data.data.message;
+                    $ngConfirm({
+                        type: 'red',
+                        typeAnimated: true,
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        title: 'Etwas stimmt nicht :-(',
+                        content: "<strong>" + data.data.message + "</strong>",
+                        buttons: {
+                            OK: {
+                                text: 'OK',
+                                btnClass: 'btn-red',
+                                action: function () {
+                                    return true;
+                                }
+                            }
+                        },
+                        closeIcon: true
+                    });
                 }
                 app.loading = false;
             });
@@ -86,7 +122,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
 
         };
     })
-    .controller('updateCtrl', function ($rootScope, $location, User, AuthToken) {
+    .controller('updateCtrl', function ($rootScope, $location, User, AuthToken, $ngConfirm) {
         let app = this;
         app.userData = $rootScope.userData;
         app.updateUser = function () {
@@ -96,8 +132,26 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             User.update(app.userData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;
-                    //$rootScope.userData = app.userData;
-                    AuthToken.setToken(data.data.token);
+                    AuthToken.setToken();
+                    $location.path('/signin');
+                    $ngConfirm({
+                        type: 'green',
+                        typeAnimated: true,
+                        animation: 'zoom',
+                        closeAnimation: 'scale',
+                        title: 'Geklappt :-)',
+                        content: "<strong>Du hast eigene Daten geändert, jetzt muss du dich wieder einlogen ;-).</strong>",
+                        buttons: {
+                            OK: {
+                                text: 'OK',
+                                btnClass: 'btn-green',
+                                action: function () {
+                                    return true;
+                                }
+                            }
+                        },
+                        closeIcon: true
+                    });
                 } else {
                     app.errorMsg = data.data.message;
                 }
@@ -125,7 +179,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             $location.path('/home');
         }
     })
-    .controller('getAllUsersCtrl', function ($scope, User, $ngConfirm) {
+    .controller('getAllUsersCtrl', function ($rootScope, $scope, User, $ngConfirm) {
 
         $scope.loaded = false;
         $scope.updateIndex = -1;
@@ -183,7 +237,11 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                             $scope.users[index].active = angular.element('#active' + index)[0].checked;
                             User.updatePermissions($scope.users[index]).then(function (data) {
                                 if (data.data.success) {
-                                    $ngConfirm(data.data.message);
+                                    if($rootScope.userData.username === $scope.users[index].username){
+                                        $ngConfirm('Du hast eigene Berechtigungen geändert. Um die neue Berechtigungen aktivieren bitte ab und wieder anzumelden!');
+                                    }else {
+                                        $ngConfirm(data.data.message);
+                                    }
                                 } else {
                                     $scope.users[index].permission = oldPermission;
                                     $scope.users[index].active = oldActive;
