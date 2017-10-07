@@ -75,7 +75,7 @@
                         </table>
                     </td>
                     <td>
-                        <select class="form-control" ng-model="book.bookData.selectedPlane">
+                        <select class="form-control" ng-model="gliderbook.bookData.selectedPlane">
                             <option ng-class="{'btn-success': plane.cleared, 'btn-danger': !plane.cleared, 'btn-outline': true}" ng-repeat="plane in planes" ng-show="plane.plane_type === 'GLIDER'"
                                     label="{{plane.name + ' (' + plane.registration +')'}}" ng-value="plane"
                                     ng-selected="$first" data-toggle="tooltip" data-placement="top" title="{{ plane.cleared ? 'Klar':'Unklar' }}">
@@ -85,7 +85,7 @@
                     </td>
                     <td>
                         <label class="btn btn-info btn-outline btn-block"
-                               ng-click="showDatePicker = false; book.bookGlider();">
+                               ng-click="showDatePicker = false; gliderbook.bookGlider();">
                             <span class="glyphicon glyphicon-ok"></span> Buchen
                         </label>
                     </td>
@@ -106,7 +106,7 @@
                     <td>
                         <input name="comment" type="text"
                                class="form-control center-block look-editable"
-                               ng-model="book.bookData.comment"
+                               ng-model="gliderbook.bookData.comment"
                                placeholder="Kommentar"
                                >
                     </td>
@@ -138,7 +138,7 @@
                 <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">{{booking.comment}}</td>
                 <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
                     <label class="btn btn-danger btn-outline btn-block" type="button"
-                           ng-click="book.removeBooking($index)" ng-show="booking.email === $root.userData.email"><span
+                           ng-click="gliderbook.removeBooking($index)" ng-show="booking.email === $root.userData.email"><span
                             class="glyphicon glyphicon-remove"
                             aria-hidden="true"></span> Löschen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </label>

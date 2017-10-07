@@ -155,13 +155,15 @@ let app = angular.module('appRoutes', ['ngRoute'])
             .when('/intern/segelflugzeugbuchen', {
                 templateUrl: 'app/views/pages/intern/segelflugzeugbuchen.html',
                 authenticated: true,
-                controller: 'bookCtrl',
-                controllerAs: 'book',
+                controller: 'gliderbookCtrl',
+                controllerAs: 'gliderbook',
                 permission: ['manager', 'spl']
             })
 
             .when('/intern/tmgbuchen', {
                 templateUrl: 'app/views/pages/intern/tmgbuchen.html',
+                controller: 'mosebookCtrl',
+                controllerAs: 'mosebook',
                 authenticated: true,
                 permission: ['manager', 'mose']
             })

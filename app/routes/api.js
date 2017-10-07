@@ -151,7 +151,7 @@ module.exports = function (router) {
     });
 
 
-    router.post('/gliderbooking', function (req, res) {
+    router.post('/booking', function (req, res) {
 
         let dates = [];
         let startDate = moment(req.body.till_date);
@@ -169,7 +169,8 @@ module.exports = function (router) {
                         let where =
                             {
                                 date: {$gte: startDate, $lte: endDate},
-                                registration: req.body.registration
+                                registration: req.body.registration,
+                                plane_type: req.body.plane_type
                             };
 
 
@@ -191,6 +192,7 @@ module.exports = function (router) {
                                     gliderBooking.plane = req.body.plane;
                                     gliderBooking.registration = req.body.registration;
                                     gliderBooking.comment = req.body.comment;
+                                    gliderBooking.plane_type = req.body.plane_type;
                                     promises.push(gliderBooking.save());
                                 }
 
@@ -231,9 +233,21 @@ module.exports = function (router) {
                     }
                     else {
 
-                        let where = {email: req.body.email};
+                        let where = {email: req.body.email, plane_type: req.body.plane_type};
                         GliderBooking.find(where).exec(function (err, booking) {
-                            if (booking === null || booking.length <= 0) {
+                            let allowValue = 0;
+                            let allowValueText = 'ein';
+                            if(req.body.plane_type === 'TMG'){
+                                if(user.permission.split(',').indexOf('fi') >= 0){
+                                    allowValue = 3;
+                                    allowValueText = 'vier';
+                                }else{
+                                    allowValue = 1;
+                                    allowValueText = 'zwei';
+                                }
+                            }
+
+                            if (booking === null || booking.length <= allowValue) {
                                 let where = {
                                     date: {$gte: startDate, $lte: endDate},
                                     registration: req.body.registration
@@ -257,6 +271,7 @@ module.exports = function (router) {
                                             gliderBooking.plane = req.body.plane;
                                             gliderBooking.registration = req.body.registration;
                                             gliderBooking.comment = req.body.comment;
+                                            gliderBooking.plane_type = req.body.plane_type;
                                             promises.push(gliderBooking.save());
                                         }
 
@@ -295,7 +310,7 @@ module.exports = function (router) {
                                 });
 
                             } else {
-                                res.json({success: false, message: 'Du kannst nicht mehr als einmal buchen!'});
+                                res.json({success: false, message: 'Du kannst nicht mehr als ' + allowValueText + ' mal buchen!'});
                             }
                         });
 
@@ -314,7 +329,7 @@ module.exports = function (router) {
     });
 
 
-    router.delete('/gliderbooking', function (req, res) {
+    router.delete('/booking', function (req, res) {
 
         GliderBooking.remove({
             date: req.body.date,
@@ -344,9 +359,8 @@ module.exports = function (router) {
         });
     });
 
-    router.get('/gliderbooking', function (req, res) {
-
-        GliderBooking.find({date: {$gte: moment().add(-1, 'days')}}).select('date plane registration email name lastname comment').sort({date: 'asc'}).exec(function (err, bookings) {
+    router.get('/booking/:plane_type', function (req, res) {
+        GliderBooking.find({plane_type: req.params.plane_type, date: {$gte: moment().add(-1, 'days')}}).select('date plane registration email name lastname comment').sort({date: 'asc'}).exec(function (err, bookings) {
             if (err) {
                 res.json({success: false, message: err});
             } else {
@@ -356,8 +370,18 @@ module.exports = function (router) {
     });
 
 
+    router.get('/planes/:plane_type', function (req, res) {
+        Plane.find({plane_type: req.params.plane_type}).exec(function (err, planes) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                res.json({success: true, message: planes});
+            }
+        });
+    });
+
     router.get('/planes', function (req, res) {
-        Plane.find(function (err, planes) {
+        Plane.find({}).exec(function (err, planes) {
             if (err) {
                 res.json({success: false, message: err});
             } else {

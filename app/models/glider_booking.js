@@ -53,13 +53,14 @@ let emailValidator = [
 ];
 
 let GliderBookingSchema = new Schema({
-    name: {type: String, required: true, validate: nameValidator},
-    lastname: {type: String, required: true, validate: nameValidator},
-    email: {type: String, required: true, validate: emailValidator},
-    date: {type: Date, required: true},
-    plane: {type: String, required: true, validate: planeValidator},
-    registration: {type: String, required: true, validate: registrationValidator},
-    comment: {type: String}
+    "name": {type: String, required: true, validate: nameValidator},
+    "lastname": {type: String, required: true, validate: nameValidator},
+    "email": {type: String, required: true, validate: emailValidator},
+    "date": {type: Date, required: true},
+    "plane": {type: String, required: true, validate: planeValidator},
+    "registration": {type: String, required: true, validate: registrationValidator},
+    "plane_type": {type: String, required: true},
+    "comment": {type: String}
 });
 
 GliderBookingSchema.index({date: 1, registration: 1}, {unique: true});

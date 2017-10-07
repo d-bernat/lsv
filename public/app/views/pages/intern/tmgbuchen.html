@@ -1,8 +1,172 @@
-<div ng-include src="'app/views/pages/intern_menu.html'"></div>
-<div class="col-xs-9 col-xs-offset-3 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div ng-controller="mainCtrl" ng-include src="'app/views/pages/intern_menu.html'"></div>
+<br><br>
+<div class="row" ng-show="loaded">
+    <div class="col-xs-6 col-xs-offset-3 col-md-5 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <h4 class="text-center login-title" style="color: #337ab7">
+            LSV-Buchungssystem für den Motorsegler
+        </h4>
+        <a href="" ng-click="showInfo = !showInfo;"><h5 class="text-center">
+            <span class="glyphicon glyphicon-info-sign" ng-show="!showInfo"></span>
+            <span class="glyphicon glyphicon-remove-sign" ng-show="showInfo"></span>
+            <i> Informationen zur Mosebuchung</i></h5></a>
+        <div ng-show="showInfo">
+            <p>
+                    Jeder eingeloggte Pilot kann bei entsprechender Berechtigung Buchungen ins System eintragen. Das System
+                    prüft, ob der gewünschte Zeitraum noch frei ist und trägt die Buchung mit einem optionalen Kommentar in
+                    die Liste ein. Außerdem wird dem Buchenden eine email zu Bestätigung an die im System hinterlegte
+                    Adresse geschickt. Buchungen sind nur möglich, wenn sie auch den LSV-Buchungsregeln entsprechen:
+                <ul>
+                    <li>nicht mehr als 2 Buchungen zur Zeit im System (für Fluglehrer gilt ein Limit von 4 Buchungen)</li>
+                    <li>Ausnahme: Eine weitere kurzfristige Buchung ist am Tag des beabsichtigten Fluges möglich.</li>
+                </ul>
+                <b>Will man gegen die Regeln buchen, so kann man beim Vorstand nachfragen.</b>
+                <br>Alle eigenen Buchungen können mit o.g. Ausnahme jederzeit gelöscht werden.
+                <br>Jeder Pilot kann Informationen zum Mose einstellen, das technische Personal kann den Mose klar/unklar
+                schreiben.
+            </p>
+        </div>
+        <div ng-show="!planes[0].cleared">
+            <br><b class="btn-danger btn-outline center-block">Reisemotorsegler UNKLAR!</b>
+        </div>
+    </div>
+</div>
+<div class="col-xs-4 col-xs-offset-5 col-sm-4 col-sm-offset-5 col-md-5 col-md-offset-4 main">
     <route-loading-indicator></route-loading-indicator>
-    <div ng-if="!isRouteLoading">
+    <br>
+    <div class="row" ng-if="!isRouteLoading">
+        <form name="mosebookForm" class="form-signin">
+            <table class="table table-responsive">
+                <thead>
+                <tr>
+                    <th style="width: 20rem" ng-show="!dateRangeAllowed">Datum</th>
+                    <th style="width: 20rem" ng-show="dateRangeAllowed">Datum (von - bis)</th>
+                    <th style="width: 20rem">Flugzeug</th>
+                    <th style="width: 10rem"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div>
+                                        <table class="table-responsive">
+                                            <tr>
+                                                <td style="width: 20rem"><input type="text"
+                                                                                class="form-control center-block look-editable"
+                                                                                ng-model="mosebook.bookData.range"
+                                                                                ng-value="getRangeDateValue()"
+                                                                                required readonly
+                                                                                ng-click="showDatePicker = !showDatePicker">
+                                                </td>
+                                                <td>
+                                                    <label class="btn btn-default btn-outline btn-block" type="button"
+                                                           ng-click="showDatePicker = !showDatePicker">
+                                                        <span class="glyphicon glyphicon-calendar"
+                                                              ng-show="!showDatePicker"></span>
+                                                        <span class="glyphicon glyphicon-remove"
+                                                              ng-show="showDatePicker"></span>
+                                                    </label>
+                                                </td>
+                                            </tr>
 
-        <h3>Reisemotorsegler buchen</h3>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <select class="form-control" ng-model="mosebook.bookData.selectedPlane">
+                            <option ng-class="{'btn-success': plane.cleared, 'btn-danger': !plane.cleared, 'btn-outline': true}"
+                                    ng-repeat="plane in planes" ng-show="plane.plane_type === 'TMG'"
+                                    label="{{plane.name + ' (' + plane.registration +')'}}" ng-value="plane"
+                                    ng-selected="$first" data-toggle="tooltip" data-placement="top"
+                                    title="{{ plane.cleared ? 'Klar':'Unklar' }}">
+                                {{plane.name + ' (' + plane.registration +')'}}
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <label class="btn btn-info btn-outline btn-block"
+                               ng-click="showDatePicker = false; mosebook.bookTMG();">
+                            <span class="glyphicon glyphicon-ok"></span> Buchen
+                        </label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div ng-include src="'app/views/pages/datepicker.html'"
+                 ng-show="showDatePicker"></div>
+
+
+            <table class="table table-responsive" ng-show="loaded">
+                <thead>
+                <tr>
+                    <th>Kommentar zur Buchung (optional)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <input name="comment" type="text"
+                               class="form-control center-block look-editable"
+                               ng-model="mosebook.bookData.comment"
+                               placeholder="Kommentar"
+                        >
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+
+        <br>
+        <table class="table table-responsive"
+               ng-show="loaded">
+            <thead>
+            <tr>
+                <th>Wochentag</th>
+                <th style="width: 20rem">Datum</th>
+                <th>Flugzeug</th>
+                <th>Antragsteller</th>
+                <th style="width: 20rem">Kommentar</th>
+                <th>Löschen</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="booking in bookings">
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
+                    {{getWeekDay(booking.date)}}
+                </td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
+                    {{getFormattedDate(booking.date)}}
+                </td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
+                    {{booking.plane + ' ' + booking.registration}}
+                </td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
+                    {{booking.name + ' ' + booking.lastname}}
+                </td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
+                    {{booking.comment}}
+                </td>
+                <td ng-class="{'saturday': getWeekDay(booking.date) === 'Samstag', 'sunday': getWeekDay(booking.date) === 'Sonntag'}">
+                    <label class="btn btn-danger btn-outline btn-block" type="button"
+                           ng-click="mosebook.removeBooking($index)"
+                           ng-show="booking.email === $root.userData.email"><span
+                            class="glyphicon glyphicon-remove"
+                            aria-hidden="true"></span> Löschen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </td>
+                <td ng-show="!isPlaneCleared(booking.registration)" data-toggle="tooltip"
+                    title="Flugzeug ist momentan unklar"><span class="glyphicon glyphicon-warning-sign"
+                                                               aria-hidden="true"></td>
+                <td ng-show="isPlaneCleared(booking.registration)" data-toggle="tooltip" title="Flugzeug ist klar"><span
+                        class="glyphicon glyphicon-ok" aria-hidden="true"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
