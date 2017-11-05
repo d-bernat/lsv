@@ -6,7 +6,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
         $routeProvider
 
             .when('/home', {
-                templateUrl: 'app/views/pages/home.html'
+                templateUrl: 'app/views/pages/fliegmituns.html'
             })
 
             .when('/fliegmituns', {
@@ -29,6 +29,30 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
             .when('/verein', {
                 templateUrl: 'app/views/pages/verein.html'
+            })
+
+            .when('/about', {
+                templateUrl: 'app/views/pages/about.html'
+            })
+
+            .when('/faq', {
+                templateUrl: 'app/views/pages/faq.html'
+            })
+
+            .when('/english', {
+                templateUrl: 'app/views/pages/english.html'
+            })
+
+            .when('/gastflug', {
+                templateUrl: 'app/views/pages/gastflug.html'
+            })
+
+            .when('/schnuppern', {
+                templateUrl: 'app/views/pages/schnuppern.html'
+            })
+
+            .when('/schulerwerden', {
+                templateUrl: 'app/views/pages/schulerwerden.html'
             })
 
             .when('/mitgliedwerden', {
