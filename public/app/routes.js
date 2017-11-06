@@ -6,7 +6,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
         $routeProvider
 
             .when('/home', {
-                templateUrl: 'app/views/pages/fliegmituns.html'
+                templateUrl: 'app/views/pages/home.html'
             })
 
             .when('/fliegmituns', {
