@@ -460,20 +460,21 @@ html {
         background-color: rgba(72, 181, 206, 1);
     }
 
+    .navbar-default .navbar-brand:focus {
+        color: #eee;
+        background-color: rgba(72, 181, 206, 1);
+    }
+
     .navbar-default .navbar-collapse, .navbar-default .navbar-form {
         border-color: rgba(72, 181, 206, 1);
         background-color: rgba(72, 181, 206, 1);
     }
 
+
     .navbar-form {
         margin-top: 20px;
     }
 
-    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-        background-color: rgba(72, 181, 206, 1);
-        color: #eee;
-        text-decoration: none;
-    }
 
     .navbar-default .navbar-nav .nav-item > a:hover {
         background-color: rgba(72, 181, 206, 1);
@@ -671,6 +672,12 @@ html {
 }
 
 
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #eee;
+    background-color: rgba(72, 181, 206, 1);
+}
 
 
 
@@ -727,23 +734,27 @@ body {
 
 .sub-menu {
     visibility: hidden; /* hides sub-menu */
-    opacity: 0;
+    opacity: .3;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     transform: translateY(-2em);
     z-index: -1;
-    transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    font-size: 8px;
 }
 
 .sub-menu-parent:hover .sub-menu {
     visibility: visible; /* shows sub-menu */
+    width: 130px;
     opacity: 1;
     z-index: 1;
     transform: translateY(0%);
     transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+    font-size: 13px;
 }
+
 
 /* presentational */
 .nav-popup a {
@@ -757,6 +768,7 @@ body {
     color: #eee;
     text-decoration: none;
     background: #0cbbee;
+    transition: 0.4s;
 }
 
 .nav-popup ul,

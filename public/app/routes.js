@@ -31,6 +31,16 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/verein.html'
             })
 
+            .when('/gebuehren', {
+                templateUrl: 'app/views/pages/gebuehren.html'
+            })
+            .when('/about_en', {
+                templateUrl: 'app/views/pages/about_en.html'
+            })
+            .when('/yearning', {
+                templateUrl: 'app/views/pages/yearning.html'
+            })
+
             .when('/about', {
                 templateUrl: 'app/views/pages/about.html'
             })
@@ -98,6 +108,10 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
             .when('/wegweiser', {
                 templateUrl: 'app/views/pages/wegweiser.html'
+            })
+
+            .when('/wegweiser_en', {
+                templateUrl: 'app/views/pages/wegweiser_en.html'
             })
 
             .when('/kontakt', {

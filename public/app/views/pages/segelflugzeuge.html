@@ -1,38 +1,4 @@
-<div ng-include src="'app/views/pages/menu.html'"></div>
-<div class="col-xs-9 col-xs-offset-3 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-show="!$rootScope.loadingInProgress">
-    <route-loading-indicator></route-loading-indicator>
-    <div ng-if="!isRouteLoading">
-
-        <h3>LSV Segelflugzeuge</h3>
-        <p>
-        </p>
-
-        <div class="row center"><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d3469.jpg" alt="ASK-21">
-                Unsere erste ASK-21 (Doppelsitzer)
-            </p><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d5851.jpg" alt="ASK-21">
-                Unsere neue ASK-21 (Doppelsitzer)
-            </p><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d6510.jpg" alt="DG1000S">
-                Unsere DG-1000S (Doppelsitzer)
-            </p><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d4595.jpg" alt="DG-300">
-                Unsere DG-300 (Einsitzer)
-            </p><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d2785.jpg" alt="Discus">
-                Unsere Discus b (Einsitzer)
-            </p><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d2784.jpg">
-                Unsere Discus 2c (Einsitzer)
-            </p><br>
-            <p><img class="img-rounded img-responsive center-block" src="app/views/images/d1931.jpg">
-                Unsere Discus cs (Einsitzer)
-            </p>
-        </div>
-        <p>
-            <em><span style="color: red; font-size: smaller; ">last update
-            10.4.2016</span></em>
-        </p>
-    </div>
+<route-loading-indicator></route-loading-indicator>
+<div>
+    <iframe class="lsv" ng-src="https://lsvdummy.lima-city.de/?page_id=90" frameborder="0" allowfullscreen></iframe>
 </div>
