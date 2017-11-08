@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('mainController', ['authServices'])
-    .controller('mainCtrl', function (Auth, $scope, $rootScope, $location) {
+    .controller('mainCtrl', function (Auth, $scope, $rootScope, $location, $timeout) {
         $scope.loadme = false;
+        $scope.mainMenuClicked = false;
         $rootScope.$on('$routeChangeStart', function () {
             if (Auth.isSignedIn()) {
                 Auth.getUser().then(function (data) {
@@ -37,5 +38,18 @@ angular.module('mainController', ['authServices'])
         $scope.isSignedIn = function(){
             return Auth.isSignedIn();
         }
+
+        $scope.linkClicked = function(link){
+            closeMenuWithDelay();
+            $location.path(link);
+
+        }
+
+        let closeMenuWithDelay = function(){
+            $timeout(function() {
+            $scope.mainMenuClicked = true;
+            }, 300);
+        }
+
 
     });

@@ -741,9 +741,10 @@ body {
     width: 100%;
     transform: translateY(-2em);
     z-index: -1;
-    transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+    transition: all 0.1s ease 0s, visibility 0s linear 0.1s, z-index 0s linear 0.01s;
     font-size: 8px;
 }
+
 
 .sub-menu-parent:hover .sub-menu {
     visibility: visible; /* shows sub-menu */
@@ -751,7 +752,7 @@ body {
     opacity: 1;
     z-index: 1;
     transform: translateY(0%);
-    transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+    transition-delay: 0s, 0s, 0.1s; /* this removes the transition delay so the menu will be visible while the other styles transition */
     font-size: 13px;
 }
 
@@ -793,6 +794,15 @@ body {
 }
 
 .sub-menu {
-    background: #000;
+    background: #333;
 }
 
+.caret.caret-up {
+    border-top-width: 0;
+    border-bottom: 4px solid #fff;
+}
+
+.nav-popup a:hover > .caret.caret-up {
+    border-bottom-width: 0;
+    border-top: 4px solid #2474ff;
+}

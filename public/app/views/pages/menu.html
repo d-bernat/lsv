@@ -1,66 +1,136 @@
-<nav id="sidebar" class="col-xs-2 col-sm-2 col-md-2  sidebar" auto-active>
-    <h5><span class="glyphicon glyphicon-send"></span> Segelfliegen</h5>
-    <ul class="nav nav-pills nav-stacked small">
-        <li class="nav-item active">
-            <a href="fliegmituns">Flieg mit uns</a>
-        </li>
-        <li class="nav-item">
-            <a href="ausbildung">Segelfliegen lernen</a>
-        </li>
-        <li class="nav-item">
-            <a href="segelflug">Segelflug</a>
-        </li>
-        <li class="nav-item">
-            <a href="terminologie">Terminologie</a>
-        </li>
-    </ul>
-    <h5><span class="glyphicon glyphicon-home"></span> Über uns</h5>
-    <ul class="nav nav-pills nav-stacked small">
-        <li class="nav-item">
-            <a href="verein">Verein</a>
-        </li>
-        <li class="nav-item">
-            <a href="mitgliedwerden">Mitglied werden</a>
-        </li>
-        <li class="nav-item">
-            <a href="jugendgruppe">Jugendgruppe</a>
-        </li>
-        <li class="nav-item">
-            <a href="termine">Termine/News</a>
-        </li>
-        <li class="nav-item">
-            <a href="pressespiegel">Pressespiegel</a>
-        </li>
-    </ul>
-    <h5><span class="glyphicon glyphicon-heart"></span> LSV Flotte</h5>
-    <ul class="nav nav-pills nav-stacked small">
-        <li class="nav-item">
-            <a href="segelflugzeuge">Segelflugzeuge</a>
-        </li>
-        <li class="nav-item">
-            <a href="tmg">Reisemotorsegler</a>
-        </li>
-        <li class="nav-item">
-            <a href="winde">Winde</a>
-        </li>
-    </ul>
-    <h5><span class="glyphicon glyphicon-fire"></span> Leistungssegelflug</h5>
-    <ul class="nav nav-pills nav-stacked small">
-        <li class="nav-item">
-            <a href="streckenflug">Streckensegelflug</a>
-        </li>
-        <li class="nav-item">
-            <a href="ueberlandflug">DMSt.- Ergebnisse für 2017</a>
-        </li>
-    </ul>
-    <h5><span class="glyphicon glyphicon-road"></span> Flugplatz</h5>
-    <ul class="nav nav-pills nav-stacked small">
-        <li class="nav-item">
-            <a href="flugplatz">EDHE (Flugplatz Uetersen/Heist)</a>
-        </li>
-        <li class="nav-item">
-            <a href="wegweiser">Anfahrt</a>
-        </li>
-    </ul>
+<div class="flex-container" ng-controller="mainMenuCtrl">
+    <div class="flex-item brand">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><span
+                    class="glyphicon glyphicon-home"></span> LSV Kreis Pinneberg</a>
+        </div>
+    </div>
+    <div class="flex-item">
+        <div id="navbar" class="navbar-collapse collapse">
+            <div class="flex-container main-menu">
+                <div class="flex-item main-menu">
+                    <ul class="nav nav-popup navbar-nav mr-auto" ng-mouseover="mainMenuClicked=false">
+                        <li class="nav-item sub-menu-parent">
+                            <a href="#">Mitfliegen<b class="caret caret-up"></b></a>
+                            <ul ng-if="!mainMenuClicked" class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a ng-href="fliegmituns"
+                                       ng-click="$event.preventDefault(); linkClicked('fliegmituns')">...</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a ng-href="gastflug" ng-click="$event.preventDefault(); linkClicked('gastflug')">Gastflug</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sub-menu-parent">
+                            <a href="#">Fliegen lernen<b class="caret caret-up"></b></a>
+                            <ul ng-if="!mainMenuClicked" class="sub-menu">
+                                <li>
+                                    <a ng-href="ausbildung"
+                                       ng-click="$event.preventDefault(); linkClicked('ausbildung')">...</a>
+                                </li>
+                                <li>
+                                    <a ng-href="schnuppern"
+                                       ng-click="$event.preventDefault(); linkClicked('schnuppern')">Schupperangebot</a>
+                                </li>
+                                <li>
+                                    <a ng-href="schulerwerden"
+                                       ng-click="$event.preventDefault(); linkClicked('schulerwerden')">Schüler
+                                        werden</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sub-menu-parent">
+                            <a href="#">Über uns<b class="caret caret-up"></b></a>
+                            <ul ng-if="!mainMenuClicked" class="sub-menu">
+                                <li>
+                                    <a ng-href="about" ng-click="$event.preventDefault(); linkClicked('about')">...</a>
+                                </li>
+                                <li>
+                                    <a ng-href="verein" ng-click="$event.preventDefault(); linkClicked('verein')">Der
+                                        Verein</a>
+                                </li>
+                                <li>
+                                    <a ng-href="segelflugzeuge"
+                                       ng-click="$event.preventDefault(); linkClicked('segelflugzeuge')">Der
+                                        Flugzeugpark</a>
+                                </li>
+                                <li>
+                                    <a ng-href="winde" ng-click="$event.preventDefault(); linkClicked('winde')">Die
+                                        Startwinde</a>
+                                </li>
+                                <li>
+                                    <a ng-href="gebuehren" ng-click="$event.preventDefault(); linkClicked('gebuehren')">Die
+                                        Gebühren</a>
+                                </li>
+                                <li>
+                                    <a ng-href="jugendgruppe"
+                                       ng-click="$event.preventDefault(); linkClicked('jugendgruppe')">Jugendgruppe</a>
+                                </li>
+                                <li>
+                                    <a ng-href="wegweiser" ng-click="$event.preventDefault(); linkClicked('wegweiser')">Flugplatz/Anfahrt</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  sub-menu-parent">
+                            <a href="#">Segelfliegen FAQ<b class="caret caret-up"></b></a>
+                            <ul ng-if="!mainMenuClicked" class="sub-menu">
+                                <li>
+                                    <a ng-href="faq" ng-click="$event.preventDefault(); linkClicked('faq')">...</a>
+                                </li>
+                                <li>
+                                    <a ng-href="streckenflug"
+                                       ng-click="$event.preventDefault(); linkClicked('streckenflug')">Streckenfliegen</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item  sub-menu-parent">
+                            <a href="english">English<b class="caret caret-up"></b></a>
+                            <ul ng-if="!mainMenuClicked" class="sub-menu">
+                                <li>
+                                    <a ng-href="english"
+                                       ng-click="$event.preventDefault(); linkClicked('english')">...</a>
+                                </li>
+                                <li>
+                                    <a ng-href="about_en" ng-click="$event.preventDefault(); linkClicked('about_en')">About
+                                        us</a>
+                                </li>
+                                <li>
+                                    <a ng-href="yearning" ng-click="$event.preventDefault(); linkClicked('yearning')">Yearning
+                                        to fly</a>
+                                </li>
+                                <li>
+                                    <a ng-href="wegweiser_en"
+                                       ng-click="$event.preventDefault(); linkClicked('wegweiser_en')">How to find
+                                        us</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="intern/info">LSV-Intern</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-item sign">
+                    <form class="navbar-form navbar-right">
+                        <a class="main-menu" href="profile" ng-show="isSignedIn()"><span
+                                class="glyphicon glyphicon-hand-right"></span> {{
+                            welcomeMessage }}&nbsp;&nbsp;</a>
 
-</nav>
+                        <a class="main-menu" href="signin" ng-show="!isSignedIn()"><span
+                                class="glyphicon glyphicon-log-in"></span> Anmelden &nbsp;</a>
+                        <a class="main-menu" href="signout" ng-show="isSignedIn()"><span
+                                class="glyphicon glyphicon-log-out"></span> Abmelden &nbsp;</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

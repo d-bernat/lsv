@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('lsvApp', ['appRoutes', 'userControllers', 'mainController', 'anchorScrollOffsetControllers', 'bookControllers', 'planeControllers', 'datePickerModule', 'datePickerController',
+angular.module('lsvApp', ['appRoutes', 'userControllers', 'mainController', 'mainMenuController', 'anchorScrollOffsetControllers', 'bookControllers', 'planeControllers', 'datePickerModule', 'datePickerController',
                           'userServices', 'authServices', 'planeService', 'bookServices', 'autoActive', 'routeLoadingIndicator', 'activateController','cp.ngConfirm'])
     .config(function($httpProvider){
         $httpProvider.interceptors.push('AuthInterceptors');
