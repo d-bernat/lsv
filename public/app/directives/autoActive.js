@@ -14,7 +14,12 @@ angular.module('autoActive', [])
                             if (anchor.href.match(path + '(?=\\?|$)')) {
                                 angular.element(li).addClass('active');
                             } else {
-                                angular.element(li).removeClass('active');
+                                if (path.toString().indexOf(anchor.getAttribute('ng-href')) >= 0) {
+                                    angular.element(li).addClass('active');
+                                }else{
+                                    angular.element(li).removeClass('active');
+                                }
+
                             }
                         });
                     }

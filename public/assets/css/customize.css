@@ -504,8 +504,8 @@ html {
     }
 
     .flex-item.brand {
-        margin-right: 3em;
-        padding-top: 14px;
+        margin-right: 8em;
+        padding-top: 19px;
     }
 }
 
@@ -587,7 +587,7 @@ html {
 
     .flex-item.brand {
         margin-right: 3em;
-        padding-top: 17px;
+        padding-top: 19px;
     }
 }
 
@@ -756,6 +756,10 @@ body {
     font-size: 13px;
 }
 
+li.sub-menu-item.active{
+    background-color: #8b8b8b;
+
+}
 
 /* presentational */
 .nav-popup a {
@@ -765,11 +769,17 @@ body {
     text-decoration: none;
 }
 
-.nav-popup a:hover {
+.nav-popup li:not(.active) > a:hover {
     color: #eee;
     text-decoration: none;
     background: #0cbbee;
     transition: 0.4s;
+}
+
+.nav-popup a:focus {
+    color: #eee;
+    text-decoration: none;
+    background: #8b8b8b;
 }
 
 .nav-popup ul,
