@@ -10,6 +10,7 @@ angular.module('routeLoadingIndicator', [])
 
                 $rootScope.$on('$routeChangeStart', function () {
                     scope.isRouteLoading = true;
+
                 });
 
                 $rootScope.$on('$routeChangeSuccess', function () {

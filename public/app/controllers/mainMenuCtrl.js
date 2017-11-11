@@ -6,14 +6,18 @@ angular.module('mainMenuController', ['authServices'])
 
 
         $scope.linkClicked = function(link){
-            closeMenuWithDelay();
-            $location.path(link);
+
+            if(link !== $scope.submenuItemLink) {
+                closeMenuWithDelay(link);
+                $location.path(link);
+            }
         };
 
-        let closeMenuWithDelay = function(){
-            $timeout(function() {
+        let closeMenuWithDelay = function(link){
+            $timeout(function(link) {
             $scope.mainMenuClicked = true;
-            }, 300);
+            $scope.submenuItemLink = link;
+            }, 200);
         };
 
     });

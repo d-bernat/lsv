@@ -118,6 +118,16 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                         app.registerData.rd_fi = false;
                     }
                     break;
+                case 'wi':
+                    if (!app.registerData.rd_wi) {
+                        app.registerData.rd_wia = false;
+                    }
+                    break;
+                case 'wia':
+                    if (app.registerData.rd_wia) {
+                        app.registerData.rd_wi = true;
+                    }
+                    break;
             }
 
         };
@@ -170,6 +180,8 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                 .replace('wl', ' Werkstattleiter')
                 .replace('sw', ' Segelflugzeugwart')
                 .replace('msw', ' Motorseglerwart')
+                .replace('wi', ' Windefahrer')
+                .replace('wia', ' Lehreberechtigter Windefahrer')
                 .replace('user,','');
         }
     })
@@ -192,7 +204,9 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                                    ['mose','Mosebucher'],
                                    ['wl', 'Werkstattleiter'],
                                    ['sw', 'Segelflugzeugwart'],
-                                   ['msw', 'Motorseglerwart']];
+                                   ['msw', 'Motorseglerwart'],
+                                   ['wi', 'Windefahrer'],
+                                   ['wia', 'Winderfahrer (A)']];
 
         User.getAllUsers().then(function (res) {
             if (res.data.success) {
@@ -297,6 +311,15 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                         angular.element('#fi' + index)[0].checked = false;
                     }
                     break;
+                case 'wi':
+                    if(!angular.element('#wi' + index)[0].checked){
+                        angular.element('#wia' + index)[0].checked = false;
+                    }
+                    break;
+                case 'wia':
+                    if(angular.element('#wia' + index)[0].checked){
+                        angular.element('#wi' + index)[0].checked = true;
+                    }
             }
         };
 

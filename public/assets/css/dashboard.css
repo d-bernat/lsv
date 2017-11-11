@@ -61,12 +61,13 @@ div.center{
     position: fixed;
     top: 51px;
     bottom: 0;
-    left: 10px;
+    left: 0px;
     z-index: 1000;
     padding: 0px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     border-right: 2px solid #eee;
+    background-color: white;
 }
 
 /* Sidebar navigation */
@@ -117,4 +118,9 @@ div.center{
 .sidebar .nav>li>a {
     padding-top: 3px;
     padding-bottom: 3px;
+}
+
+
+.sidebar-inner{
+    margin-left: 10px;
 }

@@ -17,16 +17,6 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/ausbildung.html'
             })
 
-            .when('/segelflug', {
-                templateUrl: 'app/views/pages/segelflug.html'
-            })
-
-            .when('/terminologie', {
-                templateUrl: 'app/views/pages/terminologie.html',
-                controller: 'terminologieScrollOffsetCtrl',
-                controllerAs: 'scrollOffset'
-            })
-
             .when('/verein', {
                 templateUrl: 'app/views/pages/verein.html'
             })
@@ -65,29 +55,12 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/schulerwerden.html'
             })
 
-            .when('/mitgliedwerden', {
-                templateUrl: 'app/views/pages/mitgliedwerden.html'
-            })
-
             .when('/jugendgruppe', {
                 templateUrl: 'app/views/pages/jugendgruppe.html'
             })
 
-            .when('/termine', {
-                templateUrl: 'app/views/pages/termine.html'
-            })
-
-            .when('/pressespiegel', {
-                templateUrl: 'app/views/pages/pressespiegel.html'
-            })
-
-
             .when('/segelflugzeuge', {
                 templateUrl: 'app/views/pages/segelflugzeuge.html'
-            })
-
-            .when('/tmg', {
-                templateUrl: 'app/views/pages/tmg.html'
             })
 
             .when('/winde', {
@@ -98,14 +71,6 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/streckenflug.html'
             })
 
-            .when('/ueberlandflug', {
-                templateUrl: 'app/views/pages/ueberlandflug.html'
-            })
-
-            .when('/flugplatz', {
-                templateUrl: 'app/views/pages/flugplatz.html'
-            })
-
             .when('/wegweiser', {
                 templateUrl: 'app/views/pages/wegweiser.html'
             })
@@ -114,17 +79,10 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/wegweiser_en.html'
             })
 
-            .when('/kontakt', {
-                templateUrl: 'app/views/pages/kontakt.html'
-            })
-
             .when('/intern', {
                 templateUrl: 'app/views/pages/intern/info.html',
                 authenticated: true
-
-
             })
-
 
             .when('/register', {
                 templateUrl: 'app/views/pages/users/register.html',
@@ -218,6 +176,17 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 permission: ['manager', 'fi']
             })
 
+            .when('/intern/windedienst', {
+                templateUrl: 'app/views/pages/intern/windedienst.html',
+                authenticated: true,
+                permission: ['manager', 'wi', 'wia']
+            })
+
+            .when('/intern/fidienst', {
+                templateUrl: 'app/views/pages/intern/fidienst.html',
+                authenticated: true,
+                permission: ['manager', 'fi']
+            })
             .otherwise({
                redirectTo: '/home'
             });

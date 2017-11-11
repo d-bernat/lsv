@@ -3,7 +3,9 @@
         <span><img class="img-rounded img-responsive center-block" src="app/views/images/lsvmlogo.gif" alt="logo"></span>
     </div-->
     <div class="flex-item brand">
-        <div class="navbar-header">
+        <a href="/"><img src="app/views/images/lsvmlogo.png" class="main-logo pull-right"></a>
+        <!--a href="/"></a-->
+        <!--div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -11,33 +13,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">LSV Kreis Pinneberg</a>
-        </div>
+            <a class="navbar-brand" href="/"><img src="app/views/images/lsvmlogo.png" class="img-circle"></a>
+        </div-->
     </div>
-    <div class="flex-item">
+    <div class="flex-item menu">
         <div id="navbar" class="navbar-collapse collapse">
             <div class="flex-container main-menu">
                 <div class="flex-item main-menu" >
-                    <ul class="nav nav-popup navbar-nav mr-auto" ng-mouseover="mainMenuClicked=false">
+                    <ul class="nav nav-popup navbar-nav" ng-mouseover="mainMenuClicked=false">
                         <li class="nav-item sub-menu-parent">
-                            <a href="#">Mitfliegen<b class="caret caret-up"></b></a>
+                            <a class="submenu-parent-item" href="#">Mitfliegen<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
-                                <li class="sub-menu-item">
+                                <!--li class="sub-menu-item">
                                     <a ng-href="fliegmituns"
                                        ng-click="$event.preventDefault(); linkClicked('fliegmituns')">Mitfliegen</a>
-                                </li>
+                                </li-->
                                 <li class="sub-menu-item">
                                     <a ng-href="gastflug" ng-click="$event.preventDefault(); linkClicked('gastflug')">Gastflug</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item sub-menu-parent">
-                            <a href="#">Fliegen lernen<b class="caret caret-up"></b></a>
+                            <a class="submenu-parent-item" href="#">Fliegen lernen<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
-                                <li class="sub-menu-item">
+                                <!--li class="sub-menu-item">
                                     <a ng-href="ausbildung"
                                        ng-click="$event.preventDefault(); linkClicked('ausbildung')">...</a>
-                                </li>
+                                </li-->
                                 <li class="sub-menu-item">
                                     <a ng-href="schnuppern"
                                        ng-click="$event.preventDefault(); linkClicked('schnuppern')">Schupperangebot</a>
@@ -50,11 +52,11 @@
                             </ul>
                         </li>
                         <li class="nav-item sub-menu-parent">
-                            <a href="#">Über uns<b class="caret caret-up"></b></a>
+                            <a class="submenu-parent-item" href="#">Über uns<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
-                                <li class="sub-menu-item">
+                                <!--li class="sub-menu-item">
                                     <a ng-href="about" ng-click="$event.preventDefault(); linkClicked('about')">...</a>
-                                </li>
+                                </li-->
                                 <li class="sub-menu-item">
                                     <a ng-href="verein" ng-click="$event.preventDefault(); linkClicked('verein')">Der
                                         Verein</a>
@@ -82,11 +84,11 @@
                             </ul>
                         </li>
                         <li class="nav-item  sub-menu-parent">
-                            <a href="#">Segelfliegen FAQ<b class="caret caret-up"></b></a>
+                            <a  class="submenu-parent-item" href="#">Segelfliegen FAQ<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
-                                <li class="sub-menu-item">
+                                <!--li class="sub-menu-item">
                                     <a ng-href="faq" ng-click="$event.preventDefault(); linkClicked('faq')">...</a>
-                                </li>
+                                </li-->
                                 <li class="sub-menu-item">
                                     <a ng-href="streckenflug"
                                        ng-click="$event.preventDefault(); linkClicked('streckenflug')">Streckenfliegen</a>
@@ -94,12 +96,12 @@
                             </ul>
                         </li>
                         <li class="nav-item  sub-menu-parent">
-                            <a href="english">English<b class="caret caret-up"></b></a>
+                            <a class="submenu-parent-item"  href="english">English<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
-                                <li class="sub-menu-item">
+                                <!--li class="sub-menu-item">
                                     <a ng-href="english"
                                        ng-click="$event.preventDefault(); linkClicked('english')">...</a>
-                                </li>
+                                </li-->
                                 <li class="sub-menu-item">
                                     <a ng-href="about_en" ng-click="$event.preventDefault(); linkClicked('about_en')">About
                                         us</a>
