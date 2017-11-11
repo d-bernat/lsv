@@ -2,105 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fbdd3dd1-c5c6-48d0-8013-3a12b2997a98" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/views/images/lsvmlogo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/fidienst.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/windedienst.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Auf-Schatzsuche-am-Himmel-05MAY11.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/BZ-20170523-S9-Segelfliegen-Holm.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Dusan.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/EN-02JUL09-1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/EN-02JUL09-2.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/EN-13APR10.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Jugendliche_im_Flieger-Fieber.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Lautlos_die_Wolken_suchen-10SEP10.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Neuruppin-31JUL08.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-07SEP11.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-10APR12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-12APR12-1.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-12APR12-8.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-13NOV07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-15APR10.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-15SEP08 (1).pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-15SEP08.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-19JUL10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Tageblatt-26SEP15.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PI-Zeitung-20AUG07.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PT-20170523-S1-Segelfliegen-Holm.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/PT-20170626-Sonnenuntergangsfliegen.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/SCAN-EN-SEP08.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Tageblatt-Sonntag-01JUN14.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/UN-17OCT11.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/Von_Wolke_zu_Wolke-10SEP10.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/abnw1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/abnw23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/am-kt.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/andreasw.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/ask21-instr.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/ask21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/clouds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d1931.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d2784.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d2785.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d3469.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d4595.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d5851.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/d6510.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/dkbuo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/edhe.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/email-hmills.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/email-info.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/email-krause.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/fpl4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/hannah.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/hansj.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/henryk.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/joergt.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/kaiuwe.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/lift.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/lsvmlogo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/norbertj.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/paul-baro-01MAY13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/paul-map-01MAY13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/paulf.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/pax1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/startwagen.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/strmap.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/uwe.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/wife.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/winde.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/images/wolfgangsu.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/flugplatz.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/kontakt.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/mitgliedwerden.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/pressespiegel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/segelflug.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/termine.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/terminologie.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/tmg.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/app/views/pages/ueberlandflug.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/mainMenuCtrl.js" afterPath="$PROJECT_DIR$/public/app/controllers/mainMenuCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/controllers/userCtrl.js" afterPath="$PROJECT_DIR$/public/app/controllers/userCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/directives/routeLoadingIndicator.js" afterPath="$PROJECT_DIR$/public/app/directives/routeLoadingIndicator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/routes.js" afterPath="$PROJECT_DIR$/public/app/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/about.html" afterPath="$PROJECT_DIR$/public/app/views/pages/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/anmeldungschuler.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/anmeldungschuler.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/editmember.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/editmember.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/info.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/info.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/meldunglehrer.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/meldunglehrer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/newmember.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/newmember.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/planestatus.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/planestatus.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/segelflugzeugbuchen.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/segelflugzeugbuchen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/intern/tmgbuchen.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/tmgbuchen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/menu.html" afterPath="$PROJECT_DIR$/public/app/views/pages/menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/users/profile.html" afterPath="$PROJECT_DIR$/public/app/views/pages/users/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/users/register.html" afterPath="$PROJECT_DIR$/public/app/views/pages/users/register.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/users/signin.html" afterPath="$PROJECT_DIR$/public/app/views/pages/users/signin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/views/pages/users/signout.html" afterPath="$PROJECT_DIR$/public/app/views/pages/users/signout.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/customize.css" afterPath="$PROJECT_DIR$/public/assets/css/customize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/dashboard.css" afterPath="$PROJECT_DIR$/public/assets/css/dashboard.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app/views/pages/datepicker.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/datepicker.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/app/views/pages/intern_menu.html" afterPath="$PROJECT_DIR$/public/app/views/pages/intern/intern_menu.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -127,8 +29,8 @@
       <file leaf-file-name="customize.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/customize.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="820" column="4" lean-forward="false" selection-start-line="820" selection-start-column="4" selection-end-line="820" selection-end-column="4" />
+            <state relative-caret-position="177">
+              <caret line="819" column="4" lean-forward="false" selection-start-line="819" selection-start-column="4" selection-end-line="819" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -473,12 +375,12 @@
       <workItem from="1510158765347" duration="7600000" />
       <workItem from="1510169434675" duration="12882000" />
       <workItem from="1510214258822" duration="31000" />
-      <workItem from="1510403183860" duration="28812000" />
+      <workItem from="1510403183860" duration="29385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98555000" />
+    <option name="totallyTimeSpent" value="99128000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -486,13 +388,13 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24728589" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32949308" sideWeight="0.52412546" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3559908" sideWeight="0.5048251" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.47587454" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3559908" sideWeight="0.49758744" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3559908" sideWeight="0.4951749" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -919,8 +821,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/customize.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="820" column="4" lean-forward="false" selection-start-line="820" selection-start-column="4" selection-end-line="820" selection-end-column="4" />
+        <state relative-caret-position="177">
+          <caret line="819" column="4" lean-forward="false" selection-start-line="819" selection-start-column="4" selection-end-line="819" selection-end-column="4" />
           <folding />
         </state>
       </provider>

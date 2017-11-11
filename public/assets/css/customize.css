@@ -817,9 +817,9 @@ ul.sub-menu {
 }
 
 img {
-    filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color='Black', Positive='true');
-    git -webkit-filter: drop-shadow(3px 3px 3px #222);
-    /*filter: drop-shadow(3px 3px 3px #222);*/
+
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(3px 3px 3px #222);
 }
 
 img:active {
