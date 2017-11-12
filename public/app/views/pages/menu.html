@@ -3,6 +3,7 @@
         <span><img class="img-rounded img-responsive center-block" src="app/views/images/lsvmlogo.gif" alt="logo"></span>
     </div-->
     <div class="flex-item brand">
+        <span class="banner">Luftsportverein Kreis Pinneberg e.V., Flugplatz Uetersen/Heist(EDHE), 123.475 MHz</span>
         <a href="/"><img src="app/views/images/lsvmlogo.png" class="main-logo pull-right"></a>
         <!--a href="/"></a-->
         <!--div class="navbar-header">
@@ -19,7 +20,7 @@
     <div class="flex-item menu">
         <div id="navbar" class="navbar-collapse collapse">
             <div class="flex-container main-menu">
-                <div class="flex-item main-menu" >
+                <div class="flex-item main-menu">
                     <ul class="nav nav-popup navbar-nav" ng-mouseover="mainMenuClicked=false">
                         <li class="nav-item sub-menu-parent">
                             <a class="submenu-parent-item" href="#">Mitfliegen<b class="caret caret-up"></b></a>
@@ -55,7 +56,7 @@
                             <a class="submenu-parent-item" href="#">Über uns<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
                                 <!--li class="sub-menu-item">
-                                    <a ng-href="about" ng-click="$event.preventDefault(); linkClicked('about')">...</a>
+                                    <a ng-href="about" ng-click="$event.preventDefault(); linkClicked('about')">Wir sind ...</a>
                                 </li-->
                                 <li class="sub-menu-item">
                                     <a ng-href="verein" ng-click="$event.preventDefault(); linkClicked('verein')">Der
@@ -79,12 +80,21 @@
                                        ng-click="$event.preventDefault(); linkClicked('jugendgruppe')">Jugendgruppe</a>
                                 </li>
                                 <li class="sub-menu-item">
+                                    <a target="_blank" href="http://www.edhe.de">Flugplatz Uetersen/Heist</a>
+                                </li>
+                                <li class="sub-menu-item">
                                     <a ng-href="wegweiser" ng-click="$event.preventDefault(); linkClicked('wegweiser')">Flugplatz/Anfahrt</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a ng-href="kontakt" ng-click="$event.preventDefault(); linkClicked('kontakt')">Kontakt</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a ng-href="impressum" ng-click="$event.preventDefault(); linkClicked('impressum')">Impressum</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item  sub-menu-parent">
-                            <a  class="submenu-parent-item" href="#">Segelfliegen FAQ<b class="caret caret-up"></b></a>
+                            <a class="submenu-parent-item" href="#">Segelfliegen FAQ<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
                                 <!--li class="sub-menu-item">
                                     <a ng-href="faq" ng-click="$event.preventDefault(); linkClicked('faq')">...</a>
@@ -96,7 +106,7 @@
                             </ul>
                         </li>
                         <li class="nav-item  sub-menu-parent">
-                            <a class="submenu-parent-item"  href="english">English<b class="caret caret-up"></b></a>
+                            <a class="submenu-parent-item" href="english">English<b class="caret caret-up"></b></a>
                             <ul ng-if="!mainMenuClicked" auto-active class="sub-menu">
                                 <!--li class="sub-menu-item">
                                     <a ng-href="english"

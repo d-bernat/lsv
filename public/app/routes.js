@@ -75,6 +75,15 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 templateUrl: 'app/views/pages/wegweiser.html'
             })
 
+            .when('/kontakt', {
+                templateUrl: 'app/views/pages/kontakt.html'
+            })
+
+            .when('/impressum', {
+                templateUrl: 'app/views/pages/impressum.html'
+            })
+
+
             .when('/wegweiser_en', {
                 templateUrl: 'app/views/pages/wegweiser_en.html'
             })

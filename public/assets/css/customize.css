@@ -839,3 +839,18 @@ img:active {
     background-color: #8b8b8b;
     transition: 0.4s;
 }
+
+.banner {
+    font-size: 10pt;
+    font-family: Arial;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    cursor: default;
+}
+
+div.row.main-page{
+    margin-top: 85px;
+}
