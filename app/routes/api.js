@@ -2,7 +2,10 @@
 
 const User = require('../models/user');
 const Plane = require('../models/plane');
-const GliderBooking = require('../models/glider_booking');
+const GliderBooking = require('../models/gliderBooking');
+const StudentToTraining = require('../models/studentToTraining');
+const TeacherToTraining = require('../models/teacherToTraining');
+const WiToWinde = require('../models/teacherToTraining');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
 const secret = 'simplesecret';
@@ -143,9 +146,234 @@ module.exports = function (router) {
                             });
                         }
                     });
-                }else{
-                    res.json({success: false, message: 'Flugzeug ' + req.body.name + ' ' + req.body.registration + ' nicht gefunden.' });
+                } else {
+                    res.json({
+                        success: false,
+                        message: 'Flugzeug ' + req.body.name + ' ' + req.body.registration + ' nicht gefunden.'
+                    });
                 }
+            }
+        });
+    });
+
+
+    router.post('/studentForTraining', function (req, res) {
+        let date = moment(req.body.date);
+        if (moment.isMoment(date) && date.isAfter(moment().add(moment.duration(1, 'day')))) {
+            User.findOne({
+                name: req.body.name,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                active: true
+            })
+                .select('permission').exec(function (err, user) {
+                    if (user !== null && user !== undefined && (user.permission.split(',').indexOf('student') >= 0 ||
+                            user.permission.split(',').indexOf('manager') >= 0)) {
+                        let where =
+                            {
+                                date: req.body.date,
+                                email: req.body.email,
+                            };
+                        StudentToTraining.findOne(where).exec(function (err, training) {
+                            if (training === null) {
+                                let studentToTraining = new StudentToTraining();
+                                studentToTraining.name = req.body.name;
+                                studentToTraining.lastname = req.body.lastname;
+                                studentToTraining.email = req.body.email;
+                                studentToTraining.date = req.body.date;
+                                studentToTraining.comment = req.body.comment;
+                                studentToTraining.save();
+                                const msg = {
+                                    to: req.body.email,
+                                    from: 'mail@it-bernat.de',
+                                    subject: 'Anmeldung zur Ausbildung',
+                                    text: 'Du hast dich für die Ausbidlgung angemeldet!',
+                                    html: '<strong> Du hast dich für die Ausbildung angemeldet: ' +
+                                    moment(req.body.date).format('DD.MM.YYYY') + '</strong>'
+                                };
+                                /*sgMail.send(msg, function (err, info) {
+                                    if (err) {
+                                        console.log(err);
+                                    }
+                                });*/
+                                res.json({
+                                    success: true,
+                                    message: "Du hast dich für die Ausbildung angemeldet: " +
+                                    moment(req.body.date).format('DD.MM.YYYY')
+                                });
+                            }
+                            else {
+                                res.json({
+                                    success: false,
+                                    message: 'Deine Anmeldung ist leider nicht möglich, da in dem gewünschten Zeitraum bereits eine Anmeldung liegt!'
+                                });
+                            }
+                        });
+                    }
+                    else {
+                        res.json({
+                            success: false,
+                            message: 'Du bist kein Student oder Vorstand!'
+                        });
+                    }
+                }
+            );
+        }
+        else {
+            res.json({
+                success: false,
+                message: 'Anmeldedatum ist nicht zulässig: ' + date.format('DD.MM.YYYY')
+            });
+        }
+    });
+
+    router.delete('/studentForTraining', function (req, res) {
+        StudentToTraining.remove({
+            name: req.body.name,
+            lastname: req.body.lastname,
+            date: req.body.date,
+            email: req.body.email
+        }, function (err) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                const msg = {
+                    to: req.body.email,
+                    from: 'mail@it-bernat.de',
+                    subject: 'Löschung der Ausbildungsanmeldung',
+                    text: 'Du hast deine Anmeldung für ' + moment(req.body.date).format('DD.MM.YYYY') + ' zurückgenommen!',
+                    html: '<strong>' + 'Du hast deine Anmeldung für ' + moment(req.body.date).format('DD.MM.YYYY') + ' zurückgenommen!' + '</strong>'
+                };
+                /*sgMail.send(msg, function (err, info) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });*/
+                res.json({
+                    success: true,
+                    message: 'Du hast deine Anmeldung für ' + moment(req.body.date).format('DD.MM.YYYY') + ' zurückgenommen!'
+                });
+            }
+        });
+    });
+
+    router.get('/studentForTraining', function (req, res) {
+        StudentToTraining.find().select('date name lastname email comment').sort({date: 'asc'}).exec(function (err, trainings) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                res.json({success: true, message: trainings});
+            }
+        });
+    });
+
+    router.post('/teacherToTraining', function (req, res) {
+        let date = moment(req.body.date);
+        if (moment.isMoment(date) && date.isAfter(moment())) {
+            User.findOne({
+                name: req.body.name,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                active: true
+            })
+                .select('permission').exec(function (err, user) {
+                    if (user !== null && user !== undefined && (user.permission.split(',').indexOf('fi') >= 0 ||
+                            user.permission.split(',').indexOf('fial') >= 0 ||
+                            user.permission.split(',').indexOf('manager') >= 0)) {
+                        let where =
+                            {
+                                date: req.body.date,
+                                email: req.body.email,
+                            };
+                        TeacherToTraining.findOne(where).exec(function (err, training) {
+                            if (training === null) {
+                                let teacherToTraining = new TeacherToTraining();
+                                teacherToTraining.name = req.body.name;
+                                teacherToTraining.lastname = req.body.lastname;
+                                teacherToTraining.email = req.body.email;
+                                teacherToTraining.date = req.body.date;
+                                teacherToTraining.comment = req.body.comment;
+                                teacherToTraining.save();
+                                const msg = {
+                                    to: req.body.email,
+                                    from: 'mail@it-bernat.de',
+                                    subject: 'Anmeldung zur Ausbildung',
+                                    text: 'Du hast dich für die Ausbidlgung angemeldet!',
+                                    html: '<strong> Du hast dich für die Ausbildung angemeldet: ' +
+                                    moment(req.body.date).format('DD.MM.YYYY') + '</strong>'
+                                };
+                                /*sgMail.send(msg, function (err, info) {
+                                    if (err) {
+                                        console.log(err);
+                                    }
+                                });*/
+                                res.json({
+                                    success: true,
+                                    message: "Du hast dich für die Ausbildung angemeldet: " +
+                                    moment(req.body.date).format('DD.MM.YYYY')
+                                });
+                            }
+                            else {
+                                res.json({
+                                    success: false,
+                                    message: 'Deine Anmeldung ist leider nicht möglich, da in dem gewünschten Zeitraum bereits eine Anmeldung liegt!'
+                                });
+                            }
+                        });
+                    }
+                    else {
+                        res.json({
+                            success: false,
+                            message: 'Du bist kein FI oder Vorstand!'
+                        });
+                    }
+                }
+            );
+        }
+        else {
+            res.json({
+                success: false,
+                message: 'Anmeldedatum ist nicht zulässig: ' + date.format('DD.MM.YYYY')
+            });
+        }
+    });
+
+    router.delete('/teacherToTraining', function (req, res) {
+        TeacherToTraining.remove({
+            name: req.body.name,
+            lastname: req.body.lastname,
+            date: req.body.date,
+            email: req.body.email
+        }, function (err) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                const msg = {
+                    to: req.body.email,
+                    from: 'mail@it-bernat.de',
+                    subject: 'Löschung der Ausbildungsanmeldung',
+                    text: 'Du hast deine Anmeldung für ' + moment(req.body.date).format('DD.MM.YYYY') + ' zurückgenommen!',
+                    html: '<strong>' + 'Du hast deine Anmeldung für ' + moment(req.body.date).format('DD.MM.YYYY') + ' zurückgenommen!' + '</strong>'
+                };
+                /*sgMail.send(msg, function (err, info) {
+                    if (err) {
+                        console.log(err);
+                    }
+                });*/
+                res.json({
+                    success: true,
+                    message: 'Du hast deine Anmeldung für ' + moment(req.body.date).format('DD.MM.YYYY') + ' zurückgenommen!'
+                });
+            }
+        });
+    });
+
+    router.get('/teacherToTraining', function (req, res) {
+        TeacherToTraining.find().select('date name lastname email comment').sort({date: 'asc'}).exec(function (err, trainings) {
+            if (err) {
+                res.json({success: false, message: err});
+            } else {
+                res.json({success: true, message: trainings});
             }
         });
     });
@@ -237,11 +465,11 @@ module.exports = function (router) {
                         GliderBooking.find(where).exec(function (err, booking) {
                             let allowValue = 0;
                             let allowValueText = 'ein';
-                            if(req.body.plane_type === 'TMG'){
-                                if(user.permission.split(',').indexOf('fi') >= 0){
+                            if (req.body.plane_type === 'TMG') {
+                                if (user.permission.split(',').indexOf('fi') >= 0) {
                                     allowValue = 3;
                                     allowValueText = 'vier';
-                                }else{
+                                } else {
                                     allowValue = 1;
                                     allowValueText = 'zwei';
                                 }
@@ -310,7 +538,10 @@ module.exports = function (router) {
                                 });
 
                             } else {
-                                res.json({success: false, message: 'Du kannst nicht mehr als ' + allowValueText + ' mal buchen!'});
+                                res.json({
+                                    success: false,
+                                    message: 'Du kannst nicht mehr als ' + allowValueText + ' mal buchen!'
+                                });
                             }
                         });
 
@@ -360,7 +591,10 @@ module.exports = function (router) {
     });
 
     router.get('/booking/:plane_type', function (req, res) {
-        GliderBooking.find({plane_type: req.params.plane_type, date: {$gte: moment().add(-1, 'days')}}).select('date plane registration email name lastname comment').sort({date: 'asc'}).exec(function (err, bookings) {
+        GliderBooking.find({
+            plane_type: req.params.plane_type,
+            date: {$gte: moment().add(-1, 'days')}
+        }).select('date plane registration email name lastname comment').sort({date: 'asc'}).exec(function (err, bookings) {
             if (err) {
                 res.json({success: false, message: err});
             } else {

@@ -176,7 +176,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
             .when('/intern/anmeldungschuler', {
                 templateUrl: 'app/views/pages/intern/anmeldungschuler.html',
                 authenticated: true,
-                permission: ['manager', 'student']
+                permission: ['manager', 'student', 'admin', 'fi', 'fial']
             })
 
             .when('/intern/meldunglehrer', {
