@@ -4,6 +4,7 @@ angular.module('mainController', ['authServices'])
     .controller('mainCtrl', function (Auth, $scope, $rootScope, $location, $timeout) {
         $scope.loadme = false;
         $scope.mainMenuClicked = false;
+
         $rootScope.$on('$routeChangeStart', function () {
             if (Auth.isSignedIn()) {
                 Auth.getUser().then(function (data) {

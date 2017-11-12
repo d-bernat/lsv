@@ -854,3 +854,42 @@ img:active {
 div.row.main-page{
     margin-top: 85px;
 }
+
+.sidebar-inner h5{
+    cursor: default;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+}
+span.clickable{
+    cursor:pointer;
+}
+
+td.rating-shortcuts{
+    cursor: default;
+}
+
+td.rating-shortcuts label {
+    display: flex;
+    max-width: 100%;
+    font-weight: normal;
+    padding-top: 5px;
+}
+
+.tooltip-inner {
+    width: 180px;
+    padding: 3px 8px;
+    color: #000;
+    text-align: center;
+    background-color: #e9ee9a;
+    border-radius: 4px;
+}
+
+.tooltip.left .tooltip-arrow{
+    border-left-color: #e9ee9a;
+}
+
+table.bstooltip{
+    text-align: left;
+}

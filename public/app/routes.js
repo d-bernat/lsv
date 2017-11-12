@@ -182,7 +182,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
             .when('/intern/meldunglehrer', {
                 templateUrl: 'app/views/pages/intern/meldunglehrer.html',
                 authenticated: true,
-                permission: ['manager', 'fi']
+                permission: ['manager', 'fi', 'fial']
             })
 
             .when('/intern/windedienst', {
@@ -194,7 +194,7 @@ let app = angular.module('appRoutes', ['ngRoute'])
             .when('/intern/fidienst', {
                 templateUrl: 'app/views/pages/intern/fidienst.html',
                 authenticated: true,
-                permission: ['manager', 'fi']
+                permission: ['manager', 'fi', 'fial']
             })
             .otherwise({
                redirectTo: '/home'

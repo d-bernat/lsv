@@ -40,12 +40,15 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             if (app.registerData.rd_admin) app.registerData.permission += ',admin';
             if (app.registerData.rd_manager) app.registerData.permission += ',manager';
             if (app.registerData.rd_fi) app.registerData.permission += ',fi';
+            if (app.registerData.rd_fial) app.registerData.permission += ',fial';
             if (app.registerData.rd_spl) app.registerData.permission += ',spl';
             if (app.registerData.rd_student) app.registerData.permission += ',student';
             if (app.registerData.rd_mose) app.registerData.permission += ',mose';
             if (app.registerData.rd_wl) app.registerData.permission += ',wl';
             if (app.registerData.rd_sw) app.registerData.permission += ',sw';
             if (app.registerData.rd_msw) app.registerData.permission += ',msw';
+            if (app.registerData.rd_wi) app.registerData.permission += ',wi';
+            if (app.registerData.rd_wia) app.registerData.permission += ',wia';
             User.create(this.registerData).then(function (data) {
                 if (data.data.success) {
                     app.successMsg = data.data.message;
@@ -102,6 +105,15 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                         $scope.initChecked = false;
                         app.registerData.rd_spl = true;
                         app.registerData.rd_student = false;
+                    } else {
+                        app.registerData.rd_fia = false;
+                    }
+                    break;
+                case 'fial':
+                    if (app.registerData.rd_fial) {
+                        app.registerData.rd_spl = true;
+                        app.registerData.rd_student = false;
+                        app.registerData.rd_fi = true;
                     }
                     break;
                 case 'spl':
@@ -110,12 +122,14 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                         app.registerData.rd_student = false;
                     } else {
                         app.registerData.rd_fi = false;
+                        app.registerData.rd_fia = false;
                     }
                     break;
                 case 'student':
                     if (app.registerData.rd_student) {
                         app.registerData.rd_spl = false;
                         app.registerData.rd_fi = false;
+                        app.registerData.rd_fial = false;
                     }
                     break;
                 case 'wi':
@@ -169,20 +183,21 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             });
         }
 
-        app.mapToPermission = function(rights){
+        app.mapToPermission = function (rights) {
             return rights
                 .replace('admin', ' Administrator')
                 .replace('manager', ' Vorstand')
-                .replace('fi', ' Fluglehrer')
+                .replace(/\bfi\b/g, ' Fluglehrer')
+                .replace('fial', ' Ausbildungsleiter')
                 .replace('spl', ' Scheininhaber')
                 .replace('student', ' Flugschüler')
                 .replace('mose', ' Mosebucher')
                 .replace('wl', ' Werkstattleiter')
-                .replace('sw', ' Segelflugzeugwart')
+                .replace(/\bsw\b/g, ' Segelflugzeugwart')
                 .replace('msw', ' Motorseglerwart')
-                .replace('wi', ' Windefahrer')
+                .replace(/\bwi\b/g, ' Windefahrer')
                 .replace('wia', ' Lehreberechtigter Windefahrer')
-                .replace('user,','');
+                .replace('user,', '');
         }
     })
     .controller('signOutCtrl', function ($location, $timeout, Auth) {
@@ -195,18 +210,70 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
 
         $scope.loaded = false;
         $scope.updateIndex = -1;
+        $scope.expand = false;
+        $scope.expandClassDesc = {
+            "expand": false,
+            "class": "glyphicon glyphicon-chevron-right clickable",
+            "tooltipTitle": "zeige mehr"
+        };
+
+        $scope.setExpand = function () {
+            $scope.expandClassDesc.expand = !$scope.expandClassDesc.expand;
+            if ($scope.expandClassDesc.expand) {
+                $scope.expandClassDesc.class = 'glyphicon glyphicon-chevron-left clickable';
+                $scope.expandClassDesc.tooltipTitle = 'zeige weniger';
+            }
+            else {
+                $scope.expandClassDesc.class = 'glyphicon glyphicon-chevron-right clickable';
+                $scope.expandClassDesc.tooltipTitle = 'zeige mehr';
+            }
+        };
+
+        let mapToPermission = function (rating) {
+            return rating
+                .replace('admin', ' Administrator')
+                .replace('manager', ' Vorstand')
+                .replace(/\bfi\b/g, ' Fluglehrer')
+                .replace('fial', ' Ausbildungsleiter')
+                .replace('spl', ' Scheininhaber')
+                .replace('student', ' Flugschüler')
+                .replace('mose', ' Mosebucher')
+                .replace('wl', ' Werkstattleiter')
+                .replace(/\bsw\b/g, ' Segelflugzeugwart')
+                .replace('msw', ' Motorseglerwart')
+                .replace(/\bwi\b/g, ' Windefahrer')
+                .replace('wia', ' Lehreberechtigter Windefahrer')
+                .replace('user,', '');
+        };
+        $scope.getTooltipText = function (ratings) {
+            let ret = '<table class="table-condensed bstooltip">';
+            ratings.split(',').forEach((rating) => {
+                ret += '<tr>';
+                ret += '<td>' + rating + '</td>';
+                ret += '<td>' + mapToPermission(rating) + '</td>';
+                ret += '</tr>';
+            });
+            ret += '</table>';
+
+            return ret;
+        };
+
         //$scope.permissionNames = ['admin', 'manager', 'fi', 'spl', 'student', 'mose', 'wl', 'sw', 'msw'];
-        $scope.permissionLabels = [['admin','Administrator'],
-                                   ['manager', 'Manager'],
-                                   ['fi','Fluglehrer'],
-                                   ['spl','Scheininhaber'],
-                                   ['student','Flugschüler'],
-                                   ['mose','Mosebucher'],
-                                   ['wl', 'Werkstattleiter'],
-                                   ['sw', 'Segelflugzeugwart'],
-                                   ['msw', 'Motorseglerwart'],
-                                   ['wi', 'Windefahrer'],
-                                   ['wia', 'Winderfahrer (A)']];
+
+
+        $scope.permissionLabels = [['admin', 'Administrator'],
+            ['manager', 'Manager'],
+            ['fi', 'Fluglehrer'],
+            ['fial', 'Ausbildungsleiter'],
+            ['spl', 'Scheininhaber'],
+            ['student', 'Flugschüler'],
+            ['mose', 'Mosebucher'],
+            ['wl', 'Werkstattleiter'],
+            ['sw', 'Segelflugzeugwart'],
+            ['msw', 'Motorseglerwart'],
+            ['wi', 'Windefahrer'],
+            ['wia', 'Winderfahrer (A)']];
+
 
         User.getAllUsers().then(function (res) {
             if (res.data.success) {
@@ -242,18 +309,18 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
                         btnClass: 'btn-green',
                         action: function () {
                             $scope.updateIndex = -1;
-                            let oldPermission =  $scope.users[index].permission;
+                            let oldPermission = $scope.users[index].permission;
                             let oldActive = $scope.users[index].active;
                             $scope.users[index].permission = 'user';
-                            for(let i = 0; i < $scope.permissionLabels.length; ++i){
-                                if(angular.element('#' + $scope.permissionLabels[i][0] + index)[0].checked) $scope.users[index].permission += ',' + $scope.permissionLabels[i][0];
+                            for (let i = 0; i < $scope.permissionLabels.length; ++i) {
+                                if (angular.element('#' + $scope.permissionLabels[i][0] + index)[0].checked) $scope.users[index].permission += ',' + $scope.permissionLabels[i][0];
                             }
                             $scope.users[index].active = angular.element('#active' + index)[0].checked;
                             User.updatePermissions($scope.users[index]).then(function (data) {
                                 if (data.data.success) {
-                                    if($rootScope.userData.username === $scope.users[index].username){
+                                    if ($rootScope.userData.username === $scope.users[index].username) {
                                         $ngConfirm('Du hast eigene Berechtigungen geändert. Um die neue Berechtigungen aktivieren bitte ab und wieder anzumelden!');
-                                    }else {
+                                    } else {
                                         $ngConfirm(data.data.message);
                                     }
                                 } else {
@@ -267,7 +334,7 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
 
                         }
                     },
-                    cancel:{
+                    cancel: {
                         text: 'Zurück',
                         btnClass: 'btn-orange',
                         action: function () {
@@ -281,8 +348,8 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
             });
         };
 
-        $scope.resetSettings = function(index){
-            for(let i = 0; i < $scope.permissionLabels.length; ++i){
+        $scope.resetSettings = function (index) {
+            for (let i = 0; i < $scope.permissionLabels.length; ++i) {
                 angular.element('#' + $scope.permissionLabels[i][0] + index)[0].checked = $scope.hasPermission(index, $scope.permissionLabels[i][0]);
             }
             angular.element('#active' + index)[0].checked = $scope.users[index].active
@@ -292,37 +359,52 @@ angular.module('userControllers', ['userServices', 'cp.ngConfirm'])
         $scope.clickPermission = function (index, permission) {
             switch (permission) {
                 case 'fi':
-                    if(angular.element('#fi' + index)[0].checked){
+                    if (angular.element('#fi' + index)[0].checked) {
                         angular.element('#spl' + index)[0].checked = true;
                         angular.element('#student' + index)[0].checked = false;
+                    } else {
+                        angular.element('#fial' + index)[0].checked = false;
+                    }
+                    break;
+                case 'fial':
+                    if (angular.element('#fial' + index)[0].checked) {
+                        angular.element('#spl' + index)[0].checked = true;
+                        angular.element('#student' + index)[0].checked = false;
+                        angular.element('#fi' + index)[0].checked = true;
                     }
                     break;
                 case 'spl':
-                    if(angular.element('#spl' + index)[0].checked){
+                    if (angular.element('#spl' + index)[0].checked) {
                         angular.element('#student' + index)[0].checked = false;
-                    }else{
+                    } else {
+                        angular.element('#fial' + index)[0].checked = false;
                         angular.element('#fi' + index)[0].checked = false;
                         angular.element('#mose' + index)[0].checked = false;
                     }
                     break;
+                case 'mose':
+                    if (angular.element('#mose' + index)[0].checked) {
+                        angular.element('#student' + index)[0].checked = false;
+                        angular.element('#spl' + index)[0].checked = true;
+                    }
+                    break;
                 case 'student':
-                    if(angular.element('#student' + index)[0].checked){
+                    if (angular.element('#student' + index)[0].checked) {
                         angular.element('#spl' + index)[0].checked = false;
                         angular.element('#fi' + index)[0].checked = false;
+                        angular.element('#fial' + index)[0].checked = false;
                     }
                     break;
                 case 'wi':
-                    if(!angular.element('#wi' + index)[0].checked){
+                    if (!angular.element('#wi' + index)[0].checked) {
                         angular.element('#wia' + index)[0].checked = false;
                     }
                     break;
                 case 'wia':
-                    if(angular.element('#wia' + index)[0].checked){
+                    if (angular.element('#wia' + index)[0].checked) {
                         angular.element('#wi' + index)[0].checked = true;
                     }
             }
         };
-
-
     });
 

@@ -1,38 +1,49 @@
 <div ng-controller="mainCtrl" ng-include src="'app/views/pages/intern/intern_menu.html'"></div>
 <div class="col-xs-5 col-xs-offset-3 col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 main">
     <route-loading-indicator></route-loading-indicator>
+    <br><br>
     <div ng-if="!isRouteLoading">
-        <br><br><br>
         <table class="table table-responsive" ng-show="loaded">
             <thead>
             <tr>
+                <th></th>
                 <th>#</th>
                 <th>Name</th>
                 <th>Nachname</th>
-                <th>Email</th>
-                <th>Handy</th>
-                <th>Telefon</th>
-                <th ng-show="updateIndex !== -1">Berechtigung</th>
-                <th ng-show="updateIndex === -1">Berechtigung *</th>
+                <th ng-show="expandClassDesc.expand">Email</th>
+                <th ng-show="expandClassDesc.expand">Handy</th>
+                <th ng-show="expandClassDesc.expand">Telefon</th>
+                <th ng-show="updateIndex !== -1 && expandClassDesc.expand">Berechtigung</th>
+                <th ng-show="updateIndex === -1 && expandClassDesc.expand">Berechtigung *</th>
                 <th>Aktiv</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="user in users">
+                <td><span ng-class="expandClassDesc.class" aria-hidden="true" ng-click="setExpand()"
+                          data-toggle="tooltip" title="{{expandClassDesc.tooltipTitle}}"></span></td>
                 <td>{{$index + 1}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.lastname}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.mobile}}</td>
-                <td>{{user.phone}}</td>
-                <td ng-show="$index !== updateIndex">{{user.permission.replace('user', '').replace(',', '')}}</td>
-                <td ng-show="$index === updateIndex">
+                <td ng-show="expandClassDesc.expand">{{user.email}}</td>
+                <td ng-show="expandClassDesc.expand">{{user.mobile}}</td>
+                <td ng-show="expandClassDesc.expand">{{user.phone}}</td>
+                <td class="rating-shortcuts" ng-show="$index !== updateIndex && expandClassDesc.expand">
+                    <label>{{user.permission.replace('user', '').replace(',','')}}
+                        <i class="fa fa-fw" bs-tooltip data-placement="left" tooltip-trigger="hover"
+                           data-original-title="{{getTooltipText(user.permission.replace('user', '').replace(',',''))}}">
+                            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                        </i>
+                    </label>
+                </td>
+                <td ng-show="$index === updateIndex && expandClassDesc.expand">
                     <table>
                         <tr ng-repeat="pl in permissionLabels">
                             <td>
                                 <label class="custom-control custom-checkbox">
-                                    <input id="{{pl[0] + $parent.$index}}" type="checkbox" class="custom-control-input"
+                                    <input id="{{pl[0] + $parent.$index}}" type="checkbox"
+                                           class="custom-control-input"
                                            ng-show="false"
                                            ng-checked="hasPermission($parent.$index, pl[0])"
                                            ng-click="clickPermission($parent.$index, pl[0])">
@@ -50,7 +61,7 @@
                         <span class="custom-control-indicator" ng-disabled="$index !=updateIndex"></span>
                     </label>
                 <td>
-                    <button class="btn btn-info btn-outline my-2 my-sm-0" type="button"
+                    <button class="btn btn-info btn-outline my-2 my-sm-0 pull-right" type="button"
                             ng-click="setUpdateIndex($index)" ng-show="$index !== updateIndex"
                             ng-disabled="updateIndex !== -1">
                         <span
@@ -58,12 +69,12 @@
                                 aria-hidden="true"></span> Ändern
                     </button>
 
-                    <button class="btn btn-success btn-outline my-2 my-sm-0" type="button"
+                    <button class="btn btn-success btn-outline my-2 my-sm-0 pull-right" type="button"
                             ng-click="save($index); " ng-show="$index === updateIndex"><span
                             class="glyphicon glyphicon-save"
                             aria-hidden="true"></span> Speichern
                     </button>
-                    <button class="btn btn-warning btn-outline my-2 my-sm-0" type="button"
+                    <button class="btn btn-warning btn-outline my-2 my-sm-0 pull-right" type="button"
                             ng-click="resetSettings($index)" ng-show="$index === updateIndex"><span
                             class="glyphicon glyphicon-remove"
                             aria-hidden="true"></span> Zurück&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -72,7 +83,10 @@
             </tr>
             </tbody>
         </table>
-        <h6 ng-show="loaded"><i>* admin: Administrator, manager: Vorstand, fi: Fluglehrer, spl: Scheininhaber, student: Flugschüler,
-            mose: Mosebucher, wl: Werkstattleiter, sw: Segelflugzeugwart, msw: Motorseglerwart, wi: Windefahrer, wia; Lehrberechitgter Windefahrer</i></h6>
+        <h6 ng-show="loaded && false"><i>* admin: Administrator, manager: Vorstand, fi: Fluglehrer, fial:
+            Ausbildungsleiter, spl:
+            Scheininhaber, student: Flugschüler,
+            mose: Mosebucher, wl: Werkstattleiter, sw: Segelflugzeugwart, msw: Motorseglerwart, wi: Windefahrer, wia;
+            Lehrberechitgter Windefahrer</i></h6>
     </div>
 </div>
