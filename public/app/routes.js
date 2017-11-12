@@ -175,12 +175,16 @@ let app = angular.module('appRoutes', ['ngRoute'])
 
             .when('/intern/anmeldungschuler', {
                 templateUrl: 'app/views/pages/intern/anmeldungschuler.html',
+                controller: 'studentToTrainingCtrl',
+                controllerAs: 'student',
                 authenticated: true,
                 permission: ['manager', 'student', 'admin', 'fi', 'fial']
             })
 
-            .when('/intern/meldunglehrer', {
-                templateUrl: 'app/views/pages/intern/meldunglehrer.html',
+            .when('/intern/fidienst', {
+                templateUrl: 'app/views/pages/intern/fidienst.html',
+                controller: 'teacherToTrainingCtrl',
+                controllerAs: 'teacher',
                 authenticated: true,
                 permission: ['manager', 'fi', 'fial']
             })
@@ -191,8 +195,8 @@ let app = angular.module('appRoutes', ['ngRoute'])
                 permission: ['manager', 'wi', 'wia']
             })
 
-            .when('/intern/fidienst', {
-                templateUrl: 'app/views/pages/intern/fidienst.html',
+            .when('/intern/meldunglehrer', {
+                templateUrl: 'app/views/pages/intern/meldunglehrer.html',
                 authenticated: true,
                 permission: ['manager', 'fi', 'fial']
             })

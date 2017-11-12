@@ -6,9 +6,8 @@ angular.module('bookServices', [])
 
         let bookFactory = {};
         bookFactory.book = function (bookData) {
-            console.log(bookData);
             return $http.post('/api/booking', bookData);
-        }
+        };
 
         bookFactory.remove = function (bookData) {
             return $http({
@@ -19,12 +18,12 @@ angular.module('bookServices', [])
                     'Content-type': 'application/json;charset=utf-8'
                 }
             });
-        }
+        };
 
         bookFactory.getAll = function (planeType) {
             return $http.get('/api/booking/' + planeType);
-        }
+        };
 
 
         return bookFactory;
-    })
+    });
