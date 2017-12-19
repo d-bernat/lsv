@@ -52,6 +52,7 @@
     <script src="app/controllers/mainMenuCtrl.js"></script>
     <script src="app/controllers/scrollCtrl.js"></script>
     <script src="app/controllers/activateCtrl.js"></script>
+    <script src="app/controllers/envCtrl.js"></script>
 
     <!-- directives -->
     <script src="app/directives/autoActive.js"></script>
@@ -71,7 +72,7 @@
     <div ng-include src="'app/views/pages/menu.html'"></div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="envCtrl">
     <div class="row main-page">
         <div ng-view autoscroll="true"></div>
     </div>

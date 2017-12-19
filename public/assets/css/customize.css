@@ -768,6 +768,9 @@ body {
     color: #2474ff;
 }
 
+.submenu-parent-item:hover{
+    cursor: context-menu;
+}
 .sub-menu-parent:hover .caret.caret-up {
     border-bottom-width: 0;
     border-top: 4px solid #2474ff;
