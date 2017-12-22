@@ -28,7 +28,7 @@ scheduler{
 .btn.scheduler-dday{
     flex:  0 0 auto;
     width: calc(100%/7);
-    height: 8rem;
+    height: 9rem;
     padding-bottom: 45px;
 }
 
@@ -38,9 +38,13 @@ scheduler{
 
 .scheduler-cell-table{
     text-align: left;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 button.scheduler-dday:not(.disabled) span.glyphicon{
     cursor: pointer;
+}
+.form-control.important{
+    border: 2px solid #b91f1f;
+    font-size: 16px;
 }

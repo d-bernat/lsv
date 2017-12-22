@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('teacherControllers', ['teacherServices', 'cp.ngConfirm'])
+angular.module('teacherControllers', ['teacherServices'])
     .controller('teacherToTrainingCtrl',
-        function ($rootScope, $scope, $ngConfirm) {
+        function ($rootScope, $scope) {
 
             //TODO
 
@@ -11,6 +11,13 @@ angular.module('teacherControllers', ['teacherServices', 'cp.ngConfirm'])
             $scope.showDatePicker = false;
             $scope.loaded = false;
             $scope.selectedDay;
+            $scope.fis = [{name: 'Wolfgang', lastname: 'Sutter'},
+                          {name: 'Dusan', lastname: 'Bernat'},
+                          {name: 'Paul', lastname: 'Foelkel'},
+                          {name: 'Andreas', lastname: 'Wendland'},
+                          {name: 'Hans-Jürgen', lastname: 'Saaland'},
+                          {name: 'Kai-Uwe', lastname: 'Koch'},
+                          {name: 'Uwe', lastname: 'Stahlberg'}];
             $scope.isFIAL = $rootScope.userData.permission.split(',').indexOf('fial') >= 0;
             $scope.isFI = $rootScope.userData.permission.split(',').indexOf('fi') >= 0;
             app.bookData = {};
@@ -19,10 +26,17 @@ angular.module('teacherControllers', ['teacherServices', 'cp.ngConfirm'])
             //app.bookData.range.untill = moment().add(1, 'day');
             $scope.bookings = false;
 
-            $scope.areYouScheduled = function (day) {
+            $scope.areYouScheduled = function (day, name) {
                 for (let i = 0; i < day.scheduled.length; i++) {
-                    if ($rootScope.userData.lastname === day.scheduled[i].lastname) {
-                        return true;
+                    if($scope.isFIAL){
+                        if (name.split(' ')[1] === day.scheduled[i].lastname) {
+                            return true;
+                        }
+
+                    }else {
+                        if ($rootScope.userData.lastname === day.scheduled[i].lastname) {
+                            return true;
+                        }
                     }
                 }
                 return false;
