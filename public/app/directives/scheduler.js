@@ -23,6 +23,7 @@ angular.module('schedulerModule', [])
                             label: startDate.date(),
                             inMonth: startDate.month() == scope.viewDate.month() && startDate.year() === scope.viewDate.year(),
                             date: startDate.valueOf(),
+                            scheduled: [{lastname: ''}, {lastname: ''}, {lastname: ''}],
                             selected: false/*startDate.isSame(startOfSelectedDate) || startDate.isBetween(scope.getTill(), scope.getUntil())
                                 || startDate.isSame(scope.getTill()) || startDate.isSame(scope.getUntil())*/,
                             today: startDate.date() == moment().date() && startDate.month() == moment().month() && startDate.year() == moment().year(),
@@ -55,38 +56,33 @@ angular.module('schedulerModule', [])
                 scope.addFI = function (day) {
                     if (!day.past) {
                         if(scope.isFIAL) {
-                            console.log(day, 'you can add anyone');
+
                         }
 
                         if(scope.isFI){
-                            for(let i = 0; i < scope.fis.length; i++){
-                                if(!scope.fis[i]){
-                                    scope.fis[i] = scope.$root.userData.lastname;
+                            for(let i = 0; i < day.scheduled.length; i++){
+                                if(!day.scheduled[i].lastname){
+                                    day.scheduled[i].lastname = scope.$root.userData.lastname;
                                     break;
                                 }
                             }
                         }
                     }
-
-                    generateDays();
                 }
 
                 scope.removeFI = function (day) {
                     if (!day.past) {
                         if(scope.isFIAL) {
-                            console.log(day, 'you can remove anyone');
                         }
 
                         if(scope.isFI){
-                            for(let i = 0; i < scope.fis.length; i++){
-                                if(scope.fis[i] === scope.$root.userData.lastname){
-                                    scope.fis[i] = "";
+                            for(let i = 0; i < day.scheduled.length; i++){
+                                if(day.scheduled[i].lastname === scope.$root.userData.lastname){
+                                    day.scheduled[i].lastname = '';
                                     break;
                                 }
                             }
                         }                    }
-
-                    generateDays();
                 }
                 scope.move = function (amount, unit) {
                     scope.viewDate.add(amount, unit);
