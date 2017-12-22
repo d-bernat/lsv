@@ -23,7 +23,7 @@ angular.module('schedulerModule', [])
                             label: startDate.date(),
                             inMonth: startDate.month() == scope.viewDate.month() && startDate.year() === scope.viewDate.year(),
                             date: startDate.valueOf(),
-                            scheduled: [{position: 0, lastname: ''}, {position: 1, lastname: 'Sutter'}, {
+                            scheduled: [{position: 0, lastname: ''}, {position: 1, lastname: ''}, {
                                 position: 2,
                                 lastname: ''
                             }],
