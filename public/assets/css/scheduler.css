@@ -1,0 +1,46 @@
+scheduler{
+    display: block;
+    min-width: 30rem;
+}
+
+.scheduler-header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.scheduler-header > .grow{
+    flex-grow: 1;
+}
+
+.scheduler-month{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.scheduler-day{
+    flex:  0 0 auto;
+    width: calc(100%/7);
+
+}
+
+.btn.scheduler-dday{
+    flex:  0 0 auto;
+    width: calc(100%/7);
+    height: 8rem;
+    padding-bottom: 45px;
+}
+
+.btn.scheduler-dday:not(.disabled){
+    cursor: default;
+}
+
+.scheduler-cell-table{
+    text-align: left;
+    font-size: 11px;
+}
+
+button.scheduler-dday:not(.disabled) span.glyphicon{
+    cursor: pointer;
+}

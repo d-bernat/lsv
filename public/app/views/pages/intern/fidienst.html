@@ -1,7 +1,37 @@
-<div ng-include src="'app/views/pages/intern/intern_menu.html'"></div>
-<div class="col-xs-9 col-xs-offset-3 col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <route-loading-indicator></route-loading-indicator>
-    <div ng-if="!isRouteLoading">
-        <h3>FI(S)</h3>
+<div ng-controller="mainCtrl" ng-include src="'app/views/pages/intern/intern_menu.html'"></div>
+<br>
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3 col-md-7 col-md-offset-3 col-sm-6 col-sm-offset-3">
+        <h4 class="text-center login-title" style="color: #337ab7">
+            LSV-Segelfluglehrerdienst
+        </h4>
+        <a href="" ng-click="showInfo = !showInfo;"><h5 class="text-center">
+            <span class="glyphicon glyphicon-info-sign" ng-show="!showInfo"></span>
+            <span class="glyphicon glyphicon-remove-sign" ng-show="showInfo"></span>
+            <i> Anweisung für Segelfluglehrer</i></h5></a>
+        <div ng-show="showInfo">
+            <p>
+                Jeder eingeloggte Pilot kann bei entsprechender Berechtigung Buchungen ins System eintragen.
+                Das System prüft, ob der gewünschte Zeitraum noch frei ist und trägt die Buchung mit einem optionalen
+                Kommentar in die Liste ein. Außerdem wird dem Buchenden eine email zu Bestätigung an die im System
+                hinterlegte Adresse geschickt. Buchungen sind nur möglich, wenn sie auch den LSV-Buchungsregeln
+                entsprechen:
+            <ul>
+                <li>nicht mehr als eine Buchung zur Zeit im System</li>
+                <li>keine Löschung eines gebuchten Termins am Tag der Buchung vor 20:00 Uhr</li>
+            </ul>
+            <b>Will man gegen die Regeln buchen, so kann man beim Vorstand nachfragen.</b>
+            <br>Alle eigenen Buchungen können mit o.g. Ausnahme jederzeit gelöscht werden.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-7 col-xs-offset-3 col-sm-7 col-sm-offset-3 col-md-7 col-md-offset-3 main">
+        <route-loading-indicator></route-loading-indicator>
+        <br>
+        <div class="row" ng-if="!isRouteLoading">
+            <div ng-include src="'app/views/pages/intern/scheduler.html'"></div>
+        </div>
     </div>
 </div>
